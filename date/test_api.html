@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test - API Calendario</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'Courier New', monospace;
+            background: #1e1e1e;
+            color: #d4d4d4;
+            padding: 20px;
+            line-height: 1.6;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        h1 { color: #4ec9b0; margin-bottom: 20px; }
+        h2 { color: #569cd6; margin-top: 30px; margin-bottom: 15px; }
+        
+        .test-section {
+            background: #252526;
+            border: 1px solid #3e3e42;
+            padding: 20px;
+            margin-bottom: 20px;
+            border-radius: 5px;
+        }
+        
+        button {
+            background: #0e639c;
+            color: white;
+            border: none;
+            padding: 8px 16px;
+            margin: 5px 5px 5px 0;
+            cursor: pointer;
+            border-radius: 3px;
+            font-family: monospace;
+        }
+        
+        button:hover {
+            background: #1177bb;
+        }
+        
+        .output {
+            background: #1e1e1e;
+            border: 1px solid #3e3e42;
+            padding: 15px;
+            margin-top: 10px;
+            border-radius: 3px;
+            max-height: 300px;
+            overflow-y: auto;
+            white-space: pre-wrap;
+            word-wrap: break-word;
+            font-size: 12px;
+        }
+        
+        .success { color: #4ec9b0; }
+        .error { color: #f48771; }
+        .info { color: #569cd6; }
+        .warning { color: #dcdcaa; }
+        
+        .status {
+            display: inline-block;
+            padding: 3px 8px;
+            border-radius: 3px;
+            font-size: 12px;
+            margin-right: 10px;
+        }
+        
+        .status-ok { background: #4ec9b0; color: #1e1e1e; }
+        .status-error { background: #f48771; color: #1e1e1e; }
+        .status-pending { background: #dcdcaa; color: #1e1e1e; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🧪 Test API Calendario</h1>
+        
+        <div class="test-section">
+            <h2>1️⃣ Verificación de Tabla</h2>
+            <button onclick="testSetup()">▶️ Ejecutar Setup</button>
+            <button onclick="testTableExists()">📊 Verificar Tabla</button>
+            <div id="setup-output" class="output"></div>
+        </div>
+
+        <div class="test-section">
+            <h2>2️⃣ Pruebas de API</h2>
+            
+            <h3 style="color: #ce9178; margin: 15px 0 10px 0;">GET - Obtener Eventos</h3>
+            <button onclick="testGetEventos()">📋 Obtener Todos</button>
+            <button onclick="testGetEventoById()">🔍 Obtener por ID</button>
+            <div id="get-output" class="output"></div>
+            
+            <h3 style="color: #ce9178; margin: 15px 0 10px 0;">POST - Crear Evento</h3>
+            <button onclick="testCreateEvento()">➕ Crear Evento Test</button>
+            <div id="create-output" class="output"></div>
+            
+            <h3 style="color: #ce9178; margin: 15px 0 10px 0;">PUT - Actualizar Evento</h3>
+            <button onclick="testUpdateEvento()">✏️ Actualizar Evento</button>
+            <div id="update-output" class="output"></div>
+            
+            <h3 style="color: #ce9178; margin: 15px 0 10px 0;">DELETE - Eliminar Evento</h3>
+            <button onclick="testDeleteEvento()">🗑️ Eliminar Evento</button>
+            <div id="delete-output" class="output"></div>
+        </div>
+
+        <div class="test-section">
+            <h2>3️⃣ Test Completo</h2>
+            <button onclick="testCompleto()">🚀 Ejecutar Test Completo</button>
+            <div id="completo-output" class="output"></div>
+        </div>
+    </div>
+
+    <script>
+        let testEventoId = null;
+
+        async function log(element, text, type = 'info') {
+            const output = document.getElementById(element);
+            const timestamp = new Date().toLocaleTimeString();
+            const prefix = type === 'success' ? '✅' : type === 'error' ? '❌' : '📌';
+            output.innerHTML += `<span class="${type}">${prefix} [${timestamp}] ${text}</span>\n`;
+            output.scrollTop = output.scrollHeight;
+        }
+
+        async function testSetup() {
+            const output = 'setup-output';
+            document.getElementById(output).innerHTML = '';
+            
+            try {
+                log(output, 'Iniciando Setup...');
+                const response = await fetch('setup_calendario.php');
+                const data = await response.json();
+                
+                if (data.exito) {
+                    log(output, 'Setup completado exitosamente', 'success');
+                    log(output, `Total eventos en BD: ${data.pasos[3]?.total_eventos || 0}`, 'success');
+                } else {
+                    log(output, 'Setup fallido', 'error');
+                    data.pasos.forEach(paso => {
+                        const tipo = paso.exito ? 'success' : 'error';
+                        log(output, `${paso.nombre}: ${paso.mensaje}`, tipo);
+                    });
+                }
+            } catch (err) {
+                log(output, `Error: ${err.message}`, 'error');
+            }
+        }
+
+        async function testTableExists() {
+            const output = 'setup-output';
+            document.getElementById(output).innerHTML = '';
+            
+            try {
+                log(output, 'Verificando tabla calendarios...');
+                const response = await fetch('api_calendario.php?action=obtener');
+                
+                if (response.ok) {
+                    const eventos = await response.json();
+                    log(output, `✓ Tabla existe con ${eventos.length} eventos`, 'success');
+                    eventos.slice(0, 3).forEach(e => {
+                        log(output, `  → ${e.fecha}: ${e.titulo}`, 'info');
+                    });
+                } else {
+                    log(output, `Error HTTP ${response.status}`, 'error');
+                }
+            } catch (err) {
+                log(output, `Error: ${err.message}`, 'error');
+            }
+        }
+
+        async function testGetEventos() {
+            const output = 'get-output';
+            document.getElementById(output).innerHTML = '';
+            
+            try {
+                log(output, 'Obteniendo eventos...');
+                const response = await fetch('api_calendario.php?action=obtener&orden=ASC');
+                const eventos = await response.json();
+                
+                log(output, `Se obtuvieron ${eventos.length} eventos`, 'success');
+                log(output, JSON.stringify(eventos.slice(0, 2), null, 2), 'info');
+                
+                if (eventos.length > 0) {
+                    testEventoId = eventos[0].id;
+                }
+            } catch (err) {
+                log(output, `Error: ${err.message}`, 'error');
+            }
+        }
+
+        async function testGetEventoById() {
+            const output = 'get-output';
+            document.getElementById(output).innerHTML = '';
+            
+            try {
+                if (!testEventoId) {
+                    log(output, 'Primero obtén eventos para cargar un ID', 'warning');
+                    return;
+                }
+                
+                log(output, `Obteniendo evento ID ${testEventoId}...`);
+                const response = await fetch(`api_calendario.php?action=obtener_por_id&id=${testEventoId}`);
+                const evento = await response.json();
+                
+                log(output, 'Evento recuperado', 'success');
+                log(output, JSON.stringify(evento, null, 2), 'info');
+            } catch (err) {
+                log(output, `Error: ${err.message}`, 'error');
+            }
+        }
+
+        async function testCreateEvento() {
+            const output = 'create-output';
+            document.getElementById(output).innerHTML = '';
+            
+            try {
+                log(output, 'Creando evento de test...');
+                
+                const hoy = new Date();
+                const manana = new Date(hoy.getTime() + 24 * 60 * 60 * 1000);
+                const fechaStr = manana.toISOString().split('T')[0];
+                
+                const evento = {
+                    fecha: fechaStr,
+                    titulo: 'Evento Test ' + Date.now(),
+                    tipo: 'titulo-evento',
+                    descripcion: 'Este es un evento de prueba',
+                    horaInicio: '10:00:00',
+                    horaFin: '12:00:00'
+                };
+                
+                log(output, `Enviando: ${JSON.stringify(evento)}`, 'info');
+                
+                const response = await fetch('api_calendario.php?action=crear', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(evento)
+                });
+                
+                const result = await response.json();
+                
+                if (result.success) {
+                    testEventoId = result.id;
+                    log(output, `Evento creado con ID: ${result.id}`, 'success');
+                    log(output, JSON.stringify(result, null, 2), 'info');
+                } else {
+                    log(output, `Error: ${result.error}`, 'error');
+                }
+            } catch (err) {
+                log(output, `Error: ${err.message}`, 'error');
+            }
+        }
+
+        async function testUpdateEvento() {
+            const output = 'update-output';
+            document.getElementById(output).innerHTML = '';
+            
+            try {
+                if (!testEventoId) {
+                    log(output, 'Primero crea un evento para actualizar', 'warning');
+                    return;
+                }
+                
+                log(output, `Actualizando evento ID ${testEventoId}...`);
+                
+                const evento = {
+                    id: testEventoId,
+                    titulo: 'Evento Actualizado ' + Date.now(),
+                    descripcion: 'Descripción actualizada'
+                };
+                
+                const response = await fetch('api_calendario.php?action=actualizar', {
+                    method: 'PUT',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(evento)
+                });
+                
+                const result = await response.json();
+                
+                if (result.success) {
+                    log(output, 'Evento actualizado', 'success');
+                    log(output, JSON.stringify(result, null, 2), 'info');
+                } else {
+                    log(output, `Error: ${result.error}`, 'error');
+                }
+            } catch (err) {
+                log(output, `Error: ${err.message}`, 'error');
+            }
+        }
+
+        async function testDeleteEvento() {
+            const output = 'delete-output';
+            document.getElementById(output).innerHTML = '';
+            
+            try {
+                if (!testEventoId) {
+                    log(output, 'Primero crea un evento para eliminar', 'warning');
+                    return;
+                }
+                
+                log(output, `Eliminando evento ID ${testEventoId}...`);
+                
+                const response = await fetch('api_calendario.php?action=eliminar', {
+                    method: 'DELETE',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ id: testEventoId })
+                });
+                
+                const result = await response.json();
+                
+                if (result.success) {
+                    log(output, 'Evento eliminado', 'success');
+                    log(output, JSON.stringify(result, null, 2), 'info');
+                    testEventoId = null;
+                } else {
+                    log(output, `Error: ${result.error}`, 'error');
+                }
+            } catch (err) {
+                log(output, `Error: ${err.message}`, 'error');
+            }
+        }
+
+        async function testCompleto() {
+            const output = 'completo-output';
+            document.getElementById(output).innerHTML = '';
+            
+            log(output, '🚀 Iniciando test completo...');
+            
+            try {
+                // 1. Setup
+                log(output, '\n1️⃣ Setup...');
+                await testSetup();
+                
+                // 2. GET
+                log(output, '\n2️⃣ GET Eventos...');
+                const response = await fetch('api_calendario.php?action=obtener');
+                const eventos = await response.json();
+                log(output, `✓ Obtenidos ${eventos.length} eventos`, 'success');
+                
+                // 3. CREATE
+                log(output, '\n3️⃣ Crear evento...');
+                const hoy = new Date();
+                const fecha = new Date(hoy.getTime() + 48 * 60 * 60 * 1000).toISOString().split('T')[0];
+                const nuevoEvento = {
+                    fecha,
+                    titulo: 'Test Completo ' + Date.now(),
+                    tipo: 'titulo-evento',
+                    descripcion: 'Test completo',
+                    horaInicio: '14:00:00',
+                    horaFin: '16:00:00'
+                };
+                
+                const createRes = await fetch('api_calendario.php?action=crear', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(nuevoEvento)
+                });
+                const created = await createRes.json();
+                log(output, `✓ Evento creado: ID ${created.id}`, 'success');
+                
+                const eventoId = created.id;
+                
+                // 4. UPDATE
+                log(output, '\n4️⃣ Actualizar evento...');
+                const updateRes = await fetch('api_calendario.php?action=actualizar', {
+                    method: 'PUT',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({
+                        id: eventoId,
+                        titulo: 'Test Actualizado',
+                        descripcion: 'Ya fue actualizado'
+                    })
+                });
+                const updated = await updateRes.json();
+                log(output, `✓ Evento actualizado`, 'success');
+                
+                // 5. DELETE
+                log(output, '\n5️⃣ Eliminar evento...');
+                const deleteRes = await fetch('api_calendario.php?action=eliminar', {
+                    method: 'DELETE',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ id: eventoId })
+                });
+                const deleted = await deleteRes.json();
+                log(output, `✓ Evento eliminado`, 'success');
+                
+                log(output, '\n✅ TEST COMPLETO EXITOSO', 'success');
+            } catch (err) {
+                log(output, `\n❌ Error: ${err.message}`, 'error');
+            }
+        }
+
+        // Auto-run setup al cargar
+        window.addEventListener('load', () => {
+            log('setup-output', 'Página cargada. Haz clic en los botones para testear.', 'info');
+        });
+    </script>
+</body>
+</html>

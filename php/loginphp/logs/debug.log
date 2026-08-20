@@ -1,0 +1,348 @@
+[2025-11-03 16:53:13] === intento login ===
+[2025-11-03 16:53:13] POST: {"username":"usu@mariano.com","password":"123456"}
+[2025-11-03 16:53:13] Usuario encontrado id=16 correo=usu@mariano.com tipoCuenta=manual
+[2025-11-03 16:53:13] Login OK para id=16
+[2025-11-03 17:21:08] === intento login ===
+[2025-11-03 17:21:08] POST: {"username":"usu@mariano.com","password":"123456"}
+[2025-11-03 17:21:08] Usuario encontrado id=16 correo=usu@mariano.com tipoCuenta=manual
+[2025-11-03 17:21:08] Login OK para id=16
+[2025-11-03 17:23:51] === intento login ===
+[2025-11-03 17:23:51] POST: {"username":"usu@mariano.com","password":"123456"}
+[2025-11-03 17:23:51] Usuario encontrado id=16 correo=usu@mariano.com tipoCuenta=manual
+[2025-11-03 17:23:51] Login OK para id=16
+[2025-11-03 17:37:15] === intento login ===
+[2025-11-03 17:37:15] POST: {"username":"usu@mariano.com","password":"123456"}
+[2025-11-03 17:37:15] Usuario encontrado id=16 correo=usu@mariano.com tipoCuenta=manual
+[2025-11-03 17:37:15] Login OK para id=16
+[2025-11-03 18:46:11] === intento login ===
+[2025-11-03 18:46:11] POST: {"username":"usu@mariano.com","password":"123456"}
+[2025-11-03 18:46:11] Usuario encontrado id=16 correo=usu@mariano.com tipoCuenta=manual
+[2025-11-03 18:51:34] === intento login ===
+[2025-11-03 18:51:34] POST: {"username":"lautibelawsky@gmail.com","password":"123456"}
+[2025-11-03 18:51:34] Usuario encontrado id=1 correo=lautibelawsky@gmail.com tipoCuenta=manual
+[2025-11-03 18:54:02] === intento login ===
+[2025-11-03 18:54:02] POST: {"username":"escritor@escuela.com","password":"123456"}
+[2025-11-03 18:54:02] Usuario encontrado id=17 correo=escritor@escuela.com tipoCuenta=manual
+[2025-11-03 18:54:02] Contraseña NO coincide. input='123456' bd='8d969eef6ecad3c29a3a629280e686cf0c3f5d5a86aff3ca12020c923adc6c92'
+[2025-11-03 18:54:07] === intento login ===
+[2025-11-03 18:54:07] POST: {"username":"escritor@escuela.com","password":"123456"}
+[2025-11-03 18:54:07] Usuario encontrado id=17 correo=escritor@escuela.com tipoCuenta=manual
+[2025-11-03 18:54:07] Contraseña NO coincide. input='123456' bd='8d969eef6ecad3c29a3a629280e686cf0c3f5d5a86aff3ca12020c923adc6c92'
+[2025-11-03 18:54:40] === intento login ===
+[2025-11-03 18:54:40] POST: {"username":"escritor@escuela.com","password":"123456"}
+[2025-11-03 18:54:40] Usuario encontrado id=17 correo=escritor@escuela.com tipoCuenta=manual
+[2025-11-03 18:54:40] Contraseña NO coincide. input='123456' bd='8d969eef6ecad3c29a3a629280e686cf0c3f5d5a86aff3ca12020c923adc6c92'
+[2025-11-03 18:55:13] === intento login ===
+[2025-11-03 18:55:13] POST: {"username":"escritor@escuela.com","password":"123456"}
+[2025-11-03 18:55:13] Usuario encontrado id=19 correo=escritor@escuela.com tipoCuenta=manual
+[2025-11-03 18:55:13] Contraseña NO coincide. input='123456' bd='8d969eef6ecad3c29a3a629280e686cf0c3f5d5a86aff3ca12020c923adc6c92'
+[2025-11-03 18:56:55] === intento login ===
+[2025-11-03 18:56:55] POST: {"username":"escritor@escuela.com","password":"123456"}
+[2025-11-03 18:56:55] Usuario encontrado id=20 correo=escritor@escuela.com tipoCuenta=manual
+[2025-11-03 18:56:55] Contraseña NO coincide. input='123456' bd='8d969eef6ecad3c29a3a629280e686cf0c3f5d5a86aff3ca12020c923adc6c92'
+[2025-11-03 18:57:04] === intento login ===
+[2025-11-03 18:57:04] POST: {"username":"escritor@escuela.com","password":"123456"}
+[2025-11-03 18:57:04] Usuario encontrado id=20 correo=escritor@escuela.com tipoCuenta=manual
+[2025-11-03 18:57:04] Contraseña NO coincide. input='123456' bd='8d969eef6ecad3c29a3a629280e686cf0c3f5d5a86aff3ca12020c923adc6c92'
+[2025-11-03 18:58:24] === intento login ===
+[2025-11-03 18:58:24] POST: {"username":"lautibelawsky@gmail.com","password":"123456"}
+[2025-11-03 18:58:24] Usuario encontrado id=1 correo=lautibelawsky@gmail.com tipoCuenta=manual
+[2025-11-03 23:30:04] === intento login ===
+[2025-11-03 23:30:04] POST: {"username":"lautibelawsky@gmail.com","password":"1234456"}
+[2025-11-03 23:30:04] Usuario encontrado id=1 correo=lautibelawsky@gmail.com tipoCuenta=manual
+[2025-11-03 23:30:04] Contraseña NO coincide. input='1234456' bd='$2y$10$q4iI1iFSqxd.Zy5c7S/mYOTujOQ1f3IaTXoziOK5.GhFANGSa6bje'
+[2025-11-03 23:30:09] === intento login ===
+[2025-11-03 23:30:09] POST: {"username":"lautibelawsky@gmail.com","password":"123456"}
+[2025-11-03 23:30:09] Usuario encontrado id=1 correo=lautibelawsky@gmail.com tipoCuenta=manual
+[2025-11-04 00:07:39] === intento login ===
+[2025-11-04 00:07:39] POST: {"username":"lautibelawsky@gmail.com","password":"123456"}
+[2025-11-04 00:07:39] Usuario encontrado id=1 correo=lautibelawsky@gmail.com tipoCuenta=manual
+[2025-11-04 02:21:46] === intento login ===
+[2025-11-04 02:21:46] POST: {"username":"usuario@ejemplo.com","password":"123456"}
+[2025-11-04 02:21:46] Usuario encontrado id=5 correo=usuario@ejemplo.com tipoCuenta=manual
+[2025-11-04 02:56:43] === intento login ===
+[2025-11-04 02:56:43] POST: {"username":"usuario@mariano.com","password":"123456"}
+[2025-11-04 02:56:43] Usuario encontrado id=6 correo=usuario@mariano.com tipoCuenta=manual
+[2025-11-04 02:59:46] === intento login ===
+[2025-11-04 02:59:46] POST: {"username":"usu@mariano.com","password":"123456"}
+[2025-11-04 02:59:46] Usuario encontrado id=16 correo=usu@mariano.com tipoCuenta=manual
+[2025-11-04 03:03:16] === intento login ===
+[2025-11-04 03:03:16] POST: {"username":"escritor@escuela.com","password":"123456"}
+[2025-11-04 03:03:16] Usuario encontrado id=20 correo=escritor@escuela.com tipoCuenta=manual
+[2025-11-04 03:03:16] Contraseña NO coincide. input='123456' bd='8d969eef6ecad3c29a3a629280e686cf0c3f5d5a86aff3ca12020c923adc6c92'
+[2025-11-04 03:18:57] === intento login ===
+[2025-11-04 03:18:57] POST: {"username":"usuario@ejemplo.com","password":"123456"}
+[2025-11-04 03:18:57] Usuario encontrado id=21 correo=usuario@ejemplo.com tipoCuenta=manual
+[2025-11-04 03:31:46] === intento login ===
+[2025-11-04 03:31:46] POST: {"username":"lebelawsky@eest5.com","password":"123456"}
+[2025-11-04 03:31:46] Usuario encontrado id=14 correo=lebelawsky@eest5.com tipoCuenta=manual
+[2025-11-04 03:31:46] Contraseña NO coincide. input='123456' bd='$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi'
+[2025-11-04 03:31:58] === intento login ===
+[2025-11-04 03:31:58] POST: {"username":"usuario@ejplo.com","password":"123456"}
+[2025-11-04 03:31:58] Usuario encontrado id=22 correo=usuario@ejplo.com tipoCuenta=manual
+[2025-11-04 03:32:25] === intento login ===
+[2025-11-04 03:32:25] POST: {"username":"belawskutaro@gmail.com","password":"123456"}
+[2025-11-04 03:32:25] Usuario encontrado id=24 correo=belawskutaro@gmail.com tipoCuenta=manual
+[2025-11-04 03:37:50] === intento login ===
+[2025-11-04 03:37:50] POST: {"username":"lautibelawsky@gmail.com","password":"123456"}
+[2025-11-04 03:37:50] Usuario encontrado id=1 correo=lautibelawsky@gmail.com tipoCuenta=manual
+[2025-11-04 03:37:50] Contraseña NO coincide. input='123456' bd='$2y$10$8Stjoukbz5c/0ZRBKEKKieDBDz/V5eXT4lhtQ.CocK4zwP0YZkzFu'
+[2025-11-04 03:37:55] === intento login ===
+[2025-11-04 03:37:55] POST: {"username":"lautibelawsky@gmail.com","password":"123456"}
+[2025-11-04 03:37:55] Usuario encontrado id=1 correo=lautibelawsky@gmail.com tipoCuenta=manual
+[2025-11-04 03:37:55] Contraseña NO coincide. input='123456' bd='$2y$10$8Stjoukbz5c/0ZRBKEKKieDBDz/V5eXT4lhtQ.CocK4zwP0YZkzFu'
+[2025-11-04 03:37:58] === intento login ===
+[2025-11-04 03:37:58] POST: {"username":"lautibelawsky@gmail.com","password":"12345678"}
+[2025-11-04 03:37:58] Usuario encontrado id=1 correo=lautibelawsky@gmail.com tipoCuenta=manual
+[2025-11-04 05:22:05] === intento login ===
+[2025-11-04 05:22:05] POST: {"username":"lautibelawsky@gmail.com","password":"123456"}
+[2025-11-04 05:22:05] Usuario encontrado id=1 correo=lautibelawsky@gmail.com tipoCuenta=manual
+[2025-11-04 05:22:05] Contraseña NO coincide. input='123456' bd='$2y$10$8Stjoukbz5c/0ZRBKEKKieDBDz/V5eXT4lhtQ.CocK4zwP0YZkzFu'
+[2025-11-04 05:22:09] === intento login ===
+[2025-11-04 05:22:09] POST: {"username":"lautibelawsky@gmail.com","password":"12345678"}
+[2025-11-04 05:22:09] Usuario encontrado id=1 correo=lautibelawsky@gmail.com tipoCuenta=manual
+[2025-11-04 05:22:42] === intento login ===
+[2025-11-04 05:22:42] POST: {"username":"lebelawsky@eest5.com","google_token":"eyJhbGciOiJSUzI1NiIsImtpZCI6ImI1ZTQ0MGFlOTQxZTk5ODFlZTJmYTEzNzZkNDJjNDZkNzMxZGVlM2YiLCJ0eXAiOiJKV1QifQ.eyJpc3MiOiJodHRwczovL2FjY291bnRzLmdvb2dsZS5jb20iLCJhenAiOiI0NzUzMjQ5NTEwODMtbHAycHZxaTgwdnM5NWNzaHNpajdobjVtOHRnM2IwczMuYXBwcy5nb29nbGV1c2VyY29udGVudC5jb20iLCJhdWQiOiI0NzUzMjQ5NTEwODMtbHAycHZxaTgwdnM5NWNzaHNpajdobjVtOHRnM2IwczMuYXBwcy5nb29nbGV1c2VyY29udGVudC5jb20iLCJzdWIiOiIxMTQ4NTczODM1NTk1ODUyOTY2NjIiLCJoZCI6ImVlc3Q1LmNvbSIsImVtYWlsIjoibGViZWxhd3NreUBlZXN0NS5jb20iLCJlbWFpbF92ZXJpZmllZCI6dHJ1ZSwibmJmIjoxNzYyMjI5ODYyLCJuYW1lIjoiTEFVVEFSTyBFWkVRVUlFTCBCRUxBV1NLWSIsInBpY3R1cmUiOiJodHRwczovL2xoMy5nb29nbGV1c2VyY29udGVudC5jb20vYS9BQ2c4b2NLd05IdktDbEo5VTRYR2pUZzR3Q2xVODNVakZEb01RNTlOYklhNnIxRTlmWnlOcFE9czk2LWMiLCJnaXZlbl9uYW1lIjoiTEFVVEFSTyBFWkVRVUlFTCIsImZhbWlseV9uYW1lIjoiQkVMQVdTS1kiLCJpYXQiOjE3NjIyMzAxNjIsImV4cCI6MTc2MjIzMzc2MiwianRpIjoiY2Y3YzQxMzFhNmYwMmQ5OTViNmMzOTI1NjNjZTExYjRkNWI4YjgyZiJ9.DZubSD1iXTWR6m-P1aRKPszHvAo32-nQWkmr5XEEkl3XfKMaPRgrIqgamV_0JjXuUClgJTyi3kWSnbs-16NjINoaOsMhMRG79kyKPZi6LLEafIJDQuyHKvahAsb1Pwhu_ueNhqUKkf8jHrLsEq5M2d-Lt0YkmxQyC9iKWZteIwj1FLb_hDeokihWrUlyLeMvfIp3C9iwbqhpq-_VC8lykU0d_gFYL_HNjr0W8VD_DKHmIEeofLKEyBzDFGm7DZ5GAu4KOUntCjDwNfvMLcwULxsLPaZowOzbBmzS0DBUOvbk2MV82Cxf9citxPt5XW9mtVyl12u1DLBglosOkRuJJg"}
+[2025-11-04 05:22:42] Faltan campos
+[2025-11-04 05:22:50] === intento login ===
+[2025-11-04 05:22:50] POST: {"username":"usu@mariano.com","password":"123456"}
+[2025-11-04 05:22:50] Usuario no encontrado para: usu@mariano.com
+[2025-11-04 05:23:05] === intento login ===
+[2025-11-04 05:23:05] POST: {"username":"leawsky@eest5.com","password":"123456"}
+[2025-11-04 05:23:05] Usuario encontrado id=23 correo=leawsky@eest5.com tipoCuenta=manual
+[2025-11-04 07:44:26] === intento login ===
+[2025-11-04 07:44:26] POST: {"username":"lautibelawsky@gmail.com","password":"123456"}
+[2025-11-04 07:44:26] Usuario encontrado id=1 correo=lautibelawsky@gmail.com tipoCuenta=manual
+[2025-11-04 07:44:26] Contraseña NO coincide. input='123456' bd='$2y$10$8Stjoukbz5c/0ZRBKEKKieDBDz/V5eXT4lhtQ.CocK4zwP0YZkzFu'
+[2025-11-04 07:44:29] === intento login ===
+[2025-11-04 07:44:29] POST: {"username":"lautibelawsky@gmail.com","password":"12345678"}
+[2025-11-04 07:44:29] Usuario encontrado id=1 correo=lautibelawsky@gmail.com tipoCuenta=manual
+[2025-11-04 21:05:26] === intento login ===
+[2025-11-04 21:05:26] POST: {"username":"lautibelawsky@gmail.com","password":"123456"}
+[2025-11-04 21:05:26] Usuario encontrado id=1 correo=lautibelawsky@gmail.com tipoCuenta=manual
+[2025-11-04 21:05:26] Contraseña NO coincide. input='123456' bd='$2y$10$8Stjoukbz5c/0ZRBKEKKieDBDz/V5eXT4lhtQ.CocK4zwP0YZkzFu'
+[2025-11-04 21:05:28] === intento login ===
+[2025-11-04 21:05:28] POST: {"username":"lautibelawsky@gmail.com","password":"12345678"}
+[2025-11-04 21:05:28] Usuario encontrado id=1 correo=lautibelawsky@gmail.com tipoCuenta=manual
+[2025-11-04 21:07:46] === intento login ===
+[2025-11-04 21:07:46] POST: {"username":"usu@mariano.com","password":"123456"}
+[2025-11-04 21:07:46] Usuario no encontrado para: usu@mariano.com
+[2025-11-04 21:07:49] === intento login ===
+[2025-11-04 21:07:49] POST: {"username":"usu@mariano.com","password":"12345678"}
+[2025-11-04 21:07:49] Usuario no encontrado para: usu@mariano.com
+[2025-11-04 21:08:15] === intento login ===
+[2025-11-04 21:08:15] POST: {"username":"usuario@ejemplo.com","password":"12345678"}
+[2025-11-04 21:08:15] Usuario no encontrado para: usuario@ejemplo.com
+[2025-11-04 21:08:36] === intento login ===
+[2025-11-04 21:08:36] POST: {"username":"mu3rteb4@gmail.com","password":"123456"}
+[2025-11-04 21:08:36] Usuario encontrado id=26 correo=mu3rteb4@gmail.com tipoCuenta=manual
+[2025-11-04 21:09:37] === intento login ===
+[2025-11-04 21:09:37] POST: {"username":"lautibelawsky@gmail.com","password":"123456"}
+[2025-11-04 21:09:37] Usuario encontrado id=1 correo=lautibelawsky@gmail.com tipoCuenta=manual
+[2025-11-04 21:09:37] Contraseña NO coincide. input='123456' bd='$2y$10$8Stjoukbz5c/0ZRBKEKKieDBDz/V5eXT4lhtQ.CocK4zwP0YZkzFu'
+[2025-11-04 21:09:40] === intento login ===
+[2025-11-04 21:09:40] POST: {"username":"lautibelawsky@gmail.com","password":"12345678"}
+[2025-11-04 21:09:40] Usuario encontrado id=1 correo=lautibelawsky@gmail.com tipoCuenta=manual
+[2025-11-04 21:17:47] === intento login ===
+[2025-11-04 21:17:47] POST: {"username":"lebelawsky@eest5.com","password":"123456"}
+[2025-11-04 21:17:47] Usuario encontrado id=14 correo=lebelawsky@eest5.com tipoCuenta=manual
+[2025-11-04 21:17:47] Contraseña NO coincide. input='123456' bd='$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi'
+[2025-11-04 21:18:01] === intento login ===
+[2025-11-04 21:18:01] POST: {"username":"mu3rteb4@gmail.com","password":"123456"}
+[2025-11-04 21:18:01] Usuario encontrado id=26 correo=mu3rteb4@gmail.com tipoCuenta=manual
+[2025-11-05 01:22:07] === intento login ===
+[2025-11-05 01:22:07] POST: {"username":"belawskutaro@gmail.com","password":"123456"}
+[2025-11-05 01:22:07] Usuario encontrado id=24 correo=belawskutaro@gmail.com tipoCuenta=manual
+[2025-11-05 01:26:26] === intento login ===
+[2025-11-05 01:26:26] POST: {"username":"lautibelawsky@gmail.com","password":"123456"}
+[2025-11-05 01:26:26] Usuario encontrado id=1 correo=lautibelawsky@gmail.com tipoCuenta=manual
+[2025-11-05 01:29:14] === intento login ===
+[2025-11-05 01:29:14] POST: {"username":"belawskutaro@gmail.com","password":"123456"}
+[2025-11-05 01:29:14] Usuario encontrado id=24 correo=belawskutaro@gmail.com tipoCuenta=manual
+[2025-11-05 01:30:24] === intento login ===
+[2025-11-05 01:30:24] POST: {"username":"lebelawsky@eest5.com","google_token":"eyJhbGciOiJSUzI1NiIsImtpZCI6ImI1ZTQ0MGFlOTQxZTk5ODFlZTJmYTEzNzZkNDJjNDZkNzMxZGVlM2YiLCJ0eXAiOiJKV1QifQ.eyJpc3MiOiJodHRwczovL2FjY291bnRzLmdvb2dsZS5jb20iLCJhenAiOiI0NzUzMjQ5NTEwODMtbHAycHZxaTgwdnM5NWNzaHNpajdobjVtOHRnM2IwczMuYXBwcy5nb29nbGV1c2VyY29udGVudC5jb20iLCJhdWQiOiI0NzUzMjQ5NTEwODMtbHAycHZxaTgwdnM5NWNzaHNpajdobjVtOHRnM2IwczMuYXBwcy5nb29nbGV1c2VyY29udGVudC5jb20iLCJzdWIiOiIxMTQ4NTczODM1NTk1ODUyOTY2NjIiLCJoZCI6ImVlc3Q1LmNvbSIsImVtYWlsIjoibGViZWxhd3NreUBlZXN0NS5jb20iLCJlbWFpbF92ZXJpZmllZCI6dHJ1ZSwibmJmIjoxNzYyMzAyMzI0LCJuYW1lIjoiTEFVVEFSTyBFWkVRVUlFTCBCRUxBV1NLWSIsInBpY3R1cmUiOiJodHRwczovL2xoMy5nb29nbGV1c2VyY29udGVudC5jb20vYS9BQ2c4b2NLd05IdktDbEo5VTRYR2pUZzR3Q2xVODNVakZEb01RNTlOYklhNnIxRTlmWnlOcFE9czk2LWMiLCJnaXZlbl9uYW1lIjoiTEFVVEFSTyBFWkVRVUlFTCIsImZhbWlseV9uYW1lIjoiQkVMQVdTS1kiLCJpYXQiOjE3NjIzMDI2MjQsImV4cCI6MTc2MjMwNjIyNCwianRpIjoiMDIwYWVhOTNjYTRiNDIyN2JkODhiYmE2ZWYyMGU4MmM3YjI1YzRkOSJ9.ftbN-_pVldTwG8civ3ZM2CptZLBzFVBJg4Si-kQ9eti-d7tc2IWtqJb8cigJMGa40k0pY4eRgcvcTlFZ_so3iv_nmsKo6tlS-iBK3rh91HFNToEbeQfROGjUbMwA4oZ1lI86OJmBQp9s2nuc_pmkjZeKXevV1BlrQH5IaOSykgusii76l5t4pjNkXK8lToVvZPLOQxPqFBx0B7PgYVwS1uqTt9bKwM_p7O6-pVkdU-mmxVVyC-oe5wwFCmQ86oMmerBAJEXODKHXSg5YoRJEzzSSL-G61FrZ2pt2mCGPZPZJZeeZvdR8Z4oQWyKfa9985zvBYJH-OE0fCbmZ2g7_GA"}
+[2025-11-05 01:30:24] Faltan campos
+[2025-11-06 04:33:47] === intento login ===
+[2025-11-06 04:33:47] POST: {"username":"lautibelawsky@gmail.com","password":"123456"}
+[2025-11-06 04:33:47] Usuario encontrado id=1 correo=lautibelawsky@gmail.com tipoCuenta=manual
+[2025-11-06 04:36:30] === intento login ===
+[2025-11-06 04:36:30] POST: {"username":"usu@mariano.com","password":"123456"}
+[2025-11-06 04:36:30] Usuario no encontrado para: usu@mariano.com
+[2025-11-06 04:36:42] === intento login ===
+[2025-11-06 04:36:42] POST: {"username":"belawskutaro@gmail.com","password":"123456"}
+[2025-11-06 04:36:42] Usuario encontrado id=24 correo=belawskutaro@gmail.com tipoCuenta=manual
+[2025-11-09 01:24:04] === intento login ===
+[2025-11-09 01:24:04] POST: {"username":"lebelawsky@eest5.com","google_token":"eyJhbGciOiJSUzI1NiIsImtpZCI6ImI1ZTQ0MGFlOTQxZTk5ODFlZTJmYTEzNzZkNDJjNDZkNzMxZGVlM2YiLCJ0eXAiOiJKV1QifQ.eyJpc3MiOiJodHRwczovL2FjY291bnRzLmdvb2dsZS5jb20iLCJhenAiOiI0NzUzMjQ5NTEwODMtbHAycHZxaTgwdnM5NWNzaHNpajdobjVtOHRnM2IwczMuYXBwcy5nb29nbGV1c2VyY29udGVudC5jb20iLCJhdWQiOiI0NzUzMjQ5NTEwODMtbHAycHZxaTgwdnM5NWNzaHNpajdobjVtOHRnM2IwczMuYXBwcy5nb29nbGV1c2VyY29udGVudC5jb20iLCJzdWIiOiIxMTQ4NTczODM1NTk1ODUyOTY2NjIiLCJoZCI6ImVlc3Q1LmNvbSIsImVtYWlsIjoibGViZWxhd3NreUBlZXN0NS5jb20iLCJlbWFpbF92ZXJpZmllZCI6dHJ1ZSwibmJmIjoxNzYyNjQ3NTQzLCJuYW1lIjoiTEFVVEFSTyBFWkVRVUlFTCBCRUxBV1NLWSIsInBpY3R1cmUiOiJodHRwczovL2xoMy5nb29nbGV1c2VyY29udGVudC5jb20vYS9BQ2c4b2NLd05IdktDbEo5VTRYR2pUZzR3Q2xVODNVakZEb01RNTlOYklhNnIxRTlmWnlOcFE9czk2LWMiLCJnaXZlbl9uYW1lIjoiTEFVVEFSTyBFWkVRVUlFTCIsImZhbWlseV9uYW1lIjoiQkVMQVdTS1kiLCJpYXQiOjE3NjI2NDc4NDMsImV4cCI6MTc2MjY1MTQ0MywianRpIjoiMDY2NmViNjAyMmQxMjNiZjZiNWU1MGIyNjA1NTRkYzQ3OTY0Yzc4YSJ9.P4hSwLUtXuW4mYTT6pGjXQJQZ39KYbxo3x__oYjZINl2Q15nwWJXD4nYS8oQmMVS8KZ-YIBv4EMxqkZ4Zb95RKdzJHSboCBguFqI5mBBe8uLXSqHA5aWtHLdq8ohqHabKUZnN1Ua04eUIG1YnOCXpGaw01FgI7nJG6YJts5mOa1e825nlw3WIx4eH91yLtUaVmMAWRcy7ROZyLfrZtf4wh_h9v-Fbei6BgrLn_GA322eXUjXHVdkDMk9N5sCeFQPUUVSZsERoRYdJp8yimigj49-Vn7_ScEdnSPpMayhxaYTQ6VKqEwsKTgIULm9e04Pr1_z6b6cKjkic-KT-qKB1w"}
+[2025-11-09 01:24:04] Faltan campos
+[2025-11-09 01:33:54] === intento login ===
+[2025-11-09 01:33:54] POST: {"username":"lebelawsky@eest5.com","google_token":"eyJhbGciOiJSUzI1NiIsImtpZCI6IjRmZWI0NGYwZjdhN2UyN2M3YzQwMzM3OWFmZjIwYWY1YzhjZjUyZGMiLCJ0eXAiOiJKV1QifQ.eyJpc3MiOiJodHRwczovL2FjY291bnRzLmdvb2dsZS5jb20iLCJhenAiOiI0NzUzMjQ5NTEwODMtbHAycHZxaTgwdnM5NWNzaHNpajdobjVtOHRnM2IwczMuYXBwcy5nb29nbGV1c2VyY29udGVudC5jb20iLCJhdWQiOiI0NzUzMjQ5NTEwODMtbHAycHZxaTgwdnM5NWNzaHNpajdobjVtOHRnM2IwczMuYXBwcy5nb29nbGV1c2VyY29udGVudC5jb20iLCJzdWIiOiIxMTQ4NTczODM1NTk1ODUyOTY2NjIiLCJoZCI6ImVlc3Q1LmNvbSIsImVtYWlsIjoibGViZWxhd3NreUBlZXN0NS5jb20iLCJlbWFpbF92ZXJpZmllZCI6dHJ1ZSwibmJmIjoxNzYyNjQ4MTM1LCJuYW1lIjoiTEFVVEFSTyBFWkVRVUlFTCBCRUxBV1NLWSIsInBpY3R1cmUiOiJodHRwczovL2xoMy5nb29nbGV1c2VyY29udGVudC5jb20vYS9BQ2c4b2NLd05IdktDbEo5VTRYR2pUZzR3Q2xVODNVakZEb01RNTlOYklhNnIxRTlmWnlOcFE9czk2LWMiLCJnaXZlbl9uYW1lIjoiTEFVVEFSTyBFWkVRVUlFTCIsImZhbWlseV9uYW1lIjoiQkVMQVdTS1kiLCJpYXQiOjE3NjI2NDg0MzUsImV4cCI6MTc2MjY1MjAzNSwianRpIjoiYTBmNjY5NDFkY2ZhY2U3ZmExY2RkNmFhMjhiNjY2NmM1MzNjZWViYyJ9.BRcIbW5gfo7Op25HMFVkSWxKdHSfUgh8pozlUFWGrXg7CGmRsJYSOj-8jSzeEGoZ54cvI3HgFqcrebsCqzmtUE5DKqVI_p8fpjTL8f95FDkDyDM151hOOi_tNPghq0I6lYDVXD1bxPxhGSJnVwkteJHXqc_s2yjbqRETJtYmNj_CK2ZGUoB3_X4JYoeokWjxhzN9oE16rG5zVuuSVzkYwaxZCVedhhu3oQDWfc-bGZnpbvMfxLnC7-SIxYHBaooX_KvPF2BXprUQS7Jl4yIrwaJiAEpdlpoCdBtV9cAHz7ClHU8V5VPKp5Tbh3rGBY5OmF9Eygzhdy0KKUMMgKKUHA"}
+[2025-11-09 01:33:54] Faltan campos
+[2025-11-09 05:42:15] === intento login ===
+[2025-11-09 05:42:15] POST: {"username":"lebelawsky@eest5.com","google_token":"eyJhbGciOiJSUzI1NiIsImtpZCI6IjRmZWI0NGYwZjdhN2UyN2M3YzQwMzM3OWFmZjIwYWY1YzhjZjUyZGMiLCJ0eXAiOiJKV1QifQ.eyJpc3MiOiJodHRwczovL2FjY291bnRzLmdvb2dsZS5jb20iLCJhenAiOiI0NzUzMjQ5NTEwODMtbHAycHZxaTgwdnM5NWNzaHNpajdobjVtOHRnM2IwczMuYXBwcy5nb29nbGV1c2VyY29udGVudC5jb20iLCJhdWQiOiI0NzUzMjQ5NTEwODMtbHAycHZxaTgwdnM5NWNzaHNpajdobjVtOHRnM2IwczMuYXBwcy5nb29nbGV1c2VyY29udGVudC5jb20iLCJzdWIiOiIxMTQ4NTczODM1NTk1ODUyOTY2NjIiLCJoZCI6ImVlc3Q1LmNvbSIsImVtYWlsIjoibGViZWxhd3NreUBlZXN0NS5jb20iLCJlbWFpbF92ZXJpZmllZCI6dHJ1ZSwibmJmIjoxNzYyNjYzMDM2LCJuYW1lIjoiTEFVVEFSTyBFWkVRVUlFTCBCRUxBV1NLWSIsInBpY3R1cmUiOiJodHRwczovL2xoMy5nb29nbGV1c2VyY29udGVudC5jb20vYS9BQ2c4b2NLd05IdktDbEo5VTRYR2pUZzR3Q2xVODNVakZEb01RNTlOYklhNnIxRTlmWnlOcFE9czk2LWMiLCJnaXZlbl9uYW1lIjoiTEFVVEFSTyBFWkVRVUlFTCIsImZhbWlseV9uYW1lIjoiQkVMQVdTS1kiLCJpYXQiOjE3NjI2NjMzMzYsImV4cCI6MTc2MjY2NjkzNiwianRpIjoiZjkxYzM1Y2NjOTAxYzRkMDM1NjY1OTMwYmZiMjk5MTczZGZmMThlZiJ9.uc9aoi76ZM9BrHjI9iumzZZAZRb3N_EuR5BpzeNadN2ZYflIfHgZd7G_-oMRFx_lQgZp702TbG8HpuNseI9AhV-wA8eX3PNi62o1b_7IYcN-tKNFA8OrPpERuO-9_XCGQy8wfvBusYlqxEK7V49KGypgYo8yxRkOfCVuB7l_NRcOwJVEHJ_opET7JYFKjIrrtPFFMKlJdj9bpubrbcFOW5L-zhHkNz8TzxoBNDE8rjFnCnY4Ysu2Pz9z2kbh0x_OCBu1Iw6zz4ychnwgtw6Pk9A2tdjt729ZMeQyca-8vrs2sQCwLr_bvkA9JLlLxJj11i_unbUcVDujA4ud81lCCQ"}
+[2025-11-09 05:42:15] Faltan campos
+[2025-11-09 05:43:06] === intento login ===
+[2025-11-09 05:43:06] POST: {"username":"lautibelawsky@gmail.com","password":"123456"}
+[2025-11-09 05:43:06] Usuario encontrado id=1 correo=lautibelawsky@gmail.com tipoCuenta=manual
+[2025-11-09 20:08:06] === intento login ===
+[2025-11-09 20:08:06] POST: {"username":"lebelawsky@eest5.com","google_token":"eyJhbGciOiJSUzI1NiIsImtpZCI6IjRmZWI0NGYwZjdhN2UyN2M3YzQwMzM3OWFmZjIwYWY1YzhjZjUyZGMiLCJ0eXAiOiJKV1QifQ.eyJpc3MiOiJodHRwczovL2FjY291bnRzLmdvb2dsZS5jb20iLCJhenAiOiI0NzUzMjQ5NTEwODMtbHAycHZxaTgwdnM5NWNzaHNpajdobjVtOHRnM2IwczMuYXBwcy5nb29nbGV1c2VyY29udGVudC5jb20iLCJhdWQiOiI0NzUzMjQ5NTEwODMtbHAycHZxaTgwdnM5NWNzaHNpajdobjVtOHRnM2IwczMuYXBwcy5nb29nbGV1c2VyY29udGVudC5jb20iLCJzdWIiOiIxMTQ4NTczODM1NTk1ODUyOTY2NjIiLCJoZCI6ImVlc3Q1LmNvbSIsImVtYWlsIjoibGViZWxhd3NreUBlZXN0NS5jb20iLCJlbWFpbF92ZXJpZmllZCI6dHJ1ZSwibmJmIjoxNzYyNzE0OTg1LCJuYW1lIjoiTEFVVEFSTyBFWkVRVUlFTCBCRUxBV1NLWSIsInBpY3R1cmUiOiJodHRwczovL2xoMy5nb29nbGV1c2VyY29udGVudC5jb20vYS9BQ2c4b2NLd05IdktDbEo5VTRYR2pUZzR3Q2xVODNVakZEb01RNTlOYklhNnIxRTlmWnlOcFE9czk2LWMiLCJnaXZlbl9uYW1lIjoiTEFVVEFSTyBFWkVRVUlFTCIsImZhbWlseV9uYW1lIjoiQkVMQVdTS1kiLCJpYXQiOjE3NjI3MTUyODUsImV4cCI6MTc2MjcxODg4NSwianRpIjoiNTZmY2Y3YTUxMThhMmRjN2JiMmU2N2M1YjgxYWM3OTliN2JjMWNkMSJ9.kqb5VCWDRbHgyfzCRTiOz1TEKPoDi1evw6A0u_8Sj15rSaZISrxEfEfyzys6tLbLV42pJtUydIkXtIZkVavERT7jbyrltFQPZNqZzMjfycRDfOLjz5lsosZWn-KFm2Hnpn-JeCVaeTTqAMvXOMVgs0qDZ3nHEn_x8kS8_sQL5xc_VFdnFHIHpjt27opzZ96A9M-QWmhN9j4sOW-9k6hT0R93POt-bNklcNqKUapUYRSiTx1_4akn3Krtdgp3cm4pk-wz8Hd-_ZB_G7G9IxbCTP8w8KyheuXJ9OkrniMU31o_wXr7lFkk97Af2kwUXvGLij_OoOMoAj7UsCvWJdnqRg"}
+[2025-11-09 20:08:06] Faltan campos
+[2025-11-09 20:18:20] === intento login ===
+[2025-11-09 20:18:20] POST: {"username":"lebelawsky@eest5.com","google_token":"eyJhbGciOiJSUzI1NiIsImtpZCI6IjRmZWI0NGYwZjdhN2UyN2M3YzQwMzM3OWFmZjIwYWY1YzhjZjUyZGMiLCJ0eXAiOiJKV1QifQ.eyJpc3MiOiJodHRwczovL2FjY291bnRzLmdvb2dsZS5jb20iLCJhenAiOiI0NzUzMjQ5NTEwODMtbHAycHZxaTgwdnM5NWNzaHNpajdobjVtOHRnM2IwczMuYXBwcy5nb29nbGV1c2VyY29udGVudC5jb20iLCJhdWQiOiI0NzUzMjQ5NTEwODMtbHAycHZxaTgwdnM5NWNzaHNpajdobjVtOHRnM2IwczMuYXBwcy5nb29nbGV1c2VyY29udGVudC5jb20iLCJzdWIiOiIxMTQ4NTczODM1NTk1ODUyOTY2NjIiLCJoZCI6ImVlc3Q1LmNvbSIsImVtYWlsIjoibGViZWxhd3NreUBlZXN0NS5jb20iLCJlbWFpbF92ZXJpZmllZCI6dHJ1ZSwibmJmIjoxNzYyNzE1NjAwLCJuYW1lIjoiTEFVVEFSTyBFWkVRVUlFTCBCRUxBV1NLWSIsInBpY3R1cmUiOiJodHRwczovL2xoMy5nb29nbGV1c2VyY29udGVudC5jb20vYS9BQ2c4b2NLd05IdktDbEo5VTRYR2pUZzR3Q2xVODNVakZEb01RNTlOYklhNnIxRTlmWnlOcFE9czk2LWMiLCJnaXZlbl9uYW1lIjoiTEFVVEFSTyBFWkVRVUlFTCIsImZhbWlseV9uYW1lIjoiQkVMQVdTS1kiLCJpYXQiOjE3NjI3MTU5MDAsImV4cCI6MTc2MjcxOTUwMCwianRpIjoiNWRkY2I1ZjIyMDI4MjgwOTE3Yzk3OGI5NjcyMzhhNWYzYzFmYTMzYyJ9.lVqAfu7lDpxXJ7JVV3S_o3N9s3YMqSBXxThVfitpxBks1PyulXyKCjiVQi8mMTTw_7oG-xRCt87_A7Pw4O_EU4tXC1LTEC3pfKHOAU5vD9NWgZW28Ype8sOPDoCMGGUbJA9mtcBrVBoP1KFTbWVgutW3tw4EBoNi4-v1_l_ATWtvaOJlABXKeztzhcGmilDDC31Zksdhd89Wpg1Egd_aJwv-SnrA853b6jpto_jPJSIwS2ux1zQGBJRX9NZRaPtxDcXgsmu7LNcqABEPVvR9rNA77WGKSoVC5wa_e9Wxfh9KGP-GehbOtjA0yBpQS0M-nvcf8exZkqIo5d2l51f5_g"}
+[2025-11-09 20:18:20] Faltan campos
+[2025-11-09 20:18:42] === intento login ===
+[2025-11-09 20:18:42] POST: {"username":"lebelawsky@eest5.com","google_token":"eyJhbGciOiJSUzI1NiIsImtpZCI6ImI1ZTQ0MGFlOTQxZTk5ODFlZTJmYTEzNzZkNDJjNDZkNzMxZGVlM2YiLCJ0eXAiOiJKV1QifQ.eyJpc3MiOiJodHRwczovL2FjY291bnRzLmdvb2dsZS5jb20iLCJhenAiOiI0NzUzMjQ5NTEwODMtbHAycHZxaTgwdnM5NWNzaHNpajdobjVtOHRnM2IwczMuYXBwcy5nb29nbGV1c2VyY29udGVudC5jb20iLCJhdWQiOiI0NzUzMjQ5NTEwODMtbHAycHZxaTgwdnM5NWNzaHNpajdobjVtOHRnM2IwczMuYXBwcy5nb29nbGV1c2VyY29udGVudC5jb20iLCJzdWIiOiIxMTQ4NTczODM1NTk1ODUyOTY2NjIiLCJoZCI6ImVlc3Q1LmNvbSIsImVtYWlsIjoibGViZWxhd3NreUBlZXN0NS5jb20iLCJlbWFpbF92ZXJpZmllZCI6dHJ1ZSwibmJmIjoxNzYyNzE1NjIyLCJuYW1lIjoiTEFVVEFSTyBFWkVRVUlFTCBCRUxBV1NLWSIsInBpY3R1cmUiOiJodHRwczovL2xoMy5nb29nbGV1c2VyY29udGVudC5jb20vYS9BQ2c4b2NLd05IdktDbEo5VTRYR2pUZzR3Q2xVODNVakZEb01RNTlOYklhNnIxRTlmWnlOcFE9czk2LWMiLCJnaXZlbl9uYW1lIjoiTEFVVEFSTyBFWkVRVUlFTCIsImZhbWlseV9uYW1lIjoiQkVMQVdTS1kiLCJpYXQiOjE3NjI3MTU5MjIsImV4cCI6MTc2MjcxOTUyMiwianRpIjoiOWQ1OTllYmFlYzhkZDQ5NWM5YjQ0OTRhNjFjYzBlNGVlY2U4OTU4MCJ9.fZGbNaJGblBc58gdeHmeZbc1_52KNGBUoUjkX5_OsCvuT3QV6lAKyyROuUkDbGj9cliM8dJWGPEZ72m1o32UIwkPeE2eOTBIXse7fd1Hv912iVwp3uFLVbDrlBy0VOPYsb0TJSrWaImAHttKRRiU3zeMY6xkYp4SvGySlskDqKOVMDNBTmheu48Mf8iAOyNF2iNU_nK71i2LdRjIOrf_QAaa7-cigoPy9tx-Pba52Y1Kf0BIWEy_gnLHh8dXarWrKy_v9-fs6DHgD59rrtxRjYq54_0IQtSDM8sTcUgi9b9XfAZzB1UR4BObdWExdsDibwDcX9X989vqAsf1wvToVQ"}
+[2025-11-09 20:18:42] Faltan campos
+[2025-11-09 20:19:18] === intento login ===
+[2025-11-09 20:19:18] POST: {"username":"lebelawsky@eest5.com","google_token":"eyJhbGciOiJSUzI1NiIsImtpZCI6ImI1ZTQ0MGFlOTQxZTk5ODFlZTJmYTEzNzZkNDJjNDZkNzMxZGVlM2YiLCJ0eXAiOiJKV1QifQ.eyJpc3MiOiJodHRwczovL2FjY291bnRzLmdvb2dsZS5jb20iLCJhenAiOiI0NzUzMjQ5NTEwODMtbHAycHZxaTgwdnM5NWNzaHNpajdobjVtOHRnM2IwczMuYXBwcy5nb29nbGV1c2VyY29udGVudC5jb20iLCJhdWQiOiI0NzUzMjQ5NTEwODMtbHAycHZxaTgwdnM5NWNzaHNpajdobjVtOHRnM2IwczMuYXBwcy5nb29nbGV1c2VyY29udGVudC5jb20iLCJzdWIiOiIxMTQ4NTczODM1NTk1ODUyOTY2NjIiLCJoZCI6ImVlc3Q1LmNvbSIsImVtYWlsIjoibGViZWxhd3NreUBlZXN0NS5jb20iLCJlbWFpbF92ZXJpZmllZCI6dHJ1ZSwibmJmIjoxNzYyNzE1NjU3LCJuYW1lIjoiTEFVVEFSTyBFWkVRVUlFTCBCRUxBV1NLWSIsInBpY3R1cmUiOiJodHRwczovL2xoMy5nb29nbGV1c2VyY29udGVudC5jb20vYS9BQ2c4b2NLd05IdktDbEo5VTRYR2pUZzR3Q2xVODNVakZEb01RNTlOYklhNnIxRTlmWnlOcFE9czk2LWMiLCJnaXZlbl9uYW1lIjoiTEFVVEFSTyBFWkVRVUlFTCIsImZhbWlseV9uYW1lIjoiQkVMQVdTS1kiLCJpYXQiOjE3NjI3MTU5NTcsImV4cCI6MTc2MjcxOTU1NywianRpIjoiNzRlOGFjNzgwMDk3YzQ3YWFmYTI1YTMxNGM2MWM5YmYwYjhlMDFmZiJ9.mJpdecBpfPwq0PPRbmvbFD32SQU-UPbGzpYWTdVcBHd1gixD5yECudGLg2HiekVAdeGbXM43Ds1KGB-KMUr-CHvRwZvsLOP91tchxIO15dKjvMqfYSxs1250Q4Fn2Y8oeYmsiWfRKzWOyq1wEVQ5GONTCMUZthOQHuWgBidoHNHtXkzJKQGuLTSg7YhhEi53lGZFYiJdaSz2hqbIaOU-DcDrtelBf6UYwxzXpzNova5uJpYyatyFHs3xReI42q-YAIqIJCX1sXnr4j7vpO9YkqZB_1YwNUMnijRYq3z7ni6biTQYkEK3RH-OkaE_mSoKf6cW8YS76IgFPUtOrV5QFA"}
+[2025-11-09 20:19:18] Faltan campos
+[2025-11-09 20:20:15] === intento login ===
+[2025-11-09 20:20:15] POST: {"username":"lebelawsky@eest5.com","password":"123456"}
+[2025-11-09 20:20:15] Usuario encontrado id=14 correo=lebelawsky@eest5.com tipoCuenta=manual
+[2025-11-09 20:20:15] Contraseña NO coincide. input='123456' bd='$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi'
+[2025-11-09 20:20:35] === intento login ===
+[2025-11-09 20:20:35] POST: {"username":"lau","password":"123456"}
+[2025-11-09 20:20:35] Usuario encontrado id=4 correo=belawskylautaro@gmail.com tipoCuenta=manual
+[2025-11-09 20:20:46] === intento login ===
+[2025-11-09 20:20:46] POST: {"username":"lautibelawsky@gmail.com","password":"dasdsad"}
+[2025-11-09 20:20:46] Usuario encontrado id=1 correo=lautibelawsky@gmail.com tipoCuenta=manual
+[2025-11-09 20:20:46] Contraseña NO coincide. input='dasdsad' bd='$2y$10$NIVBpNWB9qVxeZmTHDxzqO3B1uDN08eWn58gzs0f8Ccb3BnuBJO6y'
+[2025-11-09 20:22:25] === intento login ===
+[2025-11-09 20:22:25] POST: {"username":"lautibelawsky@gmail.com","password":"123456"}
+[2025-11-09 20:22:25] Usuario encontrado id=1 correo=lautibelawsky@gmail.com tipoCuenta=manual
+[2025-11-09 20:23:15] === intento login ===
+[2025-11-09 20:23:15] POST: {"username":"lautibelawsky@gmail.com","google_token":"eyJhbGciOiJSUzI1NiIsImtpZCI6IjRmZWI0NGYwZjdhN2UyN2M3YzQwMzM3OWFmZjIwYWY1YzhjZjUyZGMiLCJ0eXAiOiJKV1QifQ.eyJpc3MiOiJodHRwczovL2FjY291bnRzLmdvb2dsZS5jb20iLCJhenAiOiI0NzUzMjQ5NTEwODMtbHAycHZxaTgwdnM5NWNzaHNpajdobjVtOHRnM2IwczMuYXBwcy5nb29nbGV1c2VyY29udGVudC5jb20iLCJhdWQiOiI0NzUzMjQ5NTEwODMtbHAycHZxaTgwdnM5NWNzaHNpajdobjVtOHRnM2IwczMuYXBwcy5nb29nbGV1c2VyY29udGVudC5jb20iLCJzdWIiOiIxMTgwNjA5Mjc0MTM2ODA4MDQxNDQiLCJlbWFpbCI6ImxhdXRpYmVsYXdza3lAZ21haWwuY29tIiwiZW1haWxfdmVyaWZpZWQiOnRydWUsIm5iZiI6MTc2MjcxNTg5NCwibmFtZSI6IkxhdXRhcm8gQmVsYXdza3kiLCJwaWN0dXJlIjoiaHR0cHM6Ly9saDMuZ29vZ2xldXNlcmNvbnRlbnQuY29tL2EvQUNnOG9jSkZOTHp6SE9WVnk0R2FwNlZwX3ItU19wWjdtMHMyMWdCVGJrRVlCaFZBbERha1hnPXM5Ni1jIiwiZ2l2ZW5fbmFtZSI6IkxhdXRhcm8iLCJmYW1pbHlfbmFtZSI6IkJlbGF3c2t5IiwiaWF0IjoxNzYyNzE2MTk0LCJleHAiOjE3NjI3MTk3OTQsImp0aSI6IjE5NzUyMzRlMDY0ZjU3ZDBhZjEyM2I1ZWYzNGJjZjVjNDkwYmY4ZjQifQ.LUs5dNz3n38WxG4sVabzAVKXUw8ebQqHE9zpmQe202pdXdT3inioUUGDqKAMfUhAxJlBEwHZPfTgc2L7SRPQ69n1wQbvae38YYt3AJ0SzGS91Vy9xUab3t5xSFMFS4UaFzcLhDr4PHHs0JutCwhHDyYex6rZio-_onCzvObZp9oJgFgszIG9wBuKPIJYeP-PFqbQgu_jLXM21qcPWzTGcA_GT29CPnQ6okkS9E1DcIpAIr0F4AlyBGjkQ9WNn3IKaddoseJ1Tbc9wuTaVwmJlgkgeOhAvJDsnbTfEmORX-wNDd0ua3ejPCdP5ADAXy7OcJG5Kf94TvbMDv1cJPVo5w"}
+[2025-11-09 20:23:15] Faltan campos
+[2025-11-10 07:27:17] === intento login ===
+[2025-11-10 07:27:17] POST: {"username":"lautibelawsky@gmail.com","password":"123456"}
+[2025-11-10 07:27:17] Usuario encontrado id=1 correo=lautibelawsky@gmail.com tipoCuenta=manual
+[2025-11-10 07:27:26] === intento login ===
+[2025-11-10 07:27:26] POST: {"username":"lebelawsky@eest5.com","password":"123456"}
+[2025-11-10 07:27:26] Usuario encontrado id=14 correo=lebelawsky@eest5.com tipoCuenta=manual
+[2025-11-10 07:27:26] Contraseña NO coincide. input='123456' bd='$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi'
+[2025-11-10 07:27:29] === intento login ===
+[2025-11-10 07:27:29] POST: {"username":"lebelawsky@eest5.com","password":"12345678"}
+[2025-11-10 07:27:29] Usuario encontrado id=14 correo=lebelawsky@eest5.com tipoCuenta=manual
+[2025-11-10 07:27:29] Contraseña NO coincide. input='12345678' bd='$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi'
+[2025-11-10 18:11:41] === intento login ===
+[2025-11-10 18:11:41] POST: {"username":"lebelawsky@eest5.com","password":"123456"}
+[2025-11-10 18:11:41] Usuario encontrado id=32 correo=lebelawsky@eest5.com tipoCuenta=manual
+[2025-11-10 21:26:52] === intento login ===
+[2025-11-10 21:26:52] POST: {"username":"lebelawsky@eest5.com","google_token":"eyJhbGciOiJSUzI1NiIsImtpZCI6IjRmZWI0NGYwZjdhN2UyN2M3YzQwMzM3OWFmZjIwYWY1YzhjZjUyZGMiLCJ0eXAiOiJKV1QifQ.eyJpc3MiOiJodHRwczovL2FjY291bnRzLmdvb2dsZS5jb20iLCJhenAiOiI0NzUzMjQ5NTEwODMtbHAycHZxaTgwdnM5NWNzaHNpajdobjVtOHRnM2IwczMuYXBwcy5nb29nbGV1c2VyY29udGVudC5jb20iLCJhdWQiOiI0NzUzMjQ5NTEwODMtbHAycHZxaTgwdnM5NWNzaHNpajdobjVtOHRnM2IwczMuYXBwcy5nb29nbGV1c2VyY29udGVudC5jb20iLCJzdWIiOiIxMTQ4NTczODM1NTk1ODUyOTY2NjIiLCJoZCI6ImVlc3Q1LmNvbSIsImVtYWlsIjoibGViZWxhd3NreUBlZXN0NS5jb20iLCJlbWFpbF92ZXJpZmllZCI6dHJ1ZSwibmJmIjoxNzYyODA2MTEyLCJuYW1lIjoiTEFVVEFSTyBFWkVRVUlFTCBCRUxBV1NLWSIsInBpY3R1cmUiOiJodHRwczovL2xoMy5nb29nbGV1c2VyY29udGVudC5jb20vYS9BQ2c4b2NLd05IdktDbEo5VTRYR2pUZzR3Q2xVODNVakZEb01RNTlOYklhNnIxRTlmWnlOcFE9czk2LWMiLCJnaXZlbl9uYW1lIjoiTEFVVEFSTyBFWkVRVUlFTCIsImZhbWlseV9uYW1lIjoiQkVMQVdTS1kiLCJpYXQiOjE3NjI4MDY0MTIsImV4cCI6MTc2MjgxMDAxMiwianRpIjoiZDQ0MTUwM2E3MmE3NzQzM2YyMzFmZjRlYjUyMzBhZmFlZDM3YThmZCJ9.NfmqtpJ8C0Zw-8VcHzmpE_h9Kn9b5VD6mh0Qt84IU2xqxzGtr1BA9gyBsOECaE9bwPO22YJptOtSh0I-qDNy09opSUCaZn0f9eMY_YSKSl0TSVBBB5zhk0udtSKl8MVGck2q_z_GbHiF8kcCEmka8Qn5r6vv5X-1fYvRLznnEI1GDtLDHIbpzZW13XfgdqcztYl1gmfbSRoHoxATEdUyFYDuyenFOGtv-5Ho81Ox3W6kVV-7KauusHOmMjVPxcJrhMet4jg75yp50fmzhgwdH3RJo00jclq3apniMnBPQuvNX9Nz1pR5CGRJznX9gx_LGfS1-l6wj1fvUXIPSsuO8A"}
+[2025-11-10 21:26:52] Faltan campos
+[2025-11-10 21:31:51] === intento login ===
+[2025-11-10 21:31:51] POST: {"username":"lautibelawsky@gmail.com","password":"123456"}
+[2025-11-10 21:31:51] Usuario encontrado id=1 correo=lautibelawsky@gmail.com tipoCuenta=manual
+[2025-11-10 21:32:11] === intento login ===
+[2025-11-10 21:32:11] POST: {"username":"lebelawsky@eest5.com","google_token":"eyJhbGciOiJSUzI1NiIsImtpZCI6IjRmZWI0NGYwZjdhN2UyN2M3YzQwMzM3OWFmZjIwYWY1YzhjZjUyZGMiLCJ0eXAiOiJKV1QifQ.eyJpc3MiOiJodHRwczovL2FjY291bnRzLmdvb2dsZS5jb20iLCJhenAiOiI0NzUzMjQ5NTEwODMtbHAycHZxaTgwdnM5NWNzaHNpajdobjVtOHRnM2IwczMuYXBwcy5nb29nbGV1c2VyY29udGVudC5jb20iLCJhdWQiOiI0NzUzMjQ5NTEwODMtbHAycHZxaTgwdnM5NWNzaHNpajdobjVtOHRnM2IwczMuYXBwcy5nb29nbGV1c2VyY29udGVudC5jb20iLCJzdWIiOiIxMTQ4NTczODM1NTk1ODUyOTY2NjIiLCJoZCI6ImVlc3Q1LmNvbSIsImVtYWlsIjoibGViZWxhd3NreUBlZXN0NS5jb20iLCJlbWFpbF92ZXJpZmllZCI6dHJ1ZSwibmJmIjoxNzYyODA2NDMwLCJuYW1lIjoiTEFVVEFSTyBFWkVRVUlFTCBCRUxBV1NLWSIsInBpY3R1cmUiOiJodHRwczovL2xoMy5nb29nbGV1c2VyY29udGVudC5jb20vYS9BQ2c4b2NLd05IdktDbEo5VTRYR2pUZzR3Q2xVODNVakZEb01RNTlOYklhNnIxRTlmWnlOcFE9czk2LWMiLCJnaXZlbl9uYW1lIjoiTEFVVEFSTyBFWkVRVUlFTCIsImZhbWlseV9uYW1lIjoiQkVMQVdTS1kiLCJpYXQiOjE3NjI4MDY3MzAsImV4cCI6MTc2MjgxMDMzMCwianRpIjoiY2E2ODkzNmNjNTI0ZGYxMTMxNWJhYzRjYjA5MTE0OTE4ZTYwODgzMCJ9.osALzMIQhHo1_xT_e2IpMRnhszSnEsF80YrX2uBI0XCOvkmlMwiRirCIju6TbeyawbZVlpl2NaRIp2XnTstaFmYOGgBh3pXUNtC7Ou-X2vb7a2R0cSZNQVflILR5w_CLoN-emORGUIOYZaGYpAYD0VTp_15auX0kyDb3XOg1WkQJu_4i_q5YWKJBA28NvKJMXBR8onfMPiX6zzTBgzTA7tmy6IGNpY-zJHfk5JBghv29MSBMXHKikPXz4rJBRwZLbLHB8Lt2yisakLgHpmvcXWjNVPOSFfLUmzlvUDOsc67fZUgnquhTrFFdkAZmbW-v74prkHPmYGJpQPCZn0lVyQ"}
+[2025-11-10 21:32:11] Faltan campos
+[2025-11-10 21:32:20] === intento login ===
+[2025-11-10 21:32:20] POST: {"username":"lebelawsky@eest5.com","google_token":"eyJhbGciOiJSUzI1NiIsImtpZCI6IjRmZWI0NGYwZjdhN2UyN2M3YzQwMzM3OWFmZjIwYWY1YzhjZjUyZGMiLCJ0eXAiOiJKV1QifQ.eyJpc3MiOiJodHRwczovL2FjY291bnRzLmdvb2dsZS5jb20iLCJhenAiOiI0NzUzMjQ5NTEwODMtbHAycHZxaTgwdnM5NWNzaHNpajdobjVtOHRnM2IwczMuYXBwcy5nb29nbGV1c2VyY29udGVudC5jb20iLCJhdWQiOiI0NzUzMjQ5NTEwODMtbHAycHZxaTgwdnM5NWNzaHNpajdobjVtOHRnM2IwczMuYXBwcy5nb29nbGV1c2VyY29udGVudC5jb20iLCJzdWIiOiIxMTQ4NTczODM1NTk1ODUyOTY2NjIiLCJoZCI6ImVlc3Q1LmNvbSIsImVtYWlsIjoibGViZWxhd3NreUBlZXN0NS5jb20iLCJlbWFpbF92ZXJpZmllZCI6dHJ1ZSwibmJmIjoxNzYyODA2NDQwLCJuYW1lIjoiTEFVVEFSTyBFWkVRVUlFTCBCRUxBV1NLWSIsInBpY3R1cmUiOiJodHRwczovL2xoMy5nb29nbGV1c2VyY29udGVudC5jb20vYS9BQ2c4b2NLd05IdktDbEo5VTRYR2pUZzR3Q2xVODNVakZEb01RNTlOYklhNnIxRTlmWnlOcFE9czk2LWMiLCJnaXZlbl9uYW1lIjoiTEFVVEFSTyBFWkVRVUlFTCIsImZhbWlseV9uYW1lIjoiQkVMQVdTS1kiLCJpYXQiOjE3NjI4MDY3NDAsImV4cCI6MTc2MjgxMDM0MCwianRpIjoiMTU2MmEyNzVlNmVmYzViMmYyZjNkM2I3NzI5YmI2ZmFlYjE2Y2UwMSJ9.FVNJOouix2HpYnZaf95sQzSD7Kb88CZYNfEL4Hx4hWPxO4o2eKHFVHiHwUhynyOzJ0wwlX8nB3oqyRp8vkG5fmwkfYET-SITSUH_wmW_MMIp4YOjrDlKcgxccvMhZ6ELPS2EiyVpRTPKcAbdA7ed6wryAUxEY7WujEB_BY7XMUDSx6QQzOxNZpN-LDh_4Q58dsX0p6BasJnM7c89e7CSAiLd3kk0qR6r4_7iznvDaeN3KY_B-wTrWEkGwCQHsW7z3SAsAUvKRqldAvR1ycoOiepJXsilx2PfcMxI5jtkDTHbKaTfmR1Q3mKLIVrwTwN6zLE2CHM45vB_7LBA1QlV6w"}
+[2025-11-10 21:32:20] Faltan campos
+[2025-11-10 21:35:49] === intento login ===
+[2025-11-10 21:35:49] POST: {"username":"lebelawsky@eest5.com","google_token":"eyJhbGciOiJSUzI1NiIsImtpZCI6IjRmZWI0NGYwZjdhN2UyN2M3YzQwMzM3OWFmZjIwYWY1YzhjZjUyZGMiLCJ0eXAiOiJKV1QifQ.eyJpc3MiOiJodHRwczovL2FjY291bnRzLmdvb2dsZS5jb20iLCJhenAiOiI0NzUzMjQ5NTEwODMtbHAycHZxaTgwdnM5NWNzaHNpajdobjVtOHRnM2IwczMuYXBwcy5nb29nbGV1c2VyY29udGVudC5jb20iLCJhdWQiOiI0NzUzMjQ5NTEwODMtbHAycHZxaTgwdnM5NWNzaHNpajdobjVtOHRnM2IwczMuYXBwcy5nb29nbGV1c2VyY29udGVudC5jb20iLCJzdWIiOiIxMTQ4NTczODM1NTk1ODUyOTY2NjIiLCJoZCI6ImVlc3Q1LmNvbSIsImVtYWlsIjoibGViZWxhd3NreUBlZXN0NS5jb20iLCJlbWFpbF92ZXJpZmllZCI6dHJ1ZSwibmJmIjoxNzYyODA2NjQ5LCJuYW1lIjoiTEFVVEFSTyBFWkVRVUlFTCBCRUxBV1NLWSIsInBpY3R1cmUiOiJodHRwczovL2xoMy5nb29nbGV1c2VyY29udGVudC5jb20vYS9BQ2c4b2NLd05IdktDbEo5VTRYR2pUZzR3Q2xVODNVakZEb01RNTlOYklhNnIxRTlmWnlOcFE9czk2LWMiLCJnaXZlbl9uYW1lIjoiTEFVVEFSTyBFWkVRVUlFTCIsImZhbWlseV9uYW1lIjoiQkVMQVdTS1kiLCJpYXQiOjE3NjI4MDY5NDksImV4cCI6MTc2MjgxMDU0OSwianRpIjoiYWQwZDU2NGZlZTUxNzU1OWU5Y2JlYWE0YTFhYTE4NDhmOTYzNTlmOCJ9.gRbTYx0r5jLxQgvU3NBddeNr4Q8jFFSfM_TcJxccNEIU-tkKXuOMmi2WptBDYV6Jj-weADB7ez5ob8e1DkRbdHcQk4bsDW1bWytaDf4UTZch_byimlvRkZYCVZTr9IAwYH9Hu9_HF58xYOKxYn7XDvGctKI2N1ewbroszBQgQExqJQcj55glUjne04X1jY8XX9KFJDgmUyKe08SGw650tygyC8UkBolcWLYBKBIeuMk4wwbTUqp8HD666sXjKHadggLyZQdJiaXowLR0cS6yd_1Q3hBYDtXK8sPMW9PqVAwiRSWfLK7d6rRNgHCwfgjqFnMo746HS3VWl7kNiFqQbg"}
+[2025-11-10 21:35:49] Faltan campos
+[2025-11-10 21:35:57] === intento login ===
+[2025-11-10 21:35:57] POST: {"username":"lebelawsky@eest5.com","google_token":"eyJhbGciOiJSUzI1NiIsImtpZCI6IjRmZWI0NGYwZjdhN2UyN2M3YzQwMzM3OWFmZjIwYWY1YzhjZjUyZGMiLCJ0eXAiOiJKV1QifQ.eyJpc3MiOiJodHRwczovL2FjY291bnRzLmdvb2dsZS5jb20iLCJhenAiOiI0NzUzMjQ5NTEwODMtbHAycHZxaTgwdnM5NWNzaHNpajdobjVtOHRnM2IwczMuYXBwcy5nb29nbGV1c2VyY29udGVudC5jb20iLCJhdWQiOiI0NzUzMjQ5NTEwODMtbHAycHZxaTgwdnM5NWNzaHNpajdobjVtOHRnM2IwczMuYXBwcy5nb29nbGV1c2VyY29udGVudC5jb20iLCJzdWIiOiIxMTQ4NTczODM1NTk1ODUyOTY2NjIiLCJoZCI6ImVlc3Q1LmNvbSIsImVtYWlsIjoibGViZWxhd3NreUBlZXN0NS5jb20iLCJlbWFpbF92ZXJpZmllZCI6dHJ1ZSwibmJmIjoxNzYyODA2NjU3LCJuYW1lIjoiTEFVVEFSTyBFWkVRVUlFTCBCRUxBV1NLWSIsInBpY3R1cmUiOiJodHRwczovL2xoMy5nb29nbGV1c2VyY29udGVudC5jb20vYS9BQ2c4b2NLd05IdktDbEo5VTRYR2pUZzR3Q2xVODNVakZEb01RNTlOYklhNnIxRTlmWnlOcFE9czk2LWMiLCJnaXZlbl9uYW1lIjoiTEFVVEFSTyBFWkVRVUlFTCIsImZhbWlseV9uYW1lIjoiQkVMQVdTS1kiLCJpYXQiOjE3NjI4MDY5NTcsImV4cCI6MTc2MjgxMDU1NywianRpIjoiZGIxZWJhYjY2ZjE4OGE0YjFiODU2ODFjZGRlNGUyNTM4ZjRhNTZiZCJ9.D-jSFeWi3G8zk5Z-mEd42OIGU0SWmRlAoLiRjd_0XvHbdXArSXcb_ioFxwUlSselx-uLQfjoc-A1DBkq5MWs2lWwuQRwCIeU4byAAElVsgsq1nYjgyYcGivhvkJw7FibYDZyL0xO-TgnF_yBYZXUexWsFNrj3S8zzaQuSz7luYrTBwXlxb6svGHFRUp82RYc1G1_ol1_e36Y9iy5oq-MwGxozuxi80lemC-jnUukemPck8NRHF9oB2Rc1O6ojrCjQKWyw4mpPbRYwDQ8qtp0ypQmlxT_gSrzBL7vOFLrn7VXfNentogIgE2_2yd5OKNVyenu-TUrlDro1hednTBQ7w"}
+[2025-11-10 21:35:57] Faltan campos
+[2025-11-10 21:38:49] === intento login ===
+[2025-11-10 21:38:49] POST: {"username":"lebelawsky@eest5.com","google_token":"eyJhbGciOiJSUzI1NiIsImtpZCI6IjRmZWI0NGYwZjdhN2UyN2M3YzQwMzM3OWFmZjIwYWY1YzhjZjUyZGMiLCJ0eXAiOiJKV1QifQ.eyJpc3MiOiJodHRwczovL2FjY291bnRzLmdvb2dsZS5jb20iLCJhenAiOiI0NzUzMjQ5NTEwODMtbHAycHZxaTgwdnM5NWNzaHNpajdobjVtOHRnM2IwczMuYXBwcy5nb29nbGV1c2VyY29udGVudC5jb20iLCJhdWQiOiI0NzUzMjQ5NTEwODMtbHAycHZxaTgwdnM5NWNzaHNpajdobjVtOHRnM2IwczMuYXBwcy5nb29nbGV1c2VyY29udGVudC5jb20iLCJzdWIiOiIxMTQ4NTczODM1NTk1ODUyOTY2NjIiLCJoZCI6ImVlc3Q1LmNvbSIsImVtYWlsIjoibGViZWxhd3NreUBlZXN0NS5jb20iLCJlbWFpbF92ZXJpZmllZCI6dHJ1ZSwibmJmIjoxNzYyODA2ODI4LCJuYW1lIjoiTEFVVEFSTyBFWkVRVUlFTCBCRUxBV1NLWSIsInBpY3R1cmUiOiJodHRwczovL2xoMy5nb29nbGV1c2VyY29udGVudC5jb20vYS9BQ2c4b2NLd05IdktDbEo5VTRYR2pUZzR3Q2xVODNVakZEb01RNTlOYklhNnIxRTlmWnlOcFE9czk2LWMiLCJnaXZlbl9uYW1lIjoiTEFVVEFSTyBFWkVRVUlFTCIsImZhbWlseV9uYW1lIjoiQkVMQVdTS1kiLCJpYXQiOjE3NjI4MDcxMjgsImV4cCI6MTc2MjgxMDcyOCwianRpIjoiNzg4OGRlNTY5NDQ4YTJiOWIwNzU1MTI1ZDM5OGZlZGU4ODY3NjI1MyJ9.bcgf5vujZHnr2u0HABX6vcAByOFLdE_WFaSI5cRrcLgZFLxfoa-2PD7ZQ1Jeu4kd3hjy99vMVK1HfFzrXin4Xe0fyDtoeFOU5ituRctFeHWPNs7BH0iZYPcK248RlAxexiQRVXpLaYuUc1g-9WPU4E5ibmYSADUaPd-66M0NjCyaTfNEuSQgMTYDmkKuaPPFXh1a4t9YGre7orAFFMRe4zOibbtZnGtQTg__7-4XLKM92YkS7uVSBwdM_zRcydH4s_6KNL6o7DqIjss4zWByNfACMzrlJCJLeRXMMPBFApm4HUHZwS0PVXGzM5sTZUjrccY9HEfFBcEqfWKTlQ2KgQ"}
+[2025-11-10 21:38:49] Faltan campos
+[2025-11-10 21:38:58] === intento login ===
+[2025-11-10 21:38:58] POST: {"username":"lautibelawsky@gmail.com","password":"123456"}
+[2025-11-10 21:38:58] Usuario encontrado id=1 correo=lautibelawsky@gmail.com tipoCuenta=manual
+[2025-11-10 21:39:15] === intento login ===
+[2025-11-10 21:39:15] POST: {"username":"lebelawsky@eest5.com","google_token":"eyJhbGciOiJSUzI1NiIsImtpZCI6IjRmZWI0NGYwZjdhN2UyN2M3YzQwMzM3OWFmZjIwYWY1YzhjZjUyZGMiLCJ0eXAiOiJKV1QifQ.eyJpc3MiOiJodHRwczovL2FjY291bnRzLmdvb2dsZS5jb20iLCJhenAiOiI0NzUzMjQ5NTEwODMtbHAycHZxaTgwdnM5NWNzaHNpajdobjVtOHRnM2IwczMuYXBwcy5nb29nbGV1c2VyY29udGVudC5jb20iLCJhdWQiOiI0NzUzMjQ5NTEwODMtbHAycHZxaTgwdnM5NWNzaHNpajdobjVtOHRnM2IwczMuYXBwcy5nb29nbGV1c2VyY29udGVudC5jb20iLCJzdWIiOiIxMTQ4NTczODM1NTk1ODUyOTY2NjIiLCJoZCI6ImVlc3Q1LmNvbSIsImVtYWlsIjoibGViZWxhd3NreUBlZXN0NS5jb20iLCJlbWFpbF92ZXJpZmllZCI6dHJ1ZSwibmJmIjoxNzYyODA2ODU0LCJuYW1lIjoiTEFVVEFSTyBFWkVRVUlFTCBCRUxBV1NLWSIsInBpY3R1cmUiOiJodHRwczovL2xoMy5nb29nbGV1c2VyY29udGVudC5jb20vYS9BQ2c4b2NLd05IdktDbEo5VTRYR2pUZzR3Q2xVODNVakZEb01RNTlOYklhNnIxRTlmWnlOcFE9czk2LWMiLCJnaXZlbl9uYW1lIjoiTEFVVEFSTyBFWkVRVUlFTCIsImZhbWlseV9uYW1lIjoiQkVMQVdTS1kiLCJpYXQiOjE3NjI4MDcxNTQsImV4cCI6MTc2MjgxMDc1NCwianRpIjoiOWUyMmFhOTFlMjZiZTk3YzQ3M2RkZTZiZTZhNWE3Mzc4ZThlNTU4MSJ9.TgfdTfFwblfmubA8H7FzbKrkri2HS_kEGebBpS08lUZQhgK0xKtm1RzWwSgqX-0rRWImAKwG1g9iFADISl5nOVbyjXn3kX1U1uIBC4jrONq0CT0HPKwZC03mxMJwCuX60nPNTiIVTuNqtpO3OPAmHexfmh0ncADGLQd7sCY8pOYEHPLbJPQR-nkqoHsKVUM1m_R4jnc77724P4ZXLJuZI6I3LARNnwOo8m-detfQ1hJcIicPKEGMZSviYlWIVZ405UhX4Lq36zDP6k3ue3G83payVlULcmLYm68kuhGCmVSZuqqmJu3NN4sTfYgnv91KPUsbUgZzcoO-4-WT-U4-Gw"}
+[2025-11-10 21:39:15] Faltan campos
+[2025-11-10 21:39:24] === intento login ===
+[2025-11-10 21:39:24] POST: {"username":"lebelawsky@eest5.com","password":"123456"}
+[2025-11-10 21:39:24] Usuario encontrado id=32 correo=lebelawsky@eest5.com tipoCuenta=manual
+[2025-11-10 21:46:12] === intento login ===
+[2025-11-10 21:46:12] POST: {"username":"lebelawsky@eest5.com","google_token":"eyJhbGciOiJSUzI1NiIsImtpZCI6IjRmZWI0NGYwZjdhN2UyN2M3YzQwMzM3OWFmZjIwYWY1YzhjZjUyZGMiLCJ0eXAiOiJKV1QifQ.eyJpc3MiOiJodHRwczovL2FjY291bnRzLmdvb2dsZS5jb20iLCJhenAiOiI0NzUzMjQ5NTEwODMtbHAycHZxaTgwdnM5NWNzaHNpajdobjVtOHRnM2IwczMuYXBwcy5nb29nbGV1c2VyY29udGVudC5jb20iLCJhdWQiOiI0NzUzMjQ5NTEwODMtbHAycHZxaTgwdnM5NWNzaHNpajdobjVtOHRnM2IwczMuYXBwcy5nb29nbGV1c2VyY29udGVudC5jb20iLCJzdWIiOiIxMTQ4NTczODM1NTk1ODUyOTY2NjIiLCJoZCI6ImVlc3Q1LmNvbSIsImVtYWlsIjoibGViZWxhd3NreUBlZXN0NS5jb20iLCJlbWFpbF92ZXJpZmllZCI6dHJ1ZSwibmJmIjoxNzYyODA3MjcyLCJuYW1lIjoiTEFVVEFSTyBFWkVRVUlFTCBCRUxBV1NLWSIsInBpY3R1cmUiOiJodHRwczovL2xoMy5nb29nbGV1c2VyY29udGVudC5jb20vYS9BQ2c4b2NLd05IdktDbEo5VTRYR2pUZzR3Q2xVODNVakZEb01RNTlOYklhNnIxRTlmWnlOcFE9czk2LWMiLCJnaXZlbl9uYW1lIjoiTEFVVEFSTyBFWkVRVUlFTCIsImZhbWlseV9uYW1lIjoiQkVMQVdTS1kiLCJpYXQiOjE3NjI4MDc1NzIsImV4cCI6MTc2MjgxMTE3MiwianRpIjoiMDc5NDdhNDlhNTM4ZWRmNTcyOWI3MWFhNjMxM2FkNmU4YTI2Njk3MyJ9.khG16yGxan3WklWSoGB6v0udjCd-pg80f0DQhw1o10qV1NPF-28j9zu42YacdYLXQTuIxRkEIv6RyNsYo2nyNrCKzpvV7R07EFuIMC8bK_n1-CmK9JIV7x-kh--NWJfSYRjQjrSYIC1CHXXl0yxzmcNi29BXE7NFSac94TdLDMeXFT4LeJS_PE_DAAAuOOyHWNPLM3AZ9mK1zUI1W7Sy_N2CtG8P1Jm_pt0zMmYmZPIx3Y6IEUddzrO-WagQ_K3wmwRh5lJyGnm9jzozIn_qVb_taYcGeCGXct5EUOTJ_z06Sxd3cceFYkpOys_Ed-W07hQ2lvdUal_ZYTj2NxZJKw"}
+[2025-11-10 21:46:12] Faltan campos
+[2025-11-11 00:37:44] === intento login ===
+[2025-11-11 00:37:44] POST: {"username":"lautibelawsky@gmail.com","password":"123456"}
+[2025-11-11 00:37:44] Usuario encontrado id=1 correo=lautibelawsky@gmail.com tipoCuenta=manual
+[2025-11-11 03:21:26] === intento login ===
+[2025-11-11 03:21:26] POST: {"username":"lautibelawsky@gmail.com","password":"123456"}
+[2025-11-11 03:21:26] Usuario encontrado id=1 correo=lautibelawsky@gmail.com tipoCuenta=manual
+[2025-11-16 02:16:54] === intento login ===
+[2025-11-16 02:16:54] POST: {"username":"escritor@escuela.com","password":"123456"}
+[2025-11-16 02:16:54] Usuario encontrado id=20 correo=escritor@escuela.com tipoCuenta=manual
+[2025-11-16 02:16:54] Contraseña NO coincide. input='123456' bd='8d969eef6ecad3c29a3a629280e686cf0c3f5d5a86aff3ca12020c923adc6c92'
+[2025-11-16 02:16:57] === intento login ===
+[2025-11-16 02:16:57] POST: {"username":"escritor@escuela.com","password":"12345678"}
+[2025-11-16 02:16:57] Usuario encontrado id=20 correo=escritor@escuela.com tipoCuenta=manual
+[2025-11-16 02:16:57] Contraseña NO coincide. input='12345678' bd='8d969eef6ecad3c29a3a629280e686cf0c3f5d5a86aff3ca12020c923adc6c92'
+[2025-11-16 02:17:24] === intento login ===
+[2025-11-16 02:17:24] POST: {"username":"lautibelawsky@gmail.com","password":"123456"}
+[2025-11-16 02:17:24] Usuario encontrado id=1 correo=lautibelawsky@gmail.com tipoCuenta=manual
+[2025-11-17 01:48:14] === intento login ===
+[2025-11-17 01:48:14] POST: {"username":"lautibelawsky@gmail.com","password":"123456"}
+[2025-11-17 01:48:14] Usuario encontrado id=1 correo=lautibelawsky@gmail.com tipoCuenta=manual
+[2025-11-17 01:48:48] === intento login ===
+[2025-11-17 01:48:48] POST: {"username":"usuario@ejplo.com","password":"123456"}
+[2025-11-17 01:48:48] Usuario encontrado id=22 correo=usuario@ejplo.com tipoCuenta=manual
+[2025-11-17 02:35:04] === intento login ===
+[2025-11-17 02:35:04] POST: {"username":"usu@mariano.com","password":"123456"}
+[2025-11-17 02:35:04] Usuario no encontrado para: usu@mariano.com
+[2025-11-17 02:35:11] === intento login ===
+[2025-11-17 02:35:11] POST: {"username":"usu@mariano.com","password":"123456"}
+[2025-11-17 02:35:11] Usuario no encontrado para: usu@mariano.com
+[2025-11-17 02:35:28] === intento login ===
+[2025-11-17 02:35:28] POST: {"username":"usuario@ejplo.com","password":"123456"}
+[2025-11-17 02:35:28] Usuario encontrado id=22 correo=usuario@ejplo.com tipoCuenta=manual
+[2025-11-17 03:35:30] === intento login ===
+[2025-11-17 03:35:30] POST: {"username":"lautibelawsky@gmail.com","password":"123456"}
+[2025-11-17 03:35:30] Usuario encontrado id=1 correo=lautibelawsky@gmail.com tipoCuenta=manual
+[2025-11-17 04:54:29] === intento login ===
+[2025-11-17 04:54:29] POST: {"username":"lautibelawsky@gmail.com","password":"123456"}
+[2025-11-17 04:54:29] Usuario encontrado id=1 correo=lautibelawsky@gmail.com rol=admin
+[2025-11-17 04:54:29] Login exitoso para usuario_id=1 rol=admin
+[2025-11-18 02:28:23] === intento login ===
+[2025-11-18 02:28:23] POST: {"username":"lautibelawsky@gmail.com","password":"123456"}
+[2025-11-18 02:28:23] Usuario encontrado id=1 correo=lautibelawsky@gmail.com rol=admin
+[2025-11-18 02:28:23] Login exitoso para usuario_id=1 rol=admin
+[2025-11-18 03:01:17] === intento login ===
+[2025-11-18 03:01:17] POST: {"username":"lautibelawsky@gmail.com","password":"123456"}
+[2025-11-18 03:01:17] Usuario encontrado id=1 correo=lautibelawsky@gmail.com rol=admin
+[2025-11-18 03:01:17] Login exitoso para usuario_id=1 rol=admin
+[2025-11-18 06:47:33] === intento login ===
+[2025-11-18 06:47:33] POST: {"username":"lautibelawsky@gmail.com","password":"123456"}
+[2025-11-18 06:47:33] Usuario encontrado id=1 correo=lautibelawsky@gmail.com rol=admin
+[2025-11-18 06:47:33] Login exitoso para usuario_id=1 rol=admin
+[2025-11-18 06:54:32] === intento login ===
+[2025-11-18 06:54:32] POST: {"username":"lautibelawsky@gmail.com","password":"123456"}
+[2025-11-18 06:54:32] Usuario encontrado id=1 correo=lautibelawsky@gmail.com rol=admin
+[2025-11-18 06:54:32] Login exitoso para usuario_id=1 rol=admin
+[2025-11-18 18:27:21] === intento login ===
+[2025-11-18 18:27:21] POST: {"username":"lautibelawsky@gmail.com","password":"123456"}
+[2025-11-18 18:27:21] Usuario encontrado id=1 correo=lautibelawsky@gmail.com rol=admin
+[2025-11-18 18:27:21] Login exitoso para usuario_id=1 rol=admin
+[2025-11-18 18:52:02] === intento login ===
+[2025-11-18 18:52:02] POST: {"username":"lautibelawsky@gmail.com","password":"123456"}
+[2025-11-18 18:52:02] Usuario encontrado id=1 correo=lautibelawsky@gmail.com rol=admin
+[2025-11-18 18:52:02] Login exitoso para usuario_id=1 rol=admin
+[2025-11-18 18:57:05] === intento login ===
+[2025-11-18 18:57:05] POST: {"username":"lautibelawsky@gmail.com","password":"123456"}
+[2025-11-18 18:57:05] Usuario encontrado id=1 correo=lautibelawsky@gmail.com rol=admin
+[2025-11-18 18:57:05] Login exitoso para usuario_id=1 rol=admin
+[2025-11-18 19:00:10] === intento login ===
+[2025-11-18 19:00:10] POST: {"username":"lautibelawsky@gmail.com","password":"123456"}
+[2025-11-18 19:00:10] Usuario encontrado id=1 correo=lautibelawsky@gmail.com rol=admin
+[2025-11-18 19:00:10] Login exitoso para usuario_id=1 rol=admin
+[2025-11-18 19:01:15] === intento login ===
+[2025-11-18 19:01:15] POST: {"username":"lautibelawsky@gmail.com","password":"123456"}
+[2025-11-18 19:01:15] Usuario encontrado id=1 correo=lautibelawsky@gmail.com rol=admin
+[2025-11-18 19:01:15] Login exitoso para usuario_id=1 rol=admin
+[2025-11-19 00:38:22] === intento login ===
+[2025-11-19 00:38:22] POST: {"username":"lautibelawsky@gmail.com","password":"123456"}
+[2025-11-19 00:38:22] Usuario encontrado id=1 correo=lautibelawsky@gmail.com rol=admin
+[2025-11-19 00:38:22] Login exitoso para usuario_id=1 rol=admin
+[2025-11-19 01:38:06] === intento login ===
+[2025-11-19 01:38:06] POST: {"username":"escritor@escuela.com","password":"123456"}
+[2025-11-19 01:38:06] Usuario encontrado id=20 correo=escritor@escuela.com rol=escritor
+[2025-11-19 01:38:06] Contraseña NO coincide para usuario_id=20
+[2025-11-19 01:38:13] === intento login ===
+[2025-11-19 01:38:13] POST: {"username":"lautibelawsky@gmail.com","password":"123456"}
+[2025-11-19 01:38:13] Usuario encontrado id=1 correo=lautibelawsky@gmail.com rol=admin
+[2025-11-19 01:38:13] Login exitoso para usuario_id=1 rol=admin

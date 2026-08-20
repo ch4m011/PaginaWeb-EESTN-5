@@ -1,0 +1,150 @@
+/* ===== CONTACTO - Estilo Moderno Centrado (v2) ===== */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box; /* Evita desbordes globales */
+}
+
+body {
+  background: linear-gradient(180deg, #e8f0fe 0%, #f5f7fa 100%);
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color: #333;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+/* Contenedor principal */
+main {
+  max-width: 620px;
+  width: 90%;
+  margin: 4rem auto;
+  background: #ffffff;
+  padding: 2.5rem 2rem;
+  border-radius: 16px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  animation: fadeIn 0.6s ease;
+}
+
+/* Efecto de entrada */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Contexto explicativo */
+.contacto-contexto {
+  background: #f0f4f8;
+  padding: 1rem 1.2rem;
+  border-left: 4px solid #4a90e2;
+  border-radius: 8px;
+  font-size: 0.95rem;
+  line-height: 1.5;
+  color: #333;
+}
+
+/* =============================== */
+/* FORMULARIO DE CONTACTO */
+/* =============================== */
+
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  width: 100%;
+}
+
+/* Etiquetas opcionales */
+form label {
+  font-weight: 600;
+  color: #333;
+}
+
+/* Campos del formulario */
+form input,
+form textarea {
+  width: 100%;
+  padding: 0.9rem 1rem;
+  border: 1.5px solid #ccd6e0;
+  border-radius: 8px;
+  background: #f9fafc;
+  font-size: 1rem;
+  color: #333;
+  transition: border-color 0.25s ease, background-color 0.25s ease, box-shadow 0.25s ease;
+}
+
+form input:focus,
+form textarea:focus {
+  outline: none;
+  border-color: #4a90e2;
+  background: #fff;
+  box-shadow: 0 0 8px rgba(74, 144, 226, 0.25);
+}
+
+/* Textarea más alto */
+form textarea {
+  resize: vertical;
+  min-height: 130px;
+}
+
+/* Botón de envío */
+form button {
+  align-self: center;
+  padding: 0.9rem 2rem;
+  border: none;
+  border-radius: 8px;
+  background: linear-gradient(135deg, #4a90e2, #357ABD);
+  color: #fff;
+  font-size: 1rem;
+  cursor: pointer;
+  font-weight: 600;
+  letter-spacing: 0.3px;
+  transition: background 0.3s ease, transform 0.15s ease, box-shadow 0.3s ease;
+}
+
+form button:hover {
+  background: linear-gradient(135deg, #357ABD, #2b6db4);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 10px rgba(74, 144, 226, 0.4);
+}
+
+form button:active {
+  transform: translateY(0);
+  box-shadow: none;
+}
+
+/* Mensaje de estado */
+#estadoMensaje {
+  text-align: center;
+  font-weight: 600;
+  margin-top: 10px;
+  font-size: 1em;
+  color: #4a90e2;
+}
+
+/* Pie de página */
+footer {
+  text-align: center;
+  color: #666;
+  font-size: 0.9rem;
+  margin-top: auto;
+  padding: 1rem;
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+  main {
+    margin: 2rem 1rem;
+    padding: 2rem 1.2rem;
+  }
+
+  form button {
+    width: 100%;
+  }
+}

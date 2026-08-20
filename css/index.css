@@ -1,0 +1,316 @@
+/* =====================
+   GRID DE NOTICIAS
+   ===================== */
+.noticias-grid {
+    display: grid;
+    /* 3 columnas en desktop, se adapta automáticamente */
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 24px;
+    margin: 20px 0;
+}
+
+/* Animación de desvanecimiento para noticias individuales */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.noticia-mini {
+    background: #fff;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    cursor: pointer;
+    overflow: hidden;
+    transition: transform 0.2s, box-shadow 0.2s;
+    animation: fadeInUp 0.5s ease-out;
+}
+
+.noticia-mini:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 6px 16px rgba(0,0,0,0.15);
+}
+
+.noticia-mini img {
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+}
+
+.noticia-mini h3 {
+    margin: 14px;
+    font-size: 1.15rem;
+    color: #004080;
+    font-weight: 600;
+}
+
+.noticia-mini p {
+    margin: 0 14px 12px;
+    font-size: 1rem;
+    color: #333;
+    line-height: 1.4;
+}
+
+/* =====================
+   SLIDER DE NOTICIAS
+   ===================== */
+.slider {
+    width: 100%;
+    /* Altura configurable por CSS variable */
+    height: var(--slider-height-desktop);
+    position: relative;
+    overflow: hidden;
+    margin: 0; /* eliminado margin-bottom que generaba espacio */
+    padding: 0;
+    border-radius: 12px;
+    box-shadow: 0 8px 24px rgba(0,0,0,0.2);
+}
+
+.slides {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+.slides a.slide {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    transition: opacity 0.8s ease-in-out;
+    pointer-events: none;
+    display: flex;
+    flex-direction: column;
+    background: #fff;
+    text-decoration: none;
+}
+
+.slides a.slide.activo {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+/* Imagen: limitada por max-height para evitar que empuje el contenedor */
+.slides a.slide img {
+    display: block;
+    width: 100%;
+    height: auto;
+    max-height: calc(var(--slider-height-desktop) - var(--slide-content-height));
+    object-fit: contain; /* usar 'cover' si prefieres recortar para llenar */
+    object-position: center;
+    background-color: #f0f0f0;
+    border-radius: 0;
+    z-index: 1;
+}
+
+/* Contenido debajo de la imagen */
+.slide-content {
+    position: relative;
+    z-index: 3;
+    width: 100%;
+    padding: 6px 12px;
+    background: #fff;
+    color: #333;
+    text-align: left;
+    display: flex;
+    align-items: center;
+    height: var(--slide-content-height);
+    box-sizing: border-box;
+    overflow: hidden;
+}
+
+.slide-content h2 {
+    margin: 0;
+    font-size: 1.05rem;
+    font-weight: 700;
+    color: #004080;
+    line-height: 1.2;
+    text-shadow: none;
+}
+
+.slide-content p {
+    display: none; /* ocultamos descripción en slides según requisito */
+}
+
+.slide-readmore {
+    display: none; /* ocultar botón en slider para mostrar solo imagen + título */
+}
+
+/* =====================
+   PUNTOS DE NAVEGACIÓN SLIDER
+   ===================== */
+#puntosSlider {
+    text-align: center;
+    position: absolute;
+    bottom: 8px;
+    width: 100%;
+    z-index: 10;
+    pointer-events: auto;
+}
+
+#puntosSlider span {
+    display: inline-block;
+    width: 12px;
+    height: 12px;
+    margin: 0 5px;
+    border-radius: 50%;
+    background: rgba(0,0,0,0.3);
+    cursor: pointer;
+    transition: background 0.3s;
+    pointer-events: auto;
+}
+
+#puntosSlider span.activo {
+    background: #004080;
+    box-shadow: 0 0 5px rgba(0,0,0,0.2);
+}
+
+/* =====================
+   ANIMACIÓN FADE (solo de respaldo)
+   ===================== */
+@keyframes fade {
+    0%   { opacity: 0; }
+    8%   { opacity: 1; }
+    33%  { opacity: 1; }
+    41%  { opacity: 0; }
+    100% { opacity: 0; }
+}
+
+/* =====================
+   RESPONSIVE
+   ===================== */
+@media (max-width: 1024px) {
+    .noticias-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+@media (max-width: 768px) {
+    .noticias-grid {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 12px;
+    }
+
+    .noticia-mini img { 
+        height: 120px; 
+    }
+
+    .noticia-mini h3 {
+        font-size: 0.95rem;
+        margin: 8px;
+        line-height: 1.2;
+    }
+
+    .noticia-mini p {
+        font-size: 0.85rem;
+        margin: 0 8px 6px;
+        max-height: 3em;
+        overflow: hidden;
+    }
+
+    .slider { 
+        height: var(--slider-height-tablet);
+    }
+
+    .slide-content {
+        padding: 10px 12px;
+        height: var(--slide-content-height);
+    }
+
+    .slide-content h2 {
+        font-size: 1.0rem;
+        margin: 0;
+    }
+
+    .slide-content p {
+        display: none;
+    }
+}
+
+@media (max-width: 480px) {
+    .noticias-grid {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 8px;
+    }
+
+    .noticia-mini img { 
+        height: 90px; 
+    }
+
+    .noticia-mini h3 {
+        font-size: 0.8rem;
+        margin: 6px;
+        line-height: 1.15;
+    }
+
+    .noticia-mini p {
+        font-size: 0.7rem;
+        margin: 0 6px 4px;
+        max-height: 2.5em;
+        overflow: hidden;
+    }
+
+    .slider { 
+        height: var(--slider-height-mobile);
+    }
+
+    .slides a.slide img {
+        max-height: calc(var(--slider-height-mobile) - var(--slide-content-height));
+    }
+
+    .slide-content {
+        padding: 8px 10px;
+        height: var(--slide-content-height);
+    }
+
+    .slide-content h2 {
+        font-size: 0.95rem;
+        margin: 0;
+    }
+
+    #puntosSlider span { 
+        width: 10px; 
+        height: 10px; 
+        margin: 0 3px; 
+    }
+}
+
+/* Ajuste dinámico: variables para alturas y ancho del slider
+   El usuario puede editar estos valores fácilmente para ajustar el tamaño de las imágenes */
+:root {
+  --header-height: 0px;
+  --slider-width: 100%;
+  --slider-height-desktop: 380px;
+  --slider-height-tablet: 300px;
+  --slider-height-mobile: 220px;
+  --slide-content-height: 56px; /* espacio reservado para el título debajo de la imagen */
+}
+
+/* Forzar sin espacio entre navbar y slider: eliminar cualquier margen superior residual */
+.slider {
+    margin-top: 0 !important;
+}
+
+/* Asegura que el header esté por encima sin cambiar su tamaño ni color */
+.navegador {
+  position: sticky; /* si ya lo es, no cambia su altura */
+  top: 0;
+  z-index: 1200;    /* sólo eleva su stacking, no modifica layout */
+}
+
+/* Si falta sin_imagen.png, mostrar placeholder gris */
+img[src*="sin_imagen"],
+img[onerror] {
+    background: linear-gradient(135deg, #e0e0e0 0%, #f5f5f5 100%);
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    display: block;
+}

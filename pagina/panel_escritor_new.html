@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <link rel="icon" type="image/png" href="../img_logo/logo-tecnica.png">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Panel del Escritor</title>
+
+  <!-- Estilos -->
+  <link rel="stylesheet" href="../css/navegador.css">
+  <link rel="stylesheet" href="../css/panel_escritor.css">
+  <link rel="stylesheet" href="../css/noticias.css">
+  <link rel="stylesheet" href="../css/calendario.css">
+
+  <!-- Scripts -->
+  <script src="../js/navbar.js" defer></script>
+  <script src="../js/login.js" defer></script>
+  <script src="../js/panel_escritor.js" defer></script>
+  <script src="../js/editor-enhancements.js" defer></script>
+  <script src="../js/calendario.js" defer></script>
+</head>
+
+<body>
+<header class="navegador">
+  <div class="logo">
+    <h1><a href="../index.html">E.E.S.T. Nro 5 - "Gral. Manuel N. Savio</a></h1>
+  </div>
+  <div class="buscador oculto">
+    <input type="text" id="buscarNoticias" placeholder="Buscar noticias...">
+    <button id="btnBuscar">🔍</button>
+  </div>
+  <nav id="navPrincipal" class="navbar"></nav>
+</header>
+
+<main class="panel-main">
+  <!-- BOTONES PARA ALTERNAR NOTICIA / CALENDARIO -->
+  <div id="toggleBotones" class="toggle-botones" style="display:flex;justify-content:center;gap:10px;margin:15px 0;"></div>
+
+  <!-- CONTENIDO NOTICIAS -->
+  <section class="editor-container" id="contenidoNoticias">
+    <h2>🖋️ Crear Nueva Noticia</h2>
+    <div id="mensajeContainer"></div>
+
+    <!-- SIN onsubmit, que lo maneje panel_escritor.js -->
+    <form id="formNoticia">
+      <label for="tituloNoticia">Título de la noticia</label>
+      <input type="text" id="tituloNoticia" name="titulo" placeholder="Ej: Jornada de Puertas Abiertas" required>
+
+      <input type="hidden" id="autorNoticia" name="autor">
+      <input type="hidden" id="fechaNoticia" name="fecha">
+
+      <label for="imagenNoticia">Imagen destacada (opcional)</label>
+      <!-- Debe tener type="file" (NO type="text") -->
+      <input type="file" id="imagenNoticia" name="imagen" accept="image/*">
+      <img id="previewImagen" alt="Vista previa">
+
+      <div class="editor-toolbar" role="toolbar" aria-label="Barra de herramientas de edición">
+        <button type="button" data-cmd="bold" title="Negrita"><b>B</b></button>
+        <button type="button" data-cmd="italic" title="Cursiva"><i>I</i></button>
+        <button type="button" data-cmd="underline" title="Subrayado"><u>U</u></button>
+
+        <select id="fontSizeSelect" title="Tamaño de fuente">
+          <option value="">Tamaño</option>
+          <option value="1">Pequeño</option>
+          <option value="3" selected>Normal</option>
+          <option value="5">Grande</option>
+          <option value="7">Muy grande</option>
+        </select>
+
+        <button type="button" data-cmd="justifyleft" title="Alinear a la izquierda">⟸</button>
+        <button type="button" data-cmd="justifycenter" title="Centrar">≡</button>
+        <button type="button" data-cmd="justifyright" title="Alinear a la derecha">⟹</button>
+
+        <button type="button" id="insertLinkBtn" title="Insertar enlace">🔗</button>
+        <input type="file" id="insertImageFile" accept="image/*" style="display:none;">
+        <button type="button" id="insertImageBtn" title="Insertar imagen">🖼️</button>
+      </div>
+
+      <div id="editor" class="editor" contenteditable="true" placeholder="Escribe el contenido de la noticia aquí..." aria-label="Editor de contenido"></div>
+
+      <div style="background: #f0f8ff; padding: 10px; border-radius: 6px; margin-bottom: 1rem; font-size: 0.9rem; color: #333;">
+        <strong>💡 Atajos de teclado para imágenes:</strong>
+        <ul style="margin: 8px 0; padding-left: 20px;">
+          <li>Haz clic en una imagen y usa <kbd>Ctrl+L</kbd> para alinear a la <strong>izquierda</strong></li>
+          <li>Usa <kbd>Ctrl+R</kbd> para alinear a la <strong>derecha</strong></li>
+          <li>Usa <kbd>Ctrl+E</kbd> para <strong>centrar</strong></li>
+        </ul>
+      </div>
+
+      <div class="botones-editor">
+        <button type="submit" class="btn-primario">📢 Publicar Noticia</button>
+      </div>
+    </form>
+  </section>
+
+  <!-- MIS NOTICIAS -->
+  <section class="mis-noticias">
+    <h2>📰 Mis Noticias Publicadas</h2>
+    <div id="listaNoticias" class="noticias-grid">
+      <p class="placeholder">Todavía no has publicado ninguna noticia.</p>
+    </div>
+  </section>
+
+  <!-- CALENDARIO -->
+  <section class="calendario-container" id="calendarioContainer" style="display:none;">
+    <h2>📅 Agregar Evento al Calendario</h2>
+    <div class="calendario-mes">
+      <div id="calendarHeader" class="calendar-header">
+        <button id="prevMonth">◀</button>
+        <span id="monthYear"></span>
+        <button id="nextMonth">▶</button>
+      </div>
+      <table id="calendarTable">
+        <thead>
+          <tr>
+            <th>Lun</th><th>Mar</th><th>Mié</th><th>Jue</th><th>Vie</th><th>Sáb</th><th>Dom</th>
+          </tr>
+        </thead>
+        <tbody id="calendarBody"></tbody>
+      </table>
+    </div>
+
+    <!-- FORMULARIO DE EVENTO -->
+    <form id="formEvento" class="calendario-form">
+      <input type="text" id="tituloEvento" placeholder="Título del evento" required>
+      <select id="tipoEvento" required>
+        <option value="">Seleccionar tipo de evento</option>
+        <option value="titulo-feriado">Día Feriado</option>
+        <option value="titulo-no-clases">No hay clases</option>
+        <option value="titulo-evento">Evento importante</option>
+      </select>
+
+      <!-- INPUT DE FECHA CORREGIDO -->
+      <label>Fecha del evento:</label>
+      <input type="date" id="fechaEvento" required>
+
+      <label>Hora inicio:</label>
+      <input type="time" id="horaInicio" required>
+      <label>Hora fin:</label>
+      <input type="time" id="horaFin" required>
+      <label>Descripción:</label>
+      <textarea id="descripcionEvento" placeholder="Descripción del evento"></textarea>
+
+      <div class="botones-form">
+        <button type="submit" class="btn-primario">Guardar Evento</button>
+        <button type="button" class="btn-secundario" onclick="ocultarFormularioEvento()">Cancelar</button>
+      </div>
+    </form>
+
+    <h3>Eventos existentes</h3>
+    <div id="eventosContainer"></div>
+  </section>
+</main>
+
+<footer>© 2025 Escuela Técnica - La Plata</footer>
+
+<!-- El script de manejo del formulario está en ../js/panel_escritor.js -->
+</body>
+</html>

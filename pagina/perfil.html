@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <link rel="icon" type="image/png" href="../img_logo/logo-tecnica.png">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mi perfil</title>
+  <link rel="stylesheet" href="../css/login.css">
+  <link rel="stylesheet" href="../css/perfil.css">
+  <script src="../js/perfil.js" defer></script>
+</head>
+<body>
+  <button class="btn-volver" onclick="window.location.href='../index.html'">Volver</button>
+  <div class="login-contenedor">
+    <div class="login-formulario">
+      <div class="perfil-container">
+        <!-- Encabezado del perfil con imagen y nombre -->
+        <div class="perfil-header">
+          <div class="perfil-imagen-container">
+            <img id="avatar" class="perfil-imagen" src="../img_logo/logo-tecnica.png" alt="Imagen de perfil">
+            <span id="nombrePerfilHeader" class="nombre-usuario"></span>
+          </div>
+        </div>
+
+        <!-- Sección de imagen de perfil -->
+        <div class="seccion">
+          <label>Cambiar imagen de perfil</label>
+          <form id="formImagenPerfil" action="../php/actualizar_imagen_perfil.php" method="POST" enctype="multipart/form-data">
+            <input id="avatarFile" name="avatar" type="file" accept="image/*" />
+            <button type="submit" class="btn btn-actualizar">Actualizar imagen</button>
+          </form>
+        </div>
+
+        <!-- Sección de datos principales -->
+        <div class="seccion">
+          <form id="formPerfil" class="form-perfil">
+            <div class="form-group">
+              <label for="nombre_completo">Nombre completo:</label>
+              <input type="text" id="nombre_completo" name="nombre_completo" required>
+            </div>
+            <button type="submit" class="btn-guardar">Guardar cambios</button>
+          </form>
+        </div>
+
+        <!-- Nueva sección separada para el correo -->
+        <div class="seccion-correo">
+            <label for="correo_usuario">Correo electrónico registrado:</label>
+            <input type="email" id="correo_usuario" readonly class="input-readonly">
+        </div>
+
+        <!-- Sección de cambio de contraseña -->
+        <div class="seccion">
+          <form id="formCambioPassword" class="form-perfil">
+            <div class="form-group">
+              <label for="password_actual">Contraseña actual:</label>
+              <input type="password" id="password_actual" name="password_actual" 
+                     autocomplete="current-password" required>
+            </div>
+            <div class="form-group">
+              <label for="password_nueva">Nueva contraseña:</label>
+              <input type="password" id="password_nueva" name="password_nueva" 
+                     autocomplete="new-password" required>
+            </div>
+            <button type="submit">Cambiar contraseña</button>
+          </form>
+        </div>
+
+        <!-- Sección de eliminar cuenta -->
+        <div class="seccion">
+          <form id="formEliminarCuentaReal" class="form-perfil">
+            <h3>Eliminar cuenta</h3>
+            <div class="campo">
+              <label for="passwordDelete">Confirmar contraseña:</label>
+              <input type="password" id="passwordDelete" name="password_confirm" 
+                     autocomplete="current-password" required>
+            </div>
+            <div id="mensajeEliminarCuenta" style="display:none;"></div>
+            <button type="submit" class="btn-eliminar">Eliminar cuenta</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal de progreso -->
+  <div id="modalEliminar" style="display:none;">
+    <p id="mensajeEliminar">Eliminando cuenta...</p>
+    <div class="progress-bar">
+      <div id="progress"></div>
+    </div>
+  </div>
+</body>
+</html>

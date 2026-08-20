@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Setup - Sistema de Calendario</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+        .container {
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+            padding: 40px;
+            max-width: 800px;
+            width: 100%;
+        }
+        h1 {
+            color: #333;
+            margin-bottom: 10px;
+            text-align: center;
+        }
+        .subtitle {
+            color: #666;
+            text-align: center;
+            margin-bottom: 30px;
+            font-size: 14px;
+        }
+        .button-group {
+            display: flex;
+            gap: 10px;
+            justify-content: center;
+            margin-bottom: 40px;
+            flex-wrap: wrap;
+        }
+        button {
+            padding: 12px 24px;
+            font-size: 14px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-weight: 600;
+        }
+        .btn-primary {
+            background: #667eea;
+            color: white;
+        }
+        .btn-primary:hover {
+            background: #5568d3;
+            transform: translateY(-2px);
+        }
+        .btn-secondary {
+            background: #f093fb;
+            color: white;
+        }
+        .btn-secondary:hover {
+            background: #e080eb;
+            transform: translateY(-2px);
+        }
+        .results {
+            background: #f8f9fa;
+            border-left: 4px solid #667eea;
+            padding: 20px;
+            border-radius: 5px;
+            margin-bottom: 20px;
+            display: none;
+        }
+        .results.show {
+            display: block;
+        }
+        .result-item {
+            margin-bottom: 20px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid #e0e0e0;
+        }
+        .result-item:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+            padding-bottom: 0;
+        }
+        .result-title {
+            font-weight: 600;
+            color: #333;
+            margin-bottom: 8px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .status-icon {
+            font-size: 20px;
+        }
+        .status-success { color: #28a745; }
+        .status-error { color: #dc3545; }
+        .status-info { color: #17a2b8; }
+        .result-message {
+            color: #666;
+            font-size: 13px;
+            margin-bottom: 10px;
+        }
+        .result-details {
+            background: white;
+            padding: 10px;
+            border-radius: 3px;
+            font-size: 12px;
+            color: #555;
+            overflow-x: auto;
+        }
+        .result-details pre {
+            margin: 0;
+        }
+        .loading {
+            text-align: center;
+            color: #667eea;
+        }
+        .spinner {
+            display: inline-block;
+            width: 20px;
+            height: 20px;
+            border: 3px solid #f3f3f3;
+            border-top: 3px solid #667eea;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+            margin-right: 10px;
+        }
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        .summary {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 20px;
+            border-radius: 5px;
+            text-align: center;
+            margin-top: 20px;
+            display: none;
+        }
+        .summary.show {
+            display: block;
+        }
+        .summary-title {
+            font-size: 18px;
+            font-weight: 600;
+            margin-bottom: 10px;
+        }
+        .summary-text {
+            font-size: 14px;
+            opacity: 0.9;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🗓️ Sistema de Calendario</h1>
+        <p class="subtitle">Configuración y Verificación de la Base de Datos</p>
+        
+        <div class="button-group">
+            <button class="btn-primary" onclick="ejecutarSetup()">
+                ▶️ Ejecutar Setup Completo
+            </button>
+            <button class="btn-secondary" onclick="obtenerEventos()">
+                📋 Ver Eventos Actuales
+            </button>
+        </div>
+
+        <div id="results" class="results">
+            <div id="result-content"></div>
+        </div>
+
+        <div id="summary" class="summary">
+            <div class="summary-title" id="summary-title"></div>
+            <div class="summary-text" id="summary-text"></div>
+        </div>
+    </div>
+
+    <script>
+        async function ejecutarSetup() {
+            mostrarCargando();
+            try {
+                const response = await fetch('setup_calendario.php');
+                const data = await response.json();
+                mostrarResultados(data);
+            } catch (error) {
+                console.error('Error:', error);
+                mostrarError('Error al conectar con el servidor: ' + error.message);
+            }
+        }
+
+        async function obtenerEventos() {
+            mostrarCargando();
+            try {
+                const response = await fetch('api_calendario.php?action=obtener&orden=ASC');
+                const eventos = await response.json();
+                
+                let html = '<div class="result-item">';
+                html += '<div class="result-title"><span class="status-icon status-success">✓</span> Eventos Actuales</div>';
+                html += '<div class="result-message">Total de eventos: ' + eventos.length + '</div>';
+                
+                if (eventos.length > 0) {
+                    html += '<div class="result-details"><pre>' + JSON.stringify(eventos, null, 2) + '</pre></div>';
+                } else {
+                    html += '<div class="result-message" style="color: #999;">No hay eventos en la base de datos.</div>';
+                }
+                
+                html += '</div>';
+                
+                document.getElementById('result-content').innerHTML = html;
+                document.getElementById('results').classList.add('show');
+                document.getElementById('summary').classList.remove('show');
+            } catch (error) {
+                console.error('Error:', error);
+                mostrarError('Error al obtener eventos: ' + error.message);
+            }
+        }
+
+        function mostrarCargando() {
+            document.getElementById('result-content').innerHTML = '<div class="loading"><div class="spinner"></div> Procesando...</div>';
+            document.getElementById('results').classList.add('show');
+            document.getElementById('summary').classList.remove('show');
+        }
+
+        function mostrarError(mensaje) {
+            document.getElementById('result-content').innerHTML = 
+                '<div class="result-item"><div class="result-title"><span class="status-icon status-error">✗</span> Error</div>' +
+                '<div class="result-message">' + mensaje + '</div></div>';
+            document.getElementById('results').classList.add('show');
+            document.getElementById('summary').classList.remove('show');
+        }
+
+        function mostrarResultados(data) {
+            let html = '';
+            
+            if (data.pasos && Array.isArray(data.pasos)) {
+                data.pasos.forEach(paso => {
+                    const icon = paso.exito ? '✓' : '✗';
+                    const clase = paso.exito ? 'status-success' : 'status-error';
+                    
+                    html += '<div class="result-item">';
+                    html += '<div class="result-title"><span class="status-icon ' + clase + '">' + icon + '</span> ' + paso.nombre + '</div>';
+                    html += '<div class="result-message">' + paso.mensaje + '</div>';
+                    
+                    if (paso.columnas && paso.columnas.length > 0) {
+                        html += '<div class="result-details">';
+                        html += '<strong>Columnas:</strong><br>';
+                        paso.columnas.forEach(col => {
+                            html += col.nombre + ' (' + col.tipo + ')<br>';
+                        });
+                        html += '</div>';
+                    }
+                    
+                    if (paso.eventos_muestra && paso.eventos_muestra.length > 0) {
+                        html += '<div class="result-details"><pre>' + JSON.stringify(paso.eventos_muestra, null, 2) + '</pre></div>';
+                    }
+                    
+                    html += '</div>';
+                });
+            }
+            
+            document.getElementById('result-content').innerHTML = html;
+            document.getElementById('results').classList.add('show');
+            
+            if (data.exito) {
+                document.getElementById('summary-title').textContent = data.resumen;
+                document.getElementById('summary-text').textContent = data.siguiente_paso;
+                document.getElementById('summary').classList.add('show');
+            }
+        }
+    </script>
+</body>
+</html>

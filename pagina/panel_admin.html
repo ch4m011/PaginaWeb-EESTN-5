@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <link rel="icon" type="image/png" href="../img_logo/logo-tecnica.png">
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Panel Admin — Administración</title>
+    <link rel="stylesheet" href="../css/navegador.css">
+    <link rel="stylesheet" href="../css/panel_admin.css">
+    <link rel="stylesheet" href="../css/noticias.css">
+</head>
+
+<body>
+
+    <header class="navegador">
+        <div class="logo"><a href="../index.html">E.E.S.T. Nro 5 - "Gral. Manuel N. Savio</a></div>
+        <div class="buscador">
+            <input id="buscarNoticias" placeholder="Buscar...">
+            <button id="btnBuscar">Buscar</button>
+        </div>
+        <nav id="navPrincipal" class="navbar"></nav>
+    </header>
+
+    <main class="container">
+
+        <!-- MOVIDO: (Se eliminó el bloque .panel-usuarios para que los datos se generen dentro del panel principal) -->
+
+        <section class="panel">
+            <h1>Panel Admin</h1>
+            <p class="lead">Gestioná usuarios, escritores y noticias desde aquí.</p>
+
+            <div class="controls">
+                <input id="search" placeholder="Buscar por usuario o email..." />
+                <select id="filterRole">
+                    <option value="all">Todos</option>
+                    <option value="usuario">Usuarios</option>
+                    <option value="escritor">Escritores</option>
+                </select>
+                <button id="reload">Recargar</button>
+            </div>
+
+            <div id="counts" class="counts"></div>
+            <div id="messages" class="messages-container"></div>
+
+            <div class="table-wrap">
+                <table id="usersTable" class="users-table">
+                    <thead>
+                        <tr>
+                            <th>Nombre</th>
+                            <th>Correo</th>
+                            <th>Rol</th>
+                            <th>Fecha Registro</th>
+                            <th>Acciones</th>
+                        </tr>
+                    </thead>
+                    <tbody id="usuarios-tbody"></tbody>
+                </table>
+            </div>
+
+        </section>
+        <!-- Barra de filtros -->
+        <div id="filtroNoticias"></div>
+
+        <section class="panel small">
+            <h2>Noticias (global)</h2>
+            <!-- Contenedor donde se muestran las noticias -->
+            <div id="newsList" class="noticias-grid"></div>
+        </section>
+
+        <section class="panel small">
+            <h2>Eventos (global)</h2>
+            <div id="eventosGlobalesContainer"></div>
+        </section>
+
+    </main>
+
+    <script src="../js/navbar.js"></script>
+    <script src="../js/panel_admin.js"></script>
+    <script src="../js/panel_admin_events.js"></script>
+
+</body>
+
+</html>

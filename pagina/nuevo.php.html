@@ -1,0 +1,1071 @@
+<!-- saved from url=(0039)https://aaferrando.com/alumno/nuevo.php -->
+<html lang="es">
+
+<head>
+    <link rel="icon" type="image/png" href="../img_logo/logo-tecnica.png">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link href="https://aaferrando.com/alumno/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://aaferrando.com/alumno/css/bootstrap-theme.css" rel="stylesheet">
+    <link rel="stylesheet" href="../css/navegador.css">
+    <link rel="stylesheet" href="../css/pre_inscripcion.css">
+
+    <script src="https://aaferrando.com/alumno/js/jquery-3.2.1.min.js"></script>
+    <script src="https://aaferrando.com/alumno/js/bootstrap.min.js"></script>
+    <script src="../js/navbar.js" defer></script>
+    <script src="https://aaferrando.com/alumno/js/jquery.maskedinput.min.js"></script>
+    <script src="./nuevo.php_files/api.js.descarga"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+    <script src="../js/validaciones.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+</head>
+
+<style>
+    /* Override local para asegurar que el navbar en esta página coincida con Contacto */
+    header.navegador { padding: 1rem 2rem !important; }
+    header.navegador .logo .logo-container { gap: 6px !important; }
+    header.navegador .logo h1 { font-size: 1.15rem !important; margin: 0 !important; line-height: 1 !important; }
+    header.navegador .logo img.logo-img { width: 72px !important; height: 72px !important; max-width: none !important; max-height: none !important; }
+    /* Asegurar tamaño de texto de la zona de navegación y perfil */
+    header.navegador .navbar, header.navegador .nav-link, .nav-profile .profile-name { font-size: 0.98rem !important; }
+    /* Mantener alineación vertical coherente */
+    header.navegador .logo, header.navegador .buscador, header.navegador .navbar { align-items: center !important; }
+
+    /* Aumentar tamaño y padding de los botones/enlaces del navbar para igualar Contacto */
+    header.navegador { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif !important; }
+    header.navegador .navbar > * {
+        padding: 0.55rem 1rem !important;
+        margin-left: 0.6rem !important;
+        font-size: 1.08rem !important;
+        display: inline-block !important;
+        line-height: 1 !important;
+    }
+    header.navegador .nav-link, header.navegador .navbar a, header.navegador .navbar button {
+        font-size: 1.08rem !important;
+        padding: 0.45rem 0.9rem !important;
+        font-weight: 600 !important;
+        color: #fff !important;
+        text-decoration: none !important;
+    }
+    /* Forzar que los botones tengan altura visual similar en todas las páginas */
+    header.navegador .btn-login, header.navegador .btn-registrarse, header.navegador .user-btn {
+        padding: 0.4rem 0.9rem !important;
+        font-size: 1.02rem !important;
+    }
+    /* Ajuste para el contenedor de perfil (imagen + nombre) */
+    header.navegador .user-container { gap: 0.9rem !important; }
+    header.navegador .user-btn { font-size: 1.02rem !important; }
+</style>
+
+<body>
+
+<header class="navegador">
+    <div class="logo">
+      <div class="logo-container">
+        <img src="../img_logo/logo-tecnica.png" alt="E.E.S.T. Nro 5" class="logo-img logo-left">
+        <h1>
+          <a href="../index.html">E.E.S.T. Nro 5 - "Gral. Manuel N. Savio"</a>
+        </h1>
+      </div>
+    </div>
+
+    <div class="buscador">
+        <input type="text" id="buscarNoticias" placeholder="Buscar noticias..." />
+        <button id="btnBuscar">🔍</button>
+    </div>
+
+    <nav id="navPrincipal" class="navbar"></nav>
+</header>
+
+    <script type="text/javascript">
+        function setTextField(ddl) {
+            document.getElementById('anio_inscripcion_text').value = ddl.options[ddl.selectedIndex].text;
+        }
+    </script>
+
+    <script type="text/javascript">
+        function comprobar(username) {
+            // Esperar a que Prototype esté listo
+            if (typeof Ajax === 'undefined') {
+                console.warn('Ajax no está disponible aún');
+                return;
+            }
+            var url = 'comprobarExistenciaAlumno.php';
+            var pars = 'username=' + username.value;
+            var myAjax = new Ajax.Updater('comprobar_mensaje2', url, { method: 'get', parameters: pars });
+        }
+    </script>
+
+    <script language="Javascript">
+        function validacionEmail(field) {
+            if (field.value.trim() === "") {
+                const spanId = field.id === 'inp_email' ? 'emailOK' : 'emailOK2';
+                document.getElementById(spanId).innerHTML = "";
+                return;
+            }
+
+            usuario = field.value.substring(0, field.value.indexOf("@"));
+            dominio = field.value.substring(field.value.indexOf("@") + 1, field.value.length);
+
+            const spanId = field.id === 'inp_email' ? 'emailOK' : 'emailOK2';
+            
+            if ((usuario.length >= 1) &&
+                (dominio.length >= 3) &&
+                (usuario.search("@") == -1) &&
+                (dominio.search("@") == -1) &&
+                (usuario.search(" ") == -1) &&
+                (dominio.search(" ") == -1) &&
+                (dominio.search(".") != -1) &&
+                (dominio.indexOf(".") >= 1) &&
+                (dominio.lastIndexOf(".") < dominio.length - 1)) {
+                document.getElementById(spanId).innerHTML = "";
+            }
+            else {
+                document.getElementById(spanId).innerHTML = "<font color='red'>E-mail inválido. Vuelva a escribirlo </font>";
+                field.value = "";
+                field.focus();
+            }
+        }
+    </script>
+
+    <script language="Javascript">
+        function mostrarReferencia() {
+            if (document.getElementById('comprobar_mensaje2').innerText == "Disponible.") {
+                document.getElementById('BotonEnviar').style.display = 'block';
+                updateFormValidity();
+            } else {
+                document.getElementById('BotonEnviar').style.display = 'none';
+            }
+        }
+    </script>
+
+    <div style="text-align: center; margin-bottom: 20px;">
+        <img class="img-responsive" src="../img_logo/logo-tecnica.png" alt="Logo" width="72" height="72" style="display: inline-block;">
+    </div>
+    
+    <div class="container">
+        <div class="row">
+            <h3 style="text-align:center"> PLANILLA DE PREINSCRIPCIÓN</h3>
+        </div>
+
+        <div class="row">
+            <h3 style="text-align:center"> Ciclo Lectivo 2025</h3>
+        </div>
+
+        <div class="text-center" style="margin-bottom:12px;">
+  <a href="https://docs.google.com/document/d/1ifMfk1-n2bZsXYvQhW1oJeYwnQNPxDl7DNuYvimJFXA/edit?usp=sharing"
+     target="_blank" rel="noopener noreferrer"
+     class="btn btn-outline-primary btn-lg"
+     role="button"
+     aria-label="Más información sobre la preinscripción">
+    Más información sobre la preinscripción
+  </a>
+  
+</div>
+        <div class="panel panel-default">
+
+            <div class="panel-heading">
+
+                <h3 class="panel-title">Datos del alumno</h3>
+            </div>
+            <div class="panel-body">
+                <form class="form-horizontal" id="formularioPreinscripcion" method="post" action="https://aaferrando.com/alumno/guardar.php"
+                    autocomplete="off">
+                    <div class="form-group">
+                        <label for="nombre" class="col-sm-2 control-label">Nombre(s):</label>
+                        <div class="col-sm-10">
+                            <input type="text" class="form-control" id="nombre" name="nombre" tabindex="1"
+                                placeholder="Nombre" required="" onblur="this.value=this.value.toUpperCase()">
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="apellido" class="col-sm-2 control-label">Apellido(s):</label>
+                        <div class="col-sm-10">
+                            <input type="text" class="form-control" id="apellido" name="apellido" tabindex="2"
+                                placeholder="Apellido" required="" onblur="this.value=this.value.toUpperCase()">
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="tipo_doc" class="col-sm-2 control-label">Tipo de documento:</label>
+                        <div class="col-sm-10">
+                            <select type="text" class="form-control" id="tipo_doc" name="tipo_doc" tabindex="3"
+                                placeholder="Tipo de documento" required="">
+                                <option value="0">Seleccione opción</option>
+                                <option value="3">CI</option>
+                                <option value="1">DNI</option>
+                                <option value="2">PASAPORTE</option>
+                                <option value="4">S/D</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="Nro_doc" class="col-sm-2 control-label">Nro. Documento:</label>
+                        <div class="col-sm-10">
+                            <input type="number" class="form-control" id="Nro_doc" name="Nro_doc" min="0" max="99999999"
+                                tabindex="4" placeholder="Número documento" required="" onkeyup="comprobar(this);"
+                                onblur="mostrarReferencia(); updateFormValidity();">
+                            <span id="comprobar_mensaje2"></span>
+                        </div>
+                        <div id="cargando"></div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="sexo" class="col-sm-2 control-label">Género:</label>
+                        <div class="col-sm-10">
+                            <select type="text" class="form-control" id="sexo" name="sexo" tabindex="5"
+                                placeholder="Sexo" required="" onchange="updateFormValidity();">
+                                <option value="0">Seleccione un tipo</option>
+                                <option value="1">FEMENINO</option>
+                                <option value="2">MASCULINO</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="fecha_nacimiento" class="col-sm-2 control-label">Fecha nacimiento:</label>
+                        <div class="col-sm-10">
+                            <input type="date" name="fec_nacimiento" id="fec_nacimiento" tabindex="6" required="" onchange="updateFormValidity();">
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="lugar_nacimiento" class="col-sm-2 control-label">Lugar de nacimiento:</label>
+                        <div class="col-sm-10">
+                            <input type="text" class="form-control" id="lugar_nacimiento" name="lugar_nacimiento"
+                                tabindex="7" placeholder="Lugar de nacimiento" required=""
+                                onblur="this.value=this.value.toUpperCase(); updateFormValidity();">
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="nacionalidad" class="col-sm-2 control-label">Nacionalidad:</label>
+                        <div class="col-sm-10">
+                            <select type="text" class="form-control" id="nacionalidad" name="nacionalidad" tabindex="8"
+                                placeholder="Nacionalidad" required="" onchange="updateFormValidity();">
+                                <option value="0">Seleccione opción</option>
+                                <option value="1">ARGENTINA</option>
+                                <option value="9">BOLIVIA</option>
+                                <option value="2">BRASIL</option>
+                                <option value="4">CHILE</option>
+                                <option value="6">COLOMBIA</option>
+                                <option value="8">ECUADOR</option>
+                                <option value="3">PARAGUAY</option>
+                                <option value="5">PERÚ</option>
+                                <option value="10">URUGUAY</option>
+                                <option value="7">VENEZUELA</option>
+                            </select>
+                        </div>
+                    </div>
+
+                <div id="email" class="form-group">
+                    <label for="email" class="col-sm-2 control-label">Email:</label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control" id="inp_email" name="email" tabindex="9"
+                            placeholder="Dirección de correo electrónico" required=""
+                            onblur="validacionEmail(this); this.value=this.value.toLowerCase(); updateFormValidity();">
+                        <span id="emailOK"></span>
+                    </div>
+                </div>
+
+                <div id="email2" class="form-group">
+                    <label for="email2" class="col-sm-2 control-label">Email (alternativo):</label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control" id="inp_email2" name="email2" tabindex="9a"
+                            placeholder="Dirección de correo electrónico alternativa"
+                            onblur="validacionEmail(this); this.value=this.value.toLowerCase(); updateFormValidity();">
+                        <span id="emailOK2"></span>
+                    </div>
+                </div>
+
+                <div class="panel panel-default">
+                        <div class="panel-heading">Teléfono</div>
+                        <div class="panel-body">
+
+                            <div class="form-group">
+                                <label for="Tipo_Tel" class="col-sm-2 control-label">Tipo:</label>
+                                <div class="col-sm-10">
+                                    <select type="text" class="form-control" id="Tipo_tel" name="Tipo_tel" tabindex="10"
+                                        placeholder="Tipo" required="" onchange="updateFormValidity();">
+                                        <option value="0">Seleccione un tipo</option>
+                                        <option value="1">Fijo</option>
+                                        <option value="2">Móvil</option>
+                                    </select>
+                                </div>
+                            </div>
+
+
+                            <div class="form-group">
+                                <label for="Cod_Area" class="col-sm-2 control-label">Cod. Área:</label>
+                                <div class="col-sm-10">
+                                    <input type="number" class="form-control" id="Cod_Area" name="Cod_Area" min="0"
+                                        max="9999" tabindex="11" placeholder="Cód. Área" required="" onchange="updateFormValidity();">
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="Num_Telefono" class="col-sm-2 control-label">Número de teléfono:</label>
+                                <div class="col-sm-10">
+                                    <input type="number" class="form-control" id="Num_Telefono" name="Num_Telefono"
+                                        min="0" max="999999999" tabindex="12" placeholder="Número de teléfono"
+                                        required="" onchange="updateFormValidity();">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="panel panel-default">
+                        <div class="panel-heading">Dirección</div>
+                        <div class="panel-body">
+                            <div class="form-group">
+                                <label for="partido" class="col-sm-2 control-label">Partido:</label>
+                                <div class="col-sm-10">
+                                    <select type="text" class="form-control" id="cbx_partido" name="cbx_partido"
+                                        tabindex="13" placeholder="partido" required="" onchange="updateFormValidity();">
+                                        <option value="0">Seleccione partido</option>
+                                        <option value="441">LA PLATA</option>
+                                        <option value="2">CAPITAL FEDERAL</option>
+                                        <option value="7">ADOLFO ALSINA</option>
+                                        <option value="14">A. GONZALES CHAVES</option>
+                                        <option value="21">ALBERTI</option>
+                                        <option value="28">ALMIRANTE BROWN</option>
+                                        <option value="35">AVELLANEDA</option>
+                                        <option value="42">AYACUCHO</option>
+                                        <option value="49">AZUL</option>
+                                        <option value="56">BAHIA BLANCA</option>
+                                        <option value="63">BALCARCE</option>
+                                        <option value="70">BARADERO</option>
+                                        <option value="77">BARTOLOME MITRE</option>
+                                        <option value="84">BENITO JUAREZ</option>
+                                        <option value="91">BERAZATEGUI</option>
+                                        <option value="98">BERISSO</option>
+                                        <option value="105">BOLIVAR</option>
+                                        <option value="112">BRAGADO</option>
+                                        <option value="119">BRANDSEN</option>
+                                        <option value="126">CAMPANA</option>
+                                        <option value="133">CANUELAS</option>
+                                        <option value="140">CAPITAN SARMIENTO</option>
+                                        <option value="147">CARLOS CASARES</option>
+                                        <option value="154">CARLOS TEJEDOR</option>
+                                        <option value="161">CARMEN DE ARECO</option>
+                                        <option value="168">CASTELLI</option>
+                                        <option value="175">COLON</option>
+                                        <option value="182">CORONEL ROSALES</option>
+                                        <option value="189">CORONEL DORREGO</option>
+                                        <option value="196">CORONEL PRINGLES</option>
+                                        <option value="203">CORONEL SUAREZ</option>
+                                        <option value="210">CHACABUCO</option>
+                                        <option value="217">CHASCOMUS</option>
+                                        <option value="224">CHIVILCOY</option>
+                                        <option value="231">DAIREAUX</option>
+                                        <option value="238">DOLORES</option>
+                                        <option value="245">ENSENADA</option>
+                                        <option value="252">ESCOBAR</option>
+                                        <option value="260">ESTEBAN ECHEVERRIA</option>
+                                        <option value="266">EXALTAC. DE LA CRUZ</option>
+                                        <option value="270">EZEIZA</option>
+                                        <option value="273">FLORENCIO VARELA</option>
+                                        <option value="277">AMEGHINO</option>
+                                        <option value="280">GENERAL ALVARADO</option>
+                                        <option value="287">GENERAL ALVEAR</option>
+                                        <option value="294">GENERAL ARENALES</option>
+                                        <option value="301">GENERAL BELGRANO</option>
+                                        <option value="308">GENERAL GUIDO</option>
+                                        <option value="315">GENERAL MADARIAGA</option>
+                                        <option value="322">GENERAL LAMADRID</option>
+                                        <option value="329">GENERAL LAS HERAS</option>
+                                        <option value="336">GENERAL LAVALLE</option>
+                                        <option value="343">GENERAL PAZ</option>
+                                        <option value="350">GENERAL PINTO</option>
+                                        <option value="357">GENERAL PUEYRREDON</option>
+                                        <option value="364">GENERAL RODRIGUEZ</option>
+                                        <option value="371">GENERAL SAN MARTIN</option>
+                                        <option value="385">GENERAL VIAMONTE</option>
+                                        <option value="392">GENERAL VILLEGAS</option>
+                                        <option value="399">GUAMINI</option>
+                                        <option value="406">HIPOLITO IRYGOYEN</option>
+                                        <option value="408">HURLINGHAM</option>
+                                        <option value="410">ITUZAINGO</option>
+                                        <option value="412">JOSE C.PAZ</option>
+                                        <option value="413">JUNIN</option>
+                                        <option value="420">DE LA COSTA</option>
+                                        <option value="427">LA MATANZA</option>
+                                        <option value="434">LANUS</option>
+                                        <option value="448">LAPRIDA</option>
+                                        <option value="455">LAS FLORES</option>
+                                        <option value="462">LEANDRO N ALEM</option>
+                                        <option value="466">LEZAMA</option>
+                                        <option value="469">LINCOLN</option>
+                                        <option value="476">LOBERIA</option>
+                                        <option value="483">LOBOS</option>
+                                        <option value="490">LOMAS DE ZAMORA</option>
+                                        <option value="497">LUJAN</option>
+                                        <option value="505">MAGDALENA</option>
+                                        <option value="511">MAIPU</option>
+                                        <option value="515">MALVINAS ARGENTINAS</option>
+                                        <option value="518">MAR CHIQUITA</option>
+                                        <option value="525">MARCOS PAZ</option>
+                                        <option value="532">MERCEDES</option>
+                                        <option value="539">MERLO</option>
+                                        <option value="547">MONTE</option>
+                                        <option value="553">MONTE HERMOSO</option>
+                                        <option value="560">MORENO</option>
+                                        <option value="568">MORON</option>
+                                        <option value="574">NAVARRO</option>
+                                        <option value="581">NECOCHEA</option>
+                                        <option value="588">NUEVE DE JULIO</option>
+                                        <option value="595">OLAVARRIA</option>
+                                        <option value="602">PATAGONES</option>
+                                        <option value="609">PEHUAJO</option>
+                                        <option value="616">PELLEGRINI</option>
+                                        <option value="623">PERGAMINO</option>
+                                        <option value="630">PILA</option>
+                                        <option value="637">PILAR</option>
+                                        <option value="644">PINAMAR</option>
+                                        <option value="648">PRESIDENTE PERON</option>
+                                        <option value="651">PUAN</option>
+                                        <option value="658">QUILMES</option>
+                                        <option value="665">RAMALLO</option>
+                                        <option value="672">RAUCH</option>
+                                        <option value="679">RIVADAVIA</option>
+                                        <option value="686">ROJAS</option>
+                                        <option value="693">ROQUE PEREZ</option>
+                                        <option value="700">SAAVEDRA</option>
+                                        <option value="707">SALADILLO</option>
+                                        <option value="714">SALTO</option>
+                                        <option value="721">SALLIQUELO</option>
+                                        <option value="728">SAN ANDRES DE GILES</option>
+                                        <option value="735">SAN ANTONIO DE ARECO</option>
+                                        <option value="742">SAN CAYETANO</option>
+                                        <option value="749">SAN FERNANDO</option>
+                                        <option value="756">SAN ISIDRO</option>
+                                        <option value="760">SAN MIGUEL</option>
+                                        <option value="763">SAN NICOLAS</option>
+                                        <option value="770">SAN PEDRO</option>
+                                        <option value="778">SAN VICENTE</option>
+                                        <option value="784">SUIPACHA</option>
+                                        <option value="791">TANDIL</option>
+                                        <option value="798">TAPALQUE</option>
+                                        <option value="805">TIGRE</option>
+                                        <option value="812">TORDILLO</option>
+                                        <option value="819">TORNQUIST</option>
+                                        <option value="826">TRENQUE LAUQUEN</option>
+                                        <option value="833">TRES ARROYOS</option>
+                                        <option value="840">TRES DE FEBRERO</option>
+                                        <option value="847">TRES LOMAS</option>
+                                        <option value="854">VEINTICINCO DE MAYO</option>
+                                        <option value="861">VICENTE LOPEZ</option>
+                                        <option value="868">VILLA GESELL</option>
+                                        <option value="875">VILLARINO</option>
+                                        <option value="882">ZARATE</option>
+                                        <option value="998">PARTIDO</option>
+                                        <option value="999">NO ESPECIFICADO</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="localidad" class="col-sm-2 control-label">Localidad:</label>
+                                <div class="col-sm-10">
+                                    <select type="text" class="form-control" id="cbx_localidad" name="cbx_localidad"
+                                        tabindex="14" placeholder="localidad" required="" onchange="updateFormValidity();"></select>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="calle" class="col-sm-2 control-label">Calle:</label>
+                                <div class="col-sm-10">
+                                    <input type="text" class="form-control" id="calle" name="calle" tabindex="15"
+                                        placeholder="Calle" required="" onchange="updateFormValidity();">
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="nro" class="col-sm-2 control-label">Nro:</label>
+                                <div class="col-sm-10">
+                                    <input type="text" class="form-control" id="nro" name="nro" tabindex="16"
+                                        placeholder="Nro" required="" onchange="updateFormValidity();">
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="calle_entre" class="col-sm-2 control-label">Entre:</label>
+                                <div class="col-sm-10">
+                                    <input type="text" class="form-control" id="calle_entre" name="calle_entre"
+                                        tabindex="17" placeholder="Entre" onchange="updateFormValidity();">
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="calle_entre_y" class="col-sm-2 control-label">Y:</label>
+                                <div class="col-sm-10">
+                                    <input type="text" class="form-control" id="calle_entre_y" name="calle_entre_y"
+                                        tabindex="18" placeholder="Y" onchange="updateFormValidity();">
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+
+                    
+
+					<div class="panel panel-default">
+						<div class="panel-heading">Datos de la inscripción</div>
+						<div class="panel-body">
+
+							<div class="form-group">
+								<label for="anio_inscripcion" class="col-sm-2 control-label">Año inscripción:</label>
+								<div class="col-sm-10">
+									<select type="text" class="form-control" id="anio_inscripcion"
+										name="anio_inscripcion" tabindex="19" onchange="setTextField(this)"
+										placeholder="Año inscripción" required="">
+										<option value="0">Seleccione un tipo</option>
+										<option value="1">1ro</option>
+										<option value="2">2do</option>
+										<option value="3">3ro</option>
+										<option value="4">4to</option>
+										<option value="5">5to</option>
+										<option value="6">6to</option>
+										<option value="7">7mo</option>
+									</select>
+									<input id="anio_inscripcion_text" type="hidden" name="anio_inscripcion_text"
+										value="">
+								</div>
+							</div>
+
+
+
+							<div class="form-group">
+								<label for="turno" class="col-sm-2 control-label">Turno deseado (No
+									determinante):</label>
+								<div class="col-sm-10">
+									<select type="text" class="form-control" id="turno" name="turno" tabindex="20"
+										placeholder="Turno" required="">
+										<option value="0">Seleccione opción</option>
+										<option value="4">ALTERNADO</option>
+										<option value="1">MAÑANA</option>
+										<option value="2">TARDE</option>
+										<option value="3">VESPERTINO</option>
+									</select>
+								</div>
+							</div>
+
+							<div class="form-group">
+								<label for="proviene_escuela" class="col-sm-2 control-label">Escuela anterior:</label>
+								<div class="col-sm-10">
+									<input type="text" class="form-control" id="proviene_escuela"
+										name="proviene_escuela" tabindex="21" placeholder="Escuela anterior" required=""
+										onblur="this.value=this.value.toUpperCase()">
+								</div>
+							</div>
+
+						</div>
+					</div>
+				</form>
+			</div>
+		</div>
+
+		<!-- Eliminado: bloque de scripts duplicados (validaciones locales y handler de localidades).
+             Validaciones centralizadas en ../js/validaciones.js -->
+		<div class="form-group">
+			<div class="col-sm-offset-2 col-sm-10">
+				<button id="BotonEnviar" type="submit" class="btn btn-primary" style="display:none;">Guardar</button>
+			</div>
+		</div>
+	</div>
+	<!-- Validaciones locales eliminadas: se usan las reglas centralizadas en `../js/validaciones.js` -->
+	<!-- (Si necesitás validaciones adicionales específicas, dime y las agrego con los IDs correctos del formulario) -->
+
+	<!-- Validation and PDF generation script -->
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+	<script>
+		document.addEventListener('DOMContentLoaded', function () {
+			// Field elements (adapted to IDs found in the form)
+			const fields = {
+				nombre: document.getElementById('nombre'),
+				apellido: document.getElementById('apellido'),
+				documento: document.getElementById('Nro_doc'),
+				fecha: document.getElementById('fec_nacimiento'),
+				lugar: document.getElementById('lugar_nacimiento'),
+				cod_area: document.getElementById('Cod_Area'),
+				telefono: document.getElementById('Num_Telefono'),
+				escuela: document.getElementById('proviene_escuela'),
+				calle: document.getElementById('calle'),
+				nro: document.getElementById('nro'),
+				entre: document.getElementById('calle_entre'),
+				y: document.getElementById('calle_entre_y'),
+				partido: document.getElementById('cbx_partido'),
+				localidad: document.getElementById('cbx_localidad')
+			};
+
+			// Create container for PDF button and logo upload
+			const form = document.querySelector('form.form-horizontal');
+			const divActions = document.createElement('div');
+			divActions.className = 'form-group';
+			divActions.style.marginTop = '15px';
+			divActions.innerHTML = `
+    <label class="col-sm-2 control-label">Documento PDF:</label>
+    <div class="col-sm-10">
+        <button id="btnPdf" class="btn btn-primary" disabled>Faltan completar campos</button>
+        <button id="btnPdfAlert" style="display:none;" class="btn btn-warning">Completar formulario</button>
+        <button id="btnPdfPrintable" class="btn btn-secondary">Descargar formulario imprimible</button>
+    </div>
+`;
+			form.parentNode.insertBefore(divActions, form.nextSibling);
+
+            const btnPdf = document.getElementById('btnPdf');
+            // Actualizar texto del botón PDF según validez del formulario
+            function updateBtnPdfText() {
+                const requiredIds = [
+                    'nombre','apellido','Nro_doc','fec_nacimiento','lugar_nacimiento',
+                    'cbx_partido','cbx_localidad','calle','nro','calle_entre','calle_entre_y',
+                    'Cod_Area','Num_Telefono','proviene_escuela'
+                ];
+                let missing = [];
+                requiredIds.forEach(function(id){
+                    const el = document.getElementById(id);
+                    if(!el || !el.value || (el.tagName==='SELECT' && el.value==='0')){
+                        missing.push(id);
+                    }
+                });
+                if(missing.length > 0){
+                    btnPdf.textContent = 'Faltan completar campos';
+                }else{
+                    btnPdf.textContent = 'Descargar PDF de Inscripción';
+                }
+            }
+            // Actualizar al cargar y en cada cambio
+            updateBtnPdfText();
+            const watchIds = [
+                'nombre','apellido','Nro_doc','fec_nacimiento','lugar_nacimiento',
+                'cbx_partido','cbx_localidad','calle','nro','calle_entre','calle_entre_y',
+                'Cod_Area','Num_Telefono','proviene_escuela'
+            ];
+            watchIds.forEach(function(id){
+                const el = document.getElementById(id);
+                if(!el) return;
+                const ev = (el.tagName.toLowerCase() === 'select') ? 'change' : 'input';
+                el.addEventListener(ev, updateBtnPdfText);
+                el.addEventListener('blur', updateBtnPdfText);
+            });
+
+                    // PDF generation (colecciona todos los controles del formulario, añade logo y genera un PDF profesional)
+                    btnPdf.addEventListener('click', async function (e) {
+                        e.preventDefault();
+                        try{ updateFormValidity(); }catch(err){ console.warn('updateFormValidity falló:', err); }
+
+                        // Validar campos obligatorios y mostrar mensajes visuales
+                        const requiredIds = [
+                            'nombre','apellido','Nro_doc','fec_nacimiento','lugar_nacimiento',
+                            'cbx_partido','cbx_localidad','calle','nro','calle_entre','calle_entre_y',
+                            'Cod_Area','Num_Telefono','proviene_escuela'
+                        ];
+                        let missing = [];
+                        requiredIds.forEach(function(id){
+                            const el = document.getElementById(id);
+                            if(!el || !el.value || (el.tagName==='SELECT' && el.value==='0')){
+                                missing.push(id);
+                                if(el){
+                                    el.classList.add('campo-obligatorio-faltante');
+                                    el.setAttribute('data-error','Campo obligatorio');
+                                }
+                            }else{
+                                if(el){
+                                    el.classList.remove('campo-obligatorio-faltante');
+                                    el.removeAttribute('data-error');
+                                }
+                            }
+                        });
+                        // Cambiar texto del botón según estado
+                        updateBtnPdfText();
+                        if(missing.length > 0){
+                            alert('Faltan campos obligatorios por completar. Por favor, revise los campos marcados.');
+                            let msg = document.getElementById('faltanCamposMsg');
+                            if(!msg){
+                                msg = document.createElement('div');
+                                msg.id = 'faltanCamposMsg';
+                                msg.style.color = 'red';
+                                msg.style.marginTop = '10px';
+                                btnPdf.parentNode.appendChild(msg);
+                            }
+                            msg.textContent = 'Debe completar todos los campos obligatorios para descargar el PDF.';
+                            const el = document.getElementById(missing[0]);
+                            if(el){ el.scrollIntoView({behavior:'smooth',block:'center'}); el.focus(); }
+                            return;
+                        }else{
+                            let msg = document.getElementById('faltanCamposMsg');
+                            if(msg){ msg.textContent = ''; }
+                        }
+
+                        // utilidad: cargar imagen y convertir a dataURL
+                        async function loadImageDataURL(url){
+                            try{
+                                // encode spaces
+                                const safeUrl = encodeURI(url);
+                                const resp = await fetch(safeUrl);
+                                if(!resp.ok) throw new Error('HTTP ' + resp.status);
+                                const blob = await resp.blob();
+                                return await new Promise((res, rej) => {
+                                    const reader = new FileReader();
+                                    reader.onloadend = function(){ res(reader.result); };
+                                    reader.onerror = rej;
+                                    reader.readAsDataURL(blob);
+                                });
+                            }catch(e){ console.warn('No se pudo cargar imagen', url, e); return null; }
+                        }
+
+                        // recolectar pares etiqueta -> valor
+                        const pairs = [];
+                        const controls = form.querySelectorAll('input, select, textarea');
+                        controls.forEach(function(ctrl){
+                            if(!ctrl.id && !ctrl.name) return;
+                            const type = (ctrl.type || '').toLowerCase();
+                            if(type === 'hidden' || type === 'submit' || type === 'button' || type === 'file') return;
+
+                            let label = '';
+                            if(ctrl.id){
+                                const lab = document.querySelector('label[for="' + ctrl.id + '"]');
+                                if(lab) label = lab.textContent.trim();
+                            }
+                            if(!label) label = (ctrl.name && ctrl.name !== '') ? ctrl.name : (ctrl.id || 'Campo');
+
+                            let value = '';
+                            if(ctrl.tagName.toLowerCase() === 'select'){
+                                const opt = ctrl.options && ctrl.selectedIndex >= 0 ? ctrl.options[ctrl.selectedIndex] : null;
+                                value = opt ? opt.text.trim() : (ctrl.value || '');
+                            } else if(type === 'checkbox'){
+                                value = ctrl.checked ? (ctrl.value || 'Sí') : 'No';
+                            } else if(type === 'radio'){
+                                if(!ctrl.checked) return;
+                                value = ctrl.value || 'Seleccionado';
+                            } else {
+                                value = ctrl.value || '';
+                            }
+                            value = String(value).replace(/\s+/g,' ').trim();
+                            pairs.push({label: label, value: value});
+                        });
+
+                        // preparar PDF profesional y estético
+                        try{
+                            const logoUrl = '../img_logo/logo-tecnica.png';
+                            const logoData = await loadImageDataURL(logoUrl);
+                            const { jsPDF } = window.jspdf;
+                            const doc = new jsPDF({unit: 'mm', format: 'a4'});
+
+                            const pageWidth = doc.internal.pageSize.getWidth();
+                            const margin = 15;
+                            const contentWidth = pageWidth - margin * 2;
+
+                            // Header: colocar logo en esquina superior derecha (fuera del recuadro)
+                            const logoSize = 28; // mm (agrandado)
+                            const logoX = pageWidth - margin - logoSize;
+                            const logoY = margin - 2; // colocar cerca del margen superior
+                            if(logoData){
+                                try{ doc.addImage(logoData, 'PNG', logoX, logoY, logoSize, logoSize); }catch(e){ /* ignore */ }
+                            }
+
+                            doc.setFontSize(16);
+                            doc.setFont(undefined, 'bold');
+                            // Títulos ubicados bajo el logo, con suficiente espacio antes del recuadro
+                            doc.text('E.E.S.T. Nro 5 "Gral. Manuel N. Savio"', margin, margin + 2);
+                            doc.setFontSize(12);
+                            doc.setFont(undefined, 'normal');
+                            doc.text('Planilla de Preinscripción — Ciclo Lectivo 2025', margin, margin + 8);
+
+                            // dibujar un recuadro para el contenido (comenzar más abajo para no tocar el logo)
+                            const startY = margin + logoSize + 8; // deja espacio para logo y títulos
+                            let y = startY + 4;
+                            doc.setDrawColor(0);
+                            doc.setLineWidth(0.4);
+                            doc.rect(margin - 2, startY - 2, contentWidth + 4, 240, 'S');
+                            // recordar la página y coordenadas del recuadro para elementos fijos (firma, pie)
+                            const rectPage = doc.getNumberOfPages();
+                            const rectTop = startY - 2;
+                            const rectHeight = 240;
+                            const rectBottom = rectTop + rectHeight;
+
+                            const sectionGap = 6;
+                            const labelColWidth = 45; // mm
+                            const valueColX = margin + labelColWidth + 4;
+                            const valueColWidth = contentWidth - labelColWidth - 8;
+                            const rowHeight = 7;
+
+                            // helper para obtener valor (incluye select option text)
+                            function getVal(id){
+                                const el = document.getElementById(id);
+                                if(!el) return '';
+                                if(el.tagName.toLowerCase() === 'select'){
+                                    const opt = el.options && el.selectedIndex >= 0 ? el.options[el.selectedIndex] : null;
+                                    return opt ? (opt.text || opt.value) : (el.value || '');
+                                }
+                                return el.value || '';
+                            }
+
+                            // secciones y campos a imprimir (label, id)
+                            const sections = [
+                                {title: 'Datos del alumno', fields: [
+                                    ['Nombre(s)', 'nombre'],
+                                    ['Apellido(s)', 'apellido'],
+                                    ['Tipo documento', 'tipo_doc'],
+                                    ['Nro. Documento', 'Nro_doc'],
+                                    ['Fecha nacimiento', 'fec_nacimiento'],
+                                    ['Lugar de nacimiento', 'lugar_nacimiento'],
+                                    ['Nacionalidad', 'nacionalidad'],
+                                    ['Email', 'inp_email'],
+                                    ['Email (alternativo)', 'inp_email2']
+                                ]},
+                                {title: 'Teléfono', fields: [
+                                    ['Tipo', 'Tipo_tel'],
+                                    ['Cód. Área', 'Cod_Area'],
+                                    ['Número', 'Num_Telefono']
+                                ]},
+                                {title: 'Dirección', fields: [
+                                    ['Partido', 'cbx_partido'],
+                                    ['Localidad', 'cbx_localidad'],
+                                    ['Calle', 'calle'],
+                                    ['Nro', 'nro'],
+                                    ['Entre', 'calle_entre'],
+                                    ['Y', 'calle_entre_y']
+                                ]},
+                                {title: 'Datos de la inscripción', fields: [
+                                    ['Año inscripción', 'anio_inscripcion_text'],
+                                    ['Turno deseado', 'turno'],
+                                    ['Escuela anterior', 'proviene_escuela']
+                                ]}
+                            ];
+
+                            doc.setFontSize(11);
+                            sections.forEach(function(sec){
+                                // título de sección
+                                if(y + 10 > 272){ doc.addPage(); y = 20; }
+                                doc.setFont(undefined, 'bold');
+                                doc.text(sec.title, margin + 2, y);
+                                y += rowHeight;
+                                doc.setFont(undefined, 'normal');
+
+                                sec.fields.forEach(function(f){
+                                    const label = f[0] + ':';
+                                    const val = String(getVal(f[1]) || '-');
+
+                                    // dividir valor en líneas según columna de valor
+                                    const valLines = doc.splitTextToSize(val, valueColWidth);
+
+                                    // escribir label
+                                    doc.setFont(undefined, 'bold');
+                                    doc.text(label, margin + 2, y);
+                                    doc.setFont(undefined, 'normal');
+                                    // primera línea de valor a la derecha
+                                    if(valLines.length > 0){
+                                        doc.text(String(valLines[0]), valueColX, y);
+                                        // subrayado debajo del valor
+                                        doc.setLineWidth(0.3);
+                                        doc.line(valueColX, y + 2.5, valueColX + valueColWidth - 10, y + 2.5);
+                                    }
+                                    y += rowHeight;
+                                    // líneas restantes
+                                    for(let i=1;i<valLines.length;i++){
+                                        if(y > 272){ doc.addPage(); y = 20; }
+                                        doc.text(String(valLines[i]), valueColX, y);
+                                        doc.setLineWidth(0.3);
+                                        doc.line(valueColX, y + 2.5, valueColX + valueColWidth - 10, y + 2.5);
+                                        y += rowHeight;
+                                    }
+                                });
+
+                                y += sectionGap; // espacio extra entre secciones
+                            });
+
+                            // firma y pie: colocarlos siempre dentro del recuadro en la página donde se dibujó
+                            try{
+                                // conservar la página actual y volver más tarde
+                                const currentPage = doc.getCurrentPage ? doc.getCurrentPage() : doc.getNumberOfPages();
+                                // dibujar firma y fecha dentro del recuadro, cerca de su borde inferior
+                                doc.setPage(rectPage);
+                                doc.setLineWidth(0.5);
+                                const firmaY = rectBottom - 28; // posicionar la línea de firma 28mm por encima del borde inferior
+                                doc.line(margin + 10, firmaY, margin + 80, firmaY);
+                                doc.text('Firma del responsable', margin + 10, firmaY + 4);
+                                // linea fecha
+                                doc.line(margin + 110, firmaY, margin + 170, firmaY);
+                                doc.text('Fecha', margin + 110, firmaY + 4);
+
+                                // pie dentro del recuadro, ligeramente arriba del borde inferior
+                                doc.setFontSize(9);
+                                const footerY = rectBottom - 6;
+                                doc.text('Documento generado por el sistema de preinscripción — E.E.S.T. Nro 5', margin, footerY - 2);
+
+                                // restaurar la página actual (si existía otra API, intentar volver a la última página)
+                                try{ doc.setPage(currentPage); }catch(e){ /* ignore if not supported */ }
+                            }catch(e){ console.warn('No se pudo posicionar firma/pie dentro del recuadro', e); }
+
+                            // generar nombre de archivo
+                            function safeName(s){ return String(s || '').trim().replace(/\s+/g,'_').replace(/[^a-zA-Z0-9_\-]/g,'').toLowerCase() || 'sin_nombre'; }
+                            const apellido = (document.getElementById('apellido')||{value:''}).value;
+                            const nombre = (document.getElementById('nombre')||{value:''}).value;
+                            const filename = `inscripcion_${safeName(apellido)}_${safeName(nombre)}.pdf`;
+
+                            doc.save(filename);
+                        }catch(e){
+                            console.error('Error generando PDF profesional', e);
+                            alert('Ocurrió un error al generar el PDF. Revisá la consola para más detalles.');
+                        }
+                    });
+
+            // Botón para descargar formulario imprimible (campos en blanco para rellenar a mano)
+            const btnPdfPrintable = document.getElementById('btnPdfPrintable');
+            if(btnPdfPrintable){
+                btnPdfPrintable.addEventListener('click', async function(e){
+                    e.preventDefault();
+
+                    try{
+                        const { jsPDF } = window.jspdf;
+                        const doc = new jsPDF({unit: 'mm', format: 'a4'});
+                        const pageWidth = doc.internal.pageSize.getWidth();
+                        const margin = 15;
+                        const contentWidth = pageWidth - margin * 2;
+
+                        // Cargar logo y agregar en esquina superior derecha
+                        const logoUrl = '../img_logo/logo-tecnica.png';
+                        let logoData = null;
+                        try {
+                            const resp = await fetch(logoUrl);
+                            if(resp.ok){
+                                const blob = await resp.blob();
+                                logoData = await new Promise((res, rej) => {
+                                    const reader = new FileReader();
+                                    reader.onloadend = function(){ res(reader.result); };
+                                    reader.onerror = rej;
+                                    reader.readAsDataURL(blob);
+                                });
+                            }
+                        } catch(e){ logoData = null; }
+
+                        // header
+                        doc.setFontSize(16);
+                        doc.setFont(undefined,'bold');
+                        doc.text('E.E.S.T. Nro 5 "Gral. Manuel N. Savio"', margin, 20);
+                        doc.setFontSize(12);
+                        doc.setFont(undefined,'normal');
+                        doc.text('Formulario de Preinscripción — Versión imprimible', margin, 26);
+                        // Logo en esquina superior derecha (alineado igual que el PDF completo)
+                        if(logoData){
+                            const logoSize = 28;
+                            const logoX = pageWidth - margin - logoSize;
+                            const logoY = margin - 2;
+                            doc.addImage(logoData, 'PNG', logoX, logoY, logoSize, logoSize);
+                        }
+
+                        // cuadro
+                        const startY = margin + 28 + 8; // igual que el PDF completo, debajo del logo y títulos
+                        let y = startY;
+                        doc.setLineWidth(0.4);
+                        doc.rect(margin-2, startY-4, contentWidth+4, 250, 'S');
+
+                        const labelColWidth = 50;
+                        const valueX = margin + labelColWidth + 4;
+                        const valueWidth = contentWidth - labelColWidth - 8;
+                        const rowH = 7; // Menos espacio entre campos
+
+                        // secciones y campos (mismos títulos que en el PDF principal)
+                        const sectionsPrintable = [
+                            {title:'Datos del alumno', fields: ['Nombre(s)','Apellido(s)','Tipo documento','Nro. Documento','Fecha nacimiento','Lugar de nacimiento','Nacionalidad','Email','Email (alternativo)']},
+                            {title:'Teléfono', fields: ['Tipo','Cód. Área','Número']},
+                            {title:'Dirección', fields: ['Partido','Localidad','Calle','Nro','Entre','Y']},
+                            {title:'Datos de la inscripción', fields: ['Año inscripción','Turno deseado','Escuela anterior']}
+                        ];
+                        doc.setFontSize(11);
+                        sectionsPrintable.forEach(function(sec){
+                            if(y + 10 > 275){ doc.addPage(); y = 20; }
+                            doc.setFont(undefined,'bold');
+                            doc.text(sec.title, margin+2, y);
+                            y += rowH;
+                            doc.setFont(undefined,'normal');
+
+                            sec.fields.forEach(function(lbl){
+                                if(y + rowH > 275){ doc.addPage(); y = 20; }
+                                // label centrado con la línea
+                                doc.text(lbl + ':', margin+2, y + 2.5);
+                                // línea en blanco para completar a mano, alineada
+                                const lineY = y + 3;
+                                const lineStart = valueX;
+                                const lineEnd = valueX + valueWidth - 10;
+                                doc.setLineWidth(0.5);
+                                doc.line(lineStart, lineY, lineEnd, lineY);
+                                y += rowH;
+                            });
+
+                            y += 4; // Menos espacio entre secciones
+                        });
+
+                        // firma
+                        if(y + 30 > 275){ doc.addPage(); y = 20; }
+                        const sigY = y + 12;
+                        doc.line(margin + 10, sigY, margin + 80, sigY);
+                        doc.text('Firma del responsable', margin + 10, sigY + 5);
+                        doc.line(margin + 110, sigY, margin + 170, sigY);
+                        doc.text('Fecha', margin + 110, sigY + 5);
+
+                        const filename = 'formulario_preinscripcion_imprimible.pdf';
+                        doc.save(filename);
+                    }catch(err){
+                        console.error('Error generando formulario imprimible', err);
+                        alert('Error al generar el formulario imprimible. Revisá la consola.');
+                    }
+                });
+            }
+		});
+	</script>
+
+	<!-- DEBUG: comprobar si pre_inscripcion.css se cargó (se puede eliminar luego) -->
+	<script>
+		(function () {
+			try {
+				var links = Array.from(document.querySelectorAll('link[rel="stylesheet"]')).map(l => l.getAttribute('href') || l.href);
+				console.log('Hoja(s) de estilo encontradas:', links);
+				var ok = links.some(h => /pre_inscripcion\.css$/.test(h) || /pre_inscripcion\.css\?/.test(h));
+				console.log('pre_inscripcion.css cargada?', ok);
+				if (!ok) {
+					var warn = document.createElement('div');
+					warn.style.background = '#ffe6e6'; warn.style.color = '#660000'; warn.style.padding = '8px'; warn.style.textAlign = 'center'; warn.style.fontWeight = '700';
+					warn.textContent = 'ATENCIÓN: pre_inscripcion.css NO se detectó cargada. Revisá la ruta y limpiá caché.';
+					document.body.insertBefore(warn, document.body.firstChild);
+				}
+			} catch (e) { console.error('Debug check failed', e); }
+		})();
+	</script>
+
+	<!-- DEBUG: comprobar existencia y estilo del campo Num_Telefono -->
+	<script>
+	(function(){
+	  try{
+	    var el = document.getElementById('Num_Telefono');
+	    console.log('Num_Telefono element present?', !!el, el);
+	    if(el){
+	      var cs = window.getComputedStyle(el);
+	      console.log('Num_Telefono computed:', {display: cs.display, visibility: cs.visibility, opacity: cs.opacity, width: cs.width, height: cs.height});
+	      var panel = el.closest('.panel') || el.closest('.panel-body') || el.closest('.form-group');
+	      if(panel) console.log('Nearest panel/form-group computed display:', window.getComputedStyle(panel).display);
+	    }
+	  }catch(e){ console.error('Num_Telefono debug failed', e); }
+	})();
+	</script>
+
+	<style>
+.campo-obligatorio-faltante {
+    border: 2px solid red !important;
+    background: #fff0f0 !important;
+}
+[data-error]:after {
+    content: attr(data-error);
+    color: red;
+    font-size: 0.9em;
+    display: block;
+    margin-top: 2px;
+}
+</style>
+</body>
+
+</html>

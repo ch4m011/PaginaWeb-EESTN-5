@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Verificar Calendario - BD</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 40px 20px;
+        }
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+        }
+        .header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 40px;
+            text-align: center;
+        }
+        .header h1 {
+            font-size: 36px;
+            margin-bottom: 10px;
+        }
+        .content {
+            padding: 40px;
+        }
+        .section {
+            margin-bottom: 40px;
+        }
+        .section h2 {
+            color: #333;
+            margin-bottom: 20px;
+            font-size: 24px;
+            border-bottom: 3px solid #667eea;
+            padding-bottom: 10px;
+        }
+        .step-box {
+            background: #f8f9fa;
+            padding: 20px;
+            margin-bottom: 15px;
+            border-radius: 8px;
+            border-left: 5px solid #667eea;
+        }
+        .step-title {
+            font-weight: 600;
+            color: #333;
+            margin-bottom: 10px;
+            font-size: 16px;
+        }
+        .step-desc {
+            color: #666;
+            font-size: 14px;
+            line-height: 1.6;
+            margin-bottom: 15px;
+        }
+        .button {
+            display: inline-block;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 12px 24px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+            font-size: 14px;
+            margin-right: 10px;
+            margin-bottom: 10px;
+        }
+        .button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(102, 126, 234, 0.4);
+        }
+        .button-small {
+            padding: 8px 16px;
+            font-size: 12px;
+        }
+        .output {
+            background: #f5f5f5;
+            border: 1px solid #ddd;
+            padding: 15px;
+            border-radius: 5px;
+            font-family: monospace;
+            font-size: 12px;
+            max-height: 300px;
+            overflow-y: auto;
+            margin-top: 10px;
+            color: #333;
+        }
+        .success { color: #4caf50; font-weight: bold; }
+        .error { color: #f44336; font-weight: bold; }
+        .info { color: #2196f3; }
+        .checklist {
+            list-style: none;
+        }
+        .checklist li {
+            padding: 10px 0;
+            border-bottom: 1px solid #eee;
+            color: #666;
+        }
+        .checklist li:before {
+            content: "☐ ";
+            margin-right: 10px;
+            color: #667eea;
+            font-weight: bold;
+        }
+        .code-block {
+            background: #f5f5f5;
+            padding: 15px;
+            border-radius: 5px;
+            font-family: monospace;
+            font-size: 13px;
+            overflow-x: auto;
+            margin: 10px 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>📅 Verificar Sistema de Calendario</h1>
+            <p>Comprueba que los eventos se guardan en BD y aparecen correctamente</p>
+        </div>
+
+        <div class="content">
+            <!-- PASO 1 -->
+            <div class="section">
+                <h2>1️⃣ Insertar Eventos de Prueba</h2>
+                <div class="step-box">
+                    <div class="step-title">Crear eventos de prueba en la BD</div>
+                    <div class="step-desc">
+                        Este script insertará 3 eventos de prueba en la base de datos:
+                        <ul class="checklist">
+                            <li>Evento importante (mañana)</li>
+                            <li>Día feriado (en 5 días)</li>
+                            <li>Día sin clases (en 10 días)</li>
+                        </ul>
+                    </div>
+                    <button class="button button-small" onclick="insertarEventosPrueba()">
+                        ➕ Insertar Eventos de Prueba
+                    </button>
+                    <div id="insert-output" class="output" style="display:none;"></div>
+                </div>
+            </div>
+
+            <!-- PASO 2 -->
+            <div class="section">
+                <h2>2️⃣ Verificar que los Eventos Aparecen</h2>
+                <div class="step-box">
+                    <div class="step-title">Opción A: En el Calendario Flotante (index.html)</div>
+                    <div class="step-desc">
+                        Abre en una nueva pestaña: <br>
+                        <strong>http://localhost/web-escolar/index.html</strong><br>
+                        Busca el botón 📅 en la esquina inferior derecha<br>
+                        Haz click y deberías ver los eventos cargados
+                    </div>
+                    <button class="button button-small" onclick="abrirIndex()">
+                        🌐 Abrir Index
+                    </button>
+                </div>
+
+                <div class="step-box">
+                    <div class="step-title">Opción B: En el Panel del Escritor (panel_escritor.html)</div>
+                    <div class="step-desc">
+                        Abre en una nueva pestaña: <br>
+                        <strong>http://localhost/web-escolar/pagina/panel_escritor.html</strong><br>
+                        Busca el botón "🗓️ Crear Calendario"<br>
+                        Deberías ver los eventos en la sección "Eventos existentes"
+                    </div>
+                    <button class="button button-small" onclick="abrirPanelEscritor()">
+                        📝 Abrir Panel
+                    </button>
+                </div>
+            </div>
+
+            <!-- PASO 3 -->
+            <div class="section">
+                <h2>3️⃣ Verificar API Directamente</h2>
+                <div class="step-box">
+                    <div class="step-title">Obtener eventos desde la API</div>
+                    <div class="step-desc">
+                        Click para consultar la API directamente:
+                    </div>
+                    <button class="button button-small" onclick="testearAPI()">
+                        🔍 Consultar API
+                    </button>
+                    <div id="api-output" class="output" style="display:none;"></div>
+                </div>
+            </div>
+
+            <!-- PASO 4 -->
+            <div class="section">
+                <h2>4️⃣ Crear Nuevo Evento Manualmente</h2>
+                <div class="step-box">
+                    <div class="step-title">Crear un evento desde el panel</div>
+                    <div class="step-desc">
+                        1. Abre: <strong>http://localhost/web-escolar/pagina/panel_escritor.html</strong><br>
+                        2. Click en "🗓️ Crear Calendario"<br>
+                        3. Selecciona una fecha en el calendario<br>
+                        4. Completa el formulario<br>
+                        5. Click en "Guardar Evento"<br>
+                        6. El evento debe aparecer en la sección "Eventos existentes" <strong>inmediatamente</strong><br>
+                        7. El evento también debe aparecer en el panel flotante de index.html
+                    </div>
+                </div>
+            </div>
+
+            <!-- VERIFICACIÓN -->
+            <div class="section">
+                <h2>✅ Checklist de Funcionamiento</h2>
+                <ul class="checklist">
+                    <li>Los eventos de prueba se insertaron correctamente</li>
+                    <li>El panel flotante (index.html) muestra los eventos</li>
+                    <li>El panel de escritor muestra los eventos</li>
+                    <li>La API devuelve los eventos en formato JSON</li>
+                    <li>Se pueden crear nuevos eventos desde el panel</li>
+                    <li>Los nuevos eventos aparecen en la lista</li>
+                    <li>Se pueden editar eventos</li>
+                    <li>Se pueden eliminar eventos</li>
+                </ul>
+            </div>
+
+            <!-- TROUBLESHOOTING -->
+            <div class="section">
+                <h2>⚠️ Si Algo No Funciona</h2>
+                <div class="step-box">
+                    <div class="step-title">Los eventos no aparecen:</div>
+                    <div class="step-desc">
+                        1. Verifica que la API responda: <button class="button button-small" onclick="testearAPI()">Consultar API</button><br>
+                        2. Abre la consola (F12) y busca errores<br>
+                        3. Intenta insertar eventos de prueba nuevamente<br>
+                        4. Recarga la página (F5)
+                    </div>
+                </div>
+
+                <div class="step-box">
+                    <div class="step-title">Error "No se puede conectar":</div>
+                    <div class="step-desc">
+                        1. Verifica que MySQL esté corriendo<br>
+                        2. Verifica que la BD web_escolar exista<br>
+                        3. Abre setup.html: <button class="button button-small" onclick="abrirSetup()">Setup</button>
+                    </div>
+                </div>
+
+                <div class="step-box">
+                    <div class="step-title">Error en la consola del navegador:</div>
+                    <div class="step-desc">
+                        1. Abre la consola (F12 → Console)<br>
+                        2. Copia el error completo<br>
+                        3. Busca "CORS" o "fetch" en el error<br>
+                        4. Si es un error de API, verifica que api_calendario.php exista en date/
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function insertarEventosPrueba() {
+            const output = document.getElementById('insert-output');
+            output.style.display = 'block';
+            output.innerHTML = '<span class="info">Insertando eventos de prueba...</span>';
+
+            fetch('insert_test_events.php')
+                .then(r => r.json())
+                .then(data => {
+                    if (data.success) {
+                        output.innerHTML = `
+                            <span class="success">✓ Éxito</span><br>
+                            Eventos insertados: ${data.insertados}<br>
+                            ${data.errores.length > 0 ? 'Errores: ' + data.errores.join('<br>') : ''}
+                            <br><br>
+                            <strong>Próximo paso:</strong><br>
+                            Abre index.html o panel_escritor.html<br>
+                            Los eventos deberían estar visibles
+                        `;
+                    } else {
+                        output.innerHTML = `<span class="error">✗ Error: ${data.error || 'Desconocido'}</span>`;
+                    }
+                })
+                .catch(err => {
+                    output.innerHTML = `<span class="error">✗ Error: ${err.message}</span>`;
+                });
+        }
+
+        function testearAPI() {
+            const output = document.getElementById('api-output');
+            output.style.display = 'block';
+            output.innerHTML = '<span class="info">Consultando API...</span>';
+
+            fetch('api_calendario.php?action=obtener&orden=ASC')
+                .then(r => r.json())
+                .then(data => {
+                    let html = '<span class="success">✓ API respondió correctamente</span><br><br>';
+                    html += `Total de eventos: <strong>${data.length || 0}</strong><br><br>`;
+                    html += 'Respuesta JSON:<br>';
+                    html += '<pre>' + JSON.stringify(data, null, 2) + '</pre>';
+                    output.innerHTML = html;
+                })
+                .catch(err => {
+                    output.innerHTML = `<span class="error">✗ Error: ${err.message}</span><br>
+                        La API podría no estar disponible.<br>
+                        Verifica que api_calendario.php exista en: date/api_calendario.php`;
+                });
+        }
+
+        function abrirIndex() {
+            window.open('../index.html', '_blank');
+        }
+
+        function abrirPanelEscritor() {
+            window.open('../pagina/panel_escritor.html', '_blank');
+        }
+
+        function abrirSetup() {
+            window.open('setup.html', '_blank');
+        }
+    </script>
+</body>
+</html>

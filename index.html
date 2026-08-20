@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <link rel="icon" type="image/png" href="img_logo/logo-tecnica.png">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Escuela Técnica - Inicio</title>
+
+  <!-- Estilos -->
+  <link rel="stylesheet" href="css/navegador.css">
+  <link rel="stylesheet" href="css/index.css">
+  <link rel="stylesheet" href="css/noticias.css">
+  <link rel="stylesheet" href="css/calendario.css">
+
+  <!-- Scripts -->
+  <script src="js/navbar.js" defer></script>
+  <script src="js/index_noticias.js" defer></script>
+  <script src="js/calendario_flotante.js" defer></script>
+</head>
+
+<body>
+
+  <!-- HEADER / NAVBAR -->
+  <header class="navegador">
+    <!-- FILA 1: LOGO CON IMÁGENES A LOS LADOS -->
+    <div class="logo">
+      <div class="logo-container">
+        <img src="img_logo/logo-tecnica.png" alt="E.E.S.T. Nro 5" class="logo-img logo-left">
+        <h1>
+          <a href="index.html">E.E.S.T. Nro 5 - "Gral. Manuel N. Savio"</a>
+        </h1>
+      </div>
+    </div>
+
+    <!-- <div class="buscador">
+      <input type="text" id="buscarNoticias" placeholder="Buscar noticias..." />
+      <button id="btnBuscar">🔍</button>
+    </div>
+     -->
+    <nav id="navPrincipal" class="navbar"></nav>
+  </header>
+
+  <!-- SLIDER DE NOTICIAS -->
+  <div class="slider">
+    <div class="slides" id="noticiasSlider"></div>
+  </div>
+
+  <!-- GRID DE NOTICIAS -->
+  <main>
+    <h2>Últimas Noticias</h2>
+    <div id="noticiasContainer"></div>
+  </main>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-main">© 2025 Escuela Técnica - La Plata</div>
+    <div class="footer-devs">Desarrolladores: Belawsky Lautaro, Sanchez Dylan, Cantero Eduardo, Sonco Fabio</div>
+  </footer>
+
+  <!-- ICONO Y PANEL CALENDARIO -->
+  <div id="btnCalendarioFlotante" class="calendario-flotante" title="Fechas importantes">📅</div>
+  <div id="panelCalendario" class="panel-calendario" aria-hidden="true">
+    <div class="panel-header">
+      <h3>Fechas Importantes</h3>
+      <button id="cerrarPanelCalendario" class="cerrar-btn">❌</button>
+    </div>
+    <ul id="panelEventosLista"></ul>
+  </div>
+
+</body>
+
+</html>

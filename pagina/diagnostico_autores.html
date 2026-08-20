@@ -1,0 +1,105 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Diagnóstico de Autores - Web Escolar</title>
+  <style>
+    body{font-family:Arial,Helvetica,sans-serif;margin:20px;color:#222}
+    table{border-collapse:collapse;width:100%;margin-top:12px}
+    th,td{border:1px solid #ddd;padding:8px;text-align:left}
+    th{background:#f4f4f4}
+    tr.warn td{background:#fff7e6}
+    .ok{color:green;font-weight:600}
+    .bad{color:#c00;font-weight:600}
+    .controls{display:flex;gap:8px;align-items:center}
+    pre{background:#f8f8f8;padding:10px;border:1px solid #eee;overflow:auto}
+  </style>
+</head>
+<body>
+  <h1>Diagnóstico de Autores</h1>
+  <p>Esta página muestra si cada noticia encontró un <strong>usuario</strong> coincidente por <code>autor_id</code> o <code>autor_email</code>. No necesitas copiar JSON: abre esta página en tu navegador.</p>
+
+  <div class="controls">
+    <button id="btnRefresh">Actualizar</button>
+    <button id="btnDownload">Descargar JSON</button>
+    <span id="status">&nbsp;</span>
+  </div>
+
+  <div id="tableWrap"></div>
+  <h3>Detalles (raw)</h3>
+  <pre id="raw"></pre>
+
+  <script>
+    const api = '../php/diagnose_authors.php';
+    const btn = document.getElementById('btnRefresh');
+    const btnD = document.getElementById('btnDownload');
+    const status = document.getElementById('status');
+    const wrap = document.getElementById('tableWrap');
+    const raw = document.getElementById('raw');
+
+    async function load() {
+      status.textContent = 'Cargando...';
+      try {
+        const res = await fetch(api, {cache: 'no-store'});
+        if (!res.ok) throw new Error('HTTP ' + res.status);
+        const data = await res.json();
+        raw.textContent = JSON.stringify(data, null, 2);
+        renderTable(data);
+        status.textContent = `Registros: ${data.length}`;
+      } catch (e) {
+        status.textContent = 'Error: ' + e.message;
+        wrap.innerHTML = '';
+        raw.textContent = '';
+      }
+    }
+
+    function renderTable(rows) {
+      if (!Array.isArray(rows)) { wrap.innerHTML = '<p>Respuesta inválida</p>'; return; }
+      if (rows.length === 0) { wrap.innerHTML = '<p>No hay noticias</p>'; return; }
+
+      const table = document.createElement('table');
+      const thead = document.createElement('thead');
+      thead.innerHTML = '<tr><th>ID</th><th>Título</th><th>autor_id</th><th>autor_email (raw)</th><th>autor_email norm</th><th>Match</th><th>Detalles</th></tr>';
+      table.appendChild(thead);
+      const tb = document.createElement('tbody');
+
+      rows.forEach(r => {
+        const tr = document.createElement('tr');
+        if (!r.matched) tr.classList.add('warn');
+        const details = r.match ? (r.match.user ? `${r.match.by} → ${r.match.user.nombre || ''} ${r.match.user.apellido || ''} (${r.match.user.correo || r.match.user.email || ''})` : JSON.stringify(r.match)) : '';
+        tr.innerHTML = `
+          <td>${r.noticia_id}</td>
+          <td>${escapeHtml(r.titulo || '')}</td>
+          <td>${r.autor_id || ''}</td>
+          <td>${escapeHtml(r.autor_email_raw || '')}</td>
+          <td>${escapeHtml(r.autor_email_norm || '')}</td>
+          <td>${r.matched ? '<span class="ok">OK</span>' : '<span class="bad">NO</span>'}</td>
+          <td>${escapeHtml(details)}</td>
+        `;
+        tb.appendChild(tr);
+      });
+      table.appendChild(tb);
+      wrap.innerHTML = '';
+      wrap.appendChild(table);
+    }
+
+    function escapeHtml(s){ return String(s || '').replace(/[&<>"']/g, c=> ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":"&#039;"})[c]); }
+
+    btn.addEventListener('click', load);
+    btnD.addEventListener('click', async () => {
+      try {
+        const res = await fetch(api, {cache:'no-store'});
+        const text = await res.text();
+        const blob = new Blob([text], {type:'application/json'});
+        const url = URL.createObjectURL(blob);
+        const a = document.createElement('a');
+        a.href = url; a.download = 'diagnose_authors.json'; document.body.appendChild(a); a.click(); a.remove();
+      } catch(e){ alert('Error: ' + e.message); }
+    });
+
+    // carga inicial
+    load();
+  </script>
+</body>
+</html>

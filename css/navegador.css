@@ -1,0 +1,565 @@
+/* =============================
+   NAVBAR UNIVERSAL INSPIRADO EN PLAYSTATION
+   ============================= */
+
+
+
+.navegador {
+    margin-bottom: 0;   /* evitar huecos debajo del header */
+    position: sticky;   /* ya estaba, reafirmar */
+    top: 0;
+    z-index: 1100;      /* por encima de otros elementos (slider) */
+}
+
+/* Ajuste: acercar título al logo y centrar buscador sin cambiar altura del navbar */
+.navegador {
+  display: flex;
+  align-items: center;
+  gap: 12px; /* separación general entre columnas (logo - buscador - navbar) */
+}
+
+.navegador {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: #0b0b2b;
+  color: #fff;
+  padding: 1rem 2rem;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  font-family: 'Segoe UI', sans-serif;
+  transition: background 0.3s ease;
+}
+
+/* -------- LOGO -------- */
+.navegador .logo {
+  flex: 1 1 auto;
+}
+
+/* Logo: no cambiar tamaño del icono, sólo reducir el espacio entre elementos */
+.navegador .logo {
+  display: flex;
+  align-items: center;
+  flex: 0 0 auto; /* no crece ni encoge */
+}
+
+.navegador .logo .logo-container {
+  display: flex;
+  align-items: center;
+  gap: 6px;        /* <- espacio reducido entre imagen y texto (ajustar si querés más cerca) */
+}
+
+/* nombre centrado y tamaño adaptativo */
+.navegador .logo h1 {
+  font-size: 1.15rem;
+  margin: 0;
+  line-height: 1;
+  text-align: center;
+  flex: 1 1 auto;
+}
+
+/* Asegurar que el título no tenga padding/margin lateral que lo aleje */
+.navegador .logo h1 {
+  margin: 0;
+  padding: 0;
+  line-height: 1;
+  font-size: 1.05rem; /* conservar tamaño aproximado; ajustar si hace falta */
+  white-space: nowrap; /* evita saltos y mantiene el texto pegado al logo */
+}
+
+/* responsive */
+@media (max-width: 992px) {
+  .logo-img { width: 60px; height: 60px; max-width: 20%; max-height: 60px; }
+  .navegador .logo h1 { font-size: 1rem; }
+}
+
+@media (max-width: 480px) {
+  .logo-img { width: 40px; height: 40px; max-width: 22%; max-height: 40px; }
+  .navegador .logo .logo-container { gap: 8px; }
+  .navegador .logo h1 { font-size: 0.95rem; }
+}
+
+.logo-img {
+  width: 72px;
+  height: 72px;
+  max-width: 18%;
+  max-height: 72px;
+  object-fit: contain;
+  object-position: center;
+  display: block;
+}
+
+.navegador .logo a {
+  color: #fff;
+  text-decoration: none;
+  font-weight: bold;
+  transition: color 0.3s ease;
+}
+
+.navegador .logo a:hover {
+  color: #4da6ff;
+  text-shadow: 0 0 8px #4da6ff;
+}
+
+/* -------- BUSCADOR -------- */
+.buscador {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+/* Buscador: ocupa el espacio central y se centra visualmente */
+.navegador .buscador {
+  flex: 1 1 auto;           /* toma el espacio disponible entre logo y botones */
+  display: flex;
+  justify-content: center;  /* centra el input dentro de la columna */
+  align-items: center;
+  min-width: 220px;         /* evita que colapse demasiado en pantallas pequeñas */
+}
+
+.buscador input {
+  background: #1a1a3d;
+  border: 1px solid #2e2e5c;
+  color: #fff;
+  padding: 0.5rem 0.8rem;
+  border-radius: 8px;
+  width: 200px;
+  transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+/* Input: ancho razonable y responsive */
+.navegador .buscador input {
+  width: 60%;               /* ocupa el 60% del espacio de la columna central */
+  max-width: 560px;         /* límite superior para que no sea demasiado ancho */
+  min-width: 180px;
+  box-sizing: border-box;
+}
+
+.buscador input:focus {
+  outline: none;
+  border-color: #4da6ff;
+  box-shadow: 0 0 8px #4da6ff;
+}
+
+.buscador button {
+  background: #4da6ff;
+  border: none;
+  color: #fff;
+  border-radius: 8px;
+  padding: 0.5rem 0.8rem;
+  cursor: pointer;
+  transition: background 0.3s, transform 0.2s, box-shadow 0.3s;
+}
+
+.buscador button:hover {
+  background: #3385ff;
+  transform: scale(1.05);
+  box-shadow: 0 0 8px #3385ff;
+}
+
+/* -------- NAVBAR BOTONES -------- */
+.navbar {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+/* Alinear la barra de botones a la derecha y acercarla al borde */
+.navegador .navbar {
+  margin-left: auto;        /* empuja la navbar hacia la derecha */
+  margin-right: 8px;        /* separación pequeña desde el borde derecho */
+  justify-content: flex-end;
+}
+
+/* Reducir el espacio entre elementos dentro de la navbar para que queden más pegados */
+.navegador .navbar > * {
+  margin-left: 0.5rem;
+  margin-right: 0; 
+}
+
+/* Afinar padding del header en pantallas grandes si querés que queden aún más al borde */
+@media (min-width: 1200px) {
+  .navegador { padding-right: 0.5rem; }
+}
+
+.nav-link,
+.btn-login,
+.user-container {
+  white-space: nowrap;
+}
+
+/* Links principales */
+.nav-link {
+  color: #fff;
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.3s ease, text-shadow 0.3s;
+}
+
+.nav-link:hover {
+  color: #4da6ff;
+  text-shadow: 0 0 8px #4da6ff;
+}
+
+/* -------- LOGIN -------- */
+.btn-login {
+  background: #4da6ff;
+  border: none;
+  color: #fff;
+  font-weight: bold;
+  border-radius: 8px;
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+  transition: background 0.3s, transform 0.2s, box-shadow 0.3s;
+}
+
+.btn-login:hover {
+  background: #3385ff;
+  transform: scale(1.05);
+  box-shadow: 0 0 8px #3385ff;
+}
+
+/* -------- PERFIL -------- */
+.user-container {
+  display: flex;
+  align-items: center;   /* ✅ centra verticalmente imagen + nombre */
+  justify-content: center;
+  position: relative;
+  gap: 0.6rem;
+  transition: transform 0.2s;
+}
+
+.user-img {
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid #4da6ff;
+  transition: transform 0.2s, box-shadow 0.3s;
+}
+
+.user-img:hover {
+  transform: scale(1.1);
+  box-shadow: 0 0 8px #4da6ff;
+}
+
+.user-btn {
+  display: flex;          /* ✅ asegura alineación vertical del texto */
+  align-items: center;    /* ✅ centra el nombre con la imagen */
+  justify-content: center;
+  background: none;
+  border: none;
+  color: #fff;
+  font-weight: 600;
+  cursor: pointer;
+  font-size: 0.95rem;
+  padding: 0;             /* quita espacio extra del botón */
+  line-height: 38px;      /* igual al alto de la imagen */
+  transition: color 0.3s, text-shadow 0.3s;
+}
+
+.user-btn:hover {
+  color: #4da6ff;
+  text-shadow: 0 0 6px #4da6ff;
+}
+
+/* -------- MENÚ DESPLEGABLE -------- */
+.user-menu {
+  display: none;
+  flex-direction: column;
+  position: absolute;
+  top: 120%;
+  right: 0;
+  background: #1a1a3d;
+  border-radius: 10px;
+  box-shadow: 0 6px 12px rgba(0,0,0,0.4);
+  min-width: 180px;
+  overflow: hidden;
+  opacity: 0;
+  transform: translateY(-10px);
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.user-menu.show {
+  display: flex;
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.user-menu a,
+.user-menu button {
+  padding: 0.8rem 1rem;
+  text-align: left;
+  border: none;
+  background: none;
+  color: #fff;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: background 0.3s;
+  text-decoration: none;
+}
+
+.user-menu a:hover,
+.user-menu button:hover {
+  background: #2e2e5c;
+}
+
+/* -------- RESPONSIVE -------- */
+@media (max-width: 768px) {
+  .navegador {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.6rem;
+    padding: 1rem;
+  }
+
+  .buscador {
+    width: 100%;
+  }
+
+  .buscador input {
+    flex: 1;
+  }
+
+  .navbar {
+    width: 100%;
+    justify-content: flex-start;
+    gap: 0.5rem;
+  }
+
+  .user-container {
+    margin-top: 0.5rem;
+  }
+
+  .navegador .logo .logo-container { gap: 6px; }
+  .navegador .buscador input { width: 78%; max-width: 360px; }
+  .navegador { gap: 8px; }
+}
+
+/* ===============================
+   Estilos de autocompletado
+   =============================== */
+.sugerencias {
+  position: absolute;
+  background: #f8faff;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  max-height: 160px;
+  overflow-y: auto;
+  width: 100%;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+  z-index: 1000;
+  display: none;
+}
+
+.sugerencia-item {
+  padding: 8px 10px;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.sugerencia-item:hover {
+  background: #e4f1ff;
+  color: #004080;
+}
+
+/* -------- PERFIL EN NAVEGACIÓN -------- */
+.nav-profile {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 0 15px;
+}
+
+.nav-profile .profile-img {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #f0f0f0;
+}
+
+.nav-profile .profile-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.nav-profile .profile-name {
+  color: #ffffff;
+  font-size: 0.95rem;
+  font-weight: 500;
+  white-space: nowrap;
+}
+
+/* ==============================
+   Forzar estilos en página de preinscripción
+   cuando el header tenga la clase .nav-large
+   ============================== */
+header.navegador.nav-large .navbar > *,
+header.navegador.nav-large .navbar a,
+header.navegador.nav-large .navbar button,
+header.navegador.nav-large .navbar .nav-link {
+  display: inline-block !important;
+  padding: 10px 14px !important; /* alto visual similar a Contacto */
+  margin-left: 8px !important;
+  font-size: 15px !important; /* px para evitar variaciones por rem */
+  font-weight: 600 !important;
+  line-height: 48px !important; /* centra verticalmente con avatar */
+}
+
+header.navegador.nav-large .btn-login,
+header.navegador.nav-large .btn-registrarse {
+  padding: 10px 16px !important;
+  font-size: 15px !important;
+  border-radius: 8px !important;
+}
+
+header.navegador.nav-large .user-container { gap: 0.9rem !important; }
+header.navegador.nav-large .user-img,
+header.navegador.nav-large .nav-avatar img,
+header.navegador.nav-large #imgPerfilNav,
+.perfil-img {
+  width: 50px !important;
+  height: 50px !important;
+  min-width: 50px !important;
+  min-height: 50px !important;
+  border: 3px solid #4da6ff !important;
+}
+
+header.navegador.nav-large .user-btn {
+  font-size: 15px !important;
+  line-height: 50px !important;
+  padding: 0 8px !important;
+}
+
+/* Ocultar el buscador y centrar la navbar en páginas nav-large (preinscripción) */
+header.navegador.nav-large .buscador {
+  display: none !important;
+}
+
+/* Centrar la barra de navegación para que los botones queden en la misma posición que en contacto */
+header.navegador.nav-large .navbar {
+  margin: 0 auto !important;
+  justify-content: center !important;
+  gap: 1.2rem !important;
+}
+
+/* Agrandar el nombre de la institución en la cabecera para que coincida visualmente con Contacto */
+header.navegador.nav-large .logo h1 {
+  font-size: 1.2rem !important;
+  font-weight: 700 !important;
+  line-height: 1 !important;
+}
+
+/* Estilo para el botón Registrarse */
+.btn-registrarse,
+button[value="Registrarse"] {
+    background-color: #007bff;
+    color: white;
+    padding: 8px 16px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: background-color 0.3s ease;
+}
+
+.btn-registrarse:hover,
+button[value="Registrarse"]:hover {
+    background-color: #0056b3;
+}
+
+/* Si el botón está dentro del header o nav */
+.header button[value="Registrarse"],
+nav button[value="Registrarse"] {
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+/* Responsive: alinear verticalmente en pantallas pequeñas */
+@media (max-width: 768px) {
+  .nav-profile {
+    flex-direction: column;
+    gap: 5px;
+    padding: 10px 0;
+  }
+}
+
+.panel-link {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  padding: 8px 15px;
+  color: #fff;
+  background-color: #2c3e50;
+  border-radius: 4px;
+  transition: background-color 0.3s;
+}
+
+.panel-link:hover {
+  background-color: #34495e;
+}
+
+.panel-link i {
+  font-size: 16px;
+}
+
+.usuario-nav {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  top: 100%;
+  right: 0;
+  background-color: #fff;
+  min-width: 160px;
+  box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+  z-index: 1;
+  border-radius: 4px;
+}
+
+.usuario-nav:hover .dropdown-content {
+  display: block;
+}
+
+.dropdown-content a {
+  color: #333;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+
+.dropdown-content a:hover {
+  background-color: #f5f5f5;
+}
+
+/* Ultimo override: forzar navbar de nav-large a la derecha y reducir espaciado entre botones */
+header.navegador.nav-large .navbar {
+  margin-left: auto !important; /* empuja la navbar al borde derecho */
+  margin-right: 4px !important; /* muy cerca del borde */
+  justify-content: flex-end !important;
+  gap: 0.35rem !important; /* más apretado */
+}
+
+header.navegador.nav-large .navbar > * {
+  margin-left: 4px !important; /* menos separación entre items */
+  margin-right: 0 !important;
+  padding: 6px 8px !important; /* reducir padding lateral para compactar */
+  font-size: 1.03rem !important;
+}
+
+/* Ajuste del logo/título para mantener alineación vertical */
+header.navegador.nav-large .logo h1 { line-height: 48px !important; }
+

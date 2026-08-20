@@ -1,0 +1,251 @@
+/* ==============================
+   LOGIN - ESTILO LIMPIO PREMIUM
+   ============================== */
+
+body {
+  font-family: 'Poppins', sans-serif;
+  background: linear-gradient(135deg, #0b0b2b, #1a1a40);
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  margin: 0;
+}
+
+.login-contenedor {
+  background: #fff;
+  color: #333;
+  border-radius: 1rem;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+  padding: 2.5rem;
+  width: 100%;
+  max-width: 400px;
+}
+
+.login-formulario h2 {
+  text-align: center;
+  color: #0b0b2b;
+  margin-bottom: 0.5rem;
+}
+
+.descripcion {
+  text-align: center;
+  color: #666;
+  margin-bottom: 1.5rem;
+}
+
+.campo {
+  margin-bottom: 1rem;
+}
+
+.campo label {
+  display: block;
+  font-weight: 500;
+  margin-bottom: 0.4rem;
+}
+
+.campo input {
+  width: 100%;
+  padding: 0.6rem;
+  border: 1px solid #ccc;
+  border-radius: 0.4rem;
+  transition: border-color 0.2s;
+  box-sizing: border-box;
+}
+
+.campo input:focus {
+  border-color: #0b0b2b;
+  outline: none;
+}
+
+.error {
+  display: none;
+  color: #d93025;
+  font-size: 0.85rem;
+  margin-top: 0.3rem;
+}
+
+.btn-login {
+  width: 100%;
+  background: #0b0b2b;
+  color: #fff;
+  border: none;
+  padding: 0.7rem;
+  font-size: 1rem;
+  border-radius: 0.4rem;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.btn-login:hover {
+  background: #1c1c5e;
+}
+
+.divider {
+  text-align: center;
+  margin: 1rem 0;
+  color: #666;
+  font-weight: 500;
+}
+
+.registrarse {
+  text-align: center;
+  margin-top: 1rem;
+}
+
+.registrarse a {
+  color: #0b0b2b;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.mensaje {
+  display: none;
+  text-align: center;
+  padding: 0.7rem;
+  border-radius: 0.4rem;
+  margin-bottom: 1rem;
+  font-size: 0.95rem;
+}
+
+.mensaje.error {
+  background: #fdecea;
+  color: #b71c1c;
+}
+
+.mensaje.ok {
+  background: #e8f5e9;
+  color: #2e7d32;
+}
+
+.mensaje-error {
+    color: #dc3545;
+    background-color: #f8d7da;
+    border: 1px solid #f5c6cb;
+    padding: 10px;
+    margin: 10px 0;
+    border-radius: 4px;
+    display: none;
+}
+
+.mensaje-error.visible {
+    display: block;
+}
+
+/* Error input */
+.campo input.error-input {
+  border-color: #e53935 !important;
+  background-color: #fff6f6;
+}
+
+/* Animación de shake para errores */
+@keyframes inputErrorShake {
+  0% { transform: translateX(0); }
+  25% { transform: translateX(-3px); }
+  50% { transform: translateX(3px); }
+  75% { transform: translateX(-3px); }
+  100% { transform: translateX(0); }
+}
+
+.campo input.error-input {
+  animation: inputErrorShake 0.2s ease-in-out;
+}
+
+/* =====================
+   BOTÓN VOLVER FIJO
+   ===================== */
+.btn-volver {
+  position: fixed;
+  top: 20px;
+  left: 25px;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(4px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  color: #fff;
+  font-size: 1.05rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  border-radius: 8px;
+  padding: 0.4rem 0.8rem;
+  z-index: 9999;
+}
+
+.btn-volver svg {
+  width: 18px;
+  height: 18px;
+  fill: currentColor;
+}
+
+.btn-volver:hover {
+  background: rgba(255, 255, 255, 0.2);
+  color: #d0d0ff;
+  transform: translateX(-3px);
+}
+
+@media (max-width: 500px) {
+  body { padding-top: 60px; }
+  .btn-volver {
+    top: 10px;
+    left: 10px;
+    font-size: 0.95rem;
+    padding: 0.3rem 0.7rem;
+  }
+}
+
+/* =====================
+   CAMPO CONTRASEÑA PREMIUM
+   ===================== */
+.password-wrapper {
+  position: relative;
+}
+
+.password-wrapper input {
+  width: 100%;
+  padding-right: 3rem; /* espacio extra del ojo */
+  height: 2.8rem;
+  line-height: 1.4;
+  border-radius: 0.4rem;
+  box-sizing: border-box;
+}
+
+.toggle-password {
+  position: absolute;
+  right: 20px; /* más separado del borde */
+  top: 50%;
+  transform: translateY(-50%);
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+}
+
+.toggle-password svg {
+  width: 20px;
+  height: 20px;
+  stroke: #666;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) rotate(0deg);
+  transition: opacity 0.25s ease, transform 0.4s ease, stroke 0.2s;
+}
+
+.toggle-password svg.eye-open {
+  opacity: 1;
+}
+
+.toggle-password svg.eye-closed {
+  opacity: 0;
+}
+
+.toggle-password:hover svg {
+  stroke: #0b0b2b;
+}

@@ -1,0 +1,155 @@
+/* =====================
+   ESTILOS GENERALES
+   ===================== */
+body {
+  margin: 0;
+  background: linear-gradient(135deg, #0b0b29, #25255c);
+  font-family: 'Poppins', sans-serif;
+  color: #fff;
+  min-height: 100vh;
+}
+
+/* ---------------------
+   Variables para imágenes (ajusta aquí)
+   - Cambiá estos valores para controlar ancho/alto/comportamiento
+   - Podés usar unidades px, %, vh o las palabras 'auto'
+----------------------*/
+:root {
+  --main-img-width: 90%;            /* ancho de la imagen principal (90% centrado) */
+  --main-img-height: auto;          /* altura automática para mantener proporción */
+  --main-img-max-height: 50vh;      /* límite máximo (viewport height) */
+  --main-img-object-fit: contain;   /* mostrar la imagen completa (no crop) */
+  --main-img-mobile-height: 40vh;   /* altura en móvil (vh o px) */
+  --background-size: cover;
+  --secondary-img-max-width: 90%;   /* ancho máximo para imágenes dentro del contenido */
+}
+
+
+/* CONTENEDOR PRINCIPAL */
+.contenido-noticia {
+  max-width: 900px;
+  margin: 6rem auto 3rem;
+  padding: 2rem;
+  background: #fff;
+  color: #333;
+  border-radius: 1rem;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+}
+
+/* TÍTULO Y AUTOR */
+.contenido-noticia h1 {
+  color: #0b0b2b;
+  margin-bottom: 0.5rem;
+  font-size: 2rem;
+  line-height: 1.2;
+}
+
+.contenido-noticia .autor {
+  color: #666;
+  font-size: 0.95rem;
+  margin-bottom: 1rem;
+}
+
+/* MINIATURA/IMAGEN DESTACADA: mostrar la imagen completa sin recortar */
+.imagen-wrapper { display:flex; justify-content:center; }
+
+.contenido-noticia .imagen-noticia {
+  /* Valores controlados por variables arriba (ver :root) */
+  width: var(--main-img-width);
+  height: var(--main-img-height);
+  max-height: var(--main-img-max-height);
+  max-width: 100%;
+  object-fit: var(--main-img-object-fit);
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  margin-bottom: 1.5rem;
+  display: block;
+}
+
+/* CONTENIDO HTML DE LA NOTICIA */
+.contenido-noticia .contenido {
+  font-size: 1rem;
+  line-height: 1.7;
+  color: #333;
+}
+
+/* IMÁGENES DENTRO DEL CONTENIDO (insertadas por editor) */
+.contenido-noticia .contenido img {
+  max-width: var(--secondary-img-max-width);   /* controlá aquí el ancho de las secundarias */
+  width: auto;
+  height: auto;
+  object-fit: contain;
+  display:block;
+  margin: 1rem auto;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+}
+
+/* Permitir alineación flotante si el usuario la aplica */
+.contenido-noticia .contenido img.float-left {
+  float: left;
+  margin: 1rem 1rem 1rem 0;
+  max-width: 50%;
+}
+
+.contenido-noticia .contenido img.float-right {
+  float: right;
+  margin: 1rem 0 1rem 1rem;
+  max-width: 50%;
+}
+
+/* Limpiar floats después del contenido */
+.contenido-noticia .contenido::after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+/* =====================
+   BOTÓN VOLVER FIJO (ESTILO PREMIUM)
+   ===================== */
+.btn-volver {
+  position: fixed;
+  top: 90px;
+  left: 25px;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(6px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  color: #fff;
+  font-size: 1.05rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  border-radius: 8px;
+  padding: 0.4rem 0.8rem;
+  z-index: 9999;
+}
+
+.btn-volver svg {
+  width: 18px;
+  height: 18px;
+  fill: currentColor;
+}
+
+.btn-volver:hover {
+  background: rgba(255, 255, 255, 0.2);
+  color: #d0d0ff;
+  transform: translateX(-3px);
+}
+
+/* RESPONSIVE */
+@media (max-width: 500px) {
+  body {
+    padding-top: 60px;
+  }
+  .btn-volver {
+    top: 10px;
+    left: 10px;
+    font-size: 0.95rem;
+    padding: 0.3rem 0.7rem;
+  }
+  .contenido-noticia .imagen-noticia { height: var(--main-img-mobile-height); } /* móvil */
+}

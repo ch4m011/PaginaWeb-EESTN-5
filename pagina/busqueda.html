@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <link rel="icon" type="image/png" href="../img_logo/logo-tecnica.png">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Resultados de búsqueda</title>
+  <link rel="stylesheet" href="../css/busqueda.css">
+  <link rel="stylesheet" href="../css/navegador.css" />
+</head>
+<body>
+     <!-- HEADER / NAVBAR -->
+  <header class="navegador">
+    <div class="logo">
+      <h1><a href="../index.html">E.E.S.T. Nro 5 - "Gral. Manuel N. Savio</a></h1>
+    </div>
+
+    <h1>Resultados de búsqueda</h1>
+
+    <div class="buscador">
+      <input type="text" id="buscarNoticias" placeholder="Buscar noticias..." />
+      <button id="btnBuscar">🔍</button>
+    </div>
+
+    <nav id="navPrincipal" class="navbar"></nav>
+  </header>
+
+  <main>
+    <div id="resultadosContainer" class="noticias-grid">
+      <p class="cargando">Cargando resultados...</p>
+    </div>
+  </main>
+
+  <script src="../js/busqueda.js"></script>
+  <script src="../js/navbar.js" defer></script>
+</body>
+</html>

@@ -1,0 +1,515 @@
+/* =============================
+   NAVBAR UNIVERSAL INSPIRADO EN PLAYSTATION
+   ============================= */
+
+/* Reset básico */
+html, body {
+  margin: 0;
+  padding: 0;
+}
+
+/* CONTENEDOR PRINCIPAL - Filas centradas */
+.navegador {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: #0b0b2b;
+  color: #fff;
+  padding: 1.5rem 2rem;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  font-family: 'Segoe UI', sans-serif;
+  transition: background 0.3s ease;
+  gap: 1.2rem;
+  margin-bottom: 0;
+}
+
+/* Evitar que el navbar sticky tape el slider */
+:root {
+  --navegador-height: 120px; /* fallback */
+}
+
+/* Quitar paddings antiguos y empujar el contenido exactamente la altura del navbar */
+main,
+.page,
+.contenido-principal {
+  padding-top: calc(var(--navegador-height, 120px)) !important;
+  margin-top: 0 !important;
+}
+
+/* Forzar que el slider no tenga margin superior extra */
+.slider,
+.home-slider,
+.carousel,
+.carousel-inner,
+#slider,
+.owl-carousel {
+  margin-top: 0 !important;
+  padding-top: 0 !important;
+}
+
+/* Si necesitás depurar qué elemento queda debajo del navbar, descomenta esta línea temporalmente */
+/* .navegador + * { outline: 2px dashed rgba(255,0,0,0.12); } */
+
+/* -------- FILA 1: LOGO CON IMÁGENES -------- */
+.navegador .logo {
+  width: 100%;
+  text-align: center;
+  margin: 0;
+  padding: 0;
+}
+
+.logo-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 2rem;
+  flex-wrap: wrap;
+}
+
+.logo-img {
+  width: 80px;
+  height: 80px;
+  object-fit: contain;
+  flex-shrink: 0;
+}
+
+.logo-left {
+  order: 1;
+}
+
+.navegador .logo h1 {
+  font-size: 1.8rem;
+  margin: 0;
+  letter-spacing: 1px;
+  order: 2;
+  font-weight: bold;
+  line-height: 1.3;
+}
+
+.logo-right {
+  order: 3;
+}
+
+.navegador .logo a {
+  color: #fff;
+  text-decoration: none;
+  font-weight: bold;
+  transition: color 0.3s ease;
+}
+
+.navegador .logo a:hover {
+  color: #4da6ff;
+  text-shadow: 0 0 8px #4da6ff;
+}
+
+/* -------- FILA 2: NAVBAR BOTONES (SIN RECUADRO) -------- */
+.navbar {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  flex-wrap: wrap;
+  justify-content: center;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+.nav-link,
+.btn-login,
+.user-container {
+  white-space: nowrap;
+}
+
+/* Links principales - SIN BORDE */
+.nav-link {
+  color: #fff;
+  text-decoration: none;
+  font-weight: 600;
+  transition: color 0.3s ease, text-shadow 0.3s;
+  padding: 0;
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 1.1rem;
+}
+
+.nav-link:hover {
+  color: #4da6ff;
+  text-shadow: 0 0 8px #4da6ff;
+}
+
+/* -------- LOGIN -------- */
+.btn-login {
+  background: #4da6ff;
+  border: none;
+  color: #fff;
+  font-weight: bold;
+  border-radius: 8px;
+  padding: 0.7rem 1.2rem;
+  cursor: pointer;
+  transition: background 0.3s, transform 0.2s, box-shadow 0.3s;
+  font-size: 1rem;
+}
+
+.btn-login:hover {
+  background: #3385ff;
+  transform: scale(1.05);
+  box-shadow: 0 0 8px #3385ff;
+}
+
+/* -------- PERFIL (AVATAR + NOMBRE) -------- */
+.user-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  gap: 0.8rem;
+  transition: transform 0.2s;
+  padding: 0;
+  background: none;
+  border: none;
+}
+
+.user-img {
+  width: 50px;
+  height: 50px;
+  min-width: 50px;
+  min-height: 50px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 3px solid #4da6ff;
+  transition: transform 0.2s, box-shadow 0.3s;
+  flex-shrink: 0;
+}
+
+.user-img:hover {
+  transform: scale(1.1);
+  box-shadow: 0 0 8px #4da6ff;
+}
+
+.user-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: none;
+  border: none;
+  color: #fff;
+  font-weight: 600;
+  cursor: pointer;
+  font-size: 1.05rem;
+  padding: 0;
+  line-height: 50px;
+  transition: color 0.3s, text-shadow 0.3s;
+  white-space: nowrap;
+}
+
+.user-btn:hover {
+  color: #4da6ff;
+  text-shadow: 0 0 6px #4da6ff;
+}
+
+/* -------- MENÚ DESPLEGABLE -------- */
+.user-menu {
+  display: none;
+  flex-direction: column;
+  position: absolute;
+  top: 120%;
+  right: 0;
+  background: #1a1a3d;
+  border-radius: 10px;
+  box-shadow: 0 6px 12px rgba(0,0,0,0.4);
+  min-width: 180px;
+  overflow: hidden;
+  opacity: 0;
+  transform: translateY(-10px);
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.user-menu.show {
+  display: flex;
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.user-menu a,
+.user-menu button {
+  padding: 1rem 1.2rem;
+  text-align: left;
+  border: none;
+  background: none;
+  color: #fff;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background 0.3s;
+  text-decoration: none;
+}
+
+.user-menu a:hover,
+.user-menu button:hover {
+  background: #2e2e5c;
+}
+
+/* -------- FILA 3: BUSCADOR -------- */
+.buscador {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  justify-content: center;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  flex-wrap: wrap;
+}
+
+.buscador input {
+  background: #1a1a3d;
+  border: 1px solid #2e2e5c;
+  color: #fff;
+  padding: 0.7rem 1rem;
+  border-radius: 8px;
+  width: 300px;
+  font-size: 1rem;
+  transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+.buscador input::placeholder {
+  color: #999;
+}
+
+.buscador input:focus {
+  outline: none;
+  border-color: #4da6ff;
+  box-shadow: 0 0 8px #4da6ff;
+}
+
+.buscador button {
+  background: #4da6ff;
+  border: none;
+  color: #fff;
+  border-radius: 8px;
+  padding: 0.7rem 1rem;
+  cursor: pointer;
+  font-size: 1.1rem;
+  transition: background 0.3s, transform 0.2s, box-shadow 0.3s;
+  min-width: 44px;
+}
+
+.buscador button:hover {
+  background: #3385ff;
+  transform: scale(1.05);
+  box-shadow: 0 0 8px #3385ff;
+}
+
+/* -------- AVATAR EN NAVBAR -------- */
+.nav-avatar {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  flex-shrink: 0;
+}
+
+.nav-avatar img,
+#imgPerfilNav,
+.perfil-img {
+  width: 50px;
+  height: 50px;
+  min-width: 50px;
+  min-height: 50px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 3px solid #4da6ff;
+  flex-shrink: 0;
+  cursor: pointer;
+  transition: transform 0.2s, box-shadow 0.3s;
+}
+
+.nav-avatar img:hover,
+#imgPerfilNav:hover,
+.perfil-img:hover {
+  transform: scale(1.1);
+  box-shadow: 0 0 8px #4da6ff;
+}
+
+/* espacio dinámico para que el contenido no quede oculto bajo el navbar */
+:root {
+  --navegador-height: 120px; /* fallback */
+}
+
+/* seleccionadores frecuentes para sliders / contenido principal */
+main {
+  padding-top: 0 !important; /* elimina el padding excesivo que viste en el inspector */
+}
+
+/* Aplica el espacio que ocupa el navbar justo al slider / contenedor principal del carrusel */
+.slider,
+.home-slider,
+.carousel,
+.carousel-inner,
+.contenido-principal {
+  margin-top: calc(var(--navegador-height) + 8px); /* ajustá el +8px si querés menos espacio */
+}
+
+/* Si queda todavía un pequeño gap, probar con +4px o 0px */
+
+/* -------- RESPONSIVE -------- */
+@media (max-width: 1024px) {
+  .navegador {
+    gap: 1rem;
+    padding: 1.2rem 1.5rem;
+  }
+
+  .logo-img {
+    width: 70px;
+    height: 70px;
+  }
+
+  .navegador .logo h1 {
+    font-size: 1.6rem;
+  }
+
+  .navbar {
+    gap: 1.5rem;
+  }
+
+  .nav-link {
+    font-size: 1rem;
+  }
+
+  .buscador input {
+    width: 250px;
+  }
+}
+
+@media (max-width: 768px) {
+  .navegador {
+    flex-direction: column;
+    align-items: center;
+    gap: 0.8rem;
+    padding: 1rem;
+  }
+
+  .logo-container {
+    gap: 1rem;
+  }
+
+  .logo-img {
+    width: 60px;
+    height: 60px;
+  }
+
+  .navegador .logo h1 {
+    font-size: 1.3rem;
+    word-wrap: break-word;
+  }
+
+  .buscador {
+    width: 100%;
+    flex-direction: column;
+  }
+
+  .buscador input {
+    width: 100%;
+    max-width: 300px;
+  }
+
+  .navbar {
+    width: 100%;
+    justify-content: center;
+    gap: 1rem;
+  }
+
+  .nav-link {
+    font-size: 0.95rem;
+  }
+
+  .user-container {
+    margin-top: 0.5rem;
+  }
+
+  .user-img,
+  .nav-avatar img,
+  #imgPerfilNav,
+  .perfil-img {
+    width: 45px;
+    height: 45px;
+    min-width: 45px;
+    min-height: 45px;
+  }
+}
+
+@media (max-width: 480px) {
+  .navegador {
+    padding: 0.8rem;
+    gap: 0.6rem;
+  }
+
+  .logo-container {
+    gap: 0.8rem;
+  }
+
+  .logo-img {
+    width: 50px;
+    height: 50px;
+  }
+
+  .navegador .logo h1 {
+    font-size: 1.1rem;
+  }
+
+  .navbar {
+    gap: 0.8rem;
+  }
+
+  .nav-link {
+    font-size: 0.9rem;
+  }
+
+  .buscador input {
+    width: 100%;
+    font-size: 0.9rem;
+  }
+}
+
+/* Estilos adicionales */
+.sugerencias {
+  position: absolute;
+  background: #f8faff;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  max-height: 160px;
+  overflow-y: auto;
+  width: 100%;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+  z-index: 1000;
+  display: none;
+}
+
+.sugerencia-item {
+  padding: 8px 10px;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.sugerencia-item:hover {
+  background: #e4f1ff;
+  color: #004080;
+}
+
+.panel-link {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  padding: 8px 15px;
+  color: #fff;
+  background-color: #2c3e50;
+  border-radius: 4px;
+  transition: background-color 0.3s;
+}
+
+.panel-link:hover {
+  background-color: #34495e;
+}
