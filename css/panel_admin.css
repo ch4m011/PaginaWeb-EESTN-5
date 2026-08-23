@@ -336,15 +336,35 @@ main.container {
     color: white;
 }
 
+/* ==============================
+   NOTIFICACIONES — apiladas + fade-out
+   ============================== */
+
+#notificaciones-container {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  z-index: 1000;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  pointer-events: none; /* el contenedor no bloquea clicks, los hijos sí */
+}
+
 .notificacion {
-    position: fixed;
-    top: 20px;
-    right: 20px;
+    position: relative; /* ya no fixed: el contenedor se encarga de la posición */
     padding: 15px 25px;
-    border-radius: 5px;
+    border-radius: 8px;
     color: white;
-    z-index: 1000;
+    min-width: 220px;
+    max-width: 320px;
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15);
     animation: slideIn 0.3s ease;
+    pointer-events: auto;
+}
+
+.notificacion.fadeout {
+  animation: slideOut 0.3s ease forwards;
 }
 
 .notificacion.success {
@@ -366,6 +386,17 @@ main.container {
     }
 }
 
+@keyframes slideOut {
+  from {
+    transform: translateX(0);
+    opacity: 1;
+  }
+  to {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+}
+
 .rol-selector {
     padding: 8px;
     border: 1px solid #ddd;
@@ -380,10 +411,10 @@ main.container {
    Nota: sólo cambios de estilo, sin tocar lógica JS/PHP
    ============================== */
 
-/* Ocultar la columna de acciones (encabezado + celdas) */
+/* Columna de Acciones (eliminar usuario) — visible */
 .users-table thead th:nth-child(5),
 .users-table tbody td:nth-child(5) {
-  display: none;
+  text-align: center;
 }
 
 /* Transformar el select de rol en un control con apariencia de botón circular */
@@ -446,9 +477,115 @@ main.container {
 /* Hide structural divs from editor (text-align wrappers) - show only content */
 div[style*="text-align: center"] { display: contents; }
 
-/* Placeholder y estilos de mensaje inline junto al botón de rol */
-.inline-msg-placeholder { display: inline-block; margin-left: 8px; vertical-align: middle; max-width: 260px; }
-.inline-msg { display: inline-block; padding: 6px 10px; border-radius: 8px; font-size: 0.9rem; line-height: 1; }
-.inline-msg.ok { background: #e6f4ea; color: #155724; }
-.inline-msg.error { background: #fdecea; color: #721c24; }
+/* ==============================
+   AGREGADO: estilos para los formularios de "Crear Noticia" y
+   "Agregar Evento" del panel admin, y las tarjetas de evento
+   ============================== */
 
+#formNoticiaAdmin,
+#formEventoAdmin {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+#formNoticiaAdmin label,
+#formEventoAdmin label {
+  font-weight: 600;
+  color: #263238;
+  font-size: 0.9rem;
+  margin-top: 0.6rem;
+}
+
+#formNoticiaAdmin input[type="text"],
+#formNoticiaAdmin input[type="file"],
+#formNoticiaAdmin textarea,
+#formEventoAdmin input[type="text"],
+#formEventoAdmin input[type="date"],
+#formEventoAdmin input[type="time"],
+#formEventoAdmin select,
+#formEventoAdmin textarea {
+  padding: 0.7rem 1rem;
+  border: 1.5px solid #ccd6e0;
+  border-radius: 8px;
+  background: #f9fafc;
+  font-size: 0.95rem;
+  font-family: inherit;
+  transition: border-color 0.25s ease, box-shadow 0.25s ease;
+  width: 100%;
+}
+
+#formNoticiaAdmin input:focus,
+#formNoticiaAdmin textarea:focus,
+#formEventoAdmin input:focus,
+#formEventoAdmin select:focus,
+#formEventoAdmin textarea:focus {
+  outline: none;
+  border-color: #4a90e2;
+  box-shadow: 0 0 8px rgba(74, 144, 226, 0.25);
+}
+
+#formNoticiaAdmin textarea,
+#formEventoAdmin textarea {
+  resize: vertical;
+}
+
+.btn-primario {
+  padding: 0.7rem 1.5rem;
+  border: none;
+  border-radius: 8px;
+  background: linear-gradient(135deg, #4a90e2, #357ABD);
+  color: #fff;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-size: 0.95rem;
+}
+
+.btn-primario:hover {
+  background: linear-gradient(135deg, #357ABD, #2b6db4);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 10px rgba(74, 144, 226, 0.4);
+}
+
+.btn-primario:active {
+  transform: translateY(0);
+  box-shadow: none;
+}
+
+.evento-card {
+  background: #fff;
+  border-radius: 10px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+  padding: 14px 16px;
+}
+
+.evento-card .btn-delete {
+  margin-top: 4px;
+}
+
+.evento-tipo-badge {
+  font-weight: 700;
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 0.3px;
+}
+
+.btn-eliminar-usuario {
+  background: #dc3545;
+  color: #fff;
+  border: none;
+  border-radius: 16px;
+  padding: 6px 14px;
+  font-weight: 700;
+  font-size: 0.85rem;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.btn-eliminar-usuario:hover {
+  background: #c82333;
+}
+
+/* Responsive: formularios más angostos en pantallas chicas ya heredan
+   el ancho 100% de los inputs de arriba, no requiere ajuste extra */

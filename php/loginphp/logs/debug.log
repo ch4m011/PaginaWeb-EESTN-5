@@ -346,3 +346,43 @@
 [2025-11-19 01:38:13] POST: {"username":"lautibelawsky@gmail.com","password":"123456"}
 [2025-11-19 01:38:13] Usuario encontrado id=1 correo=lautibelawsky@gmail.com rol=admin
 [2025-11-19 01:38:13] Login exitoso para usuario_id=1 rol=admin
+[2026-08-23 00:30:06] === intento login ===
+[2026-08-23 00:30:06] POST: {"username":"jaafigueroarabanales@eest5.com","password":"yosselin"}
+[2026-08-23 00:30:06] Usuario encontrado id=33 correo=jaafigueroarabanales@eest5.com rol=usuario
+[2026-08-23 00:30:06] Login exitoso para usuario_id=33 rol=usuario
+[2026-08-23 01:22:07] === intento login ===
+[2026-08-23 01:22:07] POST: {"username":"jaafigueroarabanales@eest5.com","password":"miateamo"}
+[2026-08-23 01:22:07] Usuario encontrado id=33 correo=jaafigueroarabanales@eest5.com rol=usuario
+[2026-08-23 01:22:07] Login exitoso para usuario_id=33 rol=usuario
+[2026-08-23 02:02:20] === intento login ===
+[2026-08-23 02:02:20] POST: {"username":"lautibelawsky@gmail.com","password":"$2y$10$NIVBpNWB9qVxeZmTHDxzqO3B1uDN08eWn58gzs0f8Ccb3BnuBJO6y"}
+[2026-08-23 02:02:20] Usuario encontrado id=1 correo=lautibelawsky@gmail.com rol=admin
+[2026-08-23 02:02:20] Contraseña NO coincide para usuario_id=1
+[2026-08-23 02:02:54] === intento login ===
+[2026-08-23 02:02:54] POST: {"username":"lautibelawsky@gmail.com","password":"$2y$10$NIVBpNWB9qVxeZmTHDxzqO3B1uDN08eWn58gzs0f8Ccb3BnuBJO6y"}
+[2026-08-23 02:02:54] Usuario encontrado id=1 correo=lautibelawsky@gmail.com rol=admin
+[2026-08-23 02:02:54] Contraseña NO coincide para usuario_id=1
+[2026-08-23 02:02:59] === intento login ===
+[2026-08-23 02:02:59] POST: {"username":"lautibelawsky@gmail.com","password":"admin1234"}
+[2026-08-23 02:02:59] Usuario encontrado id=1 correo=lautibelawsky@gmail.com rol=admin
+[2026-08-23 02:02:59] Contraseña NO coincide para usuario_id=1
+[2026-08-23 02:03:01] === intento login ===
+[2026-08-23 02:03:01] POST: {"username":"lautibelawsky@gmail.com","password":"admin123"}
+[2026-08-23 02:03:01] Usuario encontrado id=1 correo=lautibelawsky@gmail.com rol=admin
+[2026-08-23 02:03:01] Contraseña NO coincide para usuario_id=1
+[2026-08-23 02:03:30] === intento login ===
+[2026-08-23 02:03:30] POST: {"username":"lautibelawsky@gmail.com","password":"$2y$10$NIVBpNWB9qVxeZmTHDxzqO3B1uDN08eWn58gzs0f8Ccb3BnuBJO6y"}
+[2026-08-23 02:03:30] Usuario encontrado id=1 correo=lautibelawsky@gmail.com rol=admin
+[2026-08-23 02:03:30] Contraseña NO coincide para usuario_id=1
+[2026-08-23 02:05:09] === intento login ===
+[2026-08-23 02:05:09] POST: {"username":"belawskylautaro@gmail.com","password":"$2y$10$3PoZNRIVTTvfoqn3Vx14AuIyYJzDq2iJ0CndQ56L6xiMcqxmk0oiy"}
+[2026-08-23 02:05:09] Usuario encontrado id=4 correo=belawskylautaro@gmail.com rol=admin
+[2026-08-23 02:05:09] Contraseña NO coincide para usuario_id=4
+[2026-08-23 02:06:24] === intento login ===
+[2026-08-23 02:06:24] POST: {"username":"admin@eest5.com","password":"$2a$12$LQv3c1yqBWVHxkd0LHAkCOYz6TtxMQJqhN8\/Lewf\u00f8rM\/Q8RJ88H6W"}
+[2026-08-23 02:06:24] Usuario encontrado id=15 correo=admin@eest5.com rol=admin
+[2026-08-23 02:06:24] Contraseña NO coincide para usuario_id=15
+[2026-08-23 02:17:23] === intento login ===
+[2026-08-23 02:17:23] POST: {"username":"jaafigueroarabanales@eest5.com","password":"miateamo"}
+[2026-08-23 02:17:23] Usuario encontrado id=33 correo=jaafigueroarabanales@eest5.com rol=admin
+[2026-08-23 02:17:23] Login exitoso para usuario_id=33 rol=admin

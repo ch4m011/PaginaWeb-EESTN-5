@@ -34,6 +34,9 @@
   // ===============================
   async function init() {
     bindUI();
+    currentAdminId = (await fetchSessionUser()).user_id || 0;
+    initFormNoticiaAdmin();
+    initFormEventoAdmin();
     try {
       const dataUsuarios = await fetchUsuarios();
       // La respuesta es {success, usuarios: [...], message} o {error}
@@ -52,6 +55,7 @@
     }
     renderAll();
     await fetchNoticias(); // carga noticias al iniciar
+    await fetchEventosGlobales(); // carga eventos al iniciar
   }
 
   // ===============================
@@ -139,6 +143,9 @@
           </div>
         </td>
         <td>${new Date(user.fecha_registro).toLocaleDateString()}</td>
+        <td>
+          ${user.rol === 'admin' ? '' : `<button class="btn-eliminar-usuario" data-user-id="${escapeHtml(user.id)}" data-user-nombre="${escapeHtml(user.nombre)}">🗑️ Eliminar</button>`}
+        </td>
       </tr>
     `).join('');
 
@@ -175,6 +182,35 @@
           console.error('Error actualizando rol:', e);
           const placeholder = cell.querySelector('.inline-msg-placeholder');
           showRowMessage(placeholder, 'Error de conexión', 'error');
+        }
+      });
+    });
+
+    // Botones de eliminar usuario
+    const deleteBtns = document.querySelectorAll('.btn-eliminar-usuario');
+    deleteBtns.forEach(b => {
+      b.addEventListener('click', async function () {
+        const userId = this.dataset.userId;
+        const userNombre = this.dataset.userNombre;
+        if (!confirm(`¿Eliminar al usuario "${userNombre}"? Esta acción no se puede deshacer.`)) return;
+        try {
+          const resp = await fetch('../php/admin/eliminar_usuario.php', {
+            method: 'POST',
+            credentials: 'same-origin',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ usuario_id: userId })
+          });
+          const data = await resp.json();
+          if (data && data.success) {
+            mostrarNotificacion(data.message || 'Usuario eliminado', 'success');
+            users = users.filter(u => String(u.id) !== String(userId));
+            renderAll();
+          } else {
+            mostrarNotificacion((data && data.message) || 'Error al eliminar usuario', 'error');
+          }
+        } catch (e) {
+          console.error('Error eliminando usuario:', e);
+          mostrarNotificacion('Error de conexión', 'error');
         }
       });
     });
@@ -473,7 +509,7 @@
   // ===============================
   function viewNoticia(noticia) {
     if (!noticia.id) {
-      alert("Error: la noticia no tiene un ID válido.");
+      mostrarNotificacion('Error: la noticia no tiene un ID válido.', 'error');
       return;
     }
     window.location.href = `../pagina/ver_noticia.html?id=${encodeURIComponent(noticia.id)}`;
@@ -484,14 +520,278 @@
   // ===============================
   function editarNoticiaDesdeAdmin(id) {
     if (!id) {
-      alert("Error: ID de noticia no válido.");
+      mostrarNotificacion('Error: ID de noticia no válido.', 'error');
       return;
     }
     localStorage.setItem("idEditarNoticia", id);
     window.location.href = "../pagina/panel_escritor.html";
   }
 
-  // Función global para cambiar rol
+  // ===============================
+  // 🔹 Eliminar noticia (soft) — AGREGADA para resolver "eliminarNoticia is not defined"
+  // ===============================
+  async function eliminarNoticia(id) {
+    try {
+      const res = await fetch('../php/api_noticias.php?action=eliminar', {
+        method: 'POST',
+        credentials: 'same-origin',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ id })
+      });
+      let j;
+      try {
+        const text = await res.text();
+        j = text ? JSON.parse(text) : {};
+      } catch (e) {
+        console.error('Respuesta no-JSON de eliminarNoticia:', await res.text());
+        throw new Error('Respuesta inválida del servidor');
+      }
+      if (j.success) {
+        mostrarNotificacion('Noticia eliminada', 'success');
+        fetchNoticias(); // recarga la lista de noticias en el panel admin
+      } else {
+        throw new Error(j.error || 'Error');
+      }
+    } catch (e) {
+      console.error('eliminarNoticia:', e);
+      mostrarNotificacion('Error al eliminar', 'error');
+    }
+  }
+
+  // ===============================
+  // 🔹 AGREGADO: crear noticias y eventos desde el panel admin
+  // ===============================
+
+  // Obtener usuario de sesión (para autor_id), igual que hace panel_escritor.js
+  async function fetchSessionUser() {
+    try {
+      const res = await fetch('../php/check_session.php', { cache: 'no-store', credentials: 'same-origin' });
+      if (!res.ok) return { user_id: 0 };
+      const json = await res.json();
+      return { user_id: parseInt(json.user_id || 0, 10) || 0 };
+    } catch (e) {
+      console.warn('No fue posible obtener sesión:', e);
+      return { user_id: 0 };
+    }
+  }
+
+  let currentAdminId = 0;
+
+  // Subir imagen (mismo endpoint que usa panel_escritor.js)
+  async function subirImagenAdmin(file) {
+    const fd = new FormData();
+    fd.append('imagen', file);
+    const res = await fetch('../php/api_upload_imagen.php', { method: 'POST', body: fd, credentials: 'same-origin' });
+    const text = await res.text();
+    try {
+      return JSON.parse(text);
+    } catch (e) {
+      console.error('Respuesta no-JSON de api_upload_imagen.php:', text);
+      return { success: false, error: 'Respuesta inválida del servidor' };
+    }
+  }
+
+  // ---- Crear noticia desde el admin ----
+  function initFormNoticiaAdmin() {
+    const form = $("#formNoticiaAdmin");
+    if (!form) return;
+    const inputImagen = $("#imagenNoticiaAdmin");
+    const preview = $("#previewImagenAdmin");
+
+    if (inputImagen && preview) {
+      inputImagen.addEventListener("change", (e) => {
+        const f = e.target.files && e.target.files[0];
+        if (f) {
+          const r = new FileReader();
+          r.onload = ev => { preview.src = ev.target.result; preview.style.display = "block"; };
+          r.readAsDataURL(f);
+        } else {
+          preview.src = "";
+          preview.style.display = "none";
+        }
+      });
+    }
+
+    form.addEventListener("submit", async (ev) => {
+      ev.preventDefault();
+      try {
+        const titulo = ($("#tituloNoticiaAdmin")?.value || "").trim();
+        const contenido = ($("#contenidoNoticiaAdmin")?.value || "").trim();
+        if (!titulo) throw new Error("El título es obligatorio");
+        if (!contenido) throw new Error("El contenido es obligatorio");
+
+        let imagenUrl = null;
+        if (inputImagen && inputImagen.files && inputImagen.files.length > 0) {
+          const r = await subirImagenAdmin(inputImagen.files[0]);
+          if (!r || !r.success) throw new Error(r?.error || "Error subiendo imagen");
+          imagenUrl = r.imagen;
+        }
+
+        const payload = {
+          titulo,
+          contenido,
+          resumen: contenido.substring(0, 150),
+          imagen: imagenUrl,
+          tipo: "secundaria",
+          destacado: 0,
+          prioridad: 0,
+          autor_id: currentAdminId || 0
+        };
+
+        const res = await fetch("../php/api_noticias.php?action=crear", {
+          method: "POST",
+          credentials: "same-origin",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(payload)
+        });
+        const text = await res.text();
+        let j;
+        try {
+          j = text ? JSON.parse(text) : {};
+        } catch (e) {
+          console.error("Respuesta no-JSON al crear noticia:", text);
+          throw new Error("Respuesta inválida del servidor");
+        }
+
+        if (res.ok && (j.success || j.id)) {
+          mostrarNotificacion("Noticia publicada", "success");
+          form.reset();
+          if (preview) { preview.src = ""; preview.style.display = "none"; }
+          fetchNoticias();
+        } else {
+          throw new Error(j.error || "Error al guardar noticia");
+        }
+      } catch (err) {
+        console.error("Error al crear noticia desde admin:", err);
+        mostrarNotificacion(err.message || "Error al crear noticia", "error");
+      }
+    });
+  }
+
+  // ---- Eventos: listar, crear, eliminar ----
+  let eventosGlobales = [];
+
+  async function fetchEventosGlobales() {
+    try {
+      const res = await fetch("../date/api_calendario.php?action=obtener&orden=ASC", { cache: "no-store" });
+      if (!res.ok) throw new Error("No se pudo cargar eventos");
+      eventosGlobales = await res.json();
+      renderEventosGlobales();
+    } catch (e) {
+      console.error("Error cargando eventos:", e);
+      const cont = $("#eventosGlobalesContainer");
+      if (cont) cont.innerHTML = `<div class="placeholder"><em>⚠️ No se pudieron cargar los eventos.</em></div>`;
+    }
+  }
+
+  function renderEventosGlobales() {
+    const cont = $("#eventosGlobalesContainer");
+    if (!cont) return;
+
+    if (!Array.isArray(eventosGlobales) || eventosGlobales.length === 0) {
+      cont.innerHTML = `<p class="placeholder">No hay eventos cargados aún.</p>`;
+      return;
+    }
+
+    cont.innerHTML = "";
+    const etiquetasTipo = {
+      "titulo-feriado": "🔴 Día Feriado",
+      "titulo-no-clases": "🟠 No hay clases",
+      "titulo-evento": "🔵 Evento importante",
+      "titulo-jornada": "🟣 Jornada Institucional"
+    };
+    eventosGlobales.forEach((ev) => {
+      let color = "#1a73e8";
+      if (ev.tipo === "titulo-feriado") color = "#d80000";
+      if (ev.tipo === "titulo-no-clases") color = "#ff8c00";
+      if (ev.tipo === "titulo-jornada") color = "#8e44ad";
+
+      const etiqueta = etiquetasTipo[ev.tipo] || ev.tipo || "Sin tipo";
+
+      const card = document.createElement("div");
+      card.className = "evento-card";
+      card.style.borderLeft = `5px solid ${color}`;
+      card.style.marginBottom = "10px";
+      card.style.padding = "10px";
+      card.innerHTML = `
+        <span class="evento-tipo-badge" style="color:${color};">${escapeHtml(etiqueta)}</span><br>
+        <strong>${escapeHtml(ev.titulo)}</strong><br>
+        📅 ${escapeHtml(ev.fecha)}<br>
+        🕒 ${escapeHtml(ev.horaInicio || ev.hora_inicio || "")} - ${escapeHtml(ev.horaFin || ev.hora_fin || "")}<br>
+        <em>${escapeHtml(ev.descripcion || "Sin descripción")}</em>
+        <div style="margin-top:8px;">
+          <button class="btn-delete">🗑️ Eliminar</button>
+        </div>
+      `;
+      card.querySelector(".btn-delete").addEventListener("click", () => {
+        if (confirm(`¿Eliminar el evento "${ev.titulo}"?`)) eliminarEventoAdmin(ev.id);
+      });
+      cont.appendChild(card);
+    });
+  }
+
+  async function eliminarEventoAdmin(id) {
+    try {
+      const res = await fetch("../date/api_calendario.php?action=eliminar", {
+        method: "DELETE",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ id })
+      });
+      const result = await res.json();
+      if (result.success) {
+        mostrarNotificacion("Evento eliminado", "success");
+        fetchEventosGlobales();
+      } else {
+        mostrarNotificacion(result.error || "Error al eliminar evento", "error");
+      }
+    } catch (err) {
+      console.error("Error eliminando evento:", err);
+      mostrarNotificacion("Error al eliminar evento", "error");
+    }
+  }
+
+  function initFormEventoAdmin() {
+    const form = $("#formEventoAdmin");
+    if (!form) return;
+
+    form.addEventListener("submit", async (ev) => {
+      ev.preventDefault();
+      try {
+        const datosEvento = {
+          fecha: $("#fechaEventoAdmin")?.value || "",
+          titulo: ($("#tituloEventoAdmin")?.value || "").trim(),
+          tipo: $("#tipoEventoAdmin")?.value || "",
+          descripcion: ($("#descripcionEventoAdmin")?.value || "").trim(),
+          horaInicio: $("#horaInicioAdmin")?.value || "",
+          horaFin: $("#horaFinAdmin")?.value || ""
+        };
+
+        if (!datosEvento.fecha || !datosEvento.titulo || !datosEvento.tipo || !datosEvento.horaInicio || !datosEvento.horaFin) {
+          throw new Error("Completá todos los campos requeridos.");
+        }
+
+        const res = await fetch("../date/api_calendario.php?action=crear", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(datosEvento)
+        });
+        const result = await res.json();
+        if (result.success) {
+          mostrarNotificacion("Evento creado", "success");
+          form.reset();
+          fetchEventosGlobales();
+          if (window.refrescarEventosFlotantes) window.refrescarEventosFlotantes();
+        } else {
+          throw new Error(result.error || "Error al crear evento");
+        }
+      } catch (err) {
+        console.error("Error creando evento desde admin:", err);
+        mostrarNotificacion(err.message || "Error al crear evento", "error");
+      }
+    });
+  }
+
+
 window.cambiarRol = async function(usuarioId, nuevoRolOrElement) {
     try {
         // admitir dos usos: (id, 'escritor') o (id, selectElement)
@@ -508,7 +808,7 @@ window.cambiarRol = async function(usuarioId, nuevoRolOrElement) {
 
         if (!usuarioId || !nuevoRol) {
             console.error('Parametros invalidos', usuarioId, nuevoRol);
-            alert('Parámetros inválidos para cambiar el rol.');
+            mostrarNotificacion('Parámetros inválidos para cambiar el rol.', 'error');
             return;
         }
 
@@ -538,7 +838,7 @@ window.cambiarRol = async function(usuarioId, nuevoRolOrElement) {
             data = JSON.parse(text);
         } catch (e) {
             console.error('Respuesta no JSON de cambiar_rol.php:', text);
-            alert('Respuesta inválida del servidor. Revisa la consola (Network / Response).');
+            mostrarNotificacion('Respuesta inválida del servidor. Revisá la consola.', 'error');
             return;
         }
 
@@ -572,13 +872,23 @@ function formatearFecha(fecha) {
 }
 
 function mostrarNotificacion(mensaje, tipo) {
+    // Contenedor único que apila las notificaciones (se crea la primera vez)
+    let contenedor = document.getElementById('notificaciones-container');
+    if (!contenedor) {
+        contenedor = document.createElement('div');
+        contenedor.id = 'notificaciones-container';
+        document.body.appendChild(contenedor);
+    }
+
     const notificacion = document.createElement('div');
     notificacion.className = `notificacion ${tipo}`;
     notificacion.textContent = mensaje;
-    document.body.appendChild(notificacion);
-    
+    contenedor.appendChild(notificacion);
+
     setTimeout(() => {
-        notificacion.remove();
+        notificacion.classList.add('fadeout');
+        // esperar a que termine la animación de salida antes de sacarla del DOM
+        setTimeout(() => notificacion.remove(), 300);
     }, 3000);
 }
 

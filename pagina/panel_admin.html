@@ -63,9 +63,61 @@
         <div id="filtroNoticias"></div>
 
         <section class="panel small">
+            <h2>Crear Noticia</h2>
+            <form id="formNoticiaAdmin">
+                <label for="tituloNoticiaAdmin">Título</label>
+                <input type="text" id="tituloNoticiaAdmin" placeholder="Título de la noticia" required>
+
+                <label for="contenidoNoticiaAdmin">Contenido</label>
+                <textarea id="contenidoNoticiaAdmin" rows="6" placeholder="Contenido de la noticia" required></textarea>
+
+                <label for="imagenNoticiaAdmin">Imagen (opcional)</label>
+                <input type="file" id="imagenNoticiaAdmin" accept="image/*">
+                <img id="previewImagenAdmin" alt="Vista previa" style="max-width:200px;display:none;margin-top:8px;">
+
+                <div style="margin-top:10px;">
+                    <button type="submit" class="btn-primario">📢 Publicar Noticia</button>
+                </div>
+            </form>
+        </section>
+
+        <section class="panel small">
             <h2>Noticias (global)</h2>
             <!-- Contenedor donde se muestran las noticias -->
             <div id="newsList" class="noticias-grid"></div>
+        </section>
+
+        <section class="panel small">
+            <h2>Agregar Evento al Calendario</h2>
+            <form id="formEventoAdmin">
+                <label for="tituloEventoAdmin">Título del evento</label>
+                <input type="text" id="tituloEventoAdmin" placeholder="Título del evento" required>
+
+                <label for="tipoEventoAdmin">Tipo</label>
+                <select id="tipoEventoAdmin" required>
+                    <option value="">Seleccionar tipo de evento</option>
+                    <option value="titulo-feriado">Día Feriado</option>
+                    <option value="titulo-no-clases">No hay clases</option>
+                    <option value="titulo-evento">Evento importante</option>
+                    <option value="titulo-jornada">Jornada Institucional</option>
+                </select>
+
+                <label for="fechaEventoAdmin">Fecha</label>
+                <input type="date" id="fechaEventoAdmin" required>
+
+                <label for="horaInicioAdmin">Hora inicio</label>
+                <input type="time" id="horaInicioAdmin" required>
+
+                <label for="horaFinAdmin">Hora fin</label>
+                <input type="time" id="horaFinAdmin" required>
+
+                <label for="descripcionEventoAdmin">Descripción</label>
+                <textarea id="descripcionEventoAdmin" rows="3" placeholder="Descripción del evento"></textarea>
+
+                <div style="margin-top:10px;">
+                    <button type="submit" class="btn-primario">Guardar Evento</button>
+                </div>
+            </form>
         </section>
 
         <section class="panel small">
