@@ -48,7 +48,7 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   async function eliminarEvento(id) {
-    if (!confirm('¿Eliminar este evento? Esta acción no se puede deshacer.')) return;
+    if (!(await mostrarConfirmacion('¿Eliminar este evento? Esta acción no se puede deshacer.'))) return;  // SL
     try {
       const res = await fetch('../date/api_calendario.php?action=eliminar', {
         method: 'DELETE',
@@ -60,11 +60,11 @@ document.addEventListener('DOMContentLoaded', () => {
         cargarEventosGlobales();
         if (window.refrescarEventosFlotantes) window.refrescarEventosFlotantes();
       } else {
-        alert('Error eliminando: ' + (r.error || 'error desconocido'));
+        mostrarNotificacion('Error eliminando: ' + (r.error || 'error desconocido'), 'error');  // SL
       }
     } catch (e) {
       console.error(e);
-      alert('Error al eliminar evento');
+      mostrarNotificacion('Error al eliminar evento', 'error');  // SL
     }
   }
 
@@ -95,11 +95,11 @@ document.addEventListener('DOMContentLoaded', () => {
         cargarEventosGlobales();
         if (window.refrescarEventosFlotantes) window.refrescarEventosFlotantes();
       } else {
-        alert('Error actualizando: ' + (r.error || 'error desconocido'));
+        mostrarNotificacion('Error actualizando: ' + (r.error || 'error desconocido'), 'error');  // SL
       }
     } catch (e) {
       console.error(e);
-      alert('Error al actualizar evento');
+      mostrarNotificacion('Error al actualizar evento', 'error');  // SL
     }
   }
 

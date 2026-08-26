@@ -1,0 +1,155 @@
+/* ==============================================
+   Archivo agregado por SL
+   ============================================== */
+
+/* ==============================================
+   SISTEMA DE NOTIFICACIONES EEST5
+   Reemplaza a alert()/confirm() nativos del navegador
+   (esos siempre muestran el dominio, ej: "localhost dice...")
+   ============================================== */
+
+#notificaciones-container {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  z-index: 10000;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  pointer-events: none;
+  max-width: 340px;
+}
+
+.notificacion {
+  position: relative;
+  padding: 14px 18px;
+  border-radius: 10px;
+  color: #fff;
+  min-width: 240px;
+  max-width: 340px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+  animation: eest5-slideIn 0.25s ease;
+  pointer-events: auto;
+  font-family: inherit;
+}
+
+.notificacion-titulo {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.4px;
+  opacity: 0.9;
+  margin-bottom: 4px;
+  text-transform: uppercase;
+}
+
+.notificacion-mensaje {
+  font-size: 14px;
+  line-height: 1.35;
+}
+
+.notificacion.fadeout {
+  animation: eest5-slideOut 0.25s ease forwards;
+}
+
+.notificacion.success { background-color: #28a745; }
+.notificacion.error   { background-color: #dc3545; }
+.notificacion.info    { background-color: #1e5aa8; }
+.notificacion.warning { background-color: #d98a1f; }
+
+@keyframes eest5-slideIn {
+  from { transform: translateX(110%); opacity: 0; }
+  to   { transform: translateX(0);    opacity: 1; }
+}
+
+@keyframes eest5-slideOut {
+  from { transform: translateX(0);    opacity: 1; }
+  to   { transform: translateX(110%); opacity: 0; }
+}
+
+/* ==============================================
+   MODAL DE CONFIRMACIÓN (reemplaza confirm())
+   ============================================== */
+
+#eest5-confirm-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 10001;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  animation: eest5-fadeIn 0.15s ease;
+  padding: 16px;
+}
+
+@keyframes eest5-fadeIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+.eest5-confirm-box {
+  background: #fff;
+  border-radius: 12px;
+  width: 100%;
+  max-width: 380px;
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.3);
+  overflow: hidden;
+  animation: eest5-popIn 0.18s ease;
+}
+
+@keyframes eest5-popIn {
+  from { transform: scale(0.92); opacity: 0; }
+  to   { transform: scale(1);    opacity: 1; }
+}
+
+.eest5-confirm-header {
+  background: #1e5aa8;
+  color: #fff;
+  padding: 12px 18px;
+  font-weight: 700;
+  font-size: 13px;
+  letter-spacing: 0.4px;
+  text-transform: uppercase;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.eest5-confirm-body {
+  padding: 20px 18px;
+  color: #222;
+  font-size: 15px;
+  line-height: 1.45;
+}
+
+.eest5-confirm-footer {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+  padding: 12px 18px 18px;
+}
+
+.eest5-confirm-btn {
+  border: none;
+  border-radius: 8px;
+  padding: 9px 18px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: filter 0.15s ease;
+}
+
+.eest5-confirm-btn:hover { filter: brightness(0.92); }
+
+.eest5-confirm-btn.cancelar {
+  background: #e9ecef;
+  color: #333;
+}
+
+.eest5-confirm-btn.aceptar {
+  background: #dc3545;
+  color: #fff;
+}

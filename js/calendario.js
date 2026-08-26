@@ -123,7 +123,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const horaFin = document.getElementById("horaFin").value;
 
     if (!fecha || !titulo || !tipo || !horaInicio || !horaFin) {
-      alert("Completa todos los campos requeridos.");
+      mostrarNotificacion("Completa todos los campos requeridos.", 'info');  // SL
       return;
     }
 
@@ -159,11 +159,11 @@ document.addEventListener("DOMContentLoaded", () => {
           window.refrescarEventosFlotantes();
         }
       } else {
-        alert("Error al crear evento: " + (result.error || "Error desconocido"));
+        mostrarNotificacion("Error al crear evento: " + (result.error || "Error desconocido"), 'error');  // SL
       }
     } catch (err) {
       console.error("Error creando evento:", err);
-      alert("Error al crear evento");
+      mostrarNotificacion("Error al crear evento", 'error');  // SL
     }
   }
 
@@ -182,11 +182,11 @@ document.addEventListener("DOMContentLoaded", () => {
           window.refrescarEventosFlotantes();
         }
       } else {
-        alert("Error al actualizar evento: " + (result.error || "Error desconocido"));
+        mostrarNotificacion("Error al actualizar evento: " + (result.error || "Error desconocido"), 'error');  // SL
       }
     } catch (err) {
       console.error("Error actualizando evento:", err);
-      alert("Error al actualizar evento");
+      mostrarNotificacion("Error al actualizar evento", 'error');  // SL
     }
   }
 
@@ -206,11 +206,11 @@ document.addEventListener("DOMContentLoaded", () => {
           window.refrescarEventosFlotantes();
         }
       } else {
-        alert("Error al eliminar evento: " + (result.error || "Error desconocido"));
+        mostrarNotificacion("Error al eliminar evento: " + (result.error || "Error desconocido"), 'error');  // SL
       }
     } catch (err) {
       console.error("Error eliminando evento:", err);
-      alert("Error al eliminar evento");
+      mostrarNotificacion("Error al eliminar evento", 'error');  // SL
     }
   }
 
@@ -224,7 +224,7 @@ document.addEventListener("DOMContentLoaded", () => {
     document.getElementById("descripcionEvento").value = ev.descripcion;
     document.getElementById("horaInicio").value = ev.horaInicio;
     document.getElementById("horaFin").value = ev.horaFin;
-    alert("Modo edición activado. Realiza cambios y guarda el evento.");
+    mostrarNotificacion("Modo edición activado. Realiza cambios y guarda el evento.", 'info');  // SL
   }
 
   // ===============================

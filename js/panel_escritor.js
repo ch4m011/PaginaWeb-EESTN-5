@@ -186,7 +186,7 @@
 
   // Eliminar noticia (soft)
   async function eliminarNoticia(id) {
-    if (!confirm('¿Seguro?')) return;
+    if (!(await mostrarConfirmacion('¿Seguro?'))) return;  // SL
     try {
       const res = await fetch('../php/api_noticias.php?action=eliminar', {
           method: 'POST', credentials: 'same-origin', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ id })
@@ -200,10 +200,10 @@
           throw new Error('Respuesta inválida del servidor');
         }
       if (j.success) {
-        alert('✅ Eliminada');
+        mostrarNotificacion('✅ Eliminada', 'success');  // SL
         cargarNoticiasPanel();
       } else throw new Error(j.error || 'Error');
-    } catch (e) { console.error('eliminarNoticia:', e); alert('Error al eliminar'); }
+    } catch (e) { console.error('eliminarNoticia:', e); mostrarNotificacion('Error al eliminar', 'error'); }  // SL
   }
 
   // Cargar noticia para editar y rellenar el formulario
@@ -212,7 +212,7 @@
         const res = await fetch('../php/noticias.php', { credentials: 'same-origin' });
         const noticias = await res.json();
       const noticia = noticias.find(n => n.id == id);
-      if (!noticia) { alert('Noticia no encontrada'); return; }
+      if (!noticia) { mostrarNotificacion('Noticia no encontrada', 'info'); return; }  // SL
       const form = document.getElementById('formNoticia');
       if (!form) return;
       form.dataset.idEditar = noticia.id;
@@ -229,7 +229,7 @@
         }
       } catch (e) { /* ignore */ }
       window.scrollTo({ top: 0, behavior: 'smooth' });
-    } catch (e) { console.error('editarNoticia:', e); alert('Error al cargar noticia'); }
+    } catch (e) { console.error('editarNoticia:', e); mostrarNotificacion('Error al cargar noticia', 'error'); }  // SL
   }
 
   // Subir imagen y devolver la URL del servidor
@@ -526,7 +526,7 @@
           console.log('📥 RESPUESTA:', j);
 
           if (res.ok && (j.success || j.id)) {
-            alert('✅ Noticia publicada correctamente');
+            mostrarNotificacion('✅ Noticia publicada correctamente', 'success');  // SL
             clean.reset(); if (preview) { preview.src=''; preview.style.display='none'; }
             if (editor) editor.innerHTML = '';
             delete clean.dataset.idEditar; delete clean.dataset.imagenAnterior;
@@ -537,7 +537,7 @@
 
         } catch (err) {
           console.error('Error al enviar noticia:', err);
-          alert('❌ ' + err.message);
+          mostrarNotificacion('❌ ' + err.message, 'error');  // SL
         }
       });
     }
