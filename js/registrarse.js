@@ -48,7 +48,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
       } catch (error) {
           console.error('Error en el registro:', error);
-          alert('Error: ' + error.message);
+          mostrarNotificacion('Error: ' + error.message, 'error');  // SL
       }
   });
 });
@@ -141,7 +141,7 @@ document.addEventListener('DOMContentLoaded', () => {
             document.getElementById('password').focus();
         } catch (error) {
             console.error('Error Google Sign-In:', error);
-            alert('Error al procesar datos de Google');
+            mostrarNotificacion('Error al procesar datos de Google', 'error');  // SL
         }
     };
 
@@ -179,7 +179,7 @@ document.addEventListener('DOMContentLoaded', () => {
             }
 
             if (data.success) {
-                alert('Registro exitoso');
+                mostrarNotificacion('Registro exitoso', 'success');  // SL
                 window.location.href = '/web-escolar/pagina/login.html';
             } else {
                 throw new Error(data.message || 'Error desconocido');
@@ -187,7 +187,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
         } catch (error) {
             console.error('Error:', error);
-            alert('Error en el registro: ' + error.message);
+            mostrarNotificacion('Error en el registro: ' + error.message, 'error');  // SL
         }
     });
 });

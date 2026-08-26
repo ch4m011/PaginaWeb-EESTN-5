@@ -47,15 +47,15 @@ async function sendGoogleTokenToServer(id_token) {
                 // redirigir o actualizar UI según corresponda
                 window.location.href = '/web-escolar/pagina/perfil.html'; // o panel
             } else {
-                alert('Google sign-in error: ' + (data.error || data.message || 'Desconocido'));
+                mostrarNotificacion('Google sign-in error: ' + (data.error || data.message || 'Desconocido'), 'error');  // SL
             }
         } catch (err) {
             console.error('Respuesta inválida del servidor:', text);
-            alert('Error del servidor al iniciar con Google. Revisá logs.');
+            mostrarNotificacion('Error del servidor al iniciar con Google. Revisá logs.', 'error');  // SL
         }
     } catch (err) {
         console.error('Error fetch google_signin:', err);
-        alert('Error de red al iniciar con Google');
+        mostrarNotificacion('Error de red al iniciar con Google', 'error');  // SL
     }
 }
 
@@ -65,7 +65,7 @@ function handleCredentialResponse(response) {
     const token = response?.credential || response?.id_token || null;
     if (!token) {
         console.error('No se recibió token de Google', response);
-        alert('No se recibió token de Google');
+        mostrarNotificacion('No se recibió token de Google', 'info');  // SL
         return;
     }
     sendGoogleTokenToServer(token);

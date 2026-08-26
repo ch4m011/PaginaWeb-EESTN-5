@@ -15,6 +15,6 @@ form.addEventListener('submit', async (e) => {
         // Forzar recarga / ir a perfil (se cargará usando la sesión creada)
         window.location.href = '/pagina/perfil.html?ts=' + Date.now();
     } else {
-        alert('Error: ' + (json.error || 'Registro fallido'));
+        mostrarNotificacion('Error: ' + (json.error || 'Registro fallido'), 'error');  // SL
     }
 });

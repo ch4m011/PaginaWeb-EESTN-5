@@ -192,7 +192,7 @@
       b.addEventListener('click', async function () {
         const userId = this.dataset.userId;
         const userNombre = this.dataset.userNombre;
-        if (!confirm(`¿Eliminar al usuario "${userNombre}"? Esta acción no se puede deshacer.`)) return;
+        if (!(await mostrarConfirmacion(`¿Eliminar al usuario "${userNombre}"? Esta acción no se puede deshacer.`))) return;  // SL
         try {
           const resp = await fetch('../php/admin/eliminar_usuario.php', {
             method: 'POST',
@@ -496,8 +496,8 @@
 
       card.querySelector(".btn-view").addEventListener("click", () => viewNoticia(n));
       card.querySelector(".btn-edit").addEventListener("click", () => editarNoticiaDesdeAdmin(n.id));
-      card.querySelector(".btn-delete").addEventListener("click", () => {
-        if (confirm(`¿Eliminar la noticia "${n.titulo}"?`)) eliminarNoticia(n.id);
+      card.querySelector(".btn-delete").addEventListener("click", async () => {  // SL
+        if (await mostrarConfirmacion(`¿Eliminar la noticia "${n.titulo}"?`)) eliminarNoticia(n.id);  // SL
       });
 
       cont.appendChild(card);
@@ -723,8 +723,8 @@
           <button class="btn-delete">🗑️ Eliminar</button>
         </div>
       `;
-      card.querySelector(".btn-delete").addEventListener("click", () => {
-        if (confirm(`¿Eliminar el evento "${ev.titulo}"?`)) eliminarEventoAdmin(ev.id);
+      card.querySelector(".btn-delete").addEventListener("click", async () => {  // SL
+        if (await mostrarConfirmacion(`¿Eliminar el evento "${ev.titulo}"?`)) eliminarEventoAdmin(ev.id);  // SL
       });
       cont.appendChild(card);
     });
@@ -812,7 +812,7 @@ window.cambiarRol = async function(usuarioId, nuevoRolOrElement) {
             return;
         }
 
-        if (!confirm(`¿Confirmar cambio de rol a "${nuevoRol}" para el usuario ${usuarioId}?`)) return;
+        if (!(await mostrarConfirmacion(`¿Confirmar cambio de rol a "${nuevoRol}" para el usuario ${usuarioId}?`))) return;  // SL
 
         // preparar cuerpo x-www-form-urlencoded
         const body = new URLSearchParams();
@@ -871,26 +871,7 @@ function formatearFecha(fecha) {
     });
 }
 
-function mostrarNotificacion(mensaje, tipo) {
-    // Contenedor único que apila las notificaciones (se crea la primera vez)
-    let contenedor = document.getElementById('notificaciones-container');
-    if (!contenedor) {
-        contenedor = document.createElement('div');
-        contenedor.id = 'notificaciones-container';
-        document.body.appendChild(contenedor);
-    }
-
-    const notificacion = document.createElement('div');
-    notificacion.className = `notificacion ${tipo}`;
-    notificacion.textContent = mensaje;
-    contenedor.appendChild(notificacion);
-
-    setTimeout(() => {
-        notificacion.classList.add('fadeout');
-        // esperar a que termine la animación de salida antes de sacarla del DOM
-        setTimeout(() => notificacion.remove(), 300);
-    }, 3000);
-}
+// mostrarNotificacion() ahora vive en js/notificaciones.js (compartida por todo el sitio)  // SL
 
   document.addEventListener("DOMContentLoaded", init);
 })();

@@ -73,11 +73,11 @@ async function handleCredentialResponse(response) {
       localStorage.setItem("usuarioActual", JSON.stringify(result.usuario));
       window.location.href = "../index.html";
     } else {
-      alert(result.message);
+      mostrarNotificacion(result.message, 'info');  // SL
     }
   } catch (err) {
     console.error("Error Google Login:", err);
-    alert("Hubo un problema al iniciar sesión con Google");
+    mostrarNotificacion("Hubo un problema al iniciar sesión con Google", 'info');  // SL
   }
 }
 

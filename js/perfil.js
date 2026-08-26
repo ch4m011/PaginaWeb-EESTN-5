@@ -22,13 +22,13 @@ async function cargarDatosUsuario() {
             return true;
         } else {
             console.error('[perfil] Usuario no autenticado:', data);
-            alert('No estás autenticado. Por favor, inicia sesión.');
+            mostrarNotificacion('No estás autenticado. Por favor, inicia sesión.', 'info');  // SL
             window.location.href = '../pagina/login.html';
             return false;
         }
     } catch (err) {
         console.error('[perfil] Error cargando usuario desde getUser.php:', err);
-        alert('Error al cargar los datos del usuario. Por favor, intenta nuevamente.');
+        mostrarNotificacion('Error al cargar los datos del usuario. Por favor, intenta nuevamente.', 'error');  // SL
         window.location.href = '../pagina/login.html';
         return false;
     }
@@ -87,7 +87,7 @@ function configFormPerfil() {
         const nombreInput = document.getElementById('nombre_completo');
         const nuevoNombre = nombreInput?.value?.trim();
         if (!nuevoNombre) {
-            alert('El nombre no puede estar vacío');
+            mostrarNotificacion('El nombre no puede estar vacío', 'info');  // SL
             return;
         }
 
@@ -108,13 +108,13 @@ function configFormPerfil() {
                 localStorage.setItem('usuarioSesion', JSON.stringify(usuario));
                 const elNombreHeader = document.getElementById('nombrePerfilHeader');
                 if (elNombreHeader) elNombreHeader.textContent = nuevoNombre;
-                alert('Perfil actualizado correctamente');
+                mostrarNotificacion('Perfil actualizado correctamente', 'success');  // SL
             } else {
-                alert('Error: ' + (data.error || data.message || 'desconocido'));
+                mostrarNotificacion('Error: ' + (data.error || data.message || 'desconocido'), 'error');  // SL
             }
         } catch (err) {
             console.error('[perfil] Error actualizar_perfil:', err);
-            alert('Error al actualizar perfil');
+            mostrarNotificacion('Error al actualizar perfil', 'error');  // SL
         } finally {
             if (btn) btn.disabled = false;
         }
@@ -131,7 +131,7 @@ function configFormImagen() {
         e.preventDefault();
 
         if (!input.files || !input.files[0]) {
-            alert('Selecciona una imagen primero');
+            mostrarNotificacion('Selecciona una imagen primero', 'info');  // SL
             return;
         }
 
@@ -156,14 +156,14 @@ function configFormImagen() {
                     usuario.foto = data.imagen;
                     localStorage.setItem('usuarioSesion', JSON.stringify(usuario));
                 }
-                alert('Imagen actualizada correctamente');
+                mostrarNotificacion('Imagen actualizada correctamente', 'success');  // SL
                 input.value = ''; // Limpiar input
             } else {
-                alert('Error: ' + (data.error || 'desconocido'));
+                mostrarNotificacion('Error: ' + (data.error || 'desconocido'), 'error');  // SL
             }
         } catch (err) {
             console.error('[perfil] Error subida imagen:', err);
-            alert('Error al subir imagen');
+            mostrarNotificacion('Error al subir imagen', 'error');  // SL
         } finally {
             if (btn) btn.disabled = false;
         }
@@ -182,7 +182,7 @@ function configFormPassword() {
         const passwordNueva = document.getElementById('password_nueva')?.value || '';
 
         if (!passwordActual || !passwordNueva) {
-            alert('Por favor completa todos los campos');
+            mostrarNotificacion('Por favor completa todos los campos', 'info');  // SL
             return;
         }
 
@@ -202,14 +202,14 @@ function configFormPassword() {
 
             const data = await resp.json();
             if (data.ok) {
-                alert('Contraseña actualizada correctamente');
+                mostrarNotificacion('Contraseña actualizada correctamente', 'success');  // SL
                 form.reset();
             } else {
-                alert('Error: ' + (data.error || 'desconocido'));
+                mostrarNotificacion('Error: ' + (data.error || 'desconocido'), 'error');  // SL
             }
         } catch (err) {
             console.error('[perfil] Error cambiar_contrasena:', err);
-            alert('Error al cambiar contraseña');
+            mostrarNotificacion('Error al cambiar contraseña', 'error');  // SL
         } finally {
             if (btn) btn.disabled = false;
         }
@@ -224,13 +224,13 @@ function configFormEliminar() {
     form.addEventListener('submit', async (e) => {
         e.preventDefault();
 
-        if (!confirm('¿Seguro que deseas eliminar tu cuenta? Esta acción es irreversible.')) {
+        if (!(await mostrarConfirmacion('¿Seguro que deseas eliminar tu cuenta? Esta acción es irreversible.'))) {  // SL
             return;
         }
 
         const passwordDelete = document.getElementById('passwordDelete')?.value || '';
         if (!passwordDelete) {
-            alert('Por favor ingresa tu contraseña');
+            mostrarNotificacion('Por favor ingresa tu contraseña', 'info');  // SL
             return;
         }
 
@@ -248,16 +248,16 @@ function configFormEliminar() {
             const data = await resp.json();
             if (data.ok) {
                 localStorage.removeItem('usuarioSesion');
-                alert('Cuenta eliminada correctamente');
+                mostrarNotificacion('Cuenta eliminada correctamente', 'success');  // SL
                 setTimeout(() => {
                     window.location.href = '../index.html';
                 }, 1000);
             } else {
-                alert('Error: ' + (data.error || 'desconocido'));
+                mostrarNotificacion('Error: ' + (data.error || 'desconocido'), 'error');  // SL
             }
         } catch (err) {
             console.error('[perfil] Error eliminar_cuenta:', err);
-            alert('Error al eliminar cuenta');
+            mostrarNotificacion('Error al eliminar cuenta', 'error');  // SL
         } finally {
             if (btn) btn.disabled = false;
         }
@@ -438,7 +438,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 const nombreInput = document.getElementById('nombre_completo');
                 const nuevoNombre = nombreInput?.value?.trim();
                 if (!nuevoNombre) {
-                    alert('El nombre no puede estar vacío');
+                    mostrarNotificacion('El nombre no puede estar vacío', 'info');  // SL
                     if (btn) btn.disabled = false;
                     return;
                 }
@@ -458,7 +458,7 @@ document.addEventListener("DOMContentLoaded", () => {
                         data = JSON.parse(texto);
                     } catch (parseErr) {
                         console.error('Respuesta no JSON actualizar_perfil:', texto);
-                        alert('Error del servidor: respuesta inválida. Revisá logs PHP.');
+                        mostrarNotificacion('Error del servidor: respuesta inválida. Revisá logs PHP.', 'error');  // SL
                         if (btn) btn.disabled = false;
                         return;
                     }
@@ -468,13 +468,13 @@ document.addEventListener("DOMContentLoaded", () => {
                         const elNombreHeader = document.getElementById('nombrePerfilHeader');
                         if (elNombreHeader) elNombreHeader.textContent = nuevoNombre;
                         if (nombreInput) nombreInput.value = nuevoNombre;
-                        alert('Perfil actualizado correctamente');
+                        mostrarNotificacion('Perfil actualizado correctamente', 'success');  // SL
                     } else {
-                        alert('Error al actualizar perfil: ' + (data.message || data.error || 'desconocido'));
+                        mostrarNotificacion('Error al actualizar perfil: ' + (data.message || data.error || 'desconocido'), 'error');  // SL
                     }
                 } catch (err) {
                     console.error('Error actualizar_perfil:', err);
-                    alert('Error al actualizar perfil (red o servidor).');
+                    mostrarNotificacion('Error al actualizar perfil (red o servidor).', 'error');  // SL
                 } finally {
                     if (btn) btn.disabled = false;
                 }
@@ -500,18 +500,18 @@ document.addEventListener("DOMContentLoaded", () => {
             try {
                 const data = JSON.parse(text);
                 if (data.ok) {
-                    alert('Contraseña actualizada correctamente');
+                    mostrarNotificacion('Contraseña actualizada correctamente', 'success');  // SL
                     this.reset();
                 } else {
-                    alert(data.error || 'Error al cambiar la contraseña');
+                    mostrarNotificacion(data.error || 'Error al cambiar la contraseña', 'error');  // SL
                 }
             } catch (e) {
                 console.error('Respuesta del servidor:', text);
-                alert('Error en el formato de respuesta del servidor');
+                mostrarNotificacion('Error en el formato de respuesta del servidor', 'error');  // SL
             }
         } catch (error) {
             console.error('Error:', error);
-            alert('Error al procesar la solicitud');
+            mostrarNotificacion('Error al procesar la solicitud', 'error');  // SL
         }
     });
 
@@ -566,7 +566,7 @@ document.addEventListener("DOMContentLoaded", () => {
           mostrarMensaje('No hay usuario en sesión', 'error');
           return;
         }
-        if (!confirm('¿Seguro que deseas eliminar tu cuenta? Esta acción es irreversible.')) return;
+        if (!(await mostrarConfirmacion('¿Seguro que deseas eliminar tu cuenta? Esta acción es irreversible.'))) return;  // SL
 
         try {
           const resp = await fetch('../php/eliminar_cuenta.php', {
@@ -632,7 +632,7 @@ document.addEventListener("DOMContentLoaded", () => {
             window.location.replace(home + '?_logout=' + Date.now());
         } catch (err) {
             console.error('Error eliminar cuenta:', err);
-            alert('No se pudo eliminar la cuenta: ' + (err.message || err));
+            mostrarNotificacion('No se pudo eliminar la cuenta: ' + (err.message || err), 'info');  // SL
         }
     });
 
@@ -667,9 +667,9 @@ document.addEventListener("DOMContentLoaded", () => {
             .then(r => r.json().catch(()=>({ok:false,raw:true})))
             .then(resp => {
               if (resp && resp.ok) { console.log('Imagen subida OK', resp); location.reload(); }
-              else { console.error('Error subida imagen', resp); alert('Error al subir imagen'); }
+              else { console.error('Error subida imagen', resp); mostrarNotificacion('Error al subir imagen', 'error'); }  // SL
             })
-            .catch(err => { console.error('Fetch error', err); alert('Error de red al subir la imagen'); });
+            .catch(err => { console.error('Fetch error', err); mostrarNotificacion('Error de red al subir la imagen', 'error'); });  // SL
         });
       }
     } else {
@@ -697,8 +697,8 @@ document.addEventListener('DOMContentLoaded', function () {
     form.addEventListener('submit', function (e) {
         e.preventDefault();
         var input = form.querySelector('input[type="file"][name="avatar"]');
-        if (!input) { alert('No se encontró input file (name="avatar") en el formulario.'); return; }
-        if (!input.files || input.files.length === 0) { alert('Seleccioná una imagen antes de subir.'); return; }
+        if (!input) { mostrarNotificacion('No se encontró input file (name="avatar") en el formulario.', 'info'); return; }  // SL
+        if (!input.files || input.files.length === 0) { mostrarNotificacion('Seleccioná una imagen antes de subir.', 'info'); return; }  // SL
         var fd = new FormData(form);
         // si necesitás enviar user_id: fd.append('user_id', <ID>);
         var url = form.action || '../php/actualizar_imagen_perfil.php';
@@ -710,14 +710,14 @@ document.addEventListener('DOMContentLoaded', function () {
                 try {
                     var j = JSON.parse(r.text);
                     console.log('JSON recibido:', j);
-                    if (j.ok) { alert('Imagen subida correctamente.'); location.reload(); }
-                    else { alert('Error al subir: ' + (j.error || JSON.stringify(j))); }
+                    if (j.ok) { mostrarNotificacion('Imagen subida correctamente.', 'success'); location.reload(); }  // SL
+                    else { mostrarNotificacion('Error al subir: ' + (j.error || JSON.stringify(j)), 'error'); }  // SL
                 } catch (err) {
                     console.error('No JSON. Content:', r.text);
-                    alert('Respuesta del servidor no es JSON. Mirar consola (Network -> Response).');
+                    mostrarNotificacion('Respuesta del servidor no es JSON. Mirar consola (Network -> Response).', 'info');  // SL
                 }
             })
-            .catch(function (err) { console.error('Fetch error:', err); alert('Error de red al subir la imagen'); });
+            .catch(function (err) { console.error('Fetch error:', err); mostrarNotificacion('Error de red al subir la imagen', 'error'); });  // SL
     });
     form.dataset._uploadListenerAttached = '1';
 });
@@ -747,10 +747,10 @@ document.addEventListener('DOMContentLoaded', function() {
                 .then(r => r.json())
                 .then(resp => {
                     if (resp.ok) {
-                        alert('Imagen actualizada correctamente');
+                        mostrarNotificacion('Imagen actualizada correctamente', 'success');  // SL
                         location.reload();
                     } else {
-                        alert('Error: ' + (resp.error || 'Error desconocido'));
+                        mostrarNotificacion('Error: ' + (resp.error || 'Error desconocido'), 'error');  // SL
                     }
                 })
                 .catch(err => console.error('Error:', err));
@@ -774,9 +774,9 @@ document.addEventListener('DOMContentLoaded', function() {
             .then(r => r.json())
             .then(resp => {
                 if (resp.ok) {
-                    alert('Perfil actualizado correctamente');
+                    mostrarNotificacion('Perfil actualizado correctamente', 'success');  // SL
                 } else {
-                    alert('Error: ' + (resp.error || 'Error desconocido'));
+                    mostrarNotificacion('Error: ' + (resp.error || 'Error desconocido'), 'error');  // SL
                 }
             })
             .catch(err => console.error('Error:', err));
@@ -817,7 +817,7 @@ function subirImagen(event) {
     const fileInput = form.querySelector('input[type="file"]');
     
     if (!fileInput || !fileInput.files || !fileInput.files[0]) {
-        alert('Por favor selecciona una imagen primero');
+        mostrarNotificacion('Por favor selecciona una imagen primero', 'info');  // SL
         return;
     }
 
@@ -834,14 +834,14 @@ function subirImagen(event) {
     .then(data => {
         if (data.ok && data.ruta) {
             actualizarImagenPerfil(data.ruta);
-            alert('Imagen actualizada correctamente');
+            mostrarNotificacion('Imagen actualizada correctamente', 'success');  // SL
         } else {
             throw new Error(data.error || 'Error desconocido');
         }
     })
     .catch(error => {
         console.error('Error:', error);
-        alert('Error al subir la imagen: ' + error.message);
+        mostrarNotificacion('Error al subir la imagen: ' + error.message, 'error');  // SL
     })
     .finally(() => {
         if (submitButton) submitButton.disabled = false;
@@ -928,7 +928,7 @@ async function eliminarCuenta(e) {
     const form = e.target;
     const password = form.querySelector('[name="password_confirm"]')?.value;
     if (!password) {
-        alert('Por favor ingresa tu contraseña para confirmar');
+        mostrarNotificacion('Por favor ingresa tu contraseña para confirmar', 'info');  // SL
         return;
     }
 
@@ -961,7 +961,7 @@ async function eliminarCuenta(e) {
                 mensajeEl.textContent = 'Cuenta eliminada correctamente. Serás redirigido en 5 segundos...';
                 mensajeEl.style.display = 'block';
             } else {
-                alert('Cuenta eliminada correctamente. Serás redirigido en 5 segundos...');
+                mostrarNotificacion('Cuenta eliminada correctamente. Serás redirigido en 5 segundos...', 'success');  // SL
             }
 
             // Esperar 5 segundos y luego limpiar cliente + redirigir
@@ -988,7 +988,7 @@ async function eliminarCuenta(e) {
     })
     .catch(err => {
         console.error('DEBUG: eliminarCuenta error:', err);
-        alert('Error al eliminar: ' + err.message);
+        mostrarNotificacion('Error al eliminar: ' + err.message, 'error');  // SL
         if (btn) { btn.disabled = false; btn.textContent = btn.dataset.text || 'Eliminar cuenta'; }
     });
 }
@@ -1138,13 +1138,13 @@ document.getElementById('formPerfil')?.addEventListener('submit', async function
         if (data.ok) {
             // Recargar datos inmediatamente después de actualizar
             await cargarDatosUsuario();
-            alert('Perfil actualizado correctamente');
+            mostrarNotificacion('Perfil actualizado correctamente', 'success');  // SL
         } else {
-            alert(data.error || 'Error al actualizar perfil');
+            mostrarNotificacion(data.error || 'Error al actualizar perfil', 'error');  // SL
         }
     } catch (error) {
         console.error('Error:', error);
-        alert('Error al actualizar el perfil');
+        mostrarNotificacion('Error al actualizar el perfil', 'error');  // SL
     }
 });
 
@@ -1171,14 +1171,14 @@ document.getElementById('formCambioPassword')?.addEventListener('submit', async 
         const data = await response.json();
         
         if (data.ok) {
-            alert('Contraseña actualizada correctamente');
+            mostrarNotificacion('Contraseña actualizada correctamente', 'success');  // SL
             this.reset();
         } else {
-            alert(data.error || 'Error al cambiar la contraseña');
+            mostrarNotificacion(data.error || 'Error al cambiar la contraseña', 'error');  // SL
         }
     } catch (error) {
         console.error('Error:', error);
-        alert('Error al cambiar la contraseña');
+        mostrarNotificacion('Error al cambiar la contraseña', 'error');  // SL
     }
 });
 
@@ -1237,7 +1237,7 @@ document.addEventListener('DOMContentLoaded', function () {
         formImagen.addEventListener('submit', async function (e) {
             e.preventDefault();
             if (!inputAvatar.files || inputAvatar.files.length === 0) {
-                alert('Seleccioná una imagen primero');
+                mostrarNotificacion('Seleccioná una imagen primero', 'info');  // SL
                 return;
             }
             const fd = new FormData();
@@ -1270,18 +1270,18 @@ document.addEventListener('DOMContentLoaded', function () {
                         } catch (e) {
                             console.warn('No se pudo actualizar datos de usuario tras subir imagen', e);
                         }
-                        alert('Imagen actualizada');
+                        mostrarNotificacion('Imagen actualizada', 'success');  // SL
                     } else {
                         console.error('Error subida imagen', json);
-                        alert('Error al subir imagen: ' + (json.error || 'desconocido'));
+                        mostrarNotificacion('Error al subir imagen: ' + (json.error || 'desconocido'), 'error');  // SL
                     }
                 } catch (err) {
                     console.error('Respuesta no JSON subida imagen:', text);
-                    alert('Error: respuesta inválida del servidor al subir imagen');
+                    mostrarNotificacion('Error: respuesta inválida del servidor al subir imagen', 'error');  // SL
                 }
             } catch (err) {
                 console.error('Error fetch subir imagen:', err);
-                alert('Error al subir imagen');
+                mostrarNotificacion('Error al subir imagen', 'error');  // SL
             }
         });
     } else {
@@ -1304,7 +1304,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 const nombreInput = document.getElementById('nombre_completo');
                 const nuevoNombre = nombreInput?.value?.trim();
                 if (!nuevoNombre) {
-                    alert('El nombre no puede estar vacío');
+                    mostrarNotificacion('El nombre no puede estar vacío', 'info');  // SL
                     if (btn) btn.disabled = false;
                     return;
                 }
@@ -1324,7 +1324,7 @@ document.addEventListener('DOMContentLoaded', function () {
                         data = JSON.parse(texto);
                     } catch (parseErr) {
                         console.error('Respuesta no JSON actualizar_perfil:', texto);
-                        alert('Error del servidor: respuesta inválida. Revisá logs PHP.');
+                        mostrarNotificacion('Error del servidor: respuesta inválida. Revisá logs PHP.', 'error');  // SL
                         if (btn) btn.disabled = false;
                         return;
                     }
@@ -1334,13 +1334,13 @@ document.addEventListener('DOMContentLoaded', function () {
                         const elNombreHeader = document.getElementById('nombrePerfilHeader');
                         if (elNombreHeader) elNombreHeader.textContent = nuevoNombre;
                         if (nombreInput) nombreInput.value = nuevoNombre;
-                        alert('Perfil actualizado correctamente');
+                        mostrarNotificacion('Perfil actualizado correctamente', 'success');  // SL
                     } else {
-                        alert('Error al actualizar perfil: ' + (data.message || data.error || 'desconocido'));
+                        mostrarNotificacion('Error al actualizar perfil: ' + (data.message || data.error || 'desconocido'), 'error');  // SL
                     }
                 } catch (err) {
                     console.error('Error actualizar_perfil:', err);
-                    alert('Error al actualizar perfil (red o servidor).');
+                    mostrarNotificacion('Error al actualizar perfil (red o servidor).', 'error');  // SL
                 } finally {
                     if (btn) btn.disabled = false;
                 }
@@ -1454,13 +1454,13 @@ async function cargarDatosUsuario() {
             return true;
         } else {
             console.error('[perfil] Usuario no autenticado:', data);
-            alert('No estás autenticado. Por favor, inicia sesión.');
+            mostrarNotificacion('No estás autenticado. Por favor, inicia sesión.', 'info');  // SL
             window.location.href = '../pagina/login.html';
             return false;
         }
     } catch (err) {
         console.error('[perfil] Error cargando usuario desde getUser.php:', err);
-        alert('Error al cargar los datos del usuario. Por favor, intenta nuevamente.');
+        mostrarNotificacion('Error al cargar los datos del usuario. Por favor, intenta nuevamente.', 'error');  // SL
         window.location.href = '../pagina/login.html';
         return false;
     }

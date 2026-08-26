@@ -29,11 +29,11 @@ async function handleGoogleSignIn(response) {
             window.location.href = '/web-escolar/index.html';
         } else {
             console.error('Error:', data.message);
-            alert(data.message || 'Error al iniciar sesión con Google');
+            mostrarNotificacion(data.message || 'Error al iniciar sesión con Google', 'error');  // SL
         }
     } catch (error) {
         console.error('Error en autenticación:', error);
-        alert('Error al procesar el inicio de sesión con Google');
+        mostrarNotificacion('Error al procesar el inicio de sesión con Google', 'error');  // SL
     }
 }
 
@@ -124,7 +124,7 @@ window.handleCredentialResponse = async function (response) {
         if (data.need_link) {
             // mostrar instrucción al usuario
             console.warn('[google-auth] account needs linking:', data);
-            alert(data.message || 'Debes vincular la cuenta Google con tu cuenta existente.');
+            mostrarNotificacion(data.message || 'Debes vincular la cuenta Google con tu cuenta existente.', 'info');  // SL
             // Redirigir a la pantalla de login manual y pasar parámetro para iniciar flujo de vinculación
             window.location.href = 'login.html?link_with_google=1&email=' + encodeURIComponent(response && response.credential ? '' : '');
             return;
@@ -134,7 +134,7 @@ window.handleCredentialResponse = async function (response) {
     } catch (err) {
         console.error('[google-auth] Error completo:', err);
         console.error('[google-auth] Stack:', err.stack);
-        alert('Error inicio con Google: ' + (err.message || 'Error desconocido. Revisa la consola (F12).'));
+        mostrarNotificacion('Error inicio con Google: ' + (err.message || 'Error desconocido. Revisa la consola (F12).'), 'error');  // SL
     }
 };
 
