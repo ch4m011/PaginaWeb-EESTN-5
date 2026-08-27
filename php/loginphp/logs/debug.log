@@ -386,3 +386,15 @@
 [2026-08-23 02:17:23] POST: {"username":"jaafigueroarabanales@eest5.com","password":"miateamo"}
 [2026-08-23 02:17:23] Usuario encontrado id=33 correo=jaafigueroarabanales@eest5.com rol=admin
 [2026-08-23 02:17:23] Login exitoso para usuario_id=33 rol=admin
+[2026-08-23 17:05:54] === intento login ===
+[2026-08-23 17:05:54] POST: {"username":"jaafigueroarabanales@eest5.com","password":"miateamo"}
+[2026-08-23 17:05:54] Usuario encontrado id=33 correo=jaafigueroarabanales@eest5.com rol=admin
+[2026-08-23 17:05:54] Login exitoso para usuario_id=33 rol=admin
+[2026-08-23 17:30:53] === intento login ===
+[2026-08-23 17:30:53] POST: {"username":"jaafigueroarabanales@eest5.com","password":"miateamo"}
+[2026-08-23 17:30:53] Usuario encontrado id=33 correo=jaafigueroarabanales@eest5.com rol=admin
+[2026-08-23 17:30:53] Login exitoso para usuario_id=33 rol=admin
+[2026-08-27 03:30:59] === intento login ===
+[2026-08-27 03:30:59] POST: {"username":"jaafigueroarabanales@eest5.com","password":"miateamo"}
+[2026-08-27 03:30:59] Usuario encontrado id=33 correo=jaafigueroarabanales@eest5.com rol=admin
+[2026-08-27 03:30:59] Login exitoso para usuario_id=33 rol=admin

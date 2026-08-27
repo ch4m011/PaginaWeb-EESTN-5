@@ -22,7 +22,7 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  background: #0b0b2b;
+  background: linear-gradient(135deg, #023261 0%, #0057a8 100%);
   color: #fff;
   padding: 1rem 2rem;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
@@ -99,8 +99,8 @@
 }
 
 .navegador .logo a:hover {
-  color: #4da6ff;
-  text-shadow: 0 0 8px #4da6ff;
+  color: #f5a623;
+  text-shadow: 0 0 8px #f5a623;
 }
 
 /* -------- BUSCADOR -------- */
@@ -120,9 +120,9 @@
 }
 
 .buscador input {
-  background: #1a1a3d;
-  border: 1px solid #2e2e5c;
-  color: #fff;
+  background: #ffffff;
+  border: 1px solid #cfd8dc;
+  color: #1a1a1a;
   padding: 0.5rem 0.8rem;
   border-radius: 8px;
   width: 200px;
@@ -139,12 +139,12 @@
 
 .buscador input:focus {
   outline: none;
-  border-color: #4da6ff;
-  box-shadow: 0 0 8px #4da6ff;
+  border-color: #f5a623;
+  box-shadow: 0 0 8px #f5a623;
 }
 
 .buscador button {
-  background: #4da6ff;
+  background: #f5a623;
   border: none;
   color: #fff;
   border-radius: 8px;
@@ -154,9 +154,9 @@
 }
 
 .buscador button:hover {
-  background: #3385ff;
+  background: #d68910;
   transform: scale(1.05);
-  box-shadow: 0 0 8px #3385ff;
+  box-shadow: 0 0 8px #d68910;
 }
 
 /* -------- NAVBAR BOTONES -------- */
@@ -200,13 +200,13 @@
 }
 
 .nav-link:hover {
-  color: #4da6ff;
-  text-shadow: 0 0 8px #4da6ff;
+  color: #f5a623;
+  text-shadow: 0 0 8px #f5a623;
 }
 
 /* -------- LOGIN -------- */
 .btn-login {
-  background: #4da6ff;
+  background: #f5a623;
   border: none;
   color: #fff;
   font-weight: bold;
@@ -217,9 +217,9 @@
 }
 
 .btn-login:hover {
-  background: #3385ff;
+  background: #d68910;
   transform: scale(1.05);
-  box-shadow: 0 0 8px #3385ff;
+  box-shadow: 0 0 8px #d68910;
 }
 
 /* -------- PERFIL -------- */
@@ -237,13 +237,13 @@
   height: 38px;
   border-radius: 50%;
   object-fit: cover;
-  border: 2px solid #4da6ff;
+  border: 2px solid #f5a623;
   transition: transform 0.2s, box-shadow 0.3s;
 }
 
 .user-img:hover {
   transform: scale(1.1);
-  box-shadow: 0 0 8px #4da6ff;
+  box-shadow: 0 0 8px #f5a623;
 }
 
 .user-btn {
@@ -262,8 +262,8 @@
 }
 
 .user-btn:hover {
-  color: #4da6ff;
-  text-shadow: 0 0 6px #4da6ff;
+  color: #f5a623;
+  text-shadow: 0 0 6px #f5a623;
 }
 
 /* -------- MENÚ DESPLEGABLE -------- */
@@ -273,9 +273,9 @@
   position: absolute;
   top: 120%;
   right: 0;
-  background: #1a1a3d;
+  background: #ffffff;
   border-radius: 10px;
-  box-shadow: 0 6px 12px rgba(0,0,0,0.4);
+  box-shadow: 0 6px 16px rgba(0,0,0,0.15);
   min-width: 180px;
   overflow: hidden;
   opacity: 0;
@@ -295,7 +295,7 @@
   text-align: left;
   border: none;
   background: none;
-  color: #fff;
+  color: #1a1a1a;
   font-size: 0.9rem;
   cursor: pointer;
   transition: background 0.3s;
@@ -304,7 +304,7 @@
 
 .user-menu a:hover,
 .user-menu button:hover {
-  background: #2e2e5c;
+  background: #cfd8dc;
 }
 
 /* -------- RESPONSIVE -------- */
@@ -363,7 +363,7 @@
 
 .sugerencia-item:hover {
   background: #e4f1ff;
-  color: #004080;
+  color: #033260;
 }
 
 /* -------- PERFIL EN NAVEGACIÓN -------- */
@@ -431,7 +431,7 @@ header.navegador.nav-large #imgPerfilNav,
   height: 50px !important;
   min-width: 50px !important;
   min-height: 50px !important;
-  border: 3px solid #4da6ff !important;
+  border: 3px solid #f5a623 !important;
 }
 
 header.navegador.nav-large .user-btn {
@@ -562,4 +562,3 @@ header.navegador.nav-large .navbar > * {
 
 /* Ajuste del logo/título para mantener alineación vertical */
 header.navegador.nav-large .logo h1 { line-height: 48px !important; }
-

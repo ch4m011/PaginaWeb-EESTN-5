@@ -49,17 +49,26 @@ document.addEventListener('DOMContentLoaded', () => {
       // Ordenar del más reciente al más antiguo
       eventos.sort((a, b) => new Date(b.fecha) - new Date(a.fecha));
 
+      // AGREGADO: mapa de etiquetas legibles por tipo, con ícono y color propios
+      const infoTipo = {
+        'titulo-feriado':   { clase: 'feriado',           icono: '📅', etiqueta: 'Feriado',              color: '#d80000' },
+        'titulo-no-clases': { clase: 'no-clases',         icono: '⚠️', etiqueta: 'No hay clases',        color: '#ff8c00' },
+        'titulo-evento':    { clase: 'evento-importante', icono: '🎉', etiqueta: 'Evento importante',    color: '#1a73e8' },
+        'titulo-jornada':   { clase: 'jornada',           icono: '🏫', etiqueta: 'Jornada institucional', color: '#8e44ad' }
+      };
+      const infoPorDefecto = { clase: 'evento-importante', icono: '🎉', etiqueta: 'Evento', color: '#1a73e8' };
+
       // Mostrar eventos
       lista.innerHTML = '';
       eventos.forEach(e => {
-        const li = document.createElement('li');
-        let clase = '', icono = '';
-        if (e.tipo === 'titulo-feriado') { clase='feriado'; icono='📅'; }
-        else if (e.tipo === 'titulo-no-clases') { clase='no-clases'; icono='⚠️'; }
-        else { clase='evento-importante'; icono='🎉'; }
+        const info = infoTipo[e.tipo] || infoPorDefecto;
 
-        li.className = clase;
-        li.innerHTML = `<span class="fecha">${icono} ${e.fecha}:</span> <strong>${e.titulo}</strong>`;
+        const li = document.createElement('li');
+        li.className = info.clase;
+        li.innerHTML = `
+          <span class="tipo-evento-flotante" style="color:${info.color};font-weight:700;font-size:0.75rem;text-transform:uppercase;display:block;">${info.icono} ${info.etiqueta}</span>
+          <span class="fecha">${e.fecha}:</span> <strong>${e.titulo}</strong>
+        `;
 
         // Descripción desplegable
         if (e.descripcion && e.descripcion.trim() !== '') {
