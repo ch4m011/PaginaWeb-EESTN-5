@@ -1,0 +1,25 @@
+# ---- Credenciales y configuración local ----
+php/.env
+
+# ---- Logs y debug ----
+php/debug_log.txt
+php/loginphp/logs/
+*.log
+
+# ---- Contenido subido por usuarios en runtime ----
+php/uploads/*
+!php/uploads/.gitkeep
+
+# ---- Dependencias (por si en algún momento se usa composer/npm) ----
+/vendor/
+/node_modules/
+
+# ---- Archivos de sistema operativo ----
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# ---- Archivos de editores/IDE ----
+.vscode/
+.idea/
+*.swp
