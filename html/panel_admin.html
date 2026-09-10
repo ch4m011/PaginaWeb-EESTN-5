@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <link rel="icon" type="image/png" href="../img/logo-tecnica.png">
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Panel Admin — Administración</title>
+    <link rel="stylesheet" href="../css/navegador.css">
+    <link rel="stylesheet" href="../css/panel_admin.css">
+    <link rel="stylesheet" href="../css/noticias.css">
+
+    <script src="../js/navbar.js"></script>
+    <script src="../js/panel_admin.js"></script>
+    <script src="../js/panel_admin_events.js"></script>
+</head>
+
+<body>
+    <header class="navegador">
+        <div class="logo">
+            <div class="logo-container">
+                <img src="../img/logo-tecnica.png" alt="Escudo E.E.S.T. N.º 5" class="logo-img logo-left">
+                <h1>
+                    <a href="index.html">E.E.S.T. Nro 5 - "Gral. Manuel N. Savio"</a>
+                </h1>
+            </div>
+        </div>
+        <nav id="navPrincipal" class="navbar"></nav>
+    </header>
+
+    <main class="container">
+
+        <!-- MOVIDO: (Se eliminó el bloque .panel-usuarios para que los datos se generen dentro del panel principal) -->
+
+        <section class="panel">
+            <h1>Panel Admin</h1>
+            <p class="lead">Gestioná usuarios, escritores y noticias desde aquí.</p>
+
+            <div class="controls">
+                <input id="search" placeholder="Buscar por usuario o email..." />
+                <select id="filterRole">
+                    <option value="all">Todos</option>
+                    <option value="usuario">Usuarios</option>
+                    <option value="escritor">Escritores</option>
+                </select>
+                <button id="reload">Recargar</button>
+            </div>
+
+            <div id="counts" class="counts"></div>
+            <div id="messages" class="messages-container"></div>
+
+            <div class="table-wrap">
+                <table id="usersTable" class="users-table">
+                    <thead>
+                        <tr>
+                            <th>Nombre</th>
+                            <th>Correo</th>
+                            <th>Rol</th>
+                            <th>Fecha Registro</th>
+                            <th>Acciones</th>
+                        </tr>
+                    </thead>
+                    <tbody id="usuarios-tbody"></tbody>
+                </table>
+            </div>
+
+        </section>
+        <!-- Barra de filtros -->
+        <div id="filtroNoticias"></div>
+
+        <section class="editor-container admin-editor-container" id="contenidoNoticias">
+            <h2>🖋️ Crear Nueva Noticia</h2>
+            <div id="mensajeContainer"></div>
+
+            <form id="formNoticia">
+                <label for="tituloNoticia">Título de la noticia</label>
+                <input type="text" id="tituloNoticia" name="titulo" placeholder="Ej: Jornada de Puertas Abiertas" required>
+
+                <input type="hidden" id="autorNoticia" name="autor">
+                <input type="hidden" id="fechaNoticia" name="fecha">
+
+                <label for="imagenNoticia">Imagen destacada (opcional)</label>
+                <input type="file" id="imagenNoticia" name="imagen" accept="image/*">
+                <img id="previewImagen" alt="Vista previa">
+
+                <div class="tipo-noticia-control">
+                    <label class="tipo-noticia-titulo">Tipo de noticia</label>
+                    <label class="tipo-noticia-opcion"><input type="radio" name="tipoNoticia" value="principal"> Principal</label>
+                    <label class="tipo-noticia-opcion"><input type="radio" name="tipoNoticia" value="secundaria" checked> Secundaria</label>
+                </div>
+
+                <div class="editor-toolbar" role="toolbar" aria-label="Barra de herramientas de edición">
+                    <button type="button" data-cmd="bold" title="Negrita"><b>B</b></button>
+                    <button type="button" data-cmd="italic" title="Cursiva"><i>I</i></button>
+                    <button type="button" data-cmd="underline" title="Subrayado"><u>U</u></button>
+
+                    <select id="fontSizeSelect" title="Tamaño de fuente">
+                        <option value="">Tamaño</option>
+                        <option value="1">Pequeño</option>
+                        <option value="3" selected>Normal</option>
+                        <option value="5">Grande</option>
+                        <option value="7">Muy grande</option>
+                    </select>
+
+                    <button type="button" data-cmd="justifyleft" title="Alinear a la izquierda">⟸</button>
+                    <button type="button" data-cmd="justifycenter" title="Centrar">≡</button>
+                    <button type="button" data-cmd="justifyright" title="Alinear a la derecha">⟹</button>
+
+                    <button type="button" id="insertLinkBtn" title="Insertar enlace">🔗</button>
+                    <input type="file" id="insertImageFile" accept="image/*" style="display:none;">
+                    <button type="button" id="insertImageBtn" title="Insertar imagen">🖼️</button>
+                </div>
+
+                <div id="editor" class="editor" contenteditable="true" data-placeholder="Escribe el contenido de la noticia aquí..." aria-label="Editor de contenido"></div>
+
+                <div class="editor-ayuda">
+                    <strong>💡 Ayuda rápida</strong>
+                    <ul>
+                        <li><strong>B</strong>: negrita. <strong>I</strong>: cursiva. <strong>U</strong>: subrayado.</li>
+                        <li><strong>Tamaño</strong>: cambia el tamaño del texto o de una imagen seleccionada.</li>
+                        <li><strong>⟸ ≡ ⟹</strong>: alinea el texto o una imagen.</li>
+                        <li><strong>🔗</strong>: inserta un enlace. <strong>🖼️</strong>: inserta una imagen dentro de la noticia.</li>
+                    </ul>
+                </div>
+
+                <div class="botones-editor">
+                    <button type="submit" class="btn-primario">📢 Publicar Noticia</button>
+                </div>
+            </form>
+        </section>
+
+        <section class="panel small">
+            <h2>Noticias (global)</h2>
+            <!-- Contenedor donde se muestran las noticias -->
+            <div id="newsList" class="noticias-grid"></div>
+        </section>
+
+        <section class="panel small">
+            <h2>Agregar Evento al Calendario</h2>
+            <form id="formEventoAdmin">
+                <label for="tituloEventoAdmin">Título del evento</label>
+                <input type="text" id="tituloEventoAdmin" placeholder="Título del evento" required>
+
+                <label for="tipoEventoAdmin">Tipo</label>
+                <select id="tipoEventoAdmin" required>
+                    <option value="">Seleccionar tipo de evento</option>
+                    <option value="titulo-feriado">Día Feriado</option>
+                    <option value="titulo-no-clases">No hay clases</option>
+                    <option value="titulo-evento">Evento importante</option>
+                    <option value="titulo-jornada">Jornada Institucional</option>
+                </select>
+
+                <label for="fechaEventoAdmin">Fecha</label>
+                <input type="date" id="fechaEventoAdmin" required>
+
+                <label for="horaInicioAdmin">Hora inicio</label>
+                <input type="time" id="horaInicioAdmin" required>
+
+                <label for="horaFinAdmin">Hora fin</label>
+                <input type="time" id="horaFinAdmin" required>
+
+                <label for="descripcionEventoAdmin">Descripción</label>
+                <textarea id="descripcionEventoAdmin" rows="3" placeholder="Descripción del evento"></textarea>
+
+                <div style="margin-top:10px;">
+                    <button type="submit" class="btn-primario">Guardar Evento</button>
+                </div>
+            </form>
+        </section>
+
+        <section class="panel small">
+            <h2>Eventos (global)</h2>
+            <div id="eventosGlobalesContainer"></div>
+        </section>
+
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="eest-footer">
+    </footer>
+
+</body>
+</html>

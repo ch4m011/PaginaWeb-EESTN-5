@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <link rel="icon" type="image/png" href="../img/logo-tecnica.png">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Inicio | Escuela Técnica - La Plata</title>
+  <meta name="description"
+    content="Portal institucional de la Escuela de Educación Secundaria Técnica N.º 5 'Gral. Manuel N. Savio' de La Plata: noticias, novedades y accesos para la comunidad educativa.">
+
+  <!-- Estilos -->
+  <link rel="stylesheet" href="../css/navegador.css">
+  <link rel="stylesheet" href="../css/calendario.css">
+  <link rel="stylesheet" href="../css/noticias.css">
+  <link rel="stylesheet" href="../css/index.css">
+
+  <!-- Scripts -->
+  <script src="../js/navbar.js" defer></script>
+  <script src="../js/index_noticias.js" defer></script>
+  <script src="../js/calendario_flotante.js" defer></script>
+</head>
+
+<body>
+
+  <!-- HEADER / NAVBAR -->
+  <header class="navegador">
+    <div class="logo">
+      <div class="logo-container">
+        <img src="../img/logo-tecnica.png" alt="Escudo E.E.S.T. N.º 5" class="logo-img logo-left">
+        <h1>
+          <a href="index.html">E.E.S.T. Nro 5 - "Gral. Manuel N. Savio"</a>
+        </h1>
+      </div>
+    </div>
+    <nav id="navPrincipal" class="navbar"></nav>
+  </header>
+
+  <!-- SLIDER DE NOTICIAS -->
+  <div class="slider">
+    <div class="slides" id="noticiasSlider"></div>
+  </div>
+
+  <main>
+    <h2>Últimas noticias</h2>
+    <!-- NOTICIA PRINCIPAL + DESTACADAS -->
+    <div id="noticiasContainer"></div>
+
+    <!-- ÚLTIMAS NOTICIAS -->
+    <div id="ultimasNoticiasContainer" class="news-grid"></div>
+
+    <!-- AGENDA / CALENDARIO -->
+    <section id="agendaCalendario" aria-labelledby="agendaTitulo">
+      <div class="agenda-titulo-fila">
+        <h2 id="agendaTitulo" class="agenda-titulo">Agenda</h2>
+        <div class="agenda-flechas" aria-label="Navegación de la agenda">
+          <button id="agendaAnterior" class="agenda-flecha" type="button" aria-label="Eventos anteriores">‹</button>
+          <button id="agendaSiguiente" class="agenda-flecha" type="button" aria-label="Eventos siguientes">›</button>
+        </div>
+      </div>
+      <div id="agendaViewport" class="agenda-viewport">
+        <div id="agendaLista" class="agenda-lista" aria-live="polite"></div>
+      </div>
+    </section>
+
+    <!-- ACCESOS RÁPIDOS -->
+    <section id="accesos-rapidos"  class="eest-section" aria-labelledby="accesos-titulo">
+      <span class="eest-eyebrow">Navegación rápida</span>
+      <h2 id="accesos-titulo" class="eest-section-title">Accesos rápidos</h2>
+      <div class="eest-quick-access">
+        <a class="eest-quick-card" href="https://sites.google.com/eest5.com/bibliotecadigital" target="_blank"
+          rel="noopener">
+          <span class="eest-quick-card__icon">📚</span>
+          <span class="eest-quick-card__text">
+            <strong>Biblioteca escolar</strong>
+            <span>Espacio digital de la biblioteca</span>
+          </span>
+        </a>
+        <a class="eest-quick-card" href="preinscripcion.html">
+          <span class="eest-quick-card__icon">📝</span>
+          <span class="eest-quick-card__text">
+            <strong>Pre-inscripción</strong>
+            <span>Sumate a la comunidad educativa</span>
+          </span>
+        </a>
+        <a class="eest-quick-card" href="contacto.html">
+          <span class="eest-quick-card__icon">📩</span>
+          <span class="eest-quick-card__text">
+            <strong>Contacto</strong>
+            <span>Escribile a la institución</span>
+          </span>
+        </a>
+        <a class="eest-quick-card" href="perfil.html">
+          <span class="eest-quick-card__icon">👤</span>
+          <span class="eest-quick-card__text">
+            <strong>Mi perfil</strong>
+            <span>Gestioná tu cuenta</span>
+          </span>
+        </a>
+      </div>
+    </section>
+
+    <!-- CONOCÉ NUESTRA ESCUELA -->
+    <section class="eest-section eest-section--tinted" aria-labelledby="institucional-titulo">
+      <div class="eest-institutional">
+        <div class="eest-institutional__media">
+          <img src="../img/logo-tecnica.png" alt="Escudo institucional de la E.E.S.T. N.º 5">
+        </div>
+        <div class="eest-institutional__body">
+          <span class="eest-eyebrow">Institucional</span>
+          <h2 id="institucional-titulo" class="eest-section-title">Conocé nuestra escuela</h2>
+          <p>
+            La Escuela de Educación Secundaria Técnica N.º 5 "Gral. Manuel N. Savio" de La Plata
+            forma parte de la educación técnica pública de la ciudad, combinando la formación
+            secundaria con especialidades orientadas al trabajo y la práctica en talleres.
+          </p>
+          <div class="eest-stats">
+            <div class="eest-stat">
+              <strong>3</strong>
+              <span>Especialidades técnicas</span>
+            </div>
+            <div class="eest-stat">
+              <strong>Pública</strong>
+              <span>Gestión estatal</span>
+            </div>
+          </div>
+          <a class="eest-btn eest-btn--outline" href="contacto.html">Conocé más sobre la institución</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- EDUCACIÓN TÉCNICA -->
+    <section class="eest-section" aria-labelledby="tecnica-titulo">
+      <span class="eest-eyebrow">Formación técnica</span>
+      <h2 id="tecnica-titulo" class="eest-section-title">Nuestras especialidades</h2>
+      <div class="eest-specialties">
+        <article class="eest-specialty" style="--specialty-color:#c9781f;">
+          <div class="eest-specialty__icon">🧱</div>
+          <h3>Construcción</h3>
+          <p>Formación en técnicas de construcción y albañilería, con práctica en taller.</p>
+        </article>
+        <article class="eest-specialty" style="--specialty-color:#f4cd3b;">
+          <div class="eest-specialty__icon">⚡</div>
+          <h3>Electricidad</h3>
+          <p>Instalaciones eléctricas y fundamentos de electrotecnia aplicada.</p>
+        </article>
+        <article class="eest-specialty" style="--specialty-color:#00ff80;">
+          <div class="eest-specialty__icon">🧪</div>
+          <h3>Química</h3>
+          <p>Prácticas de laboratorio y procesos químicos con base científica.</p>
+        </article>
+         <article class="eest-specialty" style="--specialty-color:#0f5fa8;">
+          <div class="eest-specialty__icon">💻</div>
+          <h3>Informática</h3>
+          <p>Formación en programación, sistemas informáticos y tecnologías digitales, con práctica en proyectos y laboratorio.</p>
+        </article>
+      </div>
+    </section>
+
+    <!-- CTA PREINSCRIPCIÓN -->
+    <section class="eest-section" aria-labelledby="cta-titulo">
+      <div class="eest-cta">
+        <span class="eest-eyebrow">Pre-inscripción abierta</span>
+        <h2 id="cta-titulo">¿Querés formar parte de nuestra comunidad educativa?</h2>
+        <p>Conocé el proceso de pre-inscripción y sumate a la E.E.S.T. N.º 5.</p>
+        <a class="eest-btn eest-btn--primary" href="preinscripcion.html">Ver pre-inscripción →</a>
+      </div>
+    </section>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="eest-footer">
+  </footer>
+
+</body>
+
+</html>

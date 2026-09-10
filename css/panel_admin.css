@@ -1,0 +1,800 @@
+/* ===============================
+   PANEL ADMIN - Estilo Moderno + Botones Interactivos
+   =============================== */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  background: linear-gradient(180deg, #e8f0fe 0%, #f5f7fa 100%);
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color: #333;
+  margin: 0;
+  padding: 0;
+}
+
+main.container {
+  max-width: 1200px;
+  width: 90%;
+  margin: 4rem auto;
+  display: flex;
+  flex-direction: column;
+  gap: 2.5rem;
+}
+
+.panel {
+  background: #ffffff;
+  padding: 2rem;
+  border-radius: 16px;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  animation: fadeIn 0.6s ease;
+}
+
+.panel.small { padding: 1.5rem; }
+
+.panel h1, .panel h2 { margin: 0; color: #222; font-weight: 700; }
+
+.panel p.lead { font-size: 1rem; color: #555; }
+
+.controls {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.8rem;
+  align-items: center;
+}
+
+.controls input,
+.controls select {
+  padding: 0.7rem 1rem;
+  border: 1.5px solid #ccd6e0;
+  border-radius: 8px;
+  background: #f9fafc;
+  font-size: 0.95rem;
+  transition: border-color 0.25s ease, box-shadow 0.25s ease;
+}
+
+.controls input:focus,
+.controls select:focus {
+  outline: none;
+  border-color: #4a90e2;
+  box-shadow: 0 0 8px rgba(74, 144, 226, 0.25);
+}
+
+.controls button {
+  padding: 0.7rem 1.5rem;
+  border: none;
+  border-radius: 8px;
+  background: linear-gradient(135deg, #4a90e2, #357ABD);
+  color: #fff;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.controls button:hover {
+  background: linear-gradient(135deg, #357ABD, #2b6db4);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 10px rgba(74, 144, 226, 0.4);
+}
+
+.controls button:active { transform: translateY(0); box-shadow: none; }
+
+.counts {
+  font-weight: 600;
+  color: #4a90e2;
+  position: relative;
+}
+
+.message {
+  background: #f0f4ff;
+  color: #333;
+  padding: 0.5rem 1rem;
+  border-radius: 8px;
+  margin-top: 0.5rem;
+  font-size: 0.9rem;
+  animation: fadeIn 0.4s ease;
+}
+
+.table-wrap { overflow-x: auto; }
+
+.users-table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0 12px;     /* separa filas como en la imagen */
+  min-width: 650px;
+  background: transparent;
+}
+
+/* Encabezado: barra clara, texto centrado verticalmente y esquinas redondeadas */
+.users-table thead th {
+  background: #f3f6fb;         /* barra superior muy clara */
+  color: #263238;              /* texto oscuro suave */
+  font-weight: 700;
+  text-transform: none;
+  font-size: 0.9rem; /* fallback removed, keep original size */
+  padding: 16px 20px;
+  border-bottom: none;
+  letter-spacing: 0.2px;
+}
+
+/* Convertir cada fila en una "tarjeta" blanca con sombra sutil */
+.users-table tbody tr {
+  display: table-row;
+  background: #fff;
+  box-shadow: 0 2px 0 rgba(0,0,0,0.03);
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+/* Alternado: filas con fondo azul muy claro (se ve como en la imagen) */
+.users-table tbody tr:nth-child(even) {
+  background: #f6fbff;
+}
+
+/* Celdas: espaciado para parecer más "tarjeta" */
+.users-table tbody td {
+  color: #4b5663;
+  font-size: 0.95rem;
+  padding: 18px 20px;
+  vertical-align: middle;
+  border: none; /* sin líneas separadoras visibles */
+}
+
+/* Primera columna: destacar nombre (mayúsculas como en la imagen) */
+.users-table tbody td:first-child {
+  font-weight: 700;
+  color: #243243;
+  text-transform: uppercase;   /* activar si querés exactamente como imagen */
+  letter-spacing: 0.4px;
+  width: 28%;
+}
+
+/* Columnas: ancho y alineación como en la imagen */
+.users-table thead th:nth-child(2),
+.users-table tbody td:nth-child(2) { width: 32%; text-align: left; }
+.users-table thead th:nth-child(3),
+.users-table tbody td:nth-child(3) { width: 12%; text-align: left; }
+.users-table thead th:nth-child(4),
+.users-table tbody td:nth-child(4) { width: 14%; text-align: center; }
+.users-table thead th:nth-child(5),
+.users-table tbody td:nth-child(5) { width: 14%; text-align: center; }
+
+/* Grupo de acciones: botones tipo píldora con color y espaciado */
+.action-group { display:flex; gap:8px; justify-content:center; align-items:center; }
+
+/* Botones estilo píldora */
+.users-table tbody td button {
+  border-radius: 16px;
+  padding: 6px 12px;
+  font-size: 0.85rem;
+  font-weight: 700;
+  box-shadow: none;
+  border: none;
+  cursor: pointer;
+}
+
+/* Estilo del único botón de rol que aparece en la columna 'Rol' */
+.btn-role {
+  background: linear-gradient(135deg, #4a90e2, #357ABD);
+  color: #fff;
+  border-radius: 22px;
+  padding: 8px 16px;
+  font-weight: 700;
+  box-shadow: 0 6px 12px rgba(53,122,189,0.18);
+  cursor: pointer;
+  min-width: 88px;
+}
+.btn-role:hover { transform: translateY(-2px); }
+
+/* Colores exactos por tipo (coincidentes con las imágenes) */
+.btn-promote { background: #28a745; color: #fff; }
+.btn-demote  { background: #6c757d; color: #fff; }
+.btn-access  { background: #ffc107; color: #222; }
+
+/* Botones desactivados igual que en la imagen (gris claro con borde difuminado) */
+.btn-disabled, button[disabled] {
+  background: #f0f2f4;
+  color: #adb5bd;
+  pointer-events: none;
+  border: 1px solid rgba(0,0,0,0.04);
+}
+
+/* Botón "Guardar" estilo borde redondeado como en la segunda imagen */
+.btn-guardar {
+  background: transparent;
+  color: #111;
+  border: 1.5px solid #222;
+  padding: 6px 14px;
+  border-radius: 20px;
+  font-weight: 700;
+}
+
+/* Ajustes de contenedor para que la tabla quede integrada en la tarjeta grande */
+.table-wrap {
+  background: transparent;
+  padding: 0;
+  margin: 0;
+}
+
+/* Tamaño en móviles (ajuste fino) */
+@media (max-width: 900px) {
+  .controls { flex-direction: column; align-items: stretch; }
+  .controls input, .controls select, .controls button { width: 100%; }
+  main.container { margin: 2rem auto; width: 95%; }
+  .users-table { min-width: 100%; border-spacing: 0 8px; }
+  .users-table thead th, .users-table tbody td { padding: 12px 10px; font-size: 0.9rem; }
+  .users-table tbody td button { min-width: 92px; padding: 6px 10px; }
+  .action-group { gap:6px; }
+}
+/* ===== Botones del panel admin (estilo de la imagen) ===== */
+/* ===== ESTILOS DE LOS BOTONES DEL PANEL ===== */
+
+.btn-view,
+.btn-edit,
+.btn-delete {
+  border: none;
+  padding: 6px 10px;
+  border-radius: 6px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s, transform 0.1s;
+  font-family: inherit;
+  min-width: 86px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.btn-view {
+  background-color: #007bff;
+  color: #fff;
+}
+
+.btn-edit {
+  background-color: #ffc107;
+  color: #000;
+}
+
+.btn-delete {
+  background-color: #dc3545;
+  color: #fff;
+}
+
+.btn-view:hover {
+  background-color: #0062cc;
+}
+
+.btn-edit:hover {
+  background-color: #e0a800;
+}
+
+.btn-delete:hover {
+  background-color: #c82333;
+}
+
+/* Prevent overflow of text and buttons in news cards */
+.noticias-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1rem; }
+.noticias-grid > div { overflow: hidden; display: flex; flex-direction: column; }
+.noticias-grid p { word-break: break-word; overflow-wrap: anywhere; white-space: normal; }
+.noticias-grid h3 { word-break: break-word; overflow-wrap: anywhere; }
+.noticias-grid div[style*="display:flex"] { flex-wrap: wrap; justify-content: flex-end; }
+
+.tabla-contenedor {
+    overflow-x: auto;
+    margin: 20px 0;
+}
+
+.tabla-usuarios {
+    width: 100%;
+    border-collapse: collapse;
+    background: white;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+}
+
+.tabla-usuarios th,
+.tabla-usuarios td {
+    padding: 12px 15px;
+    text-align: left;
+    border-bottom: 1px solid #eee;
+}
+
+.tabla-usuarios th {
+    background: #f8f9fa;
+    font-weight: 600;
+    color: #333;
+}
+
+.rol-selector {
+    padding: 6px 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    background: white;
+}
+
+.btn-actualizar,
+.btn-eliminar {
+    padding: 6px 12px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    margin: 0 5px;
+}
+
+.btn-actualizar {
+    background: #28a745;
+    color: white;
+}
+
+.btn-eliminar {
+    background: #dc3545;
+    color: white;
+}
+
+/* ==============================
+   NOTIFICACIONES — apiladas + fade-out
+   ============================== */
+
+#notificaciones-container {
+  position: fixed;
+  top: 130px;
+  right: 20px;
+  z-index: 1000;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  pointer-events: none; /* el contenedor no bloquea clicks, los hijos sí */
+}
+
+.notificacion {
+    position: relative; /* ya no fixed: el contenedor se encarga de la posición */
+    padding: 15px 25px;
+    border-radius: 8px;
+    color: white;
+    min-width: 220px;
+    max-width: 320px;
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15);
+    animation: slideIn 0.3s ease;
+    pointer-events: auto;
+}
+
+.notificacion.fadeout {
+  animation: slideOut 0.3s ease forwards;
+}
+
+.notificacion.success {
+    background-color: #28a745;
+}
+
+.notificacion.error {
+    background-color: #dc3545;
+}
+
+@keyframes slideIn {
+    from {
+        transform: translateX(100%);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+@keyframes slideOut {
+  from {
+    transform: translateX(0);
+    opacity: 1;
+  }
+  to {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+}
+
+.rol-selector {
+    padding: 8px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    background-color: white;
+}
+
+/* ==============================
+   Ajustes visuales solicitados por el admin
+   - Ocultar columna "Acciones" en la tabla de usuarios
+   - Estilizar el selector de rol para parecer un botón circular
+   Nota: sólo cambios de estilo, sin tocar lógica JS/PHP
+   ============================== */
+
+/* Columna de Acciones (eliminar usuario) — visible */
+.users-table thead th:nth-child(5),
+.users-table tbody td:nth-child(5) {
+  text-align: center;
+}
+
+/* Transformar el select de rol en un control con apariencia de botón circular */
+.users-table .rol-selector {
+  /* Estilo tipo 'pill' para parecer el botón de acción anterior */
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 110px;      /* más ancho para mostrar texto completo */
+  height: 44px;
+  padding: 0 14px;       /* espacio lateral para texto */
+  border-radius: 22px;   /* forma de píldora */
+  background: linear-gradient(135deg, #4a90e2, #357ABD);
+  color: #fff;
+  border: none;
+  font-weight: 700;
+  cursor: pointer;
+  -webkit-appearance: none;
+  appearance: none;
+  box-shadow: 0 6px 14px rgba(53,122,189,0.18);
+  text-align: center;
+}
+
+/* Quitar caret nativo en ciertos navegadores y asegurar legibilidad de options */
+.users-table .rol-selector::-ms-expand { display: none; }
+.users-table .rol-selector option { color: #111; }
+
+/* Ajustes responsive: menor ancho en pantallas pequeñas */
+@media (max-width: 900px) {
+  .users-table .rol-selector { min-width: 90px; height: 38px; padding: 0 10px; border-radius: 19px; }
+}
+
+.rol-selector:focus {
+    border-color: #4CAF50;
+    outline: none;
+    box-shadow: 0 0 0 2px rgba(76, 175, 80, 0.2);
+}
+
+.panel-admin-wrapper {
+    margin-top: 0 !important;      /* eliminar espacio superior impuesto */
+    padding-top: 0 !important;     /* eliminar padding superior */
+    position: relative;            /* mantener flujo normal */
+    top: 0;                        /* asegurar que quede arriba */
+}
+/* si la lista tiene una clase específica, forzarla arriba */
+.usuarios-list, .lista-usuarios {
+    margin-top: 0 !important;
+    padding-top: 0 !important;
+}
+/* si usas Bootstrap u otro contenedor que centra verticalmente, sobrescribir */
+.container, .container-fluid {
+    padding-top: 0 !important;
+    margin-top: 0 !important;
+}
+/* ajuste opcional: reducir separaciones internas */
+.panel-admin-wrapper .card, .panel-admin-wrapper .box {
+    margin-top: 8px; /* ajustar según necesites */
+}
+
+/* Hide structural divs from editor (text-align wrappers) - show only content */
+div[style*="text-align: center"] { display: contents; }
+
+/* ==============================
+   AGREGADO: estilos para los formularios de "Crear Noticia" y
+   "Agregar Evento" del panel admin, y las tarjetas de evento
+   ============================== */
+
+#formNoticiaAdmin,
+#formEventoAdmin {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+#formNoticiaAdmin label,
+#formEventoAdmin label {
+  font-weight: 600;
+  color: #263238;
+  font-size: 0.9rem;
+  margin-top: 0.6rem;
+}
+
+#formNoticiaAdmin input[type="text"],
+#formNoticiaAdmin input[type="file"],
+#formNoticiaAdmin textarea,
+#formEventoAdmin input[type="text"],
+#formEventoAdmin input[type="date"],
+#formEventoAdmin input[type="time"],
+#formEventoAdmin select,
+#formEventoAdmin textarea {
+  padding: 0.7rem 1rem;
+  border: 1.5px solid #ccd6e0;
+  border-radius: 8px;
+  background: #f9fafc;
+  font-size: 0.95rem;
+  font-family: inherit;
+  transition: border-color 0.25s ease, box-shadow 0.25s ease;
+  width: 100%;
+}
+
+#formNoticiaAdmin input:focus,
+#formNoticiaAdmin textarea:focus,
+#formEventoAdmin input:focus,
+#formEventoAdmin select:focus,
+#formEventoAdmin textarea:focus {
+  outline: none;
+  border-color: #4a90e2;
+  box-shadow: 0 0 8px rgba(74, 144, 226, 0.25);
+}
+
+#formNoticiaAdmin textarea,
+#formEventoAdmin textarea {
+  resize: vertical;
+}
+
+.btn-primario {
+  padding: 0.7rem 1.5rem;
+  border: none;
+  border-radius: 8px;
+  background: linear-gradient(135deg, #4a90e2, #357ABD);
+  color: #fff;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-size: 0.95rem;
+}
+
+.btn-primario:hover {
+  background: linear-gradient(135deg, #357ABD, #2b6db4);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 10px rgba(74, 144, 226, 0.4);
+}
+
+.btn-primario:active {
+  transform: translateY(0);
+  box-shadow: none;
+}
+
+.evento-card {
+  background: #fff;
+  border-radius: 10px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+  padding: 14px 16px;
+}
+
+.evento-card .btn-delete {
+  margin-top: 4px;
+}
+
+.evento-tipo-badge {
+  font-weight: 700;
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 0.3px;
+}
+
+.btn-eliminar-usuario {
+  background: #dc3545;
+  color: #fff;
+  border: none;
+  border-radius: 16px;
+  padding: 6px 14px;
+  font-weight: 700;
+  font-size: 0.85rem;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.btn-eliminar-usuario:hover {
+  background: #c82333;
+}
+
+/* Responsive: formularios más angostos en pantallas chicas ya heredan
+   el ancho 100% de los inputs de arriba, no requiere ajuste extra */   EDITOR DE NOTICIAS DEL ADMIN — mismo aspecto que ESCRITOR
+   ========================================================== */
+.admin-editor-container {
+  max-width: 800px;
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 1.5rem;
+  background: #fff;
+  border-radius: 10px;
+  box-shadow: 0 6px 20px rgba(0,0,0,.10);
+}
+
+.admin-editor-container h2 {
+  color: #004080;
+  margin: 0 0 1rem;
+  font-size: 1.6rem;
+}
+
+.admin-editor-container label {
+  display: block;
+  margin-bottom: .45rem;
+  font-weight: 600;
+  color: #333;
+}
+
+.admin-editor-container input[type="text"],
+.admin-editor-container input[type="file"] {
+  width: 100%;
+  display: block;
+  padding: .7rem;
+  margin-bottom: .8rem;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 1rem;
+  font-family: inherit;
+}
+
+.admin-editor-container input:focus {
+  outline: none;
+  border-color: #007bff;
+}
+
+#previewImagen {
+  display: none;
+  width: 100%;
+  max-width: 100%;
+  max-height: 320px;
+  object-fit: contain;
+  border-radius: 8px;
+  margin: 10px 0;
+  background: #000;
+  padding: 6px;
+  box-shadow: 0 6px 20px rgba(0,0,0,.18);
+}
+
+.tipo-noticia-control {
+  margin: 10px 0 16px;
+  padding: 12px 14px;
+  background: #f7f9fc;
+  border: 1px solid #e1e7ef;
+  border-radius: 8px;
+}
+
+.tipo-noticia-titulo {
+  margin-bottom: 8px !important;
+}
+
+.tipo-noticia-opcion {
+  display: inline-flex !important;
+  align-items: center;
+  gap: 6px;
+  margin: 0 18px 0 0 !important;
+  font-weight: 500 !important;
+  cursor: pointer;
+}
+
+.editor-toolbar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 6px;
+  padding: 8px;
+  margin-bottom: 0;
+  background: #f3f5f8;
+  border: 1px solid #d7dde5;
+  border-bottom: 0;
+  border-radius: 7px 7px 0 0;
+}
+
+.editor-toolbar button,
+.editor-toolbar select {
+  min-height: 36px;
+  border: 1px solid #cbd3dd;
+  border-radius: 6px;
+  background: #fff;
+  color: #333;
+  padding: 6px 10px;
+  font-family: inherit;
+  font-size: .95rem;
+}
+
+.editor-toolbar button:hover {
+  background: #eaf2ff;
+  transform: none;
+}
+
+.editor {
+  width: 100%;
+  min-height: 240px;
+  border: 1px solid #ccc;
+  border-radius: 0 0 7px 7px;
+  padding: .9rem;
+  margin-bottom: 1rem;
+  font-size: 1rem;
+  font-family: 'Segoe UI', sans-serif;
+  background: #fff;
+  line-height: 1.55;
+  overflow-wrap: anywhere;
+}
+
+.editor:focus {
+  outline: none;
+  border-color: #007bff;
+  box-shadow: 0 0 0 2px rgba(0,123,255,.08);
+}
+
+.editor:empty::before {
+  content: attr(data-placeholder);
+  color: #aaa;
+  pointer-events: none;
+}
+
+.editor img {
+  max-width: 60%;
+  max-height: 350px;
+  width: auto;
+  height: auto;
+  display: block;
+  margin: 1rem auto;
+  border-radius: 6px;
+  box-shadow: 0 4px 12px rgba(0,0,0,.12);
+}
+
+.editor-ayuda {
+  background: #f0f8ff;
+  padding: 10px 14px;
+  border-radius: 6px;
+  margin-bottom: 1rem;
+  font-size: .92rem;
+  color: #333;
+}
+
+.editor-ayuda ul {
+  margin: 8px 0 0;
+  padding-left: 20px;
+}
+
+.editor-ayuda li {
+  margin-bottom: 3px;
+}
+
+.botones-editor {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.botones-editor .btn-primario {
+  background: #007bff;
+  color: #fff;
+  border: 0;
+  border-radius: 6px;
+  padding: .7rem 1.2rem;
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+.botones-editor .btn-primario:hover {
+  background: #0056b3;
+  transform: translateY(-1px);
+}
+
+/* ==========================================================
+   NOTIFICACIONES — nunca se colocan encima de la navbar
+   ========================================================== */
+#notificaciones-container {
+  top: calc(var(--navegador-height, 82px) + 14px) !important;
+  right: 20px !important;
+  z-index: 1300 !important;
+}
+
+@media (max-width: 768px) {
+  #notificaciones-container {
+    top: calc(var(--navegador-height, 150px) + 10px) !important;
+    right: 12px !important;
+    left: 12px;
+  }
+
+  #notificaciones-container .notificacion {
+    width: 100%;
+    max-width: none;
+  }
+
+  .admin-editor-container {
+    margin: 0;
+    width: 100%;
+    padding: 1rem;
+  }
+}

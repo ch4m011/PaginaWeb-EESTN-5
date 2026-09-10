@@ -1,0 +1,445 @@
+/*
+ * perfil.css
+ * Estilos de la página "Mi perfil" (html/perfil.html).
+ *
+ * Hoja unificada a partir de las dos versiones existentes:
+ * - Conserva las reglas funcionales del formulario.
+ * - Mantiene el diseño institucional de la segunda versión.
+ * - Elimina duplicados y reglas contradictorias.
+ * - No incluye clases obsoletas eliminadas previamente.
+ */
+
+/* =============================
+   BASE
+   ============================= */
+
+*, *::before, *::after {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(180deg, #e8f0fe 0%, #f5f7fa 100%);
+    color: #333;
+    display: block;
+    height: auto;
+    min-height: 100vh;
+    padding: 2.5rem 1rem;
+}
+
+/* Contenedor heredado de login.css */
+.login-contenedor {
+    background: transparent;
+    box-shadow: none;
+    padding: 0;
+    max-width: 700px;
+    margin: 0 auto;
+}
+
+.login-formulario h2 {
+    color: #023261;
+}
+
+
+/* =============================
+   BOTÓN VOLVER
+   ============================= */
+
+.btn-volver {
+    position: fixed;
+    top: 20px;
+    left: 25px;
+    z-index: 9999;
+
+    display: flex;
+    align-items: center;
+    gap: 6px;
+
+    padding: 0.6rem 1rem;
+
+    background: linear-gradient(135deg, #4a90e2, #357ABD);
+    border: none;
+    border-radius: 8px;
+
+    color: #fff;
+    font-size: 1rem;
+    font-weight: 600;
+
+    cursor: pointer;
+
+    box-shadow: 0 4px 10px rgba(74, 144, 226, 0.35);
+
+    transition:
+        transform 0.15s ease,
+        box-shadow 0.3s ease,
+        background 0.3s ease;
+}
+
+.btn-volver:hover {
+    background: linear-gradient(135deg, #357ABD, #2b6db4);
+    color: #fff;
+
+    transform: translateX(-3px) translateY(-1px);
+
+    box-shadow: 0 6px 14px rgba(74, 144, 226, 0.45);
+}
+
+
+/* =============================
+   MENSAJES DE ESTADO
+   ============================= */
+
+.mensaje {
+    padding: 0.9rem 1rem;
+    margin: 0 0 1.5rem;
+
+    border-radius: 8px;
+
+    font-size: 0.95rem;
+    text-align: center;
+
+    transition: opacity 0.3s ease;
+}
+
+.mensaje.ok {
+    background-color: #e8f5e9;
+    color: #2e7d32;
+    border: 1px solid #c3e6cb;
+}
+
+.mensaje.error {
+    background-color: #fdecea;
+    color: #b71c1c;
+    border: 1px solid #f5c6cb;
+}
+
+.mensaje.info {
+    background-color: #e8f0fe;
+    color: #023261;
+    border: 1px solid #b8daff;
+}
+
+
+/* =============================
+   CONTENEDOR PRINCIPAL
+   ============================= */
+
+.perfil-container {
+    max-width: 700px;
+    max-height: none;
+
+    margin: 0 auto;
+    padding: 2rem;
+
+    background: #ffffff;
+
+    border: none;
+    border-radius: 16px;
+
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+
+    overflow-y: visible;
+
+    animation: fadeIn 0.5s ease;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Scrollbar */
+.perfil-container::-webkit-scrollbar {
+    width: 6px;
+}
+
+.perfil-container::-webkit-scrollbar-track {
+    background: #f1f1f1;
+}
+
+.perfil-container::-webkit-scrollbar-thumb {
+    background: #888;
+    border-radius: 3px;
+}
+
+.perfil-container::-webkit-scrollbar-thumb:hover {
+    background: #555;
+}
+
+.perfil-container {
+    scrollbar-width: thin;
+    scrollbar-color: #888 #f1f1f1;
+}
+
+
+/* =============================
+   ENCABEZADO DEL PERFIL
+   ============================= */
+
+.perfil-header {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+
+    margin-bottom: 1.5rem;
+    padding: 0 0 1.25rem;
+
+    border-bottom: 1px solid #e1e8f2;
+}
+
+.perfil-imagen-container {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+
+    margin-bottom: 0;
+}
+
+.perfil-imagen {
+    width: 80px;
+    height: 80px;
+    flex: 0 0 80px;
+
+    display: block;
+
+    border-radius: 50%;
+    border: 3px solid #4a90e2;
+
+    object-fit: cover;
+
+    background: #f5f5f5;
+}
+
+#nombrePerfilHeader {
+    font-size: 1.2em;
+    font-weight: 600;
+    color: #023261;
+}
+
+
+/* =============================
+   SECCIONES DEL FORMULARIO
+   ============================= */
+
+.seccion {
+    margin-bottom: 1.5rem;
+    padding: 1.25rem;
+
+    background-color: #f8faff;
+
+    border: 1px solid #e1e8f2;
+    border-radius: 12px;
+}
+
+.seccion .form-group {
+    margin-bottom: 1rem;
+}
+
+.seccion-correo {
+    margin: 0 0 1.5rem;
+    padding: 1.25rem;
+
+    background-color: #f8faff;
+
+    border: 1px solid #e1e8f2;
+    border-radius: 12px;
+}
+
+.seccion label,
+.seccion-correo label,
+.campo-form label {
+    display: block;
+
+    margin-bottom: 0.5rem;
+
+    color: #333;
+    font-weight: 600;
+}
+
+.seccion h3 {
+    margin: 0 0 1rem;
+
+    color: #023261;
+    font-size: 1.05rem;
+}
+
+.campo-form {
+    margin-bottom: 1.5rem;
+}
+
+
+/* =============================
+   CAMPOS DE FORMULARIO
+   ============================= */
+
+input[type="text"],
+input[type="email"],
+input[type="password"],
+input[type="file"] {
+    width: 100%;
+
+    padding: 0.7rem 0.9rem;
+
+    border: 1.5px solid #ccd6e0;
+    border-radius: 8px;
+
+    background: #f9fafc;
+
+    color: #333;
+    font-size: 1rem;
+
+    margin-bottom: 1rem;
+
+    transition:
+        border-color 0.2s ease,
+        background-color 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+input[type="text"]:focus,
+input[type="email"]:focus,
+input[type="password"]:focus {
+    outline: none;
+
+    border-color: #4a90e2;
+
+    background: #fff;
+
+    box-shadow: 0 0 8px rgba(74, 144, 226, 0.25);
+}
+
+.input-readonly {
+    width: 100%;
+
+    padding: 0.7rem 0.9rem;
+
+    background-color: #eef1f5;
+
+    border: 1.5px solid #ccd6e0;
+
+    color: #666;
+
+    cursor: not-allowed;
+}
+
+
+/* =============================
+   BOTONES
+   ============================= */
+
+.btn,
+.seccion button[type="submit"],
+.form-perfil button[type="submit"] {
+    display: inline-block;
+
+    width: 100%;
+
+    padding: 0.75rem 1.5rem;
+    margin-bottom: 0;
+
+    border: none;
+    border-radius: 8px;
+
+    font-size: 0.95rem;
+    font-weight: 600;
+
+    text-align: center;
+
+    cursor: pointer;
+
+    transition:
+        background 0.3s ease,
+        transform 0.15s ease,
+        box-shadow 0.3s ease;
+}
+
+
+/* Actualizar / guardar */
+
+.btn-actualizar,
+.btn-guardar,
+#formCambioPassword button[type="submit"] {
+    background: linear-gradient(135deg, #4a90e2, #357ABD);
+    color: #fff;
+}
+
+.btn-actualizar:hover,
+.btn-guardar:hover,
+#formCambioPassword button[type="submit"]:hover {
+    background: linear-gradient(135deg, #357ABD, #2b6db4);
+
+    transform: translateY(-2px);
+
+    box-shadow: 0 4px 10px rgba(74, 144, 226, 0.4);
+}
+
+
+/* Eliminar */
+
+.btn-eliminar {
+    background: #dc3545;
+    color: #fff;
+}
+
+.btn-eliminar:hover {
+    background: #c62835;
+
+    transform: translateY(-2px);
+
+    box-shadow: 0 4px 10px rgba(220, 53, 69, 0.35);
+}
+
+
+/* =============================
+   RESPONSIVE
+   ============================= */
+
+@media (max-width: 768px) {
+    .perfil-container {
+        margin: 0 auto;
+        padding: 1.25rem;
+    }
+
+    input[type="file"] {
+        width: 100%;
+    }
+
+    .perfil-header {
+        flex-direction: column;
+        text-align: center;
+    }
+}
+
+@media (max-width: 500px) {
+    body {
+        padding-top: 70px;
+    }
+
+    .btn-volver {
+        top: 10px;
+        left: 10px;
+
+        padding: 0.45rem 0.8rem;
+
+        font-size: 0.9rem;
+    }
+}
+
+
+/* =============================
+   ELEMENTOS MULTIMEDIA
+   ============================= */
+
+img,
+video,
+iframe {
+    max-width: 100%;
+    height: auto;
+}

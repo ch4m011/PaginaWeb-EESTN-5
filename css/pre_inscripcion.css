@@ -1,0 +1,331 @@
+/* pre_inscripcion.css - estilos de la planilla de preinscripción,
+   alineados con el mismo lenguaje visual que el resto del sitio
+   (fondo degradado, tarjetas blancas redondeadas, azul institucional,
+   tipografía Segoe UI) — ver css/contacto.css como referencia. */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  padding: 0 0 2.5rem;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color: #333;
+  background: linear-gradient(180deg, #e8f0fe 0%, #f5f7fa 100%);
+}
+
+/* =============================
+   CONTENEDOR PRINCIPAL
+   ============================= */
+.container {
+  max-width: 900px;
+  margin: 2.5rem auto;
+  padding: 0 1rem;
+}
+
+.container h3 {
+  color: #023261;
+  margin: 0.4rem 0 1.5rem;
+}
+
+.text-center {
+  text-align: center;
+}
+
+/* =============================
+   TARJETAS ("panel")
+   Mismo lenguaje que el <main> de contacto: blanco, bordes
+   redondeados, sombra suave.
+   ============================= */
+.panel {
+  background: #ffffff;
+  border: none;
+  border-radius: 16px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+  margin-bottom: 1.5rem;
+  overflow: hidden;
+  animation: fadeIn 0.5s ease;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.panel-heading {
+  background: linear-gradient(135deg, #4a90e2, #357ABD);
+  color: #fff;
+  padding: 1rem 1.5rem;
+}
+
+.panel-title {
+  margin: 0;
+  font-weight: 600;
+  color: #fff;
+  font-size: 1.05rem;
+}
+
+.panel-body {
+  padding: 1.5rem;
+}
+
+/* Paneles anidados (Teléfono, Dirección, Datos de la inscripción):
+   más discretos que el panel principal para marcar la jerarquía. */
+.panel-body>.panel {
+  box-shadow: none;
+  border: 1px solid #e1e8f2;
+  margin-top: 0.5rem;
+}
+
+.panel-body>.panel>.panel-heading {
+  background: #f0f4f8;
+  color: #023261;
+}
+
+.panel-body>.panel>.panel-heading .panel-title,
+.panel-body>.panel>.panel-heading {
+  color: #023261;
+  font-weight: 600;
+}
+
+.campo-obligatorio-faltante {
+  border: 2px solid red !important;
+  background: #fff0f0 !important;
+}
+
+[data-error]:after {
+  content: attr(data-error);
+  color: red;
+  font-size: 0.9em;
+  display: block;
+  margin-top: 2px;
+}
+
+/* =============================
+   GRID TIPO "form-horizontal"
+   ============================= */
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 0 -0.5rem;
+}
+
+.form-horizontal .form-group {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  margin-bottom: 1.15rem;
+}
+
+.form-horizontal .form-group:last-child {
+  margin-bottom: 0;
+}
+
+.control-label {
+  flex: 0 0 100%;
+  max-width: 100%;
+  margin: 0 0 0.4rem;
+  font-weight: 600;
+  color: #333;
+}
+
+.col-sm-10,
+.col-sm-2,
+.col-sm-offset-2 {
+  flex: 0 0 100%;
+  max-width: 100%;
+}
+
+@media (min-width: 768px) {
+  .control-label.col-sm-2 {
+    flex: 0 0 22%;
+    max-width: 22%;
+    margin-bottom: 0;
+    padding-top: 0.65rem;
+  }
+
+  .form-group .col-sm-10 {
+    flex: 0 0 78%;
+    max-width: 78%;
+  }
+
+  .col-sm-offset-2 {
+    margin-left: 22%;
+    flex: 0 0 78%;
+    max-width: 78%;
+  }
+}
+
+/* =============================
+   CAMPOS DE FORMULARIO
+   Mismo look que los inputs de contacto.css
+   ============================= */
+.form-control,
+input[type="date"] {
+  display: block;
+  width: 100%;
+  padding: 0.7rem 0.9rem;
+  font-size: 1rem;
+  line-height: 1.3;
+  color: #333;
+  background: #f9fafc;
+  border: 1.5px solid #ccd6e0;
+  border-radius: 8px;
+  transition: border-color 0.2s ease, background-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.form-control:focus,
+input[type="date"]:focus {
+  outline: none;
+  border-color: #4a90e2;
+  background: #fff;
+  box-shadow: 0 0 8px rgba(74, 144, 226, 0.25);
+}
+
+select.form-control {
+  cursor: pointer;
+}
+
+.img-responsive {
+  max-width: 100%;
+  height: auto;
+}
+
+/* Ajustes para inputs numéricos mostrados como texto en algunos navegadores */
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* =============================
+   BOTONES
+   Mismo lenguaje que el botón "Enviar" de contacto
+   ============================= */
+.btn {
+  display: inline-block;
+  padding: 0.75rem 1.5rem;
+  margin: 0.2rem 0.3rem 0.2rem 0;
+  border: none;
+  border-radius: 8px;
+  font-weight: 600;
+  font-size: 0.95rem;
+  text-align: center;
+  text-decoration: none;
+  cursor: pointer;
+  transition: background 0.3s ease, transform 0.15s ease, box-shadow 0.3s ease;
+}
+
+.btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  transform: none !important;
+  box-shadow: none !important;
+}
+
+.btn-primary {
+  background: linear-gradient(135deg, #4a90e2, #357ABD);
+  color: #fff;
+}
+
+.btn-primary:hover:not(:disabled) {
+  background: linear-gradient(135deg, #357ABD, #2b6db4);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 10px rgba(74, 144, 226, 0.4);
+}
+
+.btn-secondary {
+  background: #6c757d;
+  color: #fff;
+}
+
+.btn-secondary:hover:not(:disabled) {
+  background: #565e64;
+}
+
+.btn-warning {
+  background: #f5a623;
+  color: #1a1a1a;
+}
+
+.btn-warning:hover:not(:disabled) {
+  background: #d6900f;
+}
+
+.btn-outline-primary {
+  background: transparent;
+  color: #357ABD;
+  border: 2px solid #4a90e2;
+}
+
+.btn-outline-primary:hover:not(:disabled) {
+  background: #4a90e2;
+  color: #fff;
+}
+
+.btn-lg {
+  padding: 0.9rem 2rem;
+  font-size: 1.05rem;
+}
+
+/* =============================
+   MENSAJES DE ERROR / VALIDACIÓN
+   ============================= */
+.error-message {
+  display: block;
+  color: #c0392b;
+  margin-top: 6px;
+  font-size: 0.9rem;
+}
+
+.help-block.with-errors {
+  color: #c0392b;
+}
+
+#emailOK,
+#emailOK2,
+#comprobar_mensaje2 {
+  display: block;
+  margin-top: 0.3rem;
+  font-size: 0.9rem;
+}
+
+/* Helper para ocultar elementos */
+.hidden {
+  display: none !important;
+}
+
+/* =============================
+   RESPONSIVE
+   ============================= */
+@media (max-width: 768px) {
+  .panel-body {
+    padding: 1.1rem;
+  }
+
+  .form-control,
+  input[type="date"] {
+    padding: 0.6rem 0.8rem;
+  }
+
+  .container {
+    margin: 1.5rem auto;
+  }
+}
+
+/* fin pre_inscripcion.css */

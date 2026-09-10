@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Corregir autores por email</title>
+  <style>
+    body{font-family:Arial,Helvetica,sans-serif;margin:20px;color:#222}
+    table{border-collapse:collapse;width:100%;margin-top:12px}
+    th,td{border:1px solid #ddd;padding:8px;text-align:left}
+    th{background:#f4f4f4}
+    .controls{display:flex;gap:8px;align-items:center}
+    button{padding:8px 12px;border-radius:4px;border:1px solid #ccc;background:#fff;cursor:pointer}
+    .danger{background:#dc3545;color:#fff;border-color:#b22}
+  </style>
+</head>
+<body>
+  <h1>Corregir autores por email</h1>
+  <p>Esta herramienta busca noticias cuyo <code>autor_email</code> coincide con algún <code>usuarios.correo</code> y actualiza <code>noticias.autor_id</code> para que apunte al usuario correcto. Revisa el preview antes de aplicar.</p>
+  <div class="controls">
+    <button id="btnPreview">Obtener preview</button>
+    <button id="btnApply" class="danger" disabled>Aplicar cambios</button>
+    <span id="status"></span>
+  </div>
+  <div id="preview"></div>
+  <script>
+    const api = '../php/fix_authors_by_email.php';
+    const btnP = document.getElementById('btnPreview');
+    const btnA = document.getElementById('btnApply');
+    const status = document.getElementById('status');
+    const preview = document.getElementById('preview');
+
+    async function loadPreview(){
+      status.textContent = 'Cargando...';
+      btnA.disabled = true;
+      try{
+        const res = await fetch(api + '?_=' + Date.now(), {cache:'no-store'});
+        if(!res.ok) throw new Error('HTTP ' + res.status);
+        const j = await res.json();
+        status.textContent = `Registros a corregir: ${j.preview_count}`;
+        render(j.preview || []);
+        if((j.preview || []).length > 0) btnA.disabled = false;
+      }catch(e){ status.textContent = 'Error: ' + e.message; preview.innerHTML=''; }
+    }
+
+    function render(rows){
+      if(!rows || rows.length===0){ preview.innerHTML = '<p>No hay cambios necesarios.</p>'; return; }
+      let html = '<table><thead><tr><th>ID</th><th>Título</th><th>noticias.autor_id</th><th>autor_email</th><th>usuario.id</th><th>usuario.nombre</th><th>usuario.correo</th></tr></thead><tbody>';
+      rows.forEach(r => {
+        html += `<tr><td>${r.noticia_id}</td><td>${escape(r.titulo)}</td><td>${r.noticia_autor_id}</td><td>${escape(r.autor_email)}</td><td>${r.usuario_id}</td><td>${escape(r.nombre + ' ' + r.apellido)}</td><td>${escape(r.usuario_correo)}</td></tr>`;
+      });
+      html += '</tbody></table>';
+      preview.innerHTML = html;
+    }
+
+    function escape(s){ return String(s||'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;'); }
+
+    btnP.addEventListener('click', loadPreview);
+    btnA.addEventListener('click', async () => {
+      if(!confirm('Aplicar los cambios? Esto actualizará noticias.autor_id para las filas listadas. Hacer backup antes.')) return;
+      status.textContent = 'Aplicando cambios...';
+      try{
+        const form = new FormData(); form.append('apply','1');
+        const res = await fetch(api, {method:'POST', body: form});
+        if(!res.ok) throw new Error('HTTP ' + res.status);
+        const j = await res.json();
+        status.textContent = `Aplicado: ${j.applied}`;
+        if(j.updated) render(j.updated);
+        btnA.disabled = true;
+      }catch(e){ status.textContent = 'Error: ' + e.message; }
+    });
+
+    // carga inicial
+    loadPreview();
+  </script>
+</body>
+</html>

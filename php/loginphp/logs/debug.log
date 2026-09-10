@@ -1,0 +1,215 @@
+[2026-09-10 01:14:28] === intento login ===
+[2026-09-10 01:14:28] POST: {"username":"holajojola","password":"123123"}
+[2026-09-10 01:14:28] Usuario no encontrado para: holajojola
+[2026-09-10 01:14:34] === intento login ===
+[2026-09-10 01:14:34] POST: {"username":"holajojola","password":"123123"}
+[2026-09-10 01:14:34] Usuario no encontrado para: holajojola
+[2026-09-10 01:17:27] === intento login ===
+[2026-09-10 01:17:27] POST: {"username":"jaafigueroarabanales@eest5.com","password":"miateamo"}
+[2026-09-10 01:17:27] Usuario encontrado id=37 correo=jaafigueroarabanales@eest5.com rol=admin
+[2026-09-10 01:17:27] Contraseña NO coincide para usuario_id=37
+[2026-09-10 01:17:28] === intento login ===
+[2026-09-10 01:17:28] POST: {"username":"jaafigueroarabanales@eest5.com","password":"miateamo"}
+[2026-09-10 01:17:28] Usuario encontrado id=37 correo=jaafigueroarabanales@eest5.com rol=admin
+[2026-09-10 01:17:28] Contraseña NO coincide para usuario_id=37
+[2026-09-10 01:17:28] === intento login ===
+[2026-09-10 01:17:28] POST: {"username":"jaafigueroarabanales@eest5.com","password":"miateamo"}
+[2026-09-10 01:17:28] Usuario encontrado id=37 correo=jaafigueroarabanales@eest5.com rol=admin
+[2026-09-10 01:17:28] Contraseña NO coincide para usuario_id=37
+[2026-09-10 01:17:28] === intento login ===
+[2026-09-10 01:17:28] POST: {"username":"jaafigueroarabanales@eest5.com","password":"miateamo"}
+[2026-09-10 01:17:28] Usuario encontrado id=37 correo=jaafigueroarabanales@eest5.com rol=admin
+[2026-09-10 01:17:28] Contraseña NO coincide para usuario_id=37
+[2026-09-10 01:17:28] === intento login ===
+[2026-09-10 01:17:28] POST: {"username":"jaafigueroarabanales@eest5.com","password":"miateamo"}
+[2026-09-10 01:17:28] Usuario encontrado id=37 correo=jaafigueroarabanales@eest5.com rol=admin
+[2026-09-10 01:17:28] Contraseña NO coincide para usuario_id=37
+[2026-09-10 01:17:29] === intento login ===
+[2026-09-10 01:17:29] POST: {"username":"jaafigueroarabanales@eest5.com","password":"miateamo"}
+[2026-09-10 01:17:29] Usuario encontrado id=37 correo=jaafigueroarabanales@eest5.com rol=admin
+[2026-09-10 01:17:29] Contraseña NO coincide para usuario_id=37
+[2026-09-10 01:23:14] === intento login ===
+[2026-09-10 01:23:14] POST: {"username":"juan.andfigueroa2007@gmail.com","password":"123456"}
+[2026-09-10 01:23:14] Usuario encontrado id=40 correo=juan.andfigueroa2007@gmail.com rol=admin
+[2026-09-10 01:23:14] Login exitoso para usuario_id=40 rol=admin
+[2026-09-10 01:35:44] === intento login ===
+[2026-09-10 01:35:44] POST: {"username":"holajojolita","password":"123123"}
+[2026-09-10 01:35:44] Usuario encontrado id=39 correo=123123@123123.com rol=usuario
+[2026-09-10 01:35:44] Contraseña NO coincide para usuario_id=39
+[2026-09-10 01:35:54] === intento login ===
+[2026-09-10 01:35:54] POST: {"username":"holajojolita","password":"123123"}
+[2026-09-10 01:35:54] Usuario encontrado id=39 correo=123123@123123.com rol=usuario
+[2026-09-10 01:35:54] Contraseña NO coincide para usuario_id=39
+[2026-09-10 01:37:07] === intento login ===
+[2026-09-10 01:37:07] POST: {"username":"123123@123123.com","password":"123123"}
+[2026-09-10 01:37:07] Usuario encontrado id=39 correo=123123@123123.com rol=usuario
+[2026-09-10 01:37:07] Contraseña NO coincide para usuario_id=39
+[2026-09-10 01:37:10] === intento login ===
+[2026-09-10 01:37:10] POST: {"username":"123123@123123.com","password":"123123"}
+[2026-09-10 01:37:10] Usuario encontrado id=39 correo=123123@123123.com rol=usuario
+[2026-09-10 01:37:11] Contraseña NO coincide para usuario_id=39
+[2026-09-10 01:37:11] === intento login ===
+[2026-09-10 01:37:11] POST: {"username":"123123@123123.com","password":"123123"}
+[2026-09-10 01:37:11] Usuario encontrado id=39 correo=123123@123123.com rol=usuario
+[2026-09-10 01:37:11] Contraseña NO coincide para usuario_id=39
+[2026-09-10 01:37:11] === intento login ===
+[2026-09-10 01:37:11] POST: {"username":"123123@123123.com","password":"123123"}
+[2026-09-10 01:37:11] Usuario encontrado id=39 correo=123123@123123.com rol=usuario
+[2026-09-10 01:37:11] Contraseña NO coincide para usuario_id=39
+[2026-09-10 01:37:18] === intento login ===
+[2026-09-10 01:37:18] POST: {"username":"123123@123123.com","password":"123123"}
+[2026-09-10 01:37:18] Usuario encontrado id=39 correo=123123@123123.com rol=usuario
+[2026-09-10 01:37:18] Contraseña NO coincide para usuario_id=39
+[2026-09-10 01:37:46] === intento login ===
+[2026-09-10 01:37:46] POST: {"username":"123123@123123.com","password":"123123"}
+[2026-09-10 01:37:46] Usuario encontrado id=39 correo=123123@123123.com rol=admin
+[2026-09-10 01:37:46] Contraseña NO coincide para usuario_id=39
+[2026-09-10 01:37:47] === intento login ===
+[2026-09-10 01:37:47] POST: {"username":"123123@123123.com","password":"123123"}
+[2026-09-10 01:37:47] Usuario encontrado id=39 correo=123123@123123.com rol=admin
+[2026-09-10 01:37:47] Contraseña NO coincide para usuario_id=39
+[2026-09-10 01:37:51] === intento login ===
+[2026-09-10 01:37:51] POST: {"username":"holajojolita","password":"123123"}
+[2026-09-10 01:37:51] Usuario encontrado id=39 correo=123123@123123.com rol=admin
+[2026-09-10 01:37:51] Contraseña NO coincide para usuario_id=39
+[2026-09-10 01:37:52] === intento login ===
+[2026-09-10 01:37:52] POST: {"username":"holajojolita","password":"123123"}
+[2026-09-10 01:37:52] Usuario encontrado id=39 correo=123123@123123.com rol=admin
+[2026-09-10 01:37:52] Contraseña NO coincide para usuario_id=39
+[2026-09-10 01:39:27] === intento login ===
+[2026-09-10 01:39:27] POST: {"username":"holajojolita","password":"123123"}
+[2026-09-10 01:39:27] Usuario encontrado id=39 correo=123123@123123.com rol=admin
+[2026-09-10 01:39:27] Contraseña NO coincide para usuario_id=39
+[2026-09-10 01:39:48] === intento login ===
+[2026-09-10 01:39:48] POST: {"username":"jaafigueroarabanales@eest5.com","password":"123456"}
+[2026-09-10 01:39:48] Usuario encontrado id=37 correo=jaafigueroarabanales@eest5.com rol=admin
+[2026-09-10 01:39:48] Contraseña NO coincide para usuario_id=37
+[2026-09-10 01:47:25] === intento login ===
+[2026-09-10 01:47:25] POST: {"username":"holajojola","password":"123123"}
+[2026-09-10 01:47:25] Usuario no encontrado para: holajojola
+[2026-09-10 01:47:27] === intento login ===
+[2026-09-10 01:47:27] POST: {"username":"holajojola","password":"123123"}
+[2026-09-10 01:47:27] Usuario no encontrado para: holajojola
+[2026-09-10 01:47:27] === intento login ===
+[2026-09-10 01:47:27] POST: {"username":"holajojola","password":"123123"}
+[2026-09-10 01:47:27] Usuario no encontrado para: holajojola
+[2026-09-10 01:47:27] === intento login ===
+[2026-09-10 01:47:27] POST: {"username":"holajojola","password":"123123"}
+[2026-09-10 01:47:27] Usuario no encontrado para: holajojola
+[2026-09-10 01:47:28] === intento login ===
+[2026-09-10 01:47:28] POST: {"username":"holajojola","password":"123123"}
+[2026-09-10 01:47:28] Usuario no encontrado para: holajojola
+[2026-09-10 01:51:44] === intento login ===
+[2026-09-10 01:51:44] POST: {"username":"holajojola","password":"123123"}
+[2026-09-10 01:51:44] Usuario no encontrado para: holajojola
+[2026-09-10 01:51:44] === intento login ===
+[2026-09-10 01:51:44] POST: {"username":"holajojola","password":"123123"}
+[2026-09-10 01:51:44] Usuario no encontrado para: holajojola
+[2026-09-10 01:51:55] === intento login ===
+[2026-09-10 01:51:55] POST: {"username":"holajojolita","password":"123123"}
+[2026-09-10 01:51:55] Usuario encontrado id=39 correo=123123@123123.com rol=admin
+[2026-09-10 01:51:55] Contraseña NO coincide para usuario_id=39
+[2026-09-10 01:52:01] === intento login ===
+[2026-09-10 01:52:01] POST: {"username":"holajojola","password":"123123"}
+[2026-09-10 01:52:01] Usuario no encontrado para: holajojola
+[2026-09-10 01:52:01] === intento login ===
+[2026-09-10 01:52:01] POST: {"username":"holajojola","password":"123123"}
+[2026-09-10 01:52:01] Usuario no encontrado para: holajojola
+[2026-09-10 01:55:23] === intento login ===
+[2026-09-10 01:55:23] POST: {"username":"holajojola","password":"123123"}
+[2026-09-10 01:55:23] Usuario no encontrado para: holajojola
+[2026-09-10 01:55:49] === intento login ===
+[2026-09-10 01:55:49] POST: {"username":"holajojolita","password":"123123"}
+[2026-09-10 01:55:49] Usuario encontrado id=39 correo=123123@123123.com rol=admin
+[2026-09-10 01:55:49] 123123,$2y$10$MxtK.NZAfK6XpCQwCH0yiOu.xATjE92qqYVPnu3A7GPcIdvzzlx92
+[2026-09-10 01:55:49] Contraseña NO coincide para usuario_id=39
+[2026-09-10 01:59:16] === intento login ===
+[2026-09-10 01:59:16] POST: {"username":"holajojolita","password":"123123"}
+[2026-09-10 01:59:16] Usuario encontrado id=39 correo=123123@123123.com rol=admin
+[2026-09-10 01:59:16] {password_verify(123123,$2y$10$MxtK.NZAfK6XpCQwCH0yiOu.xATjE92qqYVPnu3A7GPcIdvzzlx92)}
+[2026-09-10 01:59:16] Contraseña NO coincide para usuario_id=39
+[2026-09-10 02:00:27] === intento login ===
+[2026-09-10 02:00:27] POST: {"username":"holajojolita","password":"123123"}
+[2026-09-10 02:00:27] Usuario encontrado id=39 correo=123123@123123.com rol=admin
+[2026-09-10 02:00:27] Resultado password_verify: FALSE
+[2026-09-10 02:00:27] Contraseña NO coincide para usuario_id=39
+[2026-09-10 02:01:21] === intento login ===
+[2026-09-10 02:01:21] POST: {"username":"juanjo","password":"123456"}
+[2026-09-10 02:01:21] Usuario encontrado id=40 correo=juan.andfigueroa2007@gmail.com rol=admin
+[2026-09-10 02:01:21] Resultado password_verify: TRUE
+[2026-09-10 02:01:21] Login exitoso para usuario_id=40 rol=admin
+[2026-09-10 02:04:51] === intento login ===
+[2026-09-10 02:04:51] POST: {"username":"holajojolita","password":"123123"}
+[2026-09-10 02:04:51] Usuario encontrado id=39 correo=123123@123123.com rol=admin
+[2026-09-10 02:04:51] Resultado password_verify: FALSE
+[2026-09-10 02:04:51] Contraseña NO coincide para usuario_id=39
+[2026-09-10 02:05:01] === intento login ===
+[2026-09-10 02:05:01] POST: {"username":"juanjo","password":"123456"}
+[2026-09-10 02:05:01] Usuario encontrado id=40 correo=juan.andfigueroa2007@gmail.com rol=admin
+[2026-09-10 02:05:02] Resultado password_verify: TRUE
+[2026-09-10 02:05:02] Login exitoso para usuario_id=40 rol=admin
+[2026-09-10 02:05:42] === intento login ===
+[2026-09-10 02:05:42] POST: {"username":"holajojolita","password":"123123"}
+[2026-09-10 02:05:42] Usuario encontrado id=39 correo=123123@123123.com rol=admin
+[2026-09-10 02:05:42] Resultado password_verify: FALSE
+[2026-09-10 02:05:42] Contraseña NO coincide para usuario_id=39
+[2026-09-10 02:06:15] === intento login ===
+[2026-09-10 02:06:15] POST: {"username":"holajojolita","password":"123123"}
+[2026-09-10 02:06:15] Usuario encontrado id=39 correo=123123@123123.com rol=admin
+[2026-09-10 02:06:15] Resultado password_verify: FALSE
+[2026-09-10 02:06:15] === DEBUG LOGIN ===
+[2026-09-10 02:06:15] Password ingresada: 123123
+[2026-09-10 02:06:15] Hash BD: $2y$10$MxtK.NZAfK6XpCQwCH0yiOu.xATjE92qqYVPnu3A7GPcIdvzzlx92
+[2026-09-10 02:06:15] Hash length: 60
+[2026-09-10 02:06:15] password_verify: FALSE
+[2026-09-10 02:06:15] Contraseña NO coincide para usuario_id=39
+[2026-09-10 02:06:28] === intento login ===
+[2026-09-10 02:06:28] POST: {"username":"juanjo","password":"123456"}
+[2026-09-10 02:06:28] Usuario encontrado id=40 correo=juan.andfigueroa2007@gmail.com rol=admin
+[2026-09-10 02:06:28] Resultado password_verify: TRUE
+[2026-09-10 02:06:28] === DEBUG LOGIN ===
+[2026-09-10 02:06:28] Password ingresada: 123456
+[2026-09-10 02:06:28] Hash BD: $2y$10$3cLPmBumakZk2bxrTyzXxe8WlP3dOtKl52z.q9V8woqUU1GQaCKAa
+[2026-09-10 02:06:28] Hash length: 60
+[2026-09-10 02:06:28] password_verify: TRUE
+[2026-09-10 02:06:28] Login exitoso para usuario_id=40 rol=admin
+[2026-09-10 02:08:50] === intento login ===
+[2026-09-10 02:08:50] POST: {"username":"fufufu","password":"888888"}
+[2026-09-10 02:08:50] Usuario encontrado id=41 correo=4444@2323.com rol=usuario
+[2026-09-10 02:08:51] Resultado password_verify: TRUE
+[2026-09-10 02:08:51] === DEBUG LOGIN ===
+[2026-09-10 02:08:51] Password ingresada: 888888
+[2026-09-10 02:08:51] Hash BD: $2y$10$XwLkazCV94fuE2wUFYIC7ejhHjb6FzBBhtQrynJ26JsC9vCDWUx8S
+[2026-09-10 02:08:51] Hash length: 60
+[2026-09-10 02:08:51] password_verify: TRUE
+[2026-09-10 02:08:51] Login exitoso para usuario_id=41 rol=usuario
+[2026-09-10 02:18:42] === intento login ===
+[2026-09-10 02:18:42] POST: {"username":"josejose","password":"000000"}
+[2026-09-10 02:18:42] Usuario encontrado id=42 correo=josejose@gmail.com rol=usuario
+[2026-09-10 02:18:42] Resultado password_verify: TRUE
+[2026-09-10 02:18:42] === DEBUG LOGIN ===
+[2026-09-10 02:18:42] Password ingresada: 000000
+[2026-09-10 02:18:42] Hash BD: $2y$10$q8pTXiYefP1bWGjcvnq5IOQM04hBXE6P8uUifnJEoFgVvaVGNrgjW
+[2026-09-10 02:18:42] Hash length: 60
+[2026-09-10 02:18:42] password_verify: TRUE
+[2026-09-10 02:18:42] Login exitoso para usuario_id=42 rol=usuario
+[2026-09-10 02:19:26] === intento login ===
+[2026-09-10 02:19:26] POST: {"username":"josejose","password":"111111"}
+[2026-09-10 02:19:26] Usuario encontrado id=42 correo=josejose@gmail.com rol=usuario
+[2026-09-10 02:19:26] Resultado password_verify: TRUE
+[2026-09-10 02:19:26] === DEBUG LOGIN ===
+[2026-09-10 02:19:26] Password ingresada: 111111
+[2026-09-10 02:19:26] Hash BD: $2y$10$nTxIajoqjXeaJF1myMt.eeIxE1WbeL1GUQap2SQXr9B0MCSzjbAvS
+[2026-09-10 02:19:26] Hash length: 60
+[2026-09-10 02:19:26] password_verify: TRUE
+[2026-09-10 02:19:26] Login exitoso para usuario_id=42 rol=usuario
+[2026-09-10 02:20:05] === intento login ===
+[2026-09-10 02:20:05] POST: {"username":"josejose3","password":"000003"}
+[2026-09-10 02:20:05] Usuario encontrado id=45 correo=josejose3@gmail.com rol=usuario
+[2026-09-10 02:20:05] Resultado password_verify: TRUE
+[2026-09-10 02:20:05] === DEBUG LOGIN ===
+[2026-09-10 02:20:05] Password ingresada: 000003
+[2026-09-10 02:20:05] Hash BD: $2y$10$QFGHk4MxXLV9xJtRye.K1.UUnZPEx7QWAjPof/YgHcOsocJffqC5G
+[2026-09-10 02:20:05] Hash length: 60
+[2026-09-10 02:20:05] password_verify: TRUE
+[2026-09-10 02:20:05] Login exitoso para usuario_id=45 rol=usuario

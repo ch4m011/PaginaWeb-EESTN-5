@@ -1,0 +1,431 @@
+/* ===================================================
+   PANEL DEL ESCRITOR - ESCUELA TÉCNICA LA PLATA
+   =================================================== */
+
+/* -------------------- RESETEO GLOBAL -------------------- */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #f5f7fa;
+  color: #333;
+  margin: 0;
+}
+
+/* -------------------- CONTENEDOR DEL EDITOR -------------------- */
+.editor-container {
+  max-width: 800px;
+  margin: 2rem auto;
+  background: #fff;
+  padding: 1.5rem;
+  border-radius: 10px;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.1);
+}
+
+.editor-container h2 {
+  color: #004080;
+  margin-bottom: 1rem;
+  font-size: 1.6rem;
+}
+
+/* -------------------- CAMPOS DE FORMULARIO -------------------- */
+.editor-container input[type="text"],
+.editor-container input[type="file"],
+.calendario-container input[type="date"],
+.calendario-container input[type="text"],
+.calendario-container select,
+input[type="time"],
+textarea {
+  width: 100%;
+  display: block;
+  padding: 0.7rem;
+  margin-bottom: 0.8rem;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 1rem;
+  transition: border-color 0.3s;
+}
+
+/* Preview de imagen (vista previa en el formulario) */
+#previewImagen {
+  display: none;
+  width: 100%;
+  max-width: 100%;
+  max-height: 320px;
+  object-fit: contain;
+  border-radius: 8px;
+  margin: 10px 0;
+  background: #000; /* caja negra de fondo */
+  padding: 6px;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.25);
+}
+
+/* Asegurar que las imágenes dentro del editor no se salgan del contenedor */
+.editor img {
+  max-width: 60%;
+  max-height: 350px;
+  width: auto;
+  height: auto;
+  display: block;
+  border-radius: 6px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.12);
+  margin: 1rem auto;
+  object-fit: contain;
+  cursor: auto; /* cursor normal, no mano */
+  user-select: none;
+  -webkit-user-select: none;
+  pointer-events: auto;
+}
+
+.editor img:active {
+  cursor: auto;
+}
+
+/* Imagen seleccionada (resaltar) */
+.editor img.selected-image {
+  outline: 3px solid #2b7be4;
+  box-shadow: 0 6px 18px rgba(43,123,228,0.18);
+}
+
+/* Permitir imágenes flotantes a la izquierda */
+.editor img.float-left {
+  float: left;
+  margin: 0.5rem 1rem 0.5rem 0;
+  max-width: 45%;
+}
+
+/* Permitir imágenes flotantes a la derecha */
+.editor img.float-right {
+  float: right;
+  margin: 0.5rem 0 0.5rem 1rem;
+  max-width: 45%;
+}
+
+/* Limpiar floats en el editor para que el texto rodee las imágenes correctamente */
+.editor::after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+.editor-container input:focus,
+.calendario-container input:focus,
+.calendario-container select:focus,
+textarea:focus {
+  outline: none;
+  border-color: #007bff;
+}
+
+/* -------------------- EDITOR DE TEXTO -------------------- */
+.editor {
+  width: 100%;
+  min-height: 200px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  padding: 0.8rem;
+  margin-bottom: 1rem;
+  font-size: 1rem;
+  font-family: 'Segoe UI', sans-serif;
+  background-color: #fff;
+}
+
+.editor:empty:before {
+  content: attr(placeholder);
+  color: #aaa;
+}
+
+/* -------------------- BOTONES DEL EDITOR -------------------- */
+.botones-editor {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+button {
+  cursor: pointer;
+  border: none;
+  border-radius: 6px;
+  padding: 0.7rem 1.2rem;
+  font-size: 1rem;
+  transition: background 0.3s, transform 0.1s;
+}
+
+button:hover {
+  transform: translateY(-2px);
+}
+
+.btn-primario {
+  background: #007bff;
+  color: #fff;
+}
+
+.btn-primario:hover {
+  background: #0056b3;
+}
+
+.btn-secundario {
+  background: #6c757d;
+  color: #fff;
+}
+
+.btn-secundario:hover {
+  background: #5a6268;
+}
+
+/* -------------------- MENSAJES DE SISTEMA -------------------- */
+#mensajeContainer {
+  margin: 1rem 0;
+  text-align: center;
+}
+
+.mensaje {
+  padding: 0.8rem 1.2rem;
+  border-radius: 8px;
+  display: inline-block;
+  color: #fff;
+  font-weight: 500;
+  animation: aparecer 0.3s ease;
+}
+
+.mensaje.exito { background: #28a745; }
+.mensaje.error { background: #dc3545; }
+.mensaje.info { background: #007bff; }
+
+@keyframes aparecer {
+  from { opacity: 0; transform: translateY(-5px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* -------------------- SECCIÓN MIS NOTICIAS -------------------- */
+.mis-noticias {
+  max-width: 1000px;
+  margin: 2rem auto;
+  background: #fff;
+  padding: 1.5rem;
+  border-radius: 10px;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.1);
+}
+
+.mis-noticias h2 {
+  color: #004080;
+  margin-bottom: 1rem;
+}
+
+.noticias-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 1rem;
+}
+
+/* Nuevo: estilo para noticias en formato completo del escritor */
+.noticia-full {
+  display: block;
+  width: 100%;
+  background: #ffffff;
+  border-radius: 8px;
+  padding: 14px;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.06);
+}
+
+.noticia-full h4 { margin: 0 0 8px 0; color: #0b3b66; }
+.noticia-full .noticia-imagen img { width: 100%; height: auto; max-height: 420px; object-fit: cover; border-radius: 6px; }
+.noticia-full .noticia-contenido { margin-top: 12px; color: #222; line-height: 1.65; }
+.noticia-full .noticia-contenido img { max-width: 100%; height: auto; border-radius: 6px; box-shadow: 0 4px 12px rgba(0,0,0,0.08); }
+
+/* Evitar que palabras largas o contenido salgan del contenedor */
+.noticia-full .noticia-contenido,
+.noticia-full .noticia-contenido p,
+.noticia-full .noticia-contenido span,
+.noticia-full .noticia-contenido div,
+.news-excerpt,
+.news-title { 
+  word-break: break-word; 
+  overflow-wrap: anywhere; 
+  white-space: normal; 
+}
+
+/* Estilizar acciones: evitar que botones se salgan del contenedor y uniformar tamaños */
+.noticia-actions { display: flex; gap: 8px; flex-wrap: wrap; justify-content: flex-end; }
+.noticia-actions .btn-view,
+.noticia-actions .btn-edit,
+.noticia-actions .btn-delete,
+.btn-view,
+.btn-edit,
+.btn-delete { min-width: 86px; padding: 6px 10px; display: inline-flex; align-items: center; justify-content: center; font-weight: 600; border-radius: 6px; border: none; cursor: pointer; }
+.btn-view { background: #007bff; color: #fff; }
+.btn-edit { background: #ffc107; color: #000; }
+.btn-delete { background: #dc3545; color: #fff; }
+.noticia-actions .btn-view:hover { background:#0062cc; }
+.noticia-actions .btn-edit:hover { background:#e0a800; }
+.noticia-actions .btn-delete:hover { background:#c82333; }
+
+/* Hacer que en pantalla chica el listado sea columna única y el contenido ocupe todo */
+@media (max-width: 768px) {
+  .noticias-grid { grid-template-columns: 1fr; }
+  .noticia-full { padding: 12px; }
+}
+
+.placeholder {
+  color: #777;
+  font-style: italic;
+}
+
+/* -------------------- CALENDARIO -------------------- */
+.calendario-container {
+  max-width: 800px;
+  margin: 2rem auto;
+  background: #fff;
+  padding: 1.5rem;
+  border-radius: 10px;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.1);
+  overflow: hidden;
+}
+
+.calendario-form {
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+}
+
+.calendario-form .botones-form {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  justify-content: flex-start;
+}
+
+/* -------------------- BOTONES DE EDICIÓN -------------------- */
+.btn-editar {
+  background: #ffc107;
+  color: #000;
+  border: none;
+  padding: 5px 10px;
+  border-radius: 6px;
+  cursor: pointer;
+  margin-right: 5px;
+  transition: background 0.3s;
+}
+
+.btn-editar:hover {
+  background: #e0a800;
+}
+
+.btn-eliminar {
+  background: #dc3545;
+  color: #fff;
+  border: none;
+  padding: 5px 10px;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.btn-eliminar:hover {
+  background: #c82333;
+}
+
+/* -------------------- RESPONSIVE -------------------- */
+@media (max-width: 768px) {
+  .editor-container,
+  .mis-noticias,
+  .calendario-container {
+    margin: 1rem;
+    padding: 1rem;
+  }
+
+  .botones-editor,
+  .calendario-form .botones-form {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  button {
+    width: 100%;
+  }
+}
+
+/* -------------------- TOGGLE BOTONES -------------------- */
+.toggle-botones button {
+  min-width: 150px;
+  padding: 0.7rem 1.2rem;
+  font-size: 1rem;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: transform 0.2s;
+}
+
+.toggle-botones button:hover {
+  transform: translateY(-2px);
+}
+
+/* -------------------- EVENTOS -------------------- */
+.evento-card {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  padding: 10px;
+  border-radius: 8px;
+  color: #333;
+  box-shadow: 0 3px 8px rgba(0,0,0,0.08);
+  transition: transform 0.2s;
+}
+
+.evento-card:hover {
+  transform: translateY(-2px);
+}
+
+.evento-feriado { border-left: 5px solid #d80000; background-color: #ffe6e6; }
+.evento-no-clases { border-left: 5px solid #ff8c00; background-color: #fff3e0; }
+.evento-importante { border-left: 5px solid #1a73e8; background-color: #e6f0ff; }
+
+/* -------------------- TEXTAREA Y TIME INPUT -------------------- */
+#descripcionEvento {
+  width: 100%;
+  padding: 0.7rem;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  font-size: 1rem;
+  resize: vertical;
+}
+
+input[type="time"] {
+  width: 100%;
+  padding: 0.7rem;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  margin-bottom: 0.8rem;
+}
+
+/* -------------------- CALENDARIO DIAS -------------------- */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 1rem;
+}
+
+th, td {
+  width: 14.28%;
+  text-align: center;
+  padding: 10px;
+  border-radius: 6px;
+  transition: background 0.3s, color 0.3s;
+  cursor: pointer;
+}
+
+th {
+  background-color: #007bff;
+  color: #fff;
+}
+
+td:hover {
+  background-color: #e6f0ff;
+}
+
+/* Marcar días con eventos */
+.evento-feriado, .evento-no-clases, .evento-importante {
+  font-weight: bold;
+}

@@ -1,0 +1,295 @@
+/* ============================================================
+   SECCIONES INSTITUCIONALES DEL HOME
+   Accesos rápidos · Conocé la institución · Educación técnica ·
+   CTA de Pre-inscripción · Footer
+   ============================================================ */
+
+@import url('design-system.css');
+
+.eest-section {
+  padding: var(--space-8) 0;
+}
+
+.eest-section--tinted {
+  background: var(--color-paper);
+}
+
+/* ============================================================
+   ACCESOS RÁPIDOS
+   ============================================================ */
+.eest-quick-access {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: var(--space-4);
+  margin-top: var(--space-5);
+}
+
+.eest-quick-card {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  padding: var(--space-4);
+  text-decoration: none;
+  color: var(--color-ink);
+  transition: transform var(--transition-fast), box-shadow var(--transition-fast), border-color var(--transition-fast);
+}
+
+.eest-quick-card:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-md);
+  border-color: var(--color-primary-light);
+}
+
+.eest-quick-card__icon {
+  flex: 0 0 auto;
+  width: 46px;
+  height: 46px;
+  border-radius: var(--radius-sm);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.4rem;
+  background: rgba(0, 61, 122, 0.08);
+}
+
+.eest-quick-card__text strong {
+  display: block;
+  font-family: var(--font-body);
+  font-weight: 700;
+  font-size: 0.98rem;
+}
+
+.eest-quick-card__text span {
+  display: block;
+  font-size: 0.82rem;
+  color: var(--color-steel);
+  margin-top: 2px;
+}
+
+/* ============================================================
+   CONOCÉ NUESTRA ESCUELA
+   ============================================================ */
+.eest-institutional {
+  display: grid;
+  grid-template-columns: 1fr 1.15fr;
+  gap: var(--space-7);
+  align-items: center;
+}
+
+.eest-institutional__media {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, var(--color-primary-dark), var(--color-primary));
+  border-radius: var(--radius-lg);
+  padding: var(--space-7);
+}
+
+.eest-institutional__media img {
+  width: 100%;
+  max-width: 260px;
+  filter: drop-shadow(0 12px 24px rgba(0,0,0,0.35));
+}
+
+.eest-institutional__body p {
+  font-family: var(--font-body);
+  color: var(--color-steel);
+  font-size: 1.02rem;
+  line-height: 1.6;
+  max-width: 62ch;
+}
+
+.eest-stats {
+  display: flex;
+  gap: var(--space-6);
+  margin: var(--space-5) 0 var(--space-5);
+}
+
+.eest-stat strong {
+  display: block;
+  font-family: var(--font-display);
+  font-size: 2.1rem;
+  color: var(--color-primary);
+  line-height: 1;
+}
+
+.eest-stat span {
+  display: block;
+  margin-top: 4px;
+  font-size: 0.85rem;
+  color: var(--color-steel);
+}
+
+/* ============================================================
+   EDUCACIÓN TÉCNICA — especialidades (grounded en el escudo)
+   ============================================================ */
+.eest-specialties {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-5);
+  margin-top: var(--space-5);
+}
+
+.eest-specialty {
+  position: relative;
+  background: var(--color-ink);
+  color: #fff;
+  border-radius: var(--radius-lg);
+  padding: var(--space-5);
+  overflow: hidden;
+}
+
+.eest-specialty::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: var(--specialty-color, var(--color-primary));
+  opacity: 0.22;
+}
+
+.eest-specialty__icon {
+  position: relative;
+  font-size: 2rem;
+  margin-bottom: var(--space-3);
+}
+
+.eest-specialty h3 {
+  position: relative;
+  font-family: var(--font-display);
+  font-size: 1.3rem;
+  font-weight: 700;
+  margin: 0 0 6px;
+}
+
+.eest-specialty p {
+  position: relative;
+  font-family: var(--font-body);
+  font-size: 0.92rem;
+  color: rgba(255,255,255,0.78);
+  line-height: 1.5;
+  margin: 0;
+}
+
+/* ============================================================
+   CTA PRE-INSCRIPCIÓN
+   ============================================================ */
+.eest-cta {
+  background: linear-gradient(120deg, var(--color-primary-dark) 0%, var(--color-primary) 60%, var(--color-primary-light) 100%);
+  border-radius: var(--radius-lg);
+  padding: var(--space-7) var(--space-6);
+  text-align: center;
+  color: #fff;
+}
+
+.eest-cta h2 {
+  font-family: var(--font-display);
+  font-size: clamp(1.6rem, 3.4vw, 2.3rem);
+  font-weight: 700;
+  margin: var(--space-2) 0 var(--space-2);
+  max-width: 28ch;
+  margin-inline: auto;
+}
+
+.eest-cta p {
+  font-family: var(--font-body);
+  color: rgba(255,255,255,0.85);
+  max-width: 50ch;
+  margin: 0 auto var(--space-5);
+}
+
+.eest-cta .eest-eyebrow { justify-content: center; color: var(--color-spark); }
+.eest-cta .eest-eyebrow::before { background: var(--color-spark); }
+
+/* ============================================================
+   FOOTER
+   ============================================================ */
+.eest-footer {
+  background: var(--color-ink);
+  color: rgba(255,255,255,0.75);
+  margin-top: var(--space-8);
+}
+
+.eest-footer__top {
+  display: grid;
+  grid-template-columns: 1.3fr 1fr 1fr 1fr;
+  gap: var(--space-6);
+  padding: var(--space-7) 0 var(--space-6);
+}
+
+.eest-footer__brand {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+}
+
+.eest-footer__brand img { width: 48px; height: 48px; object-fit: contain; }
+
+.eest-footer__brand strong {
+  display: block;
+  font-family: var(--font-display);
+  font-size: 1.05rem;
+  color: #fff;
+}
+.eest-footer__brand span {
+  display: block;
+  font-size: 0.82rem;
+  color: rgba(255,255,255,0.55);
+}
+
+.eest-footer h4 {
+  font-family: var(--font-body);
+  font-size: 0.85rem;
+  color: #fff;
+  margin: 0 0 var(--space-3);
+}
+
+.eest-footer ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+}
+
+.eest-footer a {
+  color: rgba(255,255,255,0.7);
+  text-decoration: none;
+  font-size: 0.9rem;
+  transition: color var(--transition-fast);
+}
+
+.eest-footer a:hover { color: var(--color-accent); }
+
+.eest-footer__bottom {
+  border-top: 1px solid rgba(255,255,255,0.12);
+  padding: var(--space-4) 0;
+  display: flex;
+  justify-content: space-between;
+  gap: var(--space-3);
+  flex-wrap: wrap;
+  font-size: 0.8rem;
+  color: rgba(255,255,255,0.5);
+}
+
+/* ============================================================
+   RESPONSIVE
+   ============================================================ */
+@media (max-width: 900px) {
+  .eest-quick-access { grid-template-columns: repeat(2, 1fr); }
+  .eest-institutional { grid-template-columns: 1fr; }
+  .eest-institutional__media { order: -1; padding: var(--space-5); }
+  .eest-specialties { grid-template-columns: 1fr; }
+  .eest-footer__top { grid-template-columns: 1fr 1fr; }
+}
+
+@media (max-width: 560px) {
+  .eest-quick-access { grid-template-columns: 1fr; }
+  .eest-stats { gap: var(--space-5); }
+  .eest-footer__top { grid-template-columns: 1fr; }
+  .eest-section { padding: var(--space-7) 0; }
+}

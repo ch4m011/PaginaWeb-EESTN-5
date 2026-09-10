@@ -1,0 +1,167 @@
+/* ============================================================
+   DESIGN SYSTEM — EEST N.º 5 "Gral. Manuel N. Savio"
+   ------------------------------------------------------------
+   Fuente única de variables visuales del portal. Este archivo
+   NO aplica estilos a elementos globales (body, h1, etc.) para
+   poder importarse en cada página del sitio sin alterar las
+   que todavía no fueron rediseñadas — solo define tokens y un
+   puñado de utilidades bajo clases propias (.eest-*).
+
+   Identidad de origen (mantenida del proyecto existente):
+   - Azul institucional profundo:  #003d7a
+   - Naranja institucional:        #f5a623
+   El escudo de la escuela (engranaje + ladrillo/albañilería +
+   rayo/electricidad + matraz/química) es la referencia de las
+   tres especialidades técnicas — el motivo de "engranaje" se
+   usa como detalle recurrente y sutil en el sistema.
+   ============================================================ */
+
+@import url('https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700;800&family=Inter:wght@400;500;600;700&display=swap');
+
+:root {
+  /* ---------- Color: base institucional ---------- */
+  --color-primary: #003d7a;        /* azul institucional (header, títulos fuertes) */
+  --color-primary-dark: #00284f;   /* azul más oscuro (gradientes, hover) */
+  --color-primary-light: #0f5fa8;  /* azul medio (enlaces sobre fondo claro) */
+  --color-accent: #f5a623;         /* naranja institucional (CTA, acentos) */
+  --color-accent-dark: #c97f0f;    /* naranja oscuro (hover de CTA) */
+  --color-spark: #f4cd3b;          /* amarillo del rayo del escudo — uso muy puntual */
+
+  /* ---------- Color: neutros editoriales ---------- */
+  --color-ink: #12181f;            /* texto principal, casi negro con matiz azulado */
+  --color-steel: #57626d;          /* texto secundario / metadatos */
+  --color-steel-light: #87929c;    /* texto terciario, placeholders */
+  --color-paper: #f5f6f8;          /* fondo general de página */
+  --color-surface: #ffffff;        /* fondo de tarjetas / bloques */
+  --color-border: #e0e4e9;         /* líneas divisorias, bordes de tarjeta */
+  --color-border-strong: #c7ced6;
+
+  /* ---------- Tipografía ---------- */
+  --font-display: 'Barlow Condensed', 'Arial Narrow', sans-serif; /* títulos, editorial/técnico */
+  --font-body: 'Inter', 'Segoe UI', sans-serif;                    /* cuerpo, navegación, UI */
+
+  /* ---------- Radios ---------- */
+  --radius-sm: 3px;
+  --radius-md: 6px;
+  --radius-lg: 10px;
+
+  /* ---------- Sombras ---------- */
+  --shadow-sm: 0 1px 3px rgba(18, 24, 31, 0.08);
+  --shadow-md: 0 6px 20px rgba(18, 24, 31, 0.10);
+  --shadow-lg: 0 14px 36px rgba(18, 24, 31, 0.16);
+
+  /* ---------- Espaciado ---------- */
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-5: 24px;
+  --space-6: 32px;
+  --space-7: 48px;
+  --space-8: 64px;
+
+  /* ---------- Layout ---------- */
+  --container-width: 1240px;
+  --container-padding: 20px;
+
+  /* ---------- Transiciones ---------- */
+  --transition-fast: 0.15s ease;
+  --transition-base: 0.25s ease;
+
+  /* ---------- Breakpoints (documentales — usar el valor literal en @media) ---------- */
+  /* mobile: hasta 640px · tablet: hasta 900px · desktop: 901px+ */
+}
+
+/* ---------- Contenedor base reutilizable ---------- */
+.eest-container {
+  max-width: var(--container-width);
+  margin: 0 auto;
+  padding: 0 var(--container-padding);
+}
+
+/* ---------- Eyebrow / etiqueta de sección (minúscula, no cliché all-caps) ---------- */
+.eest-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  font-family: var(--font-body);
+  font-weight: 600;
+  font-size: 0.8rem;
+  color: var(--color-accent-dark);
+}
+
+.eest-eyebrow::before {
+  content: '';
+  width: 18px;
+  height: 3px;
+  background: var(--color-accent);
+  border-radius: 2px;
+  flex: 0 0 auto;
+}
+
+/* ---------- Título de sección estándar ---------- */
+.eest-section-title {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: clamp(1.6rem, 3vw, 2.1rem);
+  color: var(--color-primary);
+  line-height: 1.1;
+  margin: var(--space-2) 0 0;
+  letter-spacing: 0.2px;
+}
+
+/* ---------- Botones base ---------- */
+.eest-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  font-family: var(--font-body);
+  font-weight: 600;
+  font-size: 0.95rem;
+  padding: 0.7rem 1.3rem;
+  border-radius: var(--radius-sm);
+  border: none;
+  cursor: pointer;
+  text-decoration: none;
+  transition: background var(--transition-fast), transform var(--transition-fast), box-shadow var(--transition-fast);
+}
+
+.eest-btn--primary {
+  background: var(--color-accent);
+  color: #1a1204;
+}
+.eest-btn--primary:hover {
+  background: var(--color-accent-dark);
+  transform: translateY(-1px);
+  box-shadow: var(--shadow-sm);
+}
+
+.eest-btn--outline {
+  background: transparent;
+  color: var(--color-primary);
+  border: 1.5px solid var(--color-border-strong);
+}
+.eest-btn--outline:hover {
+  border-color: var(--color-primary);
+  background: rgba(0, 61, 122, 0.04);
+}
+
+.eest-btn--ghost-light {
+  background: rgba(255, 255, 255, 0.12);
+  color: #fff;
+  border: 1.5px solid rgba(255, 255, 255, 0.4);
+}
+.eest-btn--ghost-light:hover {
+  background: rgba(255, 255, 255, 0.22);
+  border-color: #fff;
+}
+
+/* ---------- Motivo de engranaje (borde dentado sutil, referencia al escudo) ---------- */
+.eest-gear-divider {
+  --tooth: 14px;
+  height: var(--tooth);
+  width: 100%;
+  background: var(--color-surface);
+  -webkit-mask-image: repeating-linear-gradient(90deg, #000 0 8px, transparent 8px 14px);
+          mask-image: repeating-linear-gradient(90deg, #000 0 8px, transparent 8px 14px);
+}

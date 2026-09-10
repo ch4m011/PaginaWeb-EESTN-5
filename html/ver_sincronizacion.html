@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Verificar sincronización de autores</title>
+  <style>
+    body{font-family:Arial,Helvetica,sans-serif;margin:20px;color:#222}
+    table{border-collapse:collapse;width:100%;margin-top:12px}
+    th,td{border:1px solid #ddd;padding:8px;text-align:left}
+    th{background:#f4f4f4}
+    tr.ok{background:#e6ffe6}
+    tr.bad{background:#fff0f0}
+    .ok{color:green;font-weight:600}
+    .bad{color:#c00;font-weight:600}
+    button{padding:8px 12px;border-radius:4px;border:1px solid #ccc;background:#fff;cursor:pointer}
+    pre{background:#f8f8f8;padding:10px;border:1px solid #eee;overflow:auto;max-height:400px}
+  </style>
+</head>
+<body>
+  <h1>Verificar sincronización de autores</h1>
+  <p>Esta página verifica si la sincronización automática funcionó: que cada noticia tenga su <code>autor_id</code> correcto y que se muestren nombre + imagen de usuario.</p>
+  <div>
+    <button id="btnRefresh">Verificar ahora</button>
+    <span id="status"></span>
+  </div>
+  <div id="content"></div>
+
+  <script>
+    const api_obtener = '../php/api_noticias.php?action=obtener&limite=20';
+    const api_diag = '../php/diagnose_authors.php';
+    const btn = document.getElementById('btnRefresh');
+    const status = document.getElementById('status');
+    const content = document.getElementById('content');
+
+    async function verify(){
+      status.textContent = 'Verificando...';
+      try {
+        // 1. Obtener noticias desde API
+        const res1 = await fetch(api_obtener, {cache: 'no-store'});
+        if (!res1.ok) throw new Error('API HTTP ' + res1.status);
+        const noticias = await res1.json();
+
+        // 2. Obtener diagnóstico detallado
+        const res2 = await fetch(api_diag, {cache: 'no-store'});
+        if (!res2.ok) throw new Error('Diagnóstico HTTP ' + res2.status);
+        const diag = await res2.json();
+
+        let html = '';
+
+        // Resumen
+        const noMatch = diag.filter(d => !d.matched);
+        html += `<h3>Resumen</h3><p>Total noticias: ${diag.length} | Con match: ${diag.length - noMatch.length} | Sin match: ${noMatch.length}</p>`;
+
+        // Tabla de noticias con autor
+        html += '<h3>Noticias en API (muestra si tiene autor_nombre y imagen_perfil)</h3>';
+        html += '<table><thead><tr><th>ID</th><th>Título</th><th>autor_id</th><th>autor_email</th><th>autor_nombre</th><th>imagen_perfil</th></tr></thead><tbody>';
+        noticias.forEach(n => {
+          const hasAutor = !!n.autor_nombre && n.autor_nombre !== 'Anónimo';
+          const hasImg = !!n.imagen_perfil;
+          const cls = (hasAutor && hasImg) ? 'ok' : 'bad';
+          html += `<tr class="${cls}"><td>${n.id}</td><td>${esc(n.titulo)}</td><td>${n.autor_id}</td><td>${esc(n.autor_email)}</td><td>${esc(n.autor_nombre || 'Anónimo')}</td><td>${esc(n.imagen_perfil || '(none)')}</td></tr>`;
+        });
+        html += '</tbody></table>';
+
+        // Tabla de diagnóstico
+        html += '<h3>Diagnóstico detallado (verificación de matches en BD)</h3>';
+        html += '<table><thead><tr><th>ID</th><th>Título</th><th>autor_id</th><th>autor_email norm</th><th>Match</th><th>user_id</th><th>user_nombre</th></tr></thead><tbody>';
+        diag.forEach(d => {
+          const cls = d.matched ? 'ok' : 'bad';
+          const userNombre = d.match && d.match.user ? (d.match.user.nombre + ' ' + (d.match.user.apellido || '')) : '';
+          html += `<tr class="${cls}"><td>${d.noticia_id}</td><td>${esc(d.titulo)}</td><td>${d.autor_id}</td><td>${esc(d.autor_email_norm)}</td><td>${d.matched ? '<span class="ok">SÍ</span>' : '<span class="bad">NO</span>'}</td><td>${d.match && d.match.user ? d.match.user.id : ''}</td><td>${esc(userNombre)}</td></tr>`;
+        });
+        html += '</tbody></table>';
+
+        status.textContent = noMatch.length === 0 ? '✅ Todas las noticias tienen match' : '⚠️ ' + noMatch.length + ' noticias sin match';
+        content.innerHTML = html;
+      } catch(e) {
+        status.textContent = 'Error: ' + e.message;
+        content.innerHTML = '';
+      }
+    }
+
+    function esc(s){ return String(s||'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;'); }
+
+    btn.addEventListener('click', verify);
+    verify(); // carga inicial
+  </script>
+</body>
+</html>
