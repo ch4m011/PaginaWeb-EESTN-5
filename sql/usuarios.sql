@@ -66,7 +66,7 @@ INSERT INTO `usuarios` (`id`, `nombre`, `correo`, `contrasena`, `rol`, `tipoCuen
 (29, 'andrea', 'adreapani1@outlook.com', '$2y$10$VLktfEZX0IQ9pF1Qt9mMGO5rrcf6jestJ5k8pzjwZcArtVAApJMnC', 'usuario', 'manual', NULL, NULL, NULL, '2025-11-05 00:48:07', NULL, 1, NULL, NULL, NULL, NULL, NULL, NULL),
 (30, 'soy don alejandor', 'desaez@eest5.com', '$2y$10$ElBVtRCXZiOekiiO6sZDf.8nmNwrgmsy8h5WOkNoN.JhxN0KfZo6.', 'usuario', 'manual', NULL, NULL, NULL, '2025-11-06 03:37:06', NULL, 1, NULL, NULL, NULL, NULL, NULL, NULL),
 (32, 'LAUTARO EZEQUIE', 'lebelawsky@eest5.com', '$2y$10$LMBFdLQeUsSFXWqWFmHRiO/wfR832QV5Ea/BGZI7sTlrJuZVHU7ja', 'usuario', 'manual', NULL, NULL, '../php/uploads/avatars/avatar_32_1762796363.jpg', '2025-11-10 17:03:35', NULL, 1, NULL, NULL, NULL, NULL, NULL, NULL);
-
+( 33,"Juan Andrés Figueroa","jaafigueroarabanales@eest5.com","$2y$10$CJerzvnmJ/y5AsgGJaBUXOD31MjyCbju/4w1qL2Xmiu8l6vFoXLQK","usuario","manual",NULL,NULL,"../php/uploads/avatars/avatar_33_1762796363.jpg","2025-11-10 17:03:35",NULL,1,NULL,NULL,NULL,NULL,NULL,NULL);
 --
 -- Índices para tablas volcadas
 --

@@ -194,7 +194,7 @@ async function actualizarNav() {
 
     if (usuario.rol === "admin" || usuario.rol === "escritor") {
       const link = document.createElement("a");
-      link.href = `./html/panel_${usuario.rol}.html`;
+      link.href = `../html/panel_${usuario.rol}.html`;
       link.innerHTML = usuario.rol === "admin" ? "⚙️ Panel Admin" : "📝 Panel Escritor";
       dropdown.appendChild(link);
 

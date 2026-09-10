@@ -213,3 +213,43 @@
 [2026-09-10 02:20:05] Hash length: 60
 [2026-09-10 02:20:05] password_verify: TRUE
 [2026-09-10 02:20:05] Login exitoso para usuario_id=45 rol=usuario
+[2026-09-10 04:47:42] === intento login ===
+[2026-09-10 04:47:42] POST: {"username":"jaafigueroarabanales@eest5.com","password":"miatea<mo"}
+[2026-09-10 04:47:42] Usuario encontrado id=33 correo=jaafigueroarabanales@eest5.com rol=admin
+[2026-09-10 04:47:42] Resultado password_verify: FALSE
+[2026-09-10 04:47:42] === DEBUG LOGIN ===
+[2026-09-10 04:47:42] Password ingresada: miatea<mo
+[2026-09-10 04:47:42] Hash BD: $2y$10$CJerzvnmJ/y5AsgGJaBUXOD31MjyCbju/4w1qL2Xmiu8l6vFoXLQK
+[2026-09-10 04:47:42] Hash length: 60
+[2026-09-10 04:47:42] password_verify: FALSE
+[2026-09-10 04:47:42] Contraseña NO coincide para usuario_id=33
+[2026-09-10 04:47:47] === intento login ===
+[2026-09-10 04:47:47] POST: {"username":"jaafigueroarabanales@eest5.com","password":"123456"}
+[2026-09-10 04:47:47] Usuario encontrado id=33 correo=jaafigueroarabanales@eest5.com rol=admin
+[2026-09-10 04:47:47] Resultado password_verify: FALSE
+[2026-09-10 04:47:47] === DEBUG LOGIN ===
+[2026-09-10 04:47:47] Password ingresada: 123456
+[2026-09-10 04:47:47] Hash BD: $2y$10$CJerzvnmJ/y5AsgGJaBUXOD31MjyCbju/4w1qL2Xmiu8l6vFoXLQK
+[2026-09-10 04:47:47] Hash length: 60
+[2026-09-10 04:47:47] password_verify: FALSE
+[2026-09-10 04:47:48] Contraseña NO coincide para usuario_id=33
+[2026-09-10 04:47:53] === intento login ===
+[2026-09-10 04:47:53] POST: {"username":"jaafigueroarabanales@eest5.com","password":"miateamo"}
+[2026-09-10 04:47:53] Usuario encontrado id=33 correo=jaafigueroarabanales@eest5.com rol=admin
+[2026-09-10 04:47:54] Resultado password_verify: TRUE
+[2026-09-10 04:47:54] === DEBUG LOGIN ===
+[2026-09-10 04:47:54] Password ingresada: miateamo
+[2026-09-10 04:47:54] Hash BD: $2y$10$CJerzvnmJ/y5AsgGJaBUXOD31MjyCbju/4w1qL2Xmiu8l6vFoXLQK
+[2026-09-10 04:47:54] Hash length: 60
+[2026-09-10 04:47:54] password_verify: TRUE
+[2026-09-10 04:47:54] Login exitoso para usuario_id=33 rol=admin
+[2026-09-10 05:17:12] === intento login ===
+[2026-09-10 05:17:12] POST: {"username":"jaafigueroarabanales@eest5.com","password":"miateamo"}
+[2026-09-10 05:17:12] Usuario encontrado id=33 correo=jaafigueroarabanales@eest5.com rol=admin
+[2026-09-10 05:17:12] Resultado password_verify: TRUE
+[2026-09-10 05:17:12] === DEBUG LOGIN ===
+[2026-09-10 05:17:12] Password ingresada: miateamo
+[2026-09-10 05:17:12] Hash BD: $2y$10$CJerzvnmJ/y5AsgGJaBUXOD31MjyCbju/4w1qL2Xmiu8l6vFoXLQK
+[2026-09-10 05:17:12] Hash length: 60
+[2026-09-10 05:17:12] password_verify: TRUE
+[2026-09-10 05:17:12] Login exitoso para usuario_id=33 rol=admin

@@ -1458,3 +1458,243 @@ ado. Continuando.
 [2026-09-10 02:20:46] Google_Client no disponible.
 ado. Continuando.
 [2026-09-10 02:20:46] Google_Client no disponible.
+[2026-09-10 04:46:52] vendor/autoload.php no encontrado. Continuando.
+[2026-09-10 04:46:52] Google_Client no disponible.
+[2026-09-10 04:46:52] vendor/autoload.php no encontrado. Continuando.
+[2026-09-10 04:46:52] Google_Client no disponible.
+[2026-09-10 04:46:52] vendor/autoload.php no encontrado. Continuando.
+[2026-09-10 04:46:52] Google_Client no disponible.
+ado. Continuando.
+[2026-09-10 04:46:52] Google_Client no disponible.
+[2026-09-10 04:47:24] vendor/autoload.php no encontrado. Continuando.
+[2026-09-10 04:47:24] Google_Client no disponible.
+[2026-09-10 04:47:24] vendor/autoload.php no encontrado. Continuando.
+[2026-09-10 04:47:24] Google_Client no disponible.
+[2026-09-10 04:47:24] vendor/autoload.php no encontrado. Continuando.
+[2026-09-10 04:47:24] Google_Client no disponible.
+[2026-09-10 04:47:24] vendor/autoload.php no encontrado. Continuando.
+[2026-09-10 04:47:24] Google_Client no disponible.
+[2026-09-10 04:47:26] vendor/autoload.php no encontrado. Continuando.
+[2026-09-10 04:47:26] Google_Client no disponible.
+[2026-09-10 04:47:26] vendor/autoload.php no encontrado. Continuando.
+[2026-09-10 04:47:26] Google_Client no disponible.
+[2026-09-10 04:47:26] vendor/autoload.php no encontrado. Continuando.
+[2026-09-10 04:47:26] Google_Client no disponible.
+[2026-09-10 04:47:29] vendor/autoload.php no encontrado. Continuando.
+[2026-09-10 04:47:29] Google_Client no disponible.
+[2026-09-10 04:47:42] vendor/autoload.php no encontrado. Continuando.
+[2026-09-10 04:47:42] Google_Client no disponible.
+[2026-09-10 04:47:47] vendor/autoload.php no encontrado. Continuando.
+[2026-09-10 04:47:47] Google_Client no disponible.
+[2026-09-10 04:47:53] vendor/autoload.php no encontrado. Continuando.
+[2026-09-10 04:47:53] Google_Client no disponible.
+[2026-09-10 04:47:54] vendor/autoload.php no encontrado. Continuando.
+[2026-09-10 04:47:54] Google_Client no disponible.
+[2026-09-10 04:47:54] vendor/autoload.php no encontrado. Continuando.
+[2026-09-10 04:47:54] Google_Client no disponible.
+[2026-09-10 04:47:54] vendor/autoload.php no encontrado. Continuando.
+[2026-09-10 04:47:54] Google_Client no disponible.
+[2026-09-10 04:47:54] vendor/autoload.php no encontrado. Continuando.
+[2026-09-10 04:47:54] Google_Client no disponible.
+[2026-09-10 04:51:46] vendor/autoload.php no encontrado. Continuando.
+[2026-09-10 04:51:46] vendor/autoload.php no encontrado. Continuando.
+[2026-09-10 04:51:46] Google_Client no disponible.
+[2026-09-10 04:51:46] vendor/autoload.php no encontrado. Continuando.
+[2026-09-10 04:51:46] vendor/autoload.php no encontrado. Continuando.
+[2026-09-10 04:51:46] Google_Client no disponible.
+[2026-09-10 04:51:48] vendor/autoload.php no encontrado. Continuando.
+[2026-09-10 04:51:48] vendor/autoload.php no encontrado. Continuando.
+[2026-09-10 04:51:48] Google_Client no disponible.
+[2026-09-10 04:51:48] Google_Client no disponible.
+[2026-09-10 04:51:48] vendor/autoload.php no encontrado. Continuando.
+[2026-09-10 04:51:48] Google_Client no disponible.
+[2026-09-10 04:51:48] vendor/autoload.php no encontrado. Continuando.
+[2026-09-10 04:51:48] Google_Client no disponible.
+[2026-09-10 04:52:09] vendor/autoload.php no encontrado. Continuando.
+[2026-09-10 04:52:09] Google_Client no disponible.
+[2026-09-10 04:52:09] vendor/autoload.php no encontrado. Continuando.
+[2026-09-10 04:52:09] Google_Client no disponible.
+[2026-09-10 04:52:09] vendor/autoload.php no encontrado. Continuando.
+[2026-09-10 04:52:09] Google_Client no disponible.
+[2026-09-10 04:52:09] vendor/autoload.php no encontrado. Continuando.
+[2026-09-10 04:52:09] Google_Client no disponible.
+[2026-09-10 04:52:09] vendor/autoload.php no encontrado. Continuando.
+[2026-09-10 04:52:09] Google_Client no disponible.
+[2026-09-10 04:53:07] vendor/autoload.php no encontrado. Continuando.
+[2026-09-10 04:53:07] Google_Client no disponible.
+[2026-09-10 04:53:07] vendor/autoload.php no encontrado. Continuando.
+[2026-09-10 04:53:07] Google_Client no disponible.
+[2026-09-10 04:53:10] vendor/autoload.php no encontrado. Continuando.
+[2026-09-10 04:53:10] Google_Client no disponible.
+[2026-09-10 04:53:10] vendor/autoload.php no encontrado. Continuando.
+[2026-09-10 04:53:10] Google_Client no disponible.
+[2026-09-10 04:53:10] vendor/autoload.php no encontrado. Continuando.
+[2026-09-10 04:53:10] Google_Client no disponible.
+[2026-09-10 04:53:10] vendor/autoload.php no encontrado. Continuando.
+[2026-09-10 04:53:10] Google_Client no disponible.
+[2026-09-10 04:53:26] vendor/autoload.php no encontrado. Continuando.
+[2026-09-10 04:53:26] Google_Client no disponible.
+[2026-09-10 04:53:26] vendor/autoload.php no encontrado. Continuando.
+[2026-09-10 04:53:26] Google_Client no disponible.
+[2026-09-10 04:53:26] vendor/autoload.php no encontrado. Continuando.
+[2026-09-10 04:53:26] Google_Client no disponible.
+[2026-09-10 04:53:26] vendor/autoload.php no encontrado. Continuando.
+[2026-09-10 04:53:26] Google_Client no disponible.
+[2026-09-10 04:53:27] vendor/autoload.php no encontrado. Continuando.
+[2026-09-10 04:53:27] Google_Client no disponible.
+[2026-09-10 04:55:50] vendor/autoload.php no encontrado. Continuando.
+[2026-09-10 04:55:50] vendor/autoload.php no encontrado. Continuando.
+[2026-09-10 04:55:50] Google_Client no disponible.
+[2026-09-10 04:55:50] Google_Client no disponible.
+[2026-09-10 04:55:50] vendor/autoload.php no encontrado. Continuando.
+[2026-09-10 04:55:50] Google_Client no disponible.
+[2026-09-10 04:55:50] vendor/autoload.php no encontrado. Continuando.
+[2026-09-10 04:55:50] Google_Client no disponible.
+[2026-09-10 04:55:50] vendor/autoload.php no encontrado. Continuando.
+[2026-09-10 04:55:50] Google_Client no disponible.
+[2026-09-10 04:55:58] vendor/autoload.php no encontrado. Continuando.
+[2026-09-10 04:55:58] Google_Client no disponible.
+[2026-09-10 04:55:58] vendor/autoload.php no encontrado. Continuando.
+[2026-09-10 04:55:58] Google_Client no disponible.
+[2026-09-10 04:55:58] vendor/autoload.php no encontrado. Continuando.
+[2026-09-10 04:55:58] vendor/autoload.php no encontrado. Continuando.
+[2026-09-10 04:55:58] Google_Client no disponible.
+[2026-09-10 04:55:58] Google_Client no disponible.
+[2026-09-10 04:58:31] vendor/autoload.php no encontrado. Continuando.
+[2026-09-10 04:58:31] Google_Client no disponible.
+[2026-09-10 04:58:31] vendor/autoload.php no encontrado. Continuando.
+[2026-09-10 04:58:31] Google_Client no disponible.
+[2026-09-10 04:58:31] vendor/autoload.php no encontrado. Continuando.
+[2026-09-10 04:58:31] Google_Client no disponible.
+[2026-09-10 04:58:34] vendor/autoload.php no encontrado. Continuando.
+[2026-09-10 04:58:34] vendor/autoload.php no encontrado. Continuando.
+[2026-09-10 04:58:34] Google_Client no disponible.
+[2026-09-10 04:58:34] Google_Client no disponible.
+[2026-09-10 04:58:34] vendor/autoload.php no encontrado. Continuando.
+[2026-09-10 04:58:34] Google_Client no disponible.
+[2026-09-10 04:58:34] vendor/autoload.php no encontrado. Continuando.
+[2026-09-10 04:58:34] Google_Client no disponible.
+[2026-09-10 04:58:34] vendor/autoload.php no encontrado. Continuando.
+[2026-09-10 04:58:34] Google_Client no disponible.
+[2026-09-10 04:59:37] vendor/autoload.php no encontrado. Continuando.
+[2026-09-10 04:59:37] Google_Client no disponible.
+[2026-09-10 04:59:37] Google_Client no disponible.
+[2026-09-10 04:59:37] vendor/autoload.php no encontrado. Continuando.
+[2026-09-10 04:59:37] Google_Client no disponible.
+[2026-09-10 04:59:37] vendor/autoload.php no encontrado. Continuando.
+[2026-09-10 04:59:37] Google_Client no disponible.
+[2026-09-10 04:59:37] vendor/autoload.php no encontrado. Continuando.
+[2026-09-10 04:59:37] Google_Client no disponible.
+[2026-09-10 04:59:41] vendor/autoload.php no encontrado. Continuando.
+[2026-09-10 04:59:41] vendor/autoload.php no encontrado. Continuando.
+[2026-09-10 04:59:41] Google_Client no disponible.
+[2026-09-10 04:59:41] Google_Client no disponible.
+[2026-09-10 04:59:41] vendor/autoload.php no encontrado. Continuando.
+[2026-09-10 04:59:41] Google_Client no disponible.
+[2026-09-10 04:59:41] vendor/autoload.php no encontrado. Continuando.
+[2026-09-10 04:59:41] Google_Client no disponible.
+[2026-09-10 04:59:41] vendor/autoload.php no encontrado. Continuando.
+[2026-09-10 04:59:41] Google_Client no disponible.
+[2026-09-10 05:01:04] vendor/autoload.php no encontrado. Continuando.
+[2026-09-10 05:01:04] Google_Client no disponible.
+[10-Sep-2026 05:01:04 Europe/Berlin] 📝 Crear noticia - Datos recibidos: {"titulo":"jornada recreativa","contenido":"ma\u00f1ana habra una jornada recrecional de 2 a 5 de la tarde<div><br><\/div>","resumen":"ma\u00f1ana habra una jornada recrecional de 2 a 5 de la tarde","imagen":null,"tipo":"principal","destacado":0,"prioridad":0,"autor_id":33}
+[10-Sep-2026 05:01:04 Europe/Berlin] 📝 Título: 'jornada recreativa' (length: 18)
+[10-Sep-2026 05:01:04 Europe/Berlin] 📝 Contenido: 'mañana habra una jornada recrecional de 2 a 5 de ...' (length: 73)
+[10-Sep-2026 05:01:04 Europe/Berlin] 📝 Imagen: ''
+[10-Sep-2026 05:01:04 Europe/Berlin] 📝 Autor resolved (session): 33
+[2026-09-10 05:01:05] vendor/autoload.php no encontrado. Continuando.
+[2026-09-10 05:01:05] Google_Client no disponible.
+[2026-09-10 05:01:07] vendor/autoload.php no encontrado. Continuando.
+[2026-09-10 05:01:07] Google_Client no disponible.
+[2026-09-10 05:01:07] vendor/autoload.php no encontrado. Continuando.
+[2026-09-10 05:01:07] Google_Client no disponible.
+[2026-09-10 05:01:08] vendor/autoload.php no encontrado. Continuando.
+[2026-09-10 05:01:08] Google_Client no disponible.
+[2026-09-10 05:01:08] vendor/autoload.php no encontrado. Continuando.
+[2026-09-10 05:01:08] Google_Client no disponible.
+[2026-09-10 05:01:20] vendor/autoload.php no encontrado. Continuando.
+[2026-09-10 05:01:20] Google_Client no disponible.
+[2026-09-10 05:01:30] vendor/autoload.php no encontrado. Continuando.
+[2026-09-10 05:01:30] Google_Client no disponible.
+[2026-09-10 05:01:34] vendor/autoload.php no encontrado. Continuando.
+[2026-09-10 05:01:34] vendor/autoload.php no encontrado. Continuando.
+[2026-09-10 05:01:34] Google_Client no disponible.
+[2026-09-10 05:01:34] Google_Client no disponible.
+[2026-09-10 05:01:34] vendor/autoload.php no encontrado. Continuando.
+[2026-09-10 05:01:34] vendor/autoload.php no encontrado. Continuando.
+[2026-09-10 05:01:34] Google_Client no disponible.
+[2026-09-10 05:01:34] Google_Client no disponible.
+[2026-09-10 05:05:36] vendor/autoload.php no encontrado. Continuando.
+[2026-09-10 05:05:36] vendor/autoload.php no encontrado. Continuando.
+[2026-09-10 05:05:36] Google_Client no disponible.
+[2026-09-10 05:05:36] vendor/autoload.php no encontrado. Continuando.
+[2026-09-10 05:05:36] vendor/autoload.php no encontrado. Continuando.
+[2026-09-10 05:05:36] Google_Client no disponible.
+[2026-09-10 05:05:36] Google_Client no disponible.
+[2026-09-10 05:10:55] vendor/autoload.php no encontrado. Continuando.
+[2026-09-10 05:10:55] Google_Client no disponible.
+[2026-09-10 05:10:55] Google_Client no disponible.
+[2026-09-10 05:10:55] vendor/autoload.php no encontrado. Continuando.
+[2026-09-10 05:10:55] vendor/autoload.php no encontrado. Continuando.
+[2026-09-10 05:10:55] Google_Client no disponible.
+[2026-09-10 05:10:55] Google_Client no disponible.
+[2026-09-10 05:15:08] vendor/autoload.php no encontrado. Continuando.
+[2026-09-10 05:15:08] Google_Client no disponible.
+[10-Sep-2026 05:15:08 Europe/Berlin] [google_login] INPUT recibido: {"credential":"eyJhbGciOiJSUzI1NiIsImtpZCI6ImYxMGY4NzQwNWE5NzljMWRmMzZkZjI2NjA2NzM0ZjMzY2Q4NWMyNzEiL...
+[10-Sep-2026 05:15:08 Europe/Berlin] [google_login] id_token recibido (primeros 50 chars): eyJhbGciOiJSUzI1NiIsImtpZCI6ImYxMGY4NzQwNWE5NzljMW...
+[10-Sep-2026 05:15:09 Europe/Berlin] [google_login] Payload de Google decodificado: {"iss":"https:\/\/accounts.google.com","azp":"475324951083-lp2pvqi80vs95cshsij7hn5m8tg3b0s3.apps.googleusercontent.com","aud":"475324951083-lp2pvqi80vs95cshsij7hn5m8tg3b0s3.apps.googleusercontent.com","sub":"112014685709619783956","email":"juan.andfigueroa2007@gmail.com","email_verified":"true","nbf":"1789009806","name":"Juan Andr\u00e9s Figueroa","picture":"https:\/\/lh3.googleusercontent.com\/a\/ACg8ocKhsu_DwqBBO3B-LYJBr8YL-VwbmlGv_S6OG-NPwzTfVyzKVA=s96-c","given_name":"Juan Andr\u00e9s","family_name":"Figueroa","iat":"1789010106","exp":"1789013706","jti":"b17d74abc77dd941657d48b3479aa0611e171995","alg":"RS256","kid":"f10f87405a979c1df36df26606734f33cd85c271","typ":"JWT"}
+[10-Sep-2026 05:15:09 Europe/Berlin] [google_login] Email: juan.andfigueroa2007@gmail.com, google_sub: 112014685709619783956, nombre: Juan Andrés Figueroa
+[10-Sep-2026 05:15:09 Europe/Berlin] [google_login] Búsqueda en BD por correo: juan.andfigueroa2007@gmail.com. Filas encontradas: 0
+[10-Sep-2026 05:15:09 Europe/Berlin] [google_login] Usuario NO encontrado en BD. Intentando crear nuevo usuario.
+[10-Sep-2026 05:15:09 Europe/Berlin] [google_login] Usuario creado exitosamente. ID=37
+[10-Sep-2026 05:15:09 Europe/Berlin] [google_login] Sesión iniciada para usuario nuevo ID=37, session_id=7df72v80ujavvg466f59571ub1
+[2026-09-10 05:15:09] vendor/autoload.php no encontrado. Continuando.
+[2026-09-10 05:15:09] Google_Client no disponible.
+[2026-09-10 05:15:09] vendor/autoload.php no encontrado. Continuando.
+[2026-09-10 05:15:09] Google_Client no disponible.
+[2026-09-10 05:15:09] vendor/autoload.php no encontrado. Continuando.
+[2026-09-10 05:15:09] Google_Client no disponible.
+[2026-09-10 05:15:09] vendor/autoload.php no encontrado. Continuando.
+[2026-09-10 05:15:09] Google_Client no disponible.
+[2026-09-10 05:16:44] vendor/autoload.php no encontrado. Continuando.
+[2026-09-10 05:16:44] Google_Client no disponible.
+[2026-09-10 05:16:44] vendor/autoload.php no encontrado. Continuando.
+[2026-09-10 05:16:44] Google_Client no disponible.
+[2026-09-10 05:16:44] vendor/autoload.php no encontrado. Continuando.
+[2026-09-10 05:16:44] Google_Client no disponible.
+[2026-09-10 05:16:44] vendor/autoload.php no encontrado. Continuando.
+[2026-09-10 05:16:44] Google_Client no disponible.
+[2026-09-10 05:17:04] vendor/autoload.php no encontrado. Continuando.
+[2026-09-10 05:17:04] Google_Client no disponible.
+[2026-09-10 05:17:04] vendor/autoload.php no encontrado. Continuando.
+[2026-09-10 05:17:04] Google_Client no disponible.
+ado. Continuando.
+[2026-09-10 05:17:04] Google_Client no disponible.
+[2026-09-10 05:17:04] vendor/autoload.php no encontrado. Continuando.
+[2026-09-10 05:17:04] Google_Client no disponible.
+[2026-09-10 05:17:12] vendor/autoload.php no encontrado. Continuando.
+[2026-09-10 05:17:12] Google_Client no disponible.
+[2026-09-10 05:17:13] vendor/autoload.php no encontrado. Continuando.
+[2026-09-10 05:17:13] Google_Client no disponible.
+[2026-09-10 05:17:13] vendor/autoload.php no encontrado. Continuando.
+[2026-09-10 05:17:13] Google_Client no disponible.
+[2026-09-10 05:17:13] vendor/autoload.php no encontrado. Continuando.
+[2026-09-10 05:17:13] Google_Client no disponible.
+[2026-09-10 05:17:13] vendor/autoload.php no encontrado. Continuando.
+[2026-09-10 05:17:13] Google_Client no disponible.
+[2026-09-10 05:17:18] vendor/autoload.php no encontrado. Continuando.
+[2026-09-10 05:17:18] Google_Client no disponible.
+[2026-09-10 05:17:18] vendor/autoload.php no encontrado. Continuando.
+[2026-09-10 05:17:18] Google_Client no disponible.
+[2026-09-10 05:17:18] vendor/autoload.php no encontrado. Continuando.
+[2026-09-10 05:17:18] Google_Client no disponible.
+[2026-09-10 05:17:18] vendor/autoload.php no encontrado. Continuando.
+[2026-09-10 05:17:18] Google_Client no disponible.
+[2026-09-10 05:17:18] vendor/autoload.php no encontrado. Continuando.
+[2026-09-10 05:17:18] Google_Client no disponible.
+[2026-09-10 05:17:28] vendor/autoload.php no encontrado. Continuando.
+[2026-09-10 05:17:28] Google_Client no disponible.
+[2026-09-10 05:17:28] vendor/autoload.php no encontrado. Continuando.
+[2026-09-10 05:17:28] Google_Client no disponible.
+[2026-09-10 05:18:01] vendor/autoload.php no encontrado. Continuando.
+[2026-09-10 05:18:01] Google_Client no disponible.
