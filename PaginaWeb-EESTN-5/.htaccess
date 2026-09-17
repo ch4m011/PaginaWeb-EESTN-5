@@ -1,0 +1,11 @@
+# Permitir comunicación de popups necesaria para Google Identity (desarrollo)
+<IfModule mod_headers.c>
+    Header set Cross-Origin-Opener-Policy "same-origin-allow-popups"
+    Header set Cross-Origin-Embedder-Policy "unsafe-none"
+    Header set Cross-Origin-Resource-Policy "same-site"
+
+    # CORS básico para APIs internas (DEV). En producción restringir orígenes.
+    Header set Access-Control-Allow-Origin "*"
+    Header set Access-Control-Allow-Methods "GET, POST, OPTIONS"
+    Header set Access-Control-Allow-Headers "Content-Type, X-Requested-With"
+</IfModule>

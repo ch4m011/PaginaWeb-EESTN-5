@@ -1,0 +1,278 @@
+@import url('design-system.css');
+
+/* =====================
+   ESTILOS GENERALES — mismo estilo institucional que el resto del sitio
+   ===================== */
+body {
+  margin: 0;
+  background: var(--color-paper);
+  font-family: var(--font-body);
+  color: var(--color-ink);
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+:root {
+  --main-img-height: 420px;
+  --main-img-mobile-height: 220px;
+}
+
+/* CONTENEDOR EXTERIOR (ancho de página) */
+.contenido-noticia {
+  max-width: 860px;
+  margin: 2.5rem auto 4rem;
+  padding: 0 var(--container-padding, 20px);
+}
+
+/* -------- TARJETA DEL ARTÍCULO -------- */
+.noticia-articulo {
+  background: var(--color-surface, #fff);
+  border-radius: var(--radius-lg, 10px);
+  box-shadow: var(--shadow-md, 0 6px 20px rgba(18,24,31,0.10));
+  padding: clamp(1.5rem, 4vw, 3rem);
+}
+
+/* -------- CABECERA: título + autor/fecha -------- */
+.noticia-header {
+  margin-bottom: 1.5rem;
+  padding-bottom: 1.25rem;
+  border-bottom: 1px solid var(--color-border, #e0e4e9);
+}
+
+.noticia-header h1,
+.contenido-noticia h1 {
+  font-family: var(--font-display);
+  color: var(--color-primary);
+  margin: 0 0 1rem;
+  font-size: clamp(1.6rem, 4vw, 2.5rem);
+  font-weight: 800;
+  line-height: 1.15;
+  overflow-wrap: anywhere;
+  word-break: break-word;
+}
+
+.noticia-meta {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.noticia-meta__avatar {
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid var(--color-border, #e0e4e9);
+  flex-shrink: 0;
+}
+
+.noticia-meta__info {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.3;
+}
+
+.noticia-meta__autor {
+  font-weight: 700;
+  font-size: 0.95rem;
+  color: var(--color-ink);
+}
+
+.noticia-meta__fecha {
+  font-size: 0.85rem;
+  color: var(--color-steel);
+}
+
+/* Compatibilidad con marcado anterior (por si alguna vista vieja lo usa) */
+.contenido-noticia .autor {
+  color: var(--color-steel);
+  font-size: 0.95rem;
+  margin: 0;
+}
+
+/* -------- IMAGEN DESTACADA -------- */
+.imagen-wrapper {
+  display: flex;
+  justify-content: center;
+  margin: 0 0 1.75rem;
+}
+
+.contenido-noticia .imagen-noticia {
+  width: 100%;
+  height: var(--main-img-height);
+  max-width: 100%;
+  object-fit: cover;
+  border-radius: var(--radius-md, 6px);
+  box-shadow: var(--shadow-sm, 0 1px 3px rgba(18,24,31,0.08));
+  display: block;
+}
+
+/* -------- CUERPO DEL ARTÍCULO -------- */
+.contenido-noticia .contenido {
+  font-size: 1.08rem;
+  line-height: 1.8;
+  color: var(--color-ink);
+  overflow-wrap: anywhere;
+  word-break: break-word;
+}
+
+.contenido-noticia .contenido > *:first-child { margin-top: 0; }
+.contenido-noticia .contenido > *:last-child { margin-bottom: 0; }
+
+.contenido-noticia .contenido p {
+  margin: 0 0 1.2rem;
+}
+
+.contenido-noticia .contenido h2,
+.contenido-noticia .contenido h3,
+.contenido-noticia .contenido h4 {
+  font-family: var(--font-display);
+  color: var(--color-primary);
+  font-weight: 700;
+  line-height: 1.2;
+  margin: 2rem 0 0.9rem;
+}
+
+.contenido-noticia .contenido h2 { font-size: 1.5rem; }
+.contenido-noticia .contenido h3 { font-size: 1.25rem; }
+.contenido-noticia .contenido h4 { font-size: 1.1rem; }
+
+.contenido-noticia .contenido a {
+  color: var(--color-primary-light);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+.contenido-noticia .contenido a:hover {
+  color: var(--color-primary);
+}
+
+.contenido-noticia .contenido strong { color: var(--color-ink); }
+
+.contenido-noticia .contenido ul,
+.contenido-noticia .contenido ol {
+  margin: 0 0 1.2rem;
+  padding-left: 1.4rem;
+}
+
+.contenido-noticia .contenido li {
+  margin-bottom: 0.4rem;
+}
+
+.contenido-noticia .contenido blockquote {
+  margin: 1.5rem 0;
+  padding: 0.9rem 1.4rem;
+  border-left: 4px solid var(--color-accent, #f5a623);
+  background: var(--color-paper, #f5f6f8);
+  border-radius: 0 var(--radius-sm, 3px) var(--radius-sm, 3px) 0;
+  font-style: italic;
+  color: var(--color-steel, #57626d);
+}
+
+.contenido-noticia .contenido table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 1.5rem 0;
+  font-size: 0.95rem;
+}
+
+.contenido-noticia .contenido th,
+.contenido-noticia .contenido td {
+  border: 1px solid var(--color-border, #e0e4e9);
+  padding: 0.6rem 0.8rem;
+  text-align: left;
+}
+
+.contenido-noticia .contenido th {
+  background: var(--color-paper, #f5f6f8);
+  font-weight: 700;
+}
+
+.contenido-noticia .contenido hr {
+  border: none;
+  border-top: 1px solid var(--color-border, #e0e4e9);
+  margin: 2rem 0;
+}
+
+/* -------- IMÁGENES DENTRO DEL CONTENIDO (insertadas por el editor) -------- */
+.contenido-noticia .contenido img {
+  max-width: 100%;
+  height: auto;
+  object-fit: contain;
+  display: block;
+  margin: 1.4rem auto;
+  border-radius: var(--radius-md, 6px);
+  box-shadow: var(--shadow-sm, 0 1px 3px rgba(18,24,31,0.08));
+}
+
+.contenido-noticia .contenido img.float-left {
+  float: left;
+  margin: 0.4rem 1.2rem 1rem 0;
+  max-width: 50%;
+}
+
+.contenido-noticia .contenido img.float-right {
+  float: right;
+  margin: 0.4rem 0 1rem 1.2rem;
+  max-width: 50%;
+}
+
+.contenido-noticia .contenido::after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+/* -------- BARRA SUPERIOR (contiene el botón Volver) -------- */
+.noticia-toolbar {
+  max-width: 860px;
+  margin: 1.5rem auto 0;
+  padding: 0 var(--container-padding, 20px);
+}
+
+/* =====================
+   BOTÓN VOLVER — dentro del flujo normal (no flotante),
+   así nunca tapa el título ni se desalinea según el ancho de ventana.
+   ===================== */
+.btn-volver {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: var(--color-surface, #fff);
+  border: 1px solid var(--color-border, #e0e4e9);
+  color: var(--color-primary);
+  font-family: var(--font-body);
+  font-size: 0.95rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.25s ease;
+  border-radius: var(--radius-md, 6px);
+  padding: 0.5rem 1rem;
+  box-shadow: var(--shadow-sm, 0 1px 3px rgba(18,24,31,0.08));
+}
+
+.btn-volver svg {
+  width: 18px;
+  height: 18px;
+  fill: currentColor;
+}
+
+.btn-volver:hover {
+  background: var(--color-primary);
+  color: #fff;
+  transform: translateX(-3px);
+  box-shadow: var(--shadow-md, 0 6px 20px rgba(18,24,31,0.10));
+}
+
+/* RESPONSIVE */
+@media (max-width: 640px) {
+  .contenido-noticia .imagen-noticia { height: var(--main-img-mobile-height); }
+  .noticia-articulo { border-radius: var(--radius-md, 6px); }
+}
+
+@media (max-width: 500px) {
+  .btn-volver {
+    font-size: 0.85rem;
+    padding: 0.4rem 0.8rem;
+  }
+}
