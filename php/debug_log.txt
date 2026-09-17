@@ -2676,3 +2676,92 @@ Stack trace:
 [2026-09-17 02:46:58] Google_Client no disponible.
 [2026-09-17 02:46:58] vendor/autoload.php no encontrado. Continuando.
 [2026-09-17 02:46:58] Google_Client no disponible.
+[2026-09-17 16:18:57] vendor/autoload.php no encontrado. Continuando.
+[2026-09-17 16:18:57] Google_Client no disponible.
+[2026-09-17 16:18:57] vendor/autoload.php no encontrado. Continuando.
+[2026-09-17 16:18:57] vendor/autoload.php no encontrado. Continuando.
+[2026-09-17 16:18:57] Google_Client no disponible.
+[2026-09-17 16:18:57] Google_Client no disponible.
+[2026-09-17 16:18:57] vendor/autoload.php no encontrado. Continuando.
+[2026-09-17 16:18:57] Google_Client no disponible.
+[2026-09-17 16:19:00] vendor/autoload.php no encontrado. Continuando.
+[2026-09-17 16:19:00] Google_Client no disponible.
+[2026-09-17 16:19:00] vendor/autoload.php no encontrado. Continuando.
+[2026-09-17 16:19:00] Google_Client no disponible.
+[2026-09-17 16:19:00] vendor/autoload.php no encontrado. Continuando.
+[2026-09-17 16:19:00] Google_Client no disponible.
+[2026-09-17 16:19:00] Google_Client no disponible.
+[2026-09-17 16:19:06] vendor/autoload.php no encontrado. Continuando.
+[2026-09-17 16:19:06] Google_Client no disponible.
+[2026-09-17 16:19:09] vendor/autoload.php no encontrado. Continuando.
+[2026-09-17 16:19:09] Google_Client no disponible.
+[2026-09-17 16:19:16] vendor/autoload.php no encontrado. Continuando.
+[2026-09-17 16:19:16] Google_Client no disponible.
+[2026-09-17 16:19:54] vendor/autoload.php no encontrado. Continuando.
+[2026-09-17 16:19:54] Google_Client no disponible.
+[2026-09-17 16:19:56] vendor/autoload.php no encontrado. Continuando.
+[2026-09-17 16:19:56] vendor/autoload.php no encontrado. Continuando.
+[2026-09-17 16:19:56] Google_Client no disponible.
+[2026-09-17 16:19:56] vendor/autoload.php no encontrado. Continuando.
+[2026-09-17 16:19:56] vendor/autoload.php no encontrado. Continuando.
+[2026-09-17 16:19:56] Google_Client no disponible.
+[2026-09-17 16:19:56] Google_Client no disponible.
+[2026-09-17 16:19:59] vendor/autoload.php no encontrado. Continuando.
+[2026-09-17 16:19:59] vendor/autoload.php no encontrado. Continuando.
+[2026-09-17 16:19:59] Google_Client no disponible.
+[2026-09-17 16:19:59] Google_Client no disponible.
+[2026-09-17 16:19:59] vendor/autoload.php no encontrado. Continuando.
+[2026-09-17 16:19:59] vendor/autoload.php no encontrado. Continuando.
+[2026-09-17 16:19:59] Google_Client no disponible.
+[2026-09-17 16:20:08] vendor/autoload.php no encontrado. Continuando.
+[2026-09-17 16:20:08] Google_Client no disponible.
+[2026-09-17 16:20:09] vendor/autoload.php no encontrado. Continuando.
+[2026-09-17 16:20:09] vendor/autoload.php no encontrado. Continuando.
+[2026-09-17 16:20:09] Google_Client no disponible.
+[2026-09-17 16:20:09] Google_Client no disponible.
+[2026-09-17 16:20:09] vendor/autoload.php no encontrado. Continuando.
+[2026-09-17 16:20:09] Google_Client no disponible.
+[2026-09-17 16:20:09] Google_Client no disponible.
+[2026-09-17 16:20:18] vendor/autoload.php no encontrado. Continuando.
+[2026-09-17 16:20:18] vendor/autoload.php no encontrado. Continuando.
+[2026-09-17 16:20:18] Google_Client no disponible.
+[2026-09-17 16:20:18] Google_Client no disponible.
+[2026-09-17 16:20:18] vendor/autoload.php no encontrado. Continuando.
+[2026-09-17 16:20:18] Google_Client no disponible.
+[2026-09-17 16:20:18] vendor/autoload.php no encontrado. Continuando.
+[2026-09-17 16:20:18] Google_Client no disponible.
+[2026-09-17 16:20:18] vendor/autoload.php no encontrado. Continuando.
+[2026-09-17 16:20:18] Google_Client no disponible.
+[2026-09-17 16:20:27] vendor/autoload.php no encontrado. Continuando.
+[2026-09-17 16:20:27] Google_Client no disponible.
+[2026-09-17 16:20:47] vendor/autoload.php no encontrado. Continuando.
+[2026-09-17 16:20:47] Google_Client no disponible.
+[17-Sep-2026 16:20:47 Europe/Berlin] 📝 Crear noticia - Datos recibidos: {"titulo":"jornada recreativa","contenido":"dhgdhgdgdjdjgfd","resumen":"dhgdhgdgdjdjgfd","imagen":"..\/uploads\/noticias\/noticia_1789654847_ff3bae95.jpg","tipo":"secundaria","destacado":0,"prioridad":0,"autor_id":33}
+[17-Sep-2026 16:20:47 Europe/Berlin] 📝 Título: 'jornada recreativa' (length: 18)
+[17-Sep-2026 16:20:47 Europe/Berlin] 📝 Contenido: 'dhgdhgdgdjdjgfd...' (length: 15)
+[17-Sep-2026 16:20:47 Europe/Berlin] 📝 Imagen: '../uploads/noticias/noticia_1789654847_ff3bae95.jpg'
+[17-Sep-2026 16:20:47 Europe/Berlin] 📝 Autor resolved (session): 33
+[2026-09-17 16:20:47] vendor/autoload.php no encontrado. Continuando.
+[2026-09-17 16:20:47] Google_Client no disponible.
+[2026-09-17 16:20:51] vendor/autoload.php no encontrado. Continuando.
+[2026-09-17 16:20:51] Google_Client no disponible.
+[2026-09-17 16:20:51] vendor/autoload.php no encontrado. Continuando.
+[2026-09-17 16:20:51] Google_Client no disponible.
+[2026-09-17 16:21:33] vendor/autoload.php no encontrado. Continuando.
+[2026-09-17 16:21:33] Google_Client no disponible.
+[2026-09-17 16:21:33] Google_Client no disponible.
+[2026-09-17 16:21:33] vendor/autoload.php no encontrado. Continuando.
+[2026-09-17 16:21:33] Google_Client no disponible.
+[2026-09-17 16:21:33] vendor/autoload.php no encontrado. Continuando.
+[2026-09-17 16:21:33] Google_Client no disponible.
+[2026-09-17 16:54:47] vendor/autoload.php no encontrado. Continuando.
+[2026-09-17 16:54:47] Google_Client no disponible.
+[2026-09-17 16:54:47] vendor/autoload.php no encontrado. Continuando.
+[2026-09-17 16:54:47] Google_Client no disponible.
+[2026-09-17 16:54:47] Google_Client no disponible.
+[2026-09-17 16:54:47] vendor/autoload.php no encontrado. Continuando.
+[2026-09-17 16:54:47] Google_Client no disponible.
+[2026-09-17 16:54:51] vendor/autoload.php no encontrado. Continuando.
+[2026-09-17 16:54:51] Google_Client no disponible.
+[2026-09-17 16:54:55] vendor/autoload.php no encontrado. Continuando.
+[2026-09-17 16:54:55] Google_Client no disponible.

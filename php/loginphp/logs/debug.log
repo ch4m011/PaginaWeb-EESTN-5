@@ -253,3 +253,13 @@
 [2026-09-10 05:17:12] Hash length: 60
 [2026-09-10 05:17:12] password_verify: TRUE
 [2026-09-10 05:17:12] Login exitoso para usuario_id=33 rol=admin
+[2026-09-17 16:20:08] === intento login ===
+[2026-09-17 16:20:08] POST: {"username":"jaafigueroarabanales@eest5.com","password":"miateamo"}
+[2026-09-17 16:20:08] Usuario encontrado id=33 correo=jaafigueroarabanales@eest5.com rol=admin
+[2026-09-17 16:20:08] Resultado password_verify: TRUE
+[2026-09-17 16:20:08] === DEBUG LOGIN ===
+[2026-09-17 16:20:08] Password ingresada: miateamo
+[2026-09-17 16:20:08] Hash BD: $2y$10$CJerzvnmJ/y5AsgGJaBUXOD31MjyCbju/4w1qL2Xmiu8l6vFoXLQK
+[2026-09-17 16:20:08] Hash length: 60
+[2026-09-17 16:20:08] password_verify: TRUE
+[2026-09-17 16:20:08] Login exitoso para usuario_id=33 rol=admin
