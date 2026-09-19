@@ -530,3 +530,258 @@ footer {
     font-weight: 600;
     color: #333;
 }
+
+/* =====================================================================
+   SLIDER DE PORTADA — rediseño
+   ---------------------------------------------------------------------
+   Escritorio: imagen a la izquierda (borde inclinado) y panel azul a la
+   derecha con etiqueta, título grande, resumen, autor/fecha y botón.
+   Celular (<= 860px): se apila, imagen arriba y panel abajo.
+   El contenido de cada slide lo arma cargarNoticiasSlider() en
+   js/index_noticias.js.
+   ===================================================================== */
+:root {
+    --slider-height-desktop: 400px;
+    --slider-corte: 64px;             /* inclinación del borde de la imagen */
+    --slider-pad: clamp(1.25rem, 2.6vw, 2.25rem);
+}
+
+.slider {
+    padding: 0;
+    height: var(--slider-height-desktop);
+    border-radius: 16px;
+    background: linear-gradient(135deg, #04223f 0%, #023261 55%, #0b4f96 100%);
+    box-shadow: 0 14px 36px rgba(0, 40, 79, 0.28);
+}
+
+.slides a.slide {
+    display: grid;
+    grid-template-columns: 62% minmax(0, 1fr);
+    grid-template-rows: minmax(0, 1fr);
+    background: transparent;
+    color: #fff;
+}
+
+/* ---- Imagen: llena todo su espacio, sin bandas grises ---- */
+.slides a.slide img {
+    grid-column: 1;
+    grid-row: 1;
+    width: 100%;
+    height: 100%;
+    min-height: 0;
+    max-height: none;
+    object-fit: cover;
+    object-position: center;
+    background: #0a2a4d;
+    clip-path: polygon(0 0, 100%  0, calc(100% - var(--slider-corte)) 100%, 0 100%);
+}
+
+/* Sin foto: se muestra el escudo entero sobre fondo claro */
+.slides a.slide.sin-imagen img {
+    object-fit: contain;
+    padding: 2.5rem;
+    background: linear-gradient(135deg, #f5f7fa, #dfe9f5);
+}
+
+/* ---- Panel de texto ---- */
+.slides a.slide .slide-content {
+    grid-column: 2;
+    grid-row: 1;
+    position: relative;
+    z-index: 2;
+    width: auto;
+    height: auto;
+    padding: var(--slider-pad) var(--slider-pad) 3.5rem clamp(1rem, 2vw, 1.75rem);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 0.85rem;
+    overflow: hidden;
+    background: transparent;
+    color: #fff;
+}
+
+.slide-eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.6rem;
+    font-family: var(--font-body, 'Segoe UI', sans-serif);
+    font-size: 0.75rem;
+    font-weight: 700;
+    line-height: 1;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--color-accent, #f5a623);
+}
+
+.slide-eyebrow::before {
+    content: "";
+    width: 28px;
+    height: 3px;
+    border-radius: 2px;
+    background: currentColor;
+}
+
+.slides a.slide .slide-content h2 {
+    margin: 0;
+    color: #fff;
+    font-family: var(--font-display, 'Barlow Condensed', 'Arial Narrow', sans-serif);
+    font-size: clamp(1.7rem, 3vw, 2.7rem);
+    font-weight: 700;
+    line-height: 1.05;
+    text-shadow: none;
+    overflow-wrap: anywhere;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 3;
+    overflow: hidden;
+}
+
+/* el resumen estaba oculto por una regla vieja (.slide-content p): se vuelve a mostrar */
+.slides a.slide .slide-content p.slide-excerpt {
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 3;
+    overflow: hidden;
+    margin: 0;
+    color: rgba(255, 255, 255, 0.82);
+    font-size: 0.98rem;
+    line-height: 1.5;
+    overflow-wrap: anywhere;
+}
+
+.slide-meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.25rem 0.9rem;
+    font-size: 0.85rem;
+    color: rgba(255, 255, 255, 0.7);
+}
+
+.slide-meta .slide-author {
+    font-weight: 600;
+    color: #fff;
+}
+
+.slide-cta {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-top: 0.2rem;
+    padding: 0.6rem 1.15rem;
+    border-radius: 999px;
+    background: var(--color-accent, #f5a623);
+    color: #1a1204;
+    font-size: 0.88rem;
+    font-weight: 700;
+    transition: background 0.2s ease, gap 0.2s ease;
+}
+
+.slides a.slide:hover .slide-cta {
+    background: #ffb93f;
+    gap: 0.85rem;
+}
+
+/* ---- Puntos: dentro del panel, el activo se alarga ---- */
+#puntosSlider {
+    left: 62%;
+    right: 0;
+    width: auto;
+    bottom: 1.35rem;
+    padding-left: clamp(1rem, 2vw, 1.75rem);
+    text-align: left;
+}
+
+#puntosSlider span {
+    width: 10px;
+    height: 10px;
+    margin: 0 6px 0 0;
+    background: rgba(255, 255, 255, 0.35);
+    transition: background 0.3s ease, width 0.3s ease;
+}
+
+#puntosSlider span.activo {
+    width: 28px;
+    border-radius: 999px;
+    background: var(--color-accent, #f5a623);
+    box-shadow: none;
+}
+
+/* ---- Entrada suave del texto en cada slide ---- */
+@keyframes sliderSube {
+    from { opacity: 0; transform: translateY(14px); }
+    to   { opacity: 1; transform: none; }
+}
+
+.slides a.slide.activo .slide-content > * {
+    animation: sliderSube 0.6s ease both;
+}
+
+.slides a.slide.activo .slide-content > :nth-child(2) { animation-delay: 0.07s; }
+.slides a.slide.activo .slide-content > :nth-child(3) { animation-delay: 0.14s; }
+.slides a.slide.activo .slide-content > :nth-child(4) { animation-delay: 0.21s; }
+.slides a.slide.activo .slide-content > :nth-child(5) { animation-delay: 0.28s; }
+
+@media (prefers-reduced-motion: reduce) {
+    .slides a.slide.activo .slide-content > * { animation: none; }
+}
+
+/* ---- Tablet / celular: se apila (imagen arriba, panel abajo) ---- */
+@media (max-width: 860px) {
+    .slider {
+        height: 330px;
+    }
+
+    .slides a.slide {
+        grid-template-columns: minmax(0, 1fr);
+        grid-template-rows: 190px minmax(0, 1fr);
+    }
+
+    .slides a.slide img {
+        clip-path: polygon(0 0, 100% 0, 100% calc(100% - 26px), 0 100%);
+    }
+
+    .slides a.slide.sin-imagen img {
+        padding: 1.25rem;
+    }
+
+    .slides a.slide .slide-content {
+        grid-column: 1;
+        grid-row: 2;
+        justify-content: flex-start;
+        gap: 0.45rem;
+        padding: 0.6rem 1.25rem 3rem;
+    }
+
+    .slide-eyebrow,
+    .slides a.slide .slide-content p.slide-excerpt,
+    .slide-cta {
+        display: none;
+    }
+
+    .slides a.slide .slide-content h2 {
+        font-size: 1.5rem;
+        -webkit-line-clamp: 2;
+    }
+
+    #puntosSlider {
+        left: 0;
+        bottom: 0.95rem;
+        padding-left: 1.25rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .slider {
+        height: 315px;
+    }
+
+    .slides a.slide {
+        grid-template-rows: 175px minmax(0, 1fr);
+    }
+
+    .slides a.slide .slide-content h2 {
+        font-size: 1.3rem;
+    }
+}

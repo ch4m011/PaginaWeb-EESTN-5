@@ -6,7 +6,7 @@
 
 let sliderIndex = 0;
 let sliderNoticiasGlobal = [];
-const sliderIntervalTime = 4000;
+const sliderIntervalTime = 6000;
 
 /**
  * Cargar todas las noticias desde BD (API)
@@ -65,7 +65,7 @@ function textFromHtml(html) {
         const text = (div.textContent || div.innerText || '')
             .trim()
             .replace(/\s+/g, ' ')           // Normalizar espacios
-            .substring(0, 200);              // Limitar a 200 caracteres
+            .substring(0, 400);              // Límite de seguridad (cada lugar recorta después con cortarConPuntos)
         
         return text || '';
     } catch (e) {
@@ -77,8 +77,21 @@ function textFromHtml(html) {
             .replace(/data:[^\"'\s>]+/gi, '')
             .trim()
             .replace(/\s+/g, ' ')
-            .substring(0, 200);
+            .substring(0, 400);
     }
+}
+
+/**
+ * Recortar un texto a `max` caracteres SIN partir palabras y agregando "…"
+ * (si el texto ya entra, se devuelve tal cual)
+ */
+function cortarConPuntos(texto, max) {
+    texto = String(texto || '').trim();
+    if (texto.length <= max) return texto;
+    let corte = texto.slice(0, max);
+    const ultimoEspacio = corte.lastIndexOf(' ');
+    if (ultimoEspacio > max * 0.6) corte = corte.slice(0, ultimoEspacio);   // no partir la última palabra
+    return corte.replace(/[\s.,;:!?¿¡-]+$/, '') + '…';
 }
 
 /**
@@ -127,7 +140,7 @@ function renderNoticiasGrid(noticias) {
     const hero = document.createElement('article');
     hero.className = 'news-featured';
     const heroImgSrc = primary.imagen || '../img/logo-tecnica.png';
-    const heroExcerpt = escapeHtml(textFromHtml(primary.resumen || primary.contenido).substring(0, 220));
+    const heroExcerpt = escapeHtml(cortarConPuntos(textFromHtml(primary.resumen || primary.contenido), 220));
     hero.innerHTML = `
         <a class="news-featured__link" href="../html/ver_noticia.html?id=${encodeURIComponent(primary.id)}">
             <div class="news-featured__media">
@@ -155,7 +168,7 @@ function renderNoticiasGrid(noticias) {
         card.setAttribute('data-id', n.id);
 
         const imgSrc = n.imagen || '../img/logo-tecnica.png';
-        const excerpt = escapeHtml(textFromHtml(n.resumen || n.contenido).substring(0, 140));
+        const excerpt = escapeHtml(cortarConPuntos(textFromHtml(n.resumen || n.contenido), 140));
         const autor = escapeHtml(n.autor_nombre || n.nombre || 'Anónimo');
         const autorFoto = n.imagen_perfil || '../img/logo-tecnica.png';
 
@@ -204,26 +217,59 @@ function cargarNoticiasSlider(noticias) {
         a.href = '../html/ver_noticia.html?id=' + encodeURIComponent(n.id);
         a.className = 'slide';
 
-        // Imagen o placeholder
-        if (n.imagen && String(n.imagen).trim() !== '') {
-            const img = document.createElement('img');
-            img.src = n.imagen;
-            img.alt = n.titulo;
-            img.onerror = function() { this.src = '../img/logo-tecnica.png'; };
-            a.appendChild(img);
-        } else {
-            const img = document.createElement('img');
-            img.src = '../img/logo-tecnica.png';
-            img.alt = n.titulo;
-            a.appendChild(img);
-        }
+        // Imagen (o escudo de la escuela si la noticia no tiene / no carga)
+        const tieneImagen = n.imagen && String(n.imagen).trim() !== '';
+        const img = document.createElement('img');
+        img.src = tieneImagen ? n.imagen : '../img/logo-tecnica.png';
+        img.alt = n.titulo || '';
+        if (!tieneImagen) a.classList.add('sin-imagen');
+        img.onerror = function () {
+            this.onerror = null;
+            this.src = '../img/logo-tecnica.png';
+            a.classList.add('sin-imagen');
+        };
+        a.appendChild(img);
 
-        // Contenido de la noticia: solo título (imagen es clicable hacia la noticia)
+        // Panel de texto: etiqueta, título, resumen, autor/fecha y llamado a la acción
         const contentDiv = document.createElement('div');
         contentDiv.className = 'slide-content';
+
+        const eyebrow = document.createElement('span');
+        eyebrow.className = 'slide-eyebrow';
+        eyebrow.textContent = 'Novedades';
+        contentDiv.appendChild(eyebrow);
+
         const title = document.createElement('h2');
         title.textContent = n.titulo || 'Sin título';
         contentDiv.appendChild(title);
+
+        const resumen = cortarConPuntos(textFromHtml(n.resumen || n.contenido), 160);
+        if (resumen) {
+            const p = document.createElement('p');
+            p.className = 'slide-excerpt';
+            p.textContent = resumen;
+            contentDiv.appendChild(p);
+        }
+
+        const meta = document.createElement('div');
+        meta.className = 'slide-meta';
+        const autor = document.createElement('span');
+        autor.className = 'slide-author';
+        autor.textContent = n.autor_nombre || n.nombre || 'Anónimo';
+        meta.appendChild(autor);
+        const fecha = formatearFecha(n.fecha_creacion);
+        if (fecha) {
+            const f = document.createElement('span');
+            f.textContent = fecha;
+            meta.appendChild(f);
+        }
+        contentDiv.appendChild(meta);
+
+        const cta = document.createElement('span');
+        cta.className = 'slide-cta';
+        cta.textContent = 'Leer noticia →';
+        contentDiv.appendChild(cta);
+
         a.appendChild(contentDiv);
 
         // Marcar la primera como activa

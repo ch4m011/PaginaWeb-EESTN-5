@@ -594,3 +594,259 @@ nav button[value="Registrarse"] {
   right: 20px;
   z-index: 1300;
 }
+
+/* =====================================================================
+   NAVBAR EN CELULAR: barra compacta + menú hamburguesa
+   ---------------------------------------------------------------------
+   El botón .nav-toggle lo crea navbar.js (inicializarMenuHamburguesa).
+   En celular (<= 768px) el header queda en una sola fila (logo + título
+   + botón) y todas las opciones pasan a un panel que se abre debajo,
+   por encima del contenido, al tocar la hamburguesa (.menu-abierto).
+   ===================================================================== */
+
+/* En pantallas grandes el botón no se muestra */
+.nav-toggle {
+  display: none;
+}
+
+@media (max-width: 768px) {
+
+  /* ---- Barra compacta: una sola fila ---- */
+  .navegador {
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.35rem 0.6rem;
+    padding: 0.4rem 0.75rem;
+  }
+
+  .navegador .logo {
+    order: 1;
+    flex: 1 1 0;
+    min-width: 0;
+  }
+
+  .navegador .logo .logo-container {
+    gap: 8px;
+    min-width: 0;
+  }
+
+  .navegador .logo-img {
+    width: 36px;
+    height: 36px;
+    max-width: none;
+    max-height: 36px;
+    flex: 0 0 auto;
+  }
+
+  .navegador .logo h1 {
+    font-size: 0.82rem;
+    line-height: 1.15;
+    text-align: left;
+    white-space: normal;
+  }
+
+  /* títulos extra dentro del header (ej: "Resultados de búsqueda") */
+  .navegador > h1 {
+    display: none;
+  }
+
+  .navegador .buscador {
+    order: 3;
+    flex: 1 1 100%;
+    width: 100%;
+    min-width: 0;
+  }
+
+  .navegador .buscador input {
+    flex: 1 1 auto;
+    width: auto;
+    max-width: none;
+    min-width: 0;
+  }
+
+  /* ---- Botón hamburguesa ---- */
+  .navegador .nav-toggle {
+    order: 2;
+    display: inline-flex;
+    flex: 0 0 auto;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+    width: 40px;
+    height: 40px;
+    padding: 0;
+    border: 1px solid rgba(255, 255, 255, 0.35);
+    border-radius: 8px;
+    background: rgba(255, 255, 255, 0.08);
+    cursor: pointer;
+    -webkit-tap-highlight-color: transparent;
+    transition: background 0.2s ease, border-color 0.2s ease;
+  }
+
+  .navegador .nav-toggle:hover,
+  .navegador.menu-abierto .nav-toggle {
+    background: rgba(255, 255, 255, 0.18);
+    border-color: #f5a623;
+  }
+
+  .navegador .nav-toggle:focus-visible {
+    outline: 2px solid #f5a623;
+    outline-offset: 2px;
+  }
+
+  .nav-toggle-bar {
+    display: block;
+    width: 20px;
+    height: 2px;
+    border-radius: 2px;
+    background: #fff;
+    transition: transform 0.25s ease, opacity 0.2s ease;
+  }
+
+  /* hamburguesa -> X */
+  .navegador.menu-abierto .nav-toggle-bar:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+  .navegador.menu-abierto .nav-toggle-bar:nth-child(2) { opacity: 0; }
+  .navegador.menu-abierto .nav-toggle-bar:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+  /* ---- Panel con todas las opciones (cerrado por defecto) ---- */
+  .navegador .navbar {
+    display: none;
+    order: 4;
+    position: absolute;        /* flota sobre el contenido: no empuja la página */
+    top: 100%;
+    left: 0;
+    right: 0;
+    width: auto;
+    margin: 0;
+    padding: 0.25rem 0.9rem 1rem;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    align-items: stretch;
+    justify-content: flex-start;
+    gap: 0;
+    background: #023261;
+    border-top: 1px solid rgba(255, 255, 255, 0.15);
+    box-shadow: 0 14px 28px rgba(0, 0, 0, 0.35);
+    max-height: calc(100vh - 64px);
+    max-height: calc(100dvh - 64px);
+    overflow-y: auto;
+  }
+
+  .navegador.menu-abierto .navbar {
+    display: flex;
+  }
+
+  .navegador .navbar > * {
+    margin: 0;
+  }
+
+  /* Links (solo <a>: el botón de Tecnicaturas también tiene .nav-link pero es flex) */
+  .navegador .navbar a.nav-link {
+    display: block;
+    padding: 0.9rem 0.25rem;
+    font-size: 1rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+  }
+
+  /* Tecnicaturas: acordeón dentro del panel (se abre con .show al tocar) */
+  .navegador .nav-dropdown {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .navegador .nav-dropdown::after {
+    display: none;
+  }
+
+  .navegador .nav-dropdown-toggle {
+    width: 100%;
+    justify-content: space-between;
+    padding: 0.9rem 0.25rem;
+    font-size: 1rem;
+    text-align: left;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+  }
+
+  .navegador .nav-dropdown-arrow {
+    font-size: 1.1em;
+  }
+
+  /* En táctil el :hover queda "pegado": acá manda solo la clase .show */
+  .navegador .nav-dropdown:hover .nav-dropdown-arrow {
+    transform: none;
+  }
+
+  .navegador .nav-dropdown.show .nav-dropdown-arrow {
+    transform: rotate(180deg);
+  }
+
+  .navegador .nav-dropdown-menu,
+  .navegador .nav-dropdown:hover .nav-dropdown-menu {
+    display: none;
+    position: static;
+    min-width: 0;
+    margin: 0 0 0.4rem;
+    opacity: 1;
+    transform: none;
+    background: rgba(255, 255, 255, 0.08);
+    border: none;
+    border-radius: 8px;
+    box-shadow: none;
+  }
+
+  .navegador .nav-dropdown.show .nav-dropdown-menu {
+    display: flex;
+  }
+
+  .navegador .nav-dropdown-menu a {
+    padding: 0.75rem 1rem;
+    color: #fff;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  }
+
+  .navegador .nav-dropdown-menu a:last-child {
+    border-bottom: none;
+  }
+
+  .navegador .nav-dropdown-menu a:hover {
+    padding-left: 1rem;
+    background: rgba(245, 166, 35, 0.18);
+    color: #f5a623;
+  }
+
+  /* Usuario logueado */
+  .navegador .navbar .user-container {
+    flex-direction: column;
+    align-items: stretch;
+    justify-content: flex-start;
+    margin: 0.6rem 0 0;
+    padding-top: 0.6rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.15);
+  }
+
+  .navegador .user-btn {
+    justify-content: flex-start;
+    padding: 0.35rem 0;
+    font-size: 1rem;
+    line-height: 1.2;
+  }
+
+  .navegador .user-menu {
+    position: static;
+    width: 100%;
+    min-width: 0;
+    margin-top: 0.4rem;
+  }
+
+  /* Iniciar sesión / Registrarse */
+  .navegador .navbar .btn-login,
+  .navegador .navbar .btn-registrarse {
+    width: 100%;
+    margin-top: 0.6rem;
+    padding: 0.75rem 1rem;
+    font-size: 1rem;
+  }
+}

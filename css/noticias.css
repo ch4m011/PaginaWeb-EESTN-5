@@ -28,7 +28,7 @@
 .news-card:hover,
 .noticia-mini:hover {
     transform: translateY(-6px);
-    box-shadow: 0 10px 30px rgba(27,31,35,0.12);
+    box-shadow: 0 5px 10px rgba(27,31,35,0.12);
 }
 
 /* Enlace de imagen de noticia */
@@ -61,11 +61,17 @@
 }
 
 .news-title {
-    font-size: 1.15rem;
+    font-size: 1.0rem;
     margin: 0;
-    line-height: 1.3;
+    line-height: 1.3;   /* antes 0.5: las líneas se pisaban cuando el título ocupaba 2 */
     color: #222;
     font-weight: 600;
+    /* máximo 2 líneas; si es más largo termina en "…" */
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+    line-clamp: 2;
+    overflow: hidden;
 }
 
 .news-title a {
@@ -77,10 +83,13 @@
     font-size: 1rem;
     color: #555;
     margin: 0;
-    flex-grow: 1;
+    line-height: 1.4;   /* sin flex-grow: si se estirara, mostraría líneas de más debajo del "…" */
+    /* máximo 3 líneas; si es más largo termina en "…" */
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 3;
+    line-clamp: 3;
     overflow: hidden;
-    max-height: 5em;
-    line-height: 1.4;
 }
 
 /* Evitar que palabras largas salgan del contenedor en todas las tarjetas */
@@ -97,9 +106,22 @@ div[style*="text-align: center"] { display: contents; }
     display: flex;
     flex-direction: column;
     gap: 10px;
-    margin-top: 8px;
+    margin-top: auto;      /* autor y fecha quedan siempre pegados abajo de la tarjeta */
+    padding-top: 8px;
     font-size: 0.9rem;
     color: #777;
+}
+
+/* Autor: si el nombre es largo o la tarjeta angosta, termina en "…" en vez de salirse */
+.news-meta .news-author {
+    min-width: 0;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.news-meta img {
+    flex-shrink: 0;   /* el avatar no se achica cuando el nombre aprieta */
 }
 
 /* Botón de leer más */
@@ -200,7 +222,8 @@ div[style*="text-align: center"] { display: contents; }
 
     .news-excerpt {
         font-size: 0.85rem;
-        max-height: 3em;
+        -webkit-line-clamp: 2;
+        line-clamp: 2;
     }
 
     .news-body {
@@ -236,7 +259,8 @@ div[style*="text-align: center"] { display: contents; }
 
     .news-excerpt {
         font-size: 0.75rem;
-        max-height: 2.5em;
+        -webkit-line-clamp: 2;
+        line-clamp: 2;
     }
 
     .news-body {
@@ -288,7 +312,7 @@ div[style*="text-align: center"] { display: contents; }
     position: relative;
     width: 100%;
     height: 460px;
-    background: var(--color-ink, #12181f);
+    background: #f3f5f8; /* antes era casi negro: se asomaba debajo de la imagen */
 }
 
 .news-featured__image {
@@ -336,6 +360,11 @@ div[style*="text-align: center"] { display: contents; }
     max-width: 44ch;
     overflow-wrap: anywhere;
     word-break: break-word;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 3;
+    line-clamp: 3;
+    overflow: hidden;
 }
 
 .news-featured__excerpt {
@@ -346,6 +375,11 @@ div[style*="text-align: center"] { display: contents; }
     max-width: 65ch;
     overflow-wrap: anywhere;
     word-break: break-word;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 3;
+    line-clamp: 3;
+    overflow: hidden;
 }
 
 .news-featured__meta {
@@ -366,3 +400,63 @@ div[style*="text-align: center"] { display: contents; }
     .news-featured__media { height: 240px; }
 }
 
+/* ======================================================================
+   DESTACADA: LA IMAGEN OCUPA TODO EL CONTENEDOR
+   ----------------------------------------------------------------------
+   Causa de la franja negra: index.css tiene la regla `img[onerror] {
+   height: 200px }` (pensada para placeholders) y, como el <img> de la
+   destacada lleva un atributo onerror, pisaba el `height: 100%` de
+   .news-featured__image. La imagen quedaba en 200px dentro de un
+   contenedor de 460px y el resto se veía como una franja oscura.
+   Acá le damos más especificidad para que la imagen ocupe TODO el
+   contenedor.
+   ====================================================================== */
+.news-featured__media .news-featured__image {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+}
+
+/* Texto sobre la imagen (título, resumen, autor y fecha): degradé largo y
+   suave, así se lee sobre cualquier foto sin formar una franja dura. */
+.news-featured__overlay {
+    padding-top: 4.5rem;
+    background: linear-gradient(180deg,
+        rgba(2, 15, 30, 0) 0%,
+        rgba(2, 15, 30, 0.35) 35%,
+        rgba(2, 15, 30, 0.72) 100%);
+}
+
+.news-featured__title,
+.news-featured__excerpt,
+.news-featured__meta {
+    text-shadow: 0 1px 6px rgba(0, 0, 0, 0.55);
+}
+
+/* Celular: tarjeta más baja, así que el texto se achica para no tapar la imagen */
+@media (max-width: 480px) {
+    .news-featured__overlay {
+        padding: 2.5rem 1rem 0.9rem;
+    }
+
+    .news-featured__title {
+        font-size: 1.3rem;
+        margin-bottom: 0.3rem;
+        -webkit-line-clamp: 2;
+        line-clamp: 2;
+    }
+
+    .news-featured__excerpt {
+        font-size: 0.85rem;
+        line-height: 1.35;
+        margin-bottom: 0.4rem;
+        display: -webkit-box;
+        -webkit-line-clamp: 2;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+    }
+
+    .news-featured__meta {
+        font-size: 0.78rem;
+    }
+}

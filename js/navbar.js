@@ -356,9 +356,41 @@ function inicializarBuscador() {
 }
 
 // =======================================================
+// MENÚ HAMBURGUESA (solo se ve en celular, ver navegador.css)
+// =======================================================
+function inicializarMenuHamburguesa() {
+  const header = document.querySelector(".navegador");
+  const nav = document.getElementById("navPrincipal");
+  if (!header || !nav || header.querySelector(".nav-toggle")) return;
+
+  const btn = document.createElement("button");
+  btn.type = "button";
+  btn.className = "nav-toggle";
+  btn.setAttribute("aria-label", "Abrir menú");
+  btn.setAttribute("aria-expanded", "false");
+  btn.setAttribute("aria-controls", "navPrincipal");
+  btn.innerHTML = '<span class="nav-toggle-bar"></span><span class="nav-toggle-bar"></span><span class="nav-toggle-bar"></span>';
+  header.insertBefore(btn, nav);
+
+  function setAbierto(abierto) {
+    header.classList.toggle("menu-abierto", abierto);
+    btn.setAttribute("aria-expanded", String(abierto));
+    btn.setAttribute("aria-label", abierto ? "Cerrar menú" : "Abrir menú");
+  }
+
+  btn.addEventListener("click", () => setAbierto(!header.classList.contains("menu-abierto")));
+
+  // Se cierra al tocar fuera del header, con Escape, al elegir un link o al pasar a pantalla ancha
+  document.addEventListener("click", (e) => { if (!header.contains(e.target)) setAbierto(false); });
+  document.addEventListener("keydown", (e) => { if (e.key === "Escape") setAbierto(false); });
+  nav.addEventListener("click", (e) => { if (e.target.closest("a")) setAbierto(false); });
+  window.addEventListener("resize", () => { if (window.innerWidth > 768) setAbierto(false); });
+}
+// =======================================================
 // INICIO AUTOMÁTICO
 // =======================================================
 document.addEventListener("DOMContentLoaded", async () => {
+  inicializarMenuHamburguesa();   // primero el botón, así no hay saltos de layout
   await actualizarNav();
   inicializarBuscador();
 });
