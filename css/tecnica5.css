@@ -1,0 +1,305 @@
+/* ============================================================
+   ONE PAGE INSTITUCIONAL — "Conocé nuestra escuela"
+   ------------------------------------------------------------
+   Extiende el design system (design-system.css / home-sections.css,
+   ambos ya cargados vía index.css) con los componentes propios de
+   esta página: hero institucional, historia, valores, números y
+   ubicación/contacto. Reutiliza .eest-section, .eest-section-title,
+   .eest-eyebrow, .eest-btn, .eest-cta, .eest-stat y .eest-specialties
+   ya definidos en home-sections.css.
+   ============================================================ */
+
+@import url('design-system.css');
+
+/* ---------- HERO institucional ---------- */
+.eest-inst-hero {
+  padding-top: var(--space-6);
+}
+
+.eest-inst-hero__panel {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: var(--space-6);
+  background: linear-gradient(120deg, var(--color-primary-dark) 0%, var(--color-primary) 65%, var(--color-primary-light) 100%);
+  color: #fff;
+  border-radius: var(--radius-lg);
+  padding: var(--space-7) var(--space-6);
+  overflow: hidden;
+}
+
+.eest-inst-hero__panel::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: repeating-linear-gradient(45deg, rgba(255,255,255,0.05) 0 2px, transparent 2px 18px);
+  pointer-events: none;
+}
+
+.eest-inst-hero__icon {
+  position: relative;
+  flex: 0 0 auto;
+  width: 96px;
+  height: 96px;
+  border-radius: var(--radius-lg);
+  background: rgba(255, 255, 255, 0.12);
+  padding: var(--space-3);
+}
+
+.eest-inst-hero__icon img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  filter: drop-shadow(0 6px 14px rgba(0, 0, 0, 0.35));
+}
+
+.eest-inst-hero__body { position: relative; }
+
+.eest-inst-hero__body .eest-eyebrow { color: var(--color-spark); }
+.eest-inst-hero__body .eest-eyebrow::before { background: var(--color-spark); }
+
+.eest-inst-hero__title {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: clamp(2rem, 5vw, 3rem);
+  margin: var(--space-2) 0 var(--space-3);
+  line-height: 1.05;
+}
+
+.eest-inst-hero__desc {
+  font-family: var(--font-body);
+  color: rgba(255, 255, 255, 0.85);
+  font-size: 1.05rem;
+  line-height: 1.6;
+  max-width: 62ch;
+  margin: 0 0 var(--space-5);
+}
+
+.eest-inst-hero__actions {
+  position: relative;
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-3);
+}
+
+/* ---------- Bloque de texto simple (reutilizado en varias secciones) ---------- */
+.eest-inst-text {
+  max-width: 74ch;
+}
+
+.eest-inst-text p {
+  font-family: var(--font-body);
+  color: var(--color-steel);
+  font-size: 1.02rem;
+  line-height: 1.7;
+  margin: var(--space-3) 0 0;
+}
+
+.eest-inst-text p:first-of-type { margin-top: var(--space-2); }
+
+/* ---------- Historia: línea de tiempo simple ---------- */
+.eest-timeline {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-5);
+  margin-top: var(--space-6);
+  border-left: 3px solid var(--color-border);
+  padding-left: var(--space-5);
+}
+
+.eest-timeline__item {
+  position: relative;
+}
+
+.eest-timeline__item::before {
+  content: '';
+  position: absolute;
+  left: calc(-1 * var(--space-5) - 7px);
+  top: 4px;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: var(--color-accent);
+  border: 2px solid var(--color-surface);
+  box-shadow: 0 0 0 2px var(--color-accent);
+}
+
+.eest-timeline__year {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 1.1rem;
+  color: var(--color-primary);
+  display: block;
+  margin-bottom: 2px;
+}
+
+.eest-timeline__item p {
+  font-family: var(--font-body);
+  color: var(--color-steel);
+  font-size: 0.96rem;
+  line-height: 1.6;
+  margin: 0;
+  max-width: 62ch;
+}
+
+/* ---------- Valores institucionales ---------- */
+.eest-values-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: var(--space-4);
+  margin-top: var(--space-5);
+}
+
+.eest-value-card {
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-top: 3px solid var(--color-accent);
+  border-radius: var(--radius-md);
+  padding: var(--space-4);
+}
+
+.eest-value-card__icon {
+  font-size: 1.6rem;
+  margin-bottom: var(--space-2);
+}
+
+.eest-value-card h3 {
+  font-family: var(--font-body);
+  font-weight: 700;
+  font-size: 1rem;
+  color: var(--color-ink);
+  margin: 0 0 6px;
+}
+
+.eest-value-card p {
+  font-family: var(--font-body);
+  font-size: 0.9rem;
+  color: var(--color-steel);
+  line-height: 1.5;
+  margin: 0;
+}
+
+/* ---------- Franja de números institucionales ---------- */
+.eest-stats-banner {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: var(--space-5);
+  text-align: center;
+}
+
+.eest-stats-banner .eest-stat strong {
+  font-size: 2.4rem;
+}
+
+/* ---------- Ubicación y contacto ---------- */
+.eest-location {
+  display: grid;
+  grid-template-columns: 1fr 1.2fr;
+  gap: var(--space-7);
+  align-items: stretch;
+}
+
+.eest-location__map {
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  border: 1px solid var(--color-border);
+  min-height: 320px;
+  background: var(--color-paper);
+}
+
+.eest-location__map iframe {
+  width: 100%;
+  height: 100%;
+  min-height: 320px;
+  border: 0;
+  display: block;
+}
+
+.eest-location__body {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.eest-location-list {
+  list-style: none;
+  margin: var(--space-5) 0 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+}
+
+.eest-location-list li {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-3);
+}
+
+.eest-location-list__icon {
+  flex: 0 0 auto;
+  width: 40px;
+  height: 40px;
+  border-radius: var(--radius-sm);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.15rem;
+  background: rgba(0, 61, 122, 0.08);
+}
+
+.eest-location-list strong {
+  display: block;
+  font-family: var(--font-body);
+  font-size: 0.95rem;
+  color: var(--color-ink);
+}
+
+.eest-location-list span {
+  display: block;
+  font-size: 0.88rem;
+  color: var(--color-steel);
+  margin-top: 2px;
+}
+
+/* ---------- CTA final: enlaces a otras páginas ---------- */
+.eest-inst-cta-links {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: var(--space-3);
+  margin-top: var(--space-4);
+}
+
+/* ---------- Responsive ---------- */
+@media (max-width: 900px) {
+  .eest-stats-banner {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .eest-location {
+    grid-template-columns: 1fr;
+  }
+
+  .eest-location__map {
+    order: -1;
+  }
+}
+
+@media (max-width: 640px) {
+  .eest-inst-hero__panel {
+    flex-direction: column;
+    text-align: center;
+    align-items: flex-start;
+    gap: var(--space-4);
+  }
+
+  .eest-inst-hero__desc { max-width: none; }
+
+  .eest-values-grid { grid-template-columns: 1fr; }
+
+  .eest-stats-banner {
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-4);
+  }
+}

@@ -191,3 +191,7 @@
   .eest-spec-skills,
   .eest-spec-grid { grid-template-columns: 1fr; }
 }
+.logos{
+  width: 100px;
+  height: auto; /* Mantiene la proporción */
+}

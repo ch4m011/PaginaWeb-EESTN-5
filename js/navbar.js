@@ -226,86 +226,6 @@ async function actualizarNav() {
 }
 
 // =======================================================
-// BUSCADOR CON AUTOCOMPLETADO
-// =======================================================
-function inicializarBuscador() {
-  const btn = document.getElementById("btnBuscar");
-  const input = document.getElementById("buscarNoticias");
-  const cont = document.querySelector(".buscador");
-
-  if (!input || !btn || !cont) return;
-
-  if (!window.location.pathname.endsWith("index.html")) {
-    btn.style.display = input.style.display = cont.style.display = "none";
-    return;
-  }
-
-  cont.style.position = "relative";
-
-  const sugerenciasDiv = document.createElement("div");
-  sugerenciasDiv.id = "sugerencias-escritor";
-  sugerenciasDiv.classList.add("sugerencias");
-  sugerenciasDiv.style.position = "absolute";
-  sugerenciasDiv.style.top = "35px";
-  sugerenciasDiv.style.left = "0";
-  sugerenciasDiv.style.width = "100%";
-  sugerenciasDiv.style.display = "none";
-  cont.appendChild(sugerenciasDiv);
-
-  let escritores = [];
-
-  // Fallback: llamar a la API de noticias y extraer autores directamente
-  // (se saltea el intento de cargar php/noticias.json que no existe)
-  (async () => {
-    try {
-      const apiRes = await fetch('php/api_noticias.php?action=obtener&limite=200', { cache: 'no-store', credentials: 'same-origin' });
-      if (!apiRes.ok) throw new Error('HTTP ' + apiRes.status);
-      const noticias = await apiRes.json();
-      escritores = [...new Set(noticias.map(n => (n.autor_nombre || (n.nombre ? (n.nombre + (n.apellido ? ' ' + n.apellido : '')) : '')).trim()))].filter(Boolean);
-    } catch (err) {
-      console.warn('⚠️ Error al cargar escritores desde API:', err);
-    }
-  })();
-
-  input.addEventListener("input", () => {
-    const val = input.value.toLowerCase().trim();
-    sugerenciasDiv.innerHTML = "";
-    if (!val) return (sugerenciasDiv.style.display = "none");
-
-    const sugerencias = escritores.filter(n => n.toLowerCase().includes(val)).slice(0, 5);
-    sugerencias.forEach(nombre => {
-      const div = document.createElement("div");
-      div.className = "sugerencia-item";
-      div.textContent = nombre;
-      div.onclick = () => {
-        input.value = nombre;
-        sugerenciasDiv.innerHTML = "";
-        const params = new URLSearchParams({ escritor: nombre });
-        window.location.href = "../html/busqueda.html?" + params.toString();
-      };
-      sugerenciasDiv.appendChild(div);
-    });
-    sugerenciasDiv.style.display = sugerencias.length ? "block" : "none";
-  });
-
-  document.addEventListener("click", (e) => {
-    if (!sugerenciasDiv.contains(e.target) && e.target !== input) {
-      sugerenciasDiv.style.display = "none";
-    }
-  });
-
-  function aplicarBusqueda() {
-    const query = input.value.trim();
-    if (!query) return;
-    const params = new URLSearchParams({ query });
-    window.location.href = "../html/busqueda.html?" + params.toString();
-  }
-
-  btn.onclick = aplicarBusqueda;
-  input.addEventListener("keypress", (e) => { if (e.key === "Enter") aplicarBusqueda(); });
-}
-
-// =======================================================
 // MENÚ HAMBURGUESA (solo se ve en celular, ver navegador.css)
 // =======================================================
 function inicializarMenuHamburguesa() {
@@ -342,7 +262,6 @@ function inicializarMenuHamburguesa() {
 document.addEventListener("DOMContentLoaded", async () => {
   inicializarMenuHamburguesa();   // primero el botón, así no hay saltos de layout
   await actualizarNav();
-  inicializarBuscador();
 });
 
 // Ajusta automáticamente la variable --navegador-height según la altura real del header
@@ -411,7 +330,7 @@ if (footer) {
         <h4>Navegación</h4>
         <ul>
           <li><a href="index.html">Inicio</a></li>
-          <li><a href="busqueda.html">Noticias</a></li>
+          <li><a href="index.html#noticiasContainer">Noticias</a></li>
           <li><a href="contacto.html">Contacto</a></li>
         </ul>
       </div>
@@ -433,7 +352,7 @@ if (footer) {
     </div>
     <div class="eest-footer__bottom eest-container">
       <span>© 2026 Escuela Técnica - La Plata</span>
-      <span>Desarrolladores: Belawsky Lautaro, Sanchez Dylan, Cantero Eduardo, Sonco Fabio</span>
+      
     </div>
 
 `

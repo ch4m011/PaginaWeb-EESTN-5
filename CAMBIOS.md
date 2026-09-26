@@ -160,3 +160,99 @@ que clone el repo y mire commits viejos.
   conexión a BD), `php/login.php` (un comentario desactualizado)
 - Archivos nuevos: `.gitignore`, `php/.env.example`, este `CAMBIOS.md`
 - Total de archivos del proyecto: 202 → 152 (sin contar `.git/`)
+
+## 5. Eliminación del buscador (no hacía nada)
+
+Se verificó con `grep` todo el flujo del buscador de noticias (input +
+lupa en el header, autocompletado por escritor, página de resultados) y
+resultó estar completamente muerto en la práctica:
+
+- `js/navbar.js` → `inicializarBuscador()` sólo activaba el input/botón
+  si `window.location.pathname` terminaba en `index.html`. Pero
+  `html/index.html` **nunca tuvo** el `<div class="buscador">` en su
+  HTML — o sea que en la única página donde el buscador podía activarse,
+  no existía. En el resto de las páginas la misma función lo ocultaba
+  (`display: none`) apenas cargaba.
+- Las dos páginas que sí tenían el `<div class="buscador">` en el HTML
+  (`contacto.html`, `preinscripcion.html`) ya lo traían con
+  `style="display: none;"` fijo, y `busqueda.html` (la página de
+  resultados) también lo ocultaba al cargar `navbar.js`. Ningún usuario
+  pudo haber usado nunca ese input.
+- El único acceso real a `busqueda.html` era el link "Noticias" del
+  footer, que apuntaba ahí **sin ningún parámetro de búsqueda**. Como
+  `js/busqueda.js` corta con "No se ingresó ninguna búsqueda." cuando no
+  hay query string, ese link tampoco mostraba nunca una sola noticia.
+
+**Qué se borró:**
+
+| Archivo | Motivo |
+|---|---|
+| `html/busqueda.html` | Página de resultados, inalcanzable con contenido real (ver arriba). |
+| `js/busqueda.js` | Lógica de filtrado que sólo corría en esa página. |
+| `css/busqueda.css` | Estilos exclusivos de esa página. |
+| `inicializarBuscador()` en `js/navbar.js` (y su llamada) | Función del input+lupa+autocompletado, nunca alcanzable. |
+| `.buscador` en `html/contacto.html` y `html/preinscripcion.html` | Markup del input, ya venía oculto por CSS inline. |
+| Reglas `.buscador`, `.sugerencias`, `.sugerencia-item` en `css/navegador.css` | Estilos que sólo aplicaban al buscador eliminado. |
+
+**Qué se ajustó, no se borró:** el link "Noticias" del footer
+(`js/navbar.js`) ahora apunta a `index.html#noticiasContainer` (la
+sección "Últimas noticias" de la home) en vez de a la página de
+búsqueda eliminada. `php/api_noticias.php` se dejó intacto: lo siguen
+usando `index_noticias.js`, `panel_escritor.js` y `panel_admin.js`.
+
+## 6. Estructura actual del proyecto
+
+```
+PaginaWeb-EESTN-5/
+├── .htaccess
+├── CAMBIOS.md
+├── README.md
+├── conexion.php              # shim de 3 líneas → php/config.php
+├── css/                      # 17 hojas de estilo (una por página + design-system/navegador)
+├── html/                     # 15 páginas (login, perfil, paneles, tecnicaturas, contacto, etc.)
+├── img/                      # logos institucionales
+├── js/                       # 15 scripts (uno por página + navbar.js común)
+├── php/
+│   ├── admin/                # gestión de usuarios (rol, alta/baja)
+│   ├── bd/                   # conexión e instalación alternativa de BD
+│   ├── loginphp/             # login con Google
+│   ├── perfil/                # edición de datos/imagen de perfil
+│   ├── PHPMailer/             # librería de envío de mails
+│   ├── uploads/avatars/       # avatares subidos por usuarios
+│   ├── config.php            # fuente única de verdad de la conexión mysqli
+│   └── ...                   # endpoints sueltos (noticias, calendario, sesión, registro)
+├── public/                    # borrado de cuenta (confirmación por link)
+├── scripts/                   # scripts de mantenimiento (purga, verificación)
+└── sql/                        # 01_usuarios, 02_calendario, 03_messages, 04-05_noticias
+```
+
+- Total de archivos del proyecto (esta sesión): 110 → 107 (sin contar `.git/`)
+
+## 7. One-page institucional (`html/tecnica5.html`)
+
+`html/index.html` ya tenía un link ("Conocé más sobre la institución") apuntando
+a `tecnica5.html`, pero el archivo era solo el esqueleto (header sin contenido).
+Se completó como one-page institucional, reutilizando los componentes ya
+definidos en `home-sections.css`/`especialidades.css` (`.eest-section`,
+`.eest-cta`, `.eest-btn`, `.eest-eyebrow`, `.eest-specialties`, `.eest-stat`)
+en vez de reinventar estilos nuevos:
+
+- **Archivo nuevo `css/tecnica5.css`**: componentes propios de esta página
+  (hero institucional, línea de tiempo de historia, grilla de valores, franja
+  de números, bloque de ubicación/mapa). Sigue el mismo patrón que
+  `especialidades.css`: `@import url('design-system.css')` + clases `.eest-*`
+  propias.
+- **`html/tecnica5.html`** ahora enlaza `navegador.css` + `index.css` (que ya
+  encadena `design-system.css` + `home-sections.css` + estilos base de
+  `body`/`main`) + `tecnica5.css`. Se corrigió también el bug del `<script
+  src="../js/navbar.js"defer>` (le faltaba el espacio antes de `defer`).
+- Secciones: hero, "Quiénes somos", historia (línea de tiempo), misión y
+  valores, números institucionales, especialidades (mismas 4 tarjetas que
+  `index.html`, para que la página funcione sola sin depender de la home),
+  ubicación con mapa embebido de Google Maps (sin API key, vía
+  `output=embed`) y contacto, y CTA final a pre-inscripción.
+- **Contenido pendiente de completar con datos reales** (marcado con
+  comentarios `<!-- TODO Chamito: ... -->` en el HTML): año de fundación e
+  hitos de la historia, dirección exacta, turnos/horarios reales. El texto
+  institucional genérico es un placeholder a propósito — no hay que dejarlo
+  así en producción.

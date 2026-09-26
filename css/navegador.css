@@ -103,62 +103,6 @@
   text-shadow: 0 0 8px #f5a623;
 }
 
-/* -------- BUSCADOR -------- */
-.buscador {
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-}
-
-/* Buscador: ocupa el espacio central y se centra visualmente */
-.navegador .buscador {
-  flex: 1 1 auto;           /* toma el espacio disponible entre logo y botones */
-  display: flex;
-  justify-content: center;  /* centra el input dentro de la columna */
-  align-items: center;
-  min-width: 220px;         /* evita que colapse demasiado en pantallas pequeñas */
-}
-
-.buscador input {
-  background: #ffffff;
-  border: 1px solid #cfd8dc;
-  color: #1a1a1a;
-  padding: 0.5rem 0.8rem;
-  border-radius: 8px;
-  width: 200px;
-  transition: border-color 0.3s, box-shadow 0.3s;
-}
-
-/* Input: ancho razonable y responsive */
-.navegador .buscador input {
-  width: 60%;               /* ocupa el 60% del espacio de la columna central */
-  max-width: 560px;         /* límite superior para que no sea demasiado ancho */
-  min-width: 180px;
-  box-sizing: border-box;
-}
-
-.buscador input:focus {
-  outline: none;
-  border-color: #f5a623;
-  box-shadow: 0 0 8px #f5a623;
-}
-
-.buscador button {
-  background: #f5a623;
-  border: none;
-  color: #fff;
-  border-radius: 8px;
-  padding: 0.5rem 0.8rem;
-  cursor: pointer;
-  transition: background 0.3s, transform 0.2s, box-shadow 0.3s;
-}
-
-.buscador button:hover {
-  background: #d68910;
-  transform: scale(1.05);
-  box-shadow: 0 0 8px #d68910;
-}
-
 /* -------- NAVBAR BOTONES -------- */
 .navbar {
   display: flex;
@@ -316,14 +260,6 @@
     padding: 1rem;
   }
 
-  .buscador {
-    width: 100%;
-  }
-
-  .buscador input {
-    flex: 1;
-  }
-
   .navbar {
     width: 100%;
     justify-content: flex-start;
@@ -335,35 +271,7 @@
   }
 
   .navegador .logo .logo-container { gap: 6px; }
-  .navegador .buscador input { width: 78%; max-width: 360px; }
   .navegador { gap: 8px; }
-}
-
-/* ===============================
-   Estilos de autocompletado
-   =============================== */
-.sugerencias {
-  position: absolute;
-  background: #f8faff;
-  border: 1px solid #ccc;
-  border-radius: 8px;
-  max-height: 160px;
-  overflow-y: auto;
-  width: 100%;
-  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-  z-index: 1000;
-  display: none;
-}
-
-.sugerencia-item {
-  padding: 8px 10px;
-  cursor: pointer;
-  transition: background 0.2s;
-}
-
-.sugerencia-item:hover {
-  background: #e4f1ff;
-  color: #033260;
 }
 
 /* -------- PERFIL EN NAVEGACIÓN -------- */
@@ -650,20 +558,6 @@ nav button[value="Registrarse"] {
   /* títulos extra dentro del header (ej: "Resultados de búsqueda") */
   .navegador > h1 {
     display: none;
-  }
-
-  .navegador .buscador {
-    order: 3;
-    flex: 1 1 100%;
-    width: 100%;
-    min-width: 0;
-  }
-
-  .navegador .buscador input {
-    flex: 1 1 auto;
-    width: auto;
-    max-width: none;
-    min-width: 0;
   }
 
   /* ---- Botón hamburguesa ---- */
