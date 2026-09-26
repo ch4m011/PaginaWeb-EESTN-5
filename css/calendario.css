@@ -1,0 +1,206 @@
+/* Descripción desplegable */
+.evento-descripcion {
+  display: none;
+  padding: 0.5rem 0.8rem;
+  font-size: 0.9rem;
+  color: #202124;
+  border-left: 2px solid #4285f4;
+  margin-top: 0.3rem;
+}
+
+/* Botón sincronizar */
+.sincronizar-btn {
+  margin-top: 0.5rem;
+  padding: 0.4rem 0.6rem;
+  font-size: 0.85rem;
+  color: #fff;
+  background-color: #4285f4;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+/* =========================================================
+   AGENDA EN LA PÁGINA DE INICIO - estilo inspirado en UCALP
+   La agenda queda contenida dentro del bloque principal de la página.
+   ========================================================= */
+#agendaCalendario {
+  width: 100%;
+  max-width: 100%;
+  margin: 0;
+  padding: 1.25rem 0 0.25rem;
+  background: transparent;
+  box-sizing: border-box;
+}
+
+#agendaCalendario .agenda-titulo-fila {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  width: 100%;
+  margin: 0 0 1rem;
+}
+
+#agendaCalendario .agenda-titulo {
+  margin: 0;
+  color: #1557c0;
+  font-size: clamp(1.35rem, 2vw, 1.8rem);
+  font-weight: 750;
+}
+
+#agendaCalendario .agenda-flechas {
+  display: flex;
+  gap: .55rem;
+}
+
+#agendaCalendario .agenda-flecha {
+  width: 34px;
+  height: 34px;
+  border: 0;
+  border-radius: 50%;
+  background: #1557d6;
+  color: #fff;
+  display: grid;
+  place-items: center;
+  font-size: 1.35rem;
+  line-height: 1;
+  cursor: pointer;
+  transition: transform .18s ease, background .18s ease;
+  padding: 0;
+}
+
+#agendaCalendario .agenda-flecha:hover {
+  background: #0e46b2;
+  transform: scale(1.06);
+}
+
+#agendaCalendario .agenda-flecha:disabled {
+  opacity: .35;
+  cursor: default;
+  transform: none;
+}
+
+#agendaCalendario .agenda-viewport {
+  width: 100%;
+  max-width: 100%;
+  margin: 0;
+  overflow-x: auto;
+  overflow-y: hidden;
+  scroll-behavior: smooth;
+  scrollbar-width: thin;
+  cursor: grab;
+  -webkit-overflow-scrolling: touch;
+  scroll-snap-type: x proximity;
+  padding: 0 0 8px;
+}
+
+#agendaCalendario .agenda-viewport.arrastrando {
+  cursor: grabbing;
+  scroll-behavior: auto;
+  scroll-snap-type: none;
+}
+
+#agendaCalendario .agenda-lista {
+  display: flex;
+  gap: 18px;
+  width: max-content;
+}
+
+#agendaCalendario .agenda-evento {
+  flex: 0 0 clamp(205px, 28%, 235px);
+  min-height: 154px;
+  border-radius: 12px;
+  overflow: hidden;
+  background: #fff;
+  box-shadow: 0 2px 8px rgba(0,0,0,.10);
+  scroll-snap-align: start;
+  transition: transform .18s ease, box-shadow .18s ease;
+}
+
+#agendaCalendario .agenda-evento:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 7px 18px rgba(0,0,0,.14);
+}
+
+#agendaCalendario .agenda-evento-cabecera {
+  min-height: 59px;
+  padding: 11px 15px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  background: #1557d6;
+  color: #fff;
+}
+
+#agendaCalendario .agenda-fecha {
+  font-size: 1.45rem;
+  font-weight: 800;
+  line-height: 1;
+  white-space: nowrap;
+}
+
+#agendaCalendario .agenda-hora {
+  font-size: .88rem;
+  font-weight: 600;
+  white-space: nowrap;
+  text-align: right;
+}
+
+#agendaCalendario .agenda-evento-contenido {
+  min-height: 95px;
+  padding: 13px 15px 15px;
+  background: #eee;
+  color: #303030;
+}
+
+#agendaCalendario .agenda-evento-titulo {
+  margin: 0;
+  font-size: .97rem;
+  line-height: 1.28;
+  font-weight: 650;
+}
+
+#agendaCalendario .agenda-evento-descripcion {
+  margin: 7px 0 0;
+  font-size: .82rem;
+  line-height: 1.35;
+  color: #666;
+}
+
+#agendaCalendario .agenda-vacio,
+#agendaCalendario .agenda-error {
+  width: 100%;
+  padding: 1rem;
+  text-align: center;
+  color: #666;
+}
+
+#agendaCalendario .agenda-mensaje {
+  margin: 0 auto;
+}
+
+@media (max-width: 900px) {
+  #agendaCalendario {
+    padding-top: 1rem;
+  }
+
+  #agendaCalendario .agenda-lista {
+    gap: 12px;
+  }
+
+  #agendaCalendario .agenda-evento {
+    flex-basis: 235px;
+  }
+}
+
+@media (max-width: 480px) {
+  #agendaCalendario .agenda-evento {
+    flex-basis: 82vw;
+  }
+
+  #agendaCalendario .agenda-titulo-fila {
+    margin-bottom: .75rem;
+  }
+}

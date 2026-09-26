@@ -1,0 +1,117 @@
+@import url('design-system.css');
+
+/* ============================================================
+   MODAL DE CONFIRMACIÓN — reemplaza al confirm() nativo
+   ============================================================ */
+.eest-confirm-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(10, 14, 20, 0.55);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 10000;
+  padding: var(--space-4, 16px);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.18s ease;
+}
+
+.eest-confirm-overlay.show {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.eest-confirm-modal {
+  background: var(--color-surface, #fff);
+  border-radius: var(--radius-lg, 10px);
+  box-shadow: var(--shadow-lg, 0 14px 36px rgba(18,24,31,0.16));
+  max-width: 400px;
+  width: 100%;
+  padding: var(--space-6, 32px) var(--space-5, 24px) var(--space-5, 24px);
+  text-align: center;
+  transform: translateY(14px) scale(0.97);
+  transition: transform 0.18s ease;
+  font-family: var(--font-body);
+}
+
+.eest-confirm-overlay.show .eest-confirm-modal {
+  transform: translateY(0) scale(1);
+}
+
+.eest-confirm-icon {
+  font-size: 2.2rem;
+  margin-bottom: var(--space-3, 12px);
+}
+
+.eest-confirm-titulo {
+  font-family: var(--font-display);
+  color: var(--color-ink, #12181f);
+  font-size: 1.2rem;
+  font-weight: 700;
+  margin: 0 0 var(--space-2, 8px);
+}
+
+.eest-confirm-mensaje {
+  color: var(--color-steel, #57626d);
+  font-size: 0.96rem;
+  line-height: 1.5;
+  margin: 0 0 var(--space-5, 24px);
+}
+
+.eest-confirm-botones {
+  display: flex;
+  gap: var(--space-3, 12px);
+  justify-content: center;
+}
+
+.eest-confirm-btn {
+  flex: 1;
+  padding: 0.65rem 1rem;
+  border-radius: var(--radius-md, 6px);
+  border: none;
+  font-family: var(--font-body);
+  font-weight: 700;
+  font-size: 0.92rem;
+  cursor: pointer;
+  transition: background 0.2s ease, transform 0.15s ease, box-shadow 0.2s ease;
+}
+
+.eest-confirm-btn:focus-visible {
+  outline: 2px solid var(--color-primary-light, #0f5fa8);
+  outline-offset: 2px;
+}
+
+.eest-confirm-btn--cancelar {
+  background: var(--color-paper, #f5f6f8);
+  color: var(--color-ink, #12181f);
+  border: 1px solid var(--color-border, #e0e4e9);
+}
+
+.eest-confirm-btn--cancelar:hover {
+  background: var(--color-border, #e0e4e9);
+}
+
+.eest-confirm-btn--confirmar {
+  background: var(--color-primary, #003d7a);
+  color: #fff;
+}
+
+.eest-confirm-btn--confirmar:hover {
+  background: var(--color-primary-dark, #00284f);
+  transform: translateY(-1px);
+}
+
+.eest-confirm-btn--peligro {
+  background: #c0392b;
+}
+
+.eest-confirm-btn--peligro:hover {
+  background: #a5321f;
+}
+
+@media (max-width: 420px) {
+  .eest-confirm-botones {
+    flex-direction: column-reverse;
+  }
+}

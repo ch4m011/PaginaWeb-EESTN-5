@@ -1,0 +1,15 @@
+[20-Sep-2026 20:13:16 Europe/Berlin] PHP Warning:  Undefined variable $conn in C:\xampp\htdocs\PaginaWeb-EESTN-5\php\perfil\actualizar_imagen.php on line 88
+[20-Sep-2026 20:13:16 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to a member function prepare() on null in C:\xampp\htdocs\PaginaWeb-EESTN-5\php\perfil\actualizar_imagen.php:88
+Stack trace:
+#0 {main}
+  thrown in C:\xampp\htdocs\PaginaWeb-EESTN-5\php\perfil\actualizar_imagen.php on line 88
+[20-Sep-2026 20:16:21 Europe/Berlin] PHP Warning:  Undefined variable $conn in C:\xampp\htdocs\PaginaWeb-EESTN-5\php\perfil\actualizar_imagen.php on line 88
+[20-Sep-2026 20:16:21 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to a member function prepare() on null in C:\xampp\htdocs\PaginaWeb-EESTN-5\php\perfil\actualizar_imagen.php:88
+Stack trace:
+#0 {main}
+  thrown in C:\xampp\htdocs\PaginaWeb-EESTN-5\php\perfil\actualizar_imagen.php on line 88
+[20-Sep-2026 20:18:24 Europe/Berlin] PHP Warning:  Undefined variable $conn in C:\xampp\htdocs\PaginaWeb-EESTN-5\php\perfil\actualizar_imagen.php on line 88
+[20-Sep-2026 20:18:24 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to a member function prepare() on null in C:\xampp\htdocs\PaginaWeb-EESTN-5\php\perfil\actualizar_imagen.php:88
+Stack trace:
+#0 {main}
+  thrown in C:\xampp\htdocs\PaginaWeb-EESTN-5\php\perfil\actualizar_imagen.php on line 88

@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <link rel="icon" type="image/png" href="../img/logo-tecnica.png">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contacto | Escuela Técnica - La Plata</title>
+  <link rel="icon" type="image/png" href="../img/logo-tecnica.png" />
+
+  <!-- Estilos -->
+  <link rel="stylesheet" href="../css/navegador.css" />
+  <link rel="stylesheet" href="../css/calendario.css">
+  <link rel="stylesheet" href="../css/noticias.css">
+  <link rel="stylesheet" href="../css/index.css" />
+  <link rel="stylesheet" href="../css/contacto.css" />
+  <!-- Scripts -->
+  <script src="../js/login.js" defer></script>
+  <script src="../js/navbar.js" defer></script>
+  <script src="../js/contacto.js" defer></script>
+</head>
+
+<body>
+  <header class="navegador">
+    <div class="logo">
+      <div class="logo-container">
+        <img src="../img/logo-tecnica.png" alt="E.E.S.T. Nro 5" class="logo-img logo-left">
+        <h1>
+          <a href="index.html">E.E.S.T. Nro 5 - "Gral. Manuel N. Savio"</a>
+        </h1>
+      </div>
+    </div>
+
+    <div class="buscador" style="display: none;">
+      <input type="text" id="buscarNoticias" placeholder="Buscar noticias..." />
+      <button id="btnBuscar">🔍</button>
+    </div>
+
+    <nav id="navPrincipal" class="navbar"></nav>
+  </header>
+
+  <main>
+    <section class="contacto-contexto">
+      <p>
+        Bienvenido al formulario de contacto. Aquí puedes comunicarte con los administradores del sitio para:
+      </p>
+      <ul>
+        <li>Hacer consultas sobre el contenido de la web.</li>
+        <li>Reportar problemas o errores.</li>
+        <li>Proponer mejoras o nuevas funcionalidades.</li>
+      </ul>
+      <p>Por favor, completa todos los campos para que podamos responderte de manera efectiva.</p>
+    </section>
+
+    <form id="contactForm" method="post" action="../php/send_message_to_admin.php" novalidate>
+      <h2>Contactar al Administrador</h2>
+
+      <div class="form-group">
+        <label for="subject">Asunto:</label>
+        <input type="text" name="subject" id="subject" maxlength="255" required />
+      </div>
+
+      <div class="form-group">
+        <label for="message">Mensaje:</label>
+        <textarea name="message" id="message" minlength="3" required></textarea>
+      </div>
+
+      <button type="submit">Enviar</button>
+      <p id="contactResult" role="status" aria-live="polite"></p>
+    </form>
+  </main>
+  
+  <!-- FOOTER -->
+  <footer class="eest-footer"></footer>
+  
+</body>
+</html>
