@@ -212,104 +212,6 @@
 		});
 	}
 
-	async function sendPatch(user, patch) {
-		try {
-			const endpoint = "../php/usuarios.php?id=" + encodeURIComponent(user.id);
-			const res = await fetch(endpoint, {
-				method: "PATCH",
-				headers: { "Content-Type": "application/json" },
-				body: JSON.stringify(patch)
-			});
-			const data = await res.json();
-			if (!res.ok) {
-				console.error("Error PATCH:", data);
-				showMessage("Error al guardar cambios");
-				return false;
-			}
-			return true;
-		} catch (e) {
-			console.error("Fallo conexión con usuarios.php:", e);
-			showMessage("Error de conexión con el servidor");
-			return false;
-		}
-	}
-
-	async function toggleWriterRole(user) {
-		try {
-			// aceptar que 'user' pueda ser un objeto o un id
-			const uid = (typeof user === 'object' && user && user.id) ? user.id : user;
-			if (!uid) throw new Error('Usuario inválido');
-			// Obtener rol actual desde el select si existe en DOM
-			const sel = document.querySelector(`select[data-user-id="${uid}"]`);
-			const currentRole = sel ? sel.value : (user.rol || 'usuario');
-			const newRole = currentRole === 'escritor' ? 'usuario' : 'escritor';
-
-			const response = await fetch('../php/admin/cambiar_rol.php', {
-				method: 'POST',
-				headers: { 'Content-Type': 'application/json' },
-				body: JSON.stringify({ usuario_id: uid, rol: newRole })
-			});
-
-			const data = await response.json();
-			if (data && data.success) {
-				mostrarNotificacion(data.message || `Rol actualizado a ${newRole}`, 'success');
-				// recargar usuarios
-				const fresh = await fetchUsuarios();
-				if (Array.isArray(fresh.usuarios)) users = fresh.usuarios;
-				renderAll();
-			} else {
-				mostrarNotificacion((data && data.message) || 'Error al actualizar rol', 'error');
-			}
-		} catch (error) {
-			mostrarNotificacion(error.message || 'Error desconocido', 'error');
-			console.error('Error:', error);
-		}
-	}
-
-	async function toggleCalendar(user) {
-		const newState = !user.calendar;
-		const ok = await sendPatch(user, { calendar: newState });
-		if (ok) {
-			user.calendar = newState;
-			showMessage(`${user.nombre} ${newState ? "tiene acceso" : "ya no tiene acceso"} al calendario`);
-			renderAll();
-		}
-	}
-
-	function showMessage(msg) {
-		const counts = $("#counts");
-		const el = document.createElement("div");
-		el.className = "message";
-		el.textContent = msg;
-		counts.appendChild(el);
-		setTimeout(() => el.remove(), 3000);
-	}
-
-	// Mostrar mensaje pequeño inline dentro de la celda (debajo del botón/select)
-	function showInlineMessage(targetElementOrCell, msg, type = 'success', duration = 3000) {
-		try {
-			let cell = null;
-			if (!targetElementOrCell) return;
-			if (targetElementOrCell instanceof Element) {
-				// si pasaron la celda, usarla; si pasaron un botón o select, obtener su td
-				cell = targetElementOrCell.tagName.toLowerCase() === 'td' ? targetElementOrCell : targetElementOrCell.closest('td');
-			} else {
-				cell = document.querySelector(targetElementOrCell);
-			}
-			if (!cell) return;
-			// eliminar mensajes previos
-			const prev = cell.querySelector('.inline-msg');
-			if (prev) prev.remove();
-			const m = document.createElement('div');
-			m.className = 'inline-msg ' + (type === 'error' ? 'error' : 'ok');
-			m.textContent = msg;
-			cell.appendChild(m);
-			setTimeout(() => { m.remove(); }, duration);
-		} catch (e) {
-			console.error('showInlineMessage error', e);
-		}
-	}
-
 	// Mostrar mensaje al lado derecho del botón en la misma fila
 	function showRowMessage(placeholderElement, msg, type = 'ok', duration = 3000) {
 		try {
@@ -895,21 +797,6 @@
 			mostrarNotificacion('Error al cambiar rol: ' + (err.message || err), 'error');
 		}
 	};
-
-	// Funciones auxiliares
-	function escapeHtml(texto) {
-		const div = document.createElement('div');
-		div.textContent = texto;
-		return div.innerHTML;
-	}
-
-	function formatearFecha(fecha) {
-		return new Date(fecha).toLocaleDateString('es-ES', {
-			year: 'numeric',
-			month: 'long',
-			day: 'numeric'
-		});
-	}
 
 	function mostrarNotificacion(mensaje, tipo) {
 		// Contenedor único que apila las notificaciones (se crea la primera vez)
