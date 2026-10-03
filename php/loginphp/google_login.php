@@ -46,7 +46,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'OPTIONS') {
     exit;
 }
 
-require_once '../../conexion.php';
+require_once __DIR__ . '/config.php';
 
 // Configura tu CLIENT_ID de Google (el mismo que usás en el HTML)
 $EXPECTED_CLIENT_ID = '475324951083-lp2pvqi80vs95cshsij7hn5m8tg3b0s3.apps.googleusercontent.com';

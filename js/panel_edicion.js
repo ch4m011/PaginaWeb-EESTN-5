@@ -1,11 +1,9 @@
 // ===============================
-// panel_admin.js - XAMPP con PHP
+// panel_edicion.js - XAMPP con PHP
 // Integrado: manejo usuarios + render noticias + filtros + ver y editar noticia
 // ===============================
 (function () {
 	const $ = s => document.querySelector(s);
-
-	console.log('panel_admin.js cargado');
 
 	// ===============================
 	// Cargar usuarios desde PHP (usuarios.php)
@@ -385,18 +383,6 @@
 	}
 
 	// ===============================
-	// 🔹 Editar noticia desde el panel ADMIN
-	// ===============================
-	function editarNoticiaDesdeAdmin(id) {
-		if (!id) {
-			mostrarNotificacion('Error: ID de noticia no válido.', 'error');
-			return;
-		}
-		localStorage.setItem("idEditarNoticia", id);
-		window.location.href = "../html/panel_escritor.html";
-	}
-
-	// ===============================
 	// 🔹 Eliminar noticia (soft) — AGREGADA para resolver "eliminarNoticia is not defined"
 	// ===============================
 	async function eliminarNoticia(id) {
@@ -431,7 +417,7 @@
 	// 🔹 AGREGADO: crear noticias y eventos desde el panel admin
 	// ===============================
 
-	// Obtener usuario de sesión (para autor_id), igual que hace panel_escritor.js
+	// Obtener usuario de sesión (para autor_id)
 	async function fetchSessionUser() {
 		try {
 			const res = await fetch('../php/check_session.php', { cache: 'no-store', credentials: 'same-origin' });

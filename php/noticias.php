@@ -1,6 +1,6 @@
 <?php
 
-// Shim de compatibilidad para panel_escritor.js
+// Shim de compatibilidad para panel_edicion.js
 // Devuelve noticias en JSON con datos del usuario
 
 require_once __DIR__ . '/config.php';

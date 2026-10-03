@@ -39,7 +39,7 @@ function mostrarMensaje(texto, tipo = 'ok') {
     }, 3000);
 }
 
-// Notificación flotante arriba a la derecha, igual que en panel_admin.
+// Notificación flotante arriba a la derecha, igual que en panel_edicion.
 function mostrarNotificacion(mensaje, tipo = 'success') {
     let contenedor = document.getElementById('notificaciones-container');
     if (!contenedor) {

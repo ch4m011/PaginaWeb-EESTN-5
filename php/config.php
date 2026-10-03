@@ -16,7 +16,6 @@
  * Otros scripts deben hacer:
  *   require_once __DIR__ . '/config.php';               (desde dentro de php/)
  *   require_once __DIR__ . '/../php/config.php';         (desde una subcarpeta)
- * o simplemente require_once '.../conexion.php', que ahora delega aquí.
  *
  * Notas de seguridad:
  *  - En producción, poner display_errors en 0.
