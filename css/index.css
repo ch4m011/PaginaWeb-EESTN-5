@@ -786,35 +786,162 @@ footer {
     }
 }
 
-#biblio-logo {
-    width: 45px;
+/* ===== Íconos de accesos rápidos ===== */
+.eest-quick-card .eest-quick-card__icon {
+    width: 52px;
+    height: 52px;
+    flex-shrink: 0;
+    display: grid;
+    place-items: center;
+    border-radius: 12px;
+    background: #eef3f9;
+    color: #023261;
+    transition: background 0.25s ease, color 0.25s ease, transform 0.25s ease;
 }
 
-#pre-inscripcion-logo {
-    width: 45px;
+.eest-quick-card .eest-quick-card__icon svg {
+    width: 28px;
+    height: 28px;
 }
 
-#contacto-logo {
-    width: 45px;
+.eest-quick-card .eest-quick-card__accent {
+    stroke: #f5a623;
 }
 
-
-#perfil-logo {
-    width: 45px;
+/* Interacción sutil al pasar el mouse */
+.eest-quick-card:hover .eest-quick-card__icon {
+    background: #023261;
+    color: #fff;
+    transform: scale(1.05);
 }
 
-#construcciones-logo {
-    width: 45px;
+.eest-quick-card:hover .eest-quick-card__accent {
+    stroke: #f5a623;
 }
 
-#electromecanica-logo {
-    width: 45px;
+.eest-quick-card:focus-visible {
+    outline: 3px solid #4a90e2;
+    outline-offset: 3px;
+}
+/* =====================================================
+   TARJETAS DE ESPECIALIDADES (inicio)
+   Mantiene los colores originales de home-sections.css:
+   fondo oscuro + capa del color de la especialidad + texto blanco.
+   Solo mejora forma, espaciado y llamada a la acción.
+   ===================================================== */
+.eest-specialties {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1.25rem;
+    margin-top: 1.5rem;
 }
 
-#quimica-logo {
-    width: 45px;
+.eest-specialty {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
+    min-height: 240px;
+    padding: 1.6rem 1.5rem 1.3rem;
+    color: #fff;
+    background: var(--color-ink, #14202e);
+    border-radius: 18px;
+    overflow: hidden;
+    box-shadow: 0 8px 22px rgba(15, 35, 60, 0.18);
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
 }
 
-#informatica-logo {
-    width: 45px;
+/* Capa de color de la especialidad (mismo criterio que el original) */
+.eest-specialty::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: var(--specialty-color, #023261);
+    opacity: 0.22;
+    pointer-events: none;
+}
+
+/* Brillo sutil arriba para dar profundidad */
+.eest-specialty::after {
+    content: "Ver especialidad →";
+    position: relative;
+    margin-top: auto;
+    padding-top: 1rem;
+    font-size: 0.85rem;
+    font-weight: 700;
+    letter-spacing: 0.02em;
+    color: #fff;
+    transition: letter-spacing 0.25s ease;
+}
+
+.eest-specialty:has(.eest-specialty__link:hover),
+.eest-specialty:has(.eest-specialty__link:focus-visible) {
+    transform: translateY(-4px);
+    box-shadow: 0 16px 32px rgba(15, 35, 60, 0.28);
+}
+
+.eest-specialty:has(.eest-specialty__link:hover)::after {
+    letter-spacing: 0.04em;
+}
+
+/* Enlace que cubre toda la tarjeta */
+.eest-specialty__link {
+    position: absolute;
+    inset: 0;
+    z-index: 2;
+    border-radius: inherit;
+}
+
+.eest-specialty__link:focus-visible {
+    outline: 3px solid #fff;
+    outline-offset: -6px;
+}
+
+/* Ícono en recuadro translúcido */
+.eest-specialty__icon {
+    position: relative;
+    z-index: 1;
+    display: grid;
+    place-items: center;
+    width: 60px;
+    height: 60px;
+    margin-bottom: 0.4rem;
+    border-radius: 16px;
+    background: rgba(255, 255, 255, 0.14);
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    font-size: 1.8rem;
+}
+
+.eest-specialty__icon img {
+    width: 40px;
+    height: 40px;
+    object-fit: contain;
+}
+
+.eest-specialty h3 {
+    position: relative;
+    z-index: 1;
+    margin: 0;
+    font-family: var(--font-display, 'Barlow Condensed', 'Arial Narrow', sans-serif);
+    font-size: 1.5rem;
+    font-weight: 700;
+    line-height: 1.1;
+    color: #fff;
+}
+
+.eest-specialty p {
+    position: relative;
+    z-index: 1;
+    margin: 0;
+    font-size: 0.92rem;
+    line-height: 1.55;
+    color: rgba(255, 255, 255, 0.82);
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .eest-specialty,
+    .eest-specialty::after {
+        transition: none;
+    }
 }

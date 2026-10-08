@@ -1,500 +1,560 @@
-/*
- * perfil.css
- * Estilos de la página "Mi perfil" (html/perfil.html).
- *
- * Hoja unificada a partir de las dos versiones existentes:
- * - Conserva las reglas funcionales del formulario.
- * - Mantiene el diseño institucional de la segunda versión.
- * - Elimina duplicados y reglas contradictorias.
- * - No incluye clases obsoletas eliminadas previamente.
- */
+/* ============================================================
+   MI PERFIL — html/perfil.html
+   Solo CSS. Mantiene los IDs y clases que usa perfil.js:
+   #mensajePerfil, .mensaje.ok/.error, #avatar, #nombrePerfilHeader,
+   #formImagenPerfil, #avatarFile, #previewImagen, #correo_usuario,
+   #formPerfil, #nombre_completo, #formCambioPassword,
+   #formEliminarCuentaReal, #passwordDelete, #mensajeEliminarCuenta,
+   #modalEliminar, #mensajeEliminar, #progress,
+   #notificaciones-container, .notificacion.success/.error.
+   ============================================================ */
 
-/* =============================
-   BASE
-   ============================= */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
 
-*, *::before, *::after {
-    box-sizing: border-box;
+:root {
+  --pf-navy: #003d7a;
+  --pf-navy-dark: #00284f;
+  --pf-blue: #0f5fa8;
+  --pf-gold: #f5a623;
+  --pf-ink: #14202e;
+  --pf-steel: #5b6777;
+  --pf-line: #e3e9f1;
+  --pf-line-strong: #c7ced6;
+  --pf-soft: #f4f7fb;
+  --pf-ok: #17653a;
+  --pf-error: #b42318;
+  --pf-radius: 18px;
 }
 
 body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background: linear-gradient(180deg, #e8f0fe 0%, #f5f7fa 100%);
-    color: #333;
-    display: block;
-    height: auto;
-    min-height: 100vh;
-    padding: 2.5rem 1rem;
-}
-/* =============================
-   NOTIFICACIONES FLOTANTES
-   ============================= */
-
-#notificaciones-container {
-  position: fixed;
-  top: 20px;
-  right: 20px;
-  z-index: 9999;
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-  pointer-events: none;
+  margin: 0;
+  min-height: 100vh;
+  padding: 5rem 1.25rem 3rem;
+  font-family: var(--font-body, 'Inter', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif);
+  color: var(--pf-ink);
+  background: var(--color-paper, #f5f6f8);
 }
 
-.notificacion {
-  position: relative;
-  padding: 15px 25px;
-  border-radius: 8px;
-  color: white;
-  min-width: 220px;
-  max-width: 320px;
-  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15);
-  animation: slideIn 0.3s ease;
-  pointer-events: auto;
+:where(a, button, input, select, textarea):focus-visible {
+  outline: 3px solid #4a90e2;
+  outline-offset: 3px;
+  border-radius: 6px;
 }
 
-.notificacion.fadeout {
-  animation: slideOut 0.3s ease forwards;
-}
-
-.notificacion.success { background-color: #28a745; }
-.notificacion.error   { background-color: #dc3545; }
-
-@keyframes slideIn {
-  from { transform: translateX(100%); opacity: 0; }
-  to   { transform: translateX(0);    opacity: 1; }
-}
-
-@keyframes slideOut {
-  from { transform: translateX(0);    opacity: 1; }
-  to   { transform: translateX(100%); opacity: 0; }
-}
-
-@media (max-width: 768px) {
-  #notificaciones-container {
-    top: 10px;
-    right: 12px;
-    left: 12px;
-  }
-  #notificaciones-container .notificacion {
-    width: 100%;
-    max-width: none;
-  }
-}
-
-/* Contenedor heredado de login.css */
-.login-contenedor {
-    background: transparent;
-    box-shadow: none;
-    padding: 0;
-    max-width: 700px;
-    margin: 0 auto;
-}
-
-.login-formulario h2 {
-    color: #023261;
-}
-
-
-/* =============================
-   BOTÓN VOLVER
-   ============================= */
-
+/* ---------- Botón volver ---------- */
 .btn-volver {
-    position: fixed;
-    top: 20px;
-    left: 25px;
-    z-index: 9999;
-
-    display: flex;
-    align-items: center;
-    gap: 6px;
-
-    padding: 0.6rem 1rem;
-
-    background: linear-gradient(135deg, #4a90e2, #357ABD);
-    border: none;
-    border-radius: 8px;
-
-    color: #fff;
-    font-size: 1rem;
-    font-weight: 600;
-
-    cursor: pointer;
-
-    box-shadow: 0 4px 10px rgba(74, 144, 226, 0.35);
-
-    transition:
-        transform 0.15s ease,
-        box-shadow 0.3s ease,
-        background 0.3s ease;
+  position: fixed;
+  top: 1rem;
+  left: 1rem;
+  z-index: 100;
+  display: inline-flex;
+  align-items: center;
+  padding: 0.55rem 1rem;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--pf-navy);
+  text-decoration: none;
+  background: #fff;
+  border: 1px solid var(--pf-line);
+  border-radius: 999px;
+  box-shadow: 0 4px 12px rgba(18, 24, 31, 0.08);
+  transition: background 0.2s ease, box-shadow 0.2s ease;
 }
 
 .btn-volver:hover {
-    background: linear-gradient(135deg, #357ABD, #2b6db4);
-    color: #fff;
-
-    transform: translateX(-3px) translateY(-1px);
-
-    box-shadow: 0 6px 14px rgba(74, 144, 226, 0.45);
+  background: var(--pf-soft);
+  box-shadow: 0 8px 18px rgba(18, 24, 31, 0.12);
 }
 
-
-/* =============================
-   MENSAJES DE ESTADO
-   ============================= */
-
-.mensaje {
-    padding: 0.9rem 1rem;
-    margin: 0 0 1.5rem;
-
-    border-radius: 8px;
-
-    font-size: 0.95rem;
-    text-align: center;
-
-    transition: opacity 0.3s ease;
+/* ---------- Layout ---------- */
+.perfil-page {
+  max-width: 1040px;
+  margin: 0 auto;
 }
 
-.mensaje.ok {
-    background-color: #e8f5e9;
-    color: #2e7d32;
-    border: 1px solid #c3e6cb;
+.perfil-layout {
+  display: grid;
+  grid-template-columns: 300px minmax(0, 1fr);
+  gap: 1.5rem;
+  align-items: start;
 }
 
-.mensaje.error {
-    background-color: #fdecea;
-    color: #b71c1c;
-    border: 1px solid #f5c6cb;
+.perfil-columna {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  min-width: 0;
 }
 
-.mensaje.info {
-    background-color: #e8f0fe;
-    color: #023261;
-    border: 1px solid #b8daff;
+.perfil-card {
+  min-width: 0;
+  padding: 1.6rem 1.75rem;
+  background: #fff;
+  border: 1px solid var(--pf-line);
+  border-radius: var(--pf-radius);
+  box-shadow: 0 10px 26px rgba(18, 24, 31, 0.06);
+  animation: pfEntra 0.4s ease both;
 }
 
+.perfil-columna .perfil-card:nth-child(2) { animation-delay: 0.05s; }
+.perfil-columna .perfil-card:nth-child(3) { animation-delay: 0.1s; }
 
-/* =============================
-   CONTENEDOR PRINCIPAL
-   ============================= */
-
-.perfil-container {
-    max-width: 700px;
-    max-height: none;
-
-    margin: 0 auto;
-    padding: 2rem;
-
-    background: #ffffff;
-
-    border: none;
-    border-radius: 16px;
-
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
-
-    overflow-y: visible;
-
-    animation: fadeIn 0.5s ease;
+@keyframes pfEntra {
+  from { opacity: 0; transform: translateY(8px); }
+  to { opacity: 1; transform: none; }
 }
 
-@keyframes fadeIn {
-    from {
-        opacity: 0;
-        transform: translateY(10px);
-    }
-
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
+/* ---------- Cabecera de cada tarjeta ---------- */
+.card-cabecera {
+  margin: 0 0 1.25rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid var(--pf-line);
 }
 
-/* Scrollbar */
-.perfil-container::-webkit-scrollbar {
-    width: 6px;
+.card-cabecera h2 {
+  margin: 0 0 0.25rem;
+  font-family: var(--font-display, 'Barlow Condensed', 'Arial Narrow', sans-serif);
+  font-size: 1.5rem;
+  font-weight: 700;
+  line-height: 1.1;
+  color: var(--pf-navy);
 }
 
-.perfil-container::-webkit-scrollbar-track {
-    background: #f1f1f1;
+.card-cabecera p {
+  margin: 0;
+  font-size: 0.9rem;
+  color: var(--pf-steel);
 }
 
-.perfil-container::-webkit-scrollbar-thumb {
-    background: #888;
-    border-radius: 3px;
+/* ---------- Tarjeta de identidad (izquierda) ---------- */
+.perfil-resumen {
+  position: sticky;
+  top: 1.5rem;
+  padding: 0 1.5rem 1.6rem;
+  text-align: center;
 }
 
-.perfil-container::-webkit-scrollbar-thumb:hover {
-    background: #555;
+.perfil-banner {
+  height: 96px;
+  margin: 0 -1.5rem;
+  background: linear-gradient(135deg, var(--pf-navy-dark) 0%, var(--pf-navy) 60%, var(--pf-blue) 100%);
+  border-radius: var(--pf-radius) var(--pf-radius) 0 0;
 }
 
-.perfil-container {
-    scrollbar-width: thin;
-    scrollbar-color: #888 #f1f1f1;
+.perfil-avatar-wrap {
+  margin-top: -52px;
 }
 
-
-/* =============================
-   ENCABEZADO DEL PERFIL
-   ============================= */
-
-.perfil-header {
-    display: flex;
-    align-items: center;
-    gap: 15px;
-
-    margin-bottom: 1.5rem;
-    padding: 0 0 1.25rem;
-
-    border-bottom: 1px solid #e1e8f2;
+.perfil-avatar {
+  display: block;
+  width: 104px;
+  height: 104px;
+  margin: 0 auto;
+  object-fit: cover;
+  background: #fff;
+  border: 4px solid #fff;
+  border-radius: 50%;
+  box-shadow: 0 10px 24px rgba(18, 24, 31, 0.18);
 }
 
-.perfil-imagen-container {
-    display: flex;
-    align-items: center;
-    gap: 15px;
-
-    margin-bottom: 0;
+.perfil-nombre {
+  margin: 0.9rem 0 0.15rem;
+  font-family: var(--font-display, 'Barlow Condensed', 'Arial Narrow', sans-serif);
+  font-size: 1.7rem;
+  font-weight: 700;
+  line-height: 1.1;
+  color: var(--pf-ink);
+  overflow-wrap: anywhere;
 }
 
-.perfil-imagen {
-    width: 80px;
-    height: 80px;
-    flex: 0 0 80px;
-
-    display: block;
-
-    border-radius: 50%;
-    border: 3px solid #4a90e2;
-
-    object-fit: cover;
-
-    background: #f5f5f5;
+.perfil-subtitulo {
+  margin: 0 0 1.4rem;
+  font-size: 0.85rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--pf-steel);
 }
 
-#nombrePerfilHeader {
-    font-size: 1.2em;
-    font-weight: 600;
-    color: #023261;
+.perfil-foto-form {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  gap: 0.6rem;
+  padding-top: 1.25rem;
+  text-align: left;
+  border-top: 1px solid var(--pf-line);
 }
 
-
-/* =============================
-   SECCIONES DEL FORMULARIO
-   ============================= */
-
-.seccion {
-    margin-bottom: 1.5rem;
-    padding: 1.25rem;
-
-    background-color: #f8faff;
-
-    border: 1px solid #e1e8f2;
-    border-radius: 12px;
+.perfil-label {
+  font-size: 0.88rem;
+  font-weight: 600;
+  color: var(--pf-ink);
 }
 
-.seccion .form-group {
-    margin-bottom: 1rem;
+#avatarFile {
+  width: 100%;
+  padding: 0.6rem;
+  font: inherit;
+  font-size: 0.85rem;
+  color: var(--pf-steel);
+  background: var(--pf-soft);
+  border: 1.5px dashed var(--pf-line-strong);
+  border-radius: 12px;
+  cursor: pointer;
 }
 
-.seccion-correo {
-    margin: 0 0 1.5rem;
-    padding: 1.25rem;
-
-    background-color: #f8faff;
-
-    border: 1px solid #e1e8f2;
-    border-radius: 12px;
+#avatarFile::file-selector-button {
+  margin-right: 0.7rem;
+  padding: 0.45rem 0.8rem;
+  font: inherit;
+  font-weight: 600;
+  color: var(--pf-navy);
+  background: #fff;
+  border: 1px solid var(--pf-line-strong);
+  border-radius: 8px;
+  cursor: pointer;
 }
 
-.seccion label,
-.seccion-correo label,
-.campo-form label {
-    display: block;
-
-    margin-bottom: 0.5rem;
-
-    color: #333;
-    font-weight: 600;
+.perfil-preview {
+  width: 88px;
+  height: 88px;
+  align-self: center;
+  object-fit: cover;
+  border: 3px solid #fff;
+  border-radius: 50%;
+  box-shadow: 0 6px 16px rgba(18, 24, 31, 0.15);
 }
 
-.seccion h3 {
-    margin: 0 0 1rem;
-
-    color: #023261;
-    font-size: 1.05rem;
+/* ---------- Campos ---------- */
+.campo {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+  margin: 0 0 1rem;
 }
 
-.campo-form {
-    margin-bottom: 1.5rem;
+.campo label {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--pf-ink);
 }
 
-
-/* =============================
-   CAMPOS DE FORMULARIO
-   ============================= */
-
-input[type="text"],
-input[type="email"],
-input[type="password"],
-input[type="file"] {
-    width: 100%;
-
-    padding: 0.7rem 0.9rem;
-
-    border: 1.5px solid #ccd6e0;
-    border-radius: 8px;
-
-    background: #f9fafc;
-
-    color: #333;
-    font-size: 1rem;
-
-    margin-bottom: 1rem;
-
-    transition:
-        border-color 0.2s ease,
-        background-color 0.2s ease,
-        box-shadow 0.2s ease;
+.campo input[type="text"],
+.campo input[type="password"],
+.campo input[type="email"] {
+  width: 100%;
+  padding: 0.8rem 0.95rem;
+  font: inherit;
+  font-size: 0.96rem;
+  color: var(--pf-ink);
+  background: #fbfcfd;
+  border: 1.5px solid var(--pf-line-strong);
+  border-radius: 12px;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
 }
 
-input[type="text"]:focus,
-input[type="email"]:focus,
-input[type="password"]:focus {
-    outline: none;
+.campo input:hover:not([readonly]) {
+  border-color: #9aa8b8;
+}
 
-    border-color: #4a90e2;
+.campo input:focus:not([readonly]) {
+  outline: none;
+  background: #fff;
+  border-color: var(--pf-blue);
+  box-shadow: 0 0 0 4px rgba(15, 95, 168, 0.14);
+}
 
-    background: #fff;
-
-    box-shadow: 0 0 8px rgba(74, 144, 226, 0.25);
+.campo input:user-invalid {
+  border-color: var(--pf-error);
+  background: #fff8f7;
 }
 
 .input-readonly {
+  color: var(--pf-steel) !important;
+  background: var(--pf-soft) !important;
+  border-style: dashed !important;
+  cursor: not-allowed;
+}
+
+.ayuda {
+  font-size: 0.82rem;
+  color: var(--pf-steel);
+}
+
+/* Formularios */
+.form-vertical {
+  display: flex;
+  flex-direction: column;
+}
+
+.form-dos-columnas {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0 1rem;
+}
+
+.form-dos-columnas .card-acciones {
+  grid-column: 1 / -1;
+}
+
+.card-acciones {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 0.4rem;
+}
+
+/* ---------- Botones ---------- */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.75rem 1.4rem;
+  font: inherit;
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: #fff;
+  border: 0;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: transform 0.15s ease, box-shadow 0.2s ease, background 0.2s ease;
+}
+
+.btn:hover:not(:disabled) {
+  transform: translateY(-1px);
+}
+
+.btn:active:not(:disabled) {
+  transform: translateY(1px);
+}
+
+.btn:disabled {
+  opacity: 0.6;
+  cursor: wait;
+}
+
+.btn-primario {
+  background: linear-gradient(135deg, var(--pf-navy) 0%, var(--pf-blue) 100%);
+  box-shadow: 0 8px 20px rgba(0, 61, 122, 0.22);
+}
+
+.btn-primario:hover:not(:disabled) {
+  box-shadow: 0 12px 26px rgba(0, 61, 122, 0.3);
+}
+
+.btn-peligro {
+  background: linear-gradient(135deg, var(--pf-error) 0%, #8f1b12 100%);
+  box-shadow: 0 8px 20px rgba(180, 35, 24, 0.22);
+}
+
+.btn-peligro:hover:not(:disabled) {
+  box-shadow: 0 12px 26px rgba(180, 35, 24, 0.3);
+}
+
+.btn-bloque {
+  width: 100%;
+}
+
+/* ---------- Eliminar cuenta ---------- */
+.perfil-peligro {
+  background: #fffafa;
+  border-color: #f3cdc9;
+}
+
+.perfil-peligro .card-cabecera {
+  border-bottom-color: #f3cdc9;
+}
+
+.perfil-peligro .card-cabecera h2 {
+  color: var(--pf-error);
+}
+
+/* ---------- Mensajes ---------- */
+.mensaje {
+  margin: 0 0 1.25rem;
+  padding: 0.85rem 1rem;
+  font-size: 0.93rem;
+  font-weight: 600;
+  line-height: 1.45;
+  text-align: center;
+  border-radius: 12px;
+  transition: opacity 0.3s ease;
+}
+
+.mensaje.ok {
+  color: var(--pf-ok);
+  background: #e8f7ee;
+  border: 1px solid #b7e4c7;
+}
+
+.mensaje.error {
+  color: var(--pf-error);
+  background: #fdecea;
+  border: 1px solid #f5c2c0;
+}
+
+.mensaje.info {
+  color: var(--pf-navy);
+  background: #eef3f9;
+  border: 1px solid #d6e0ec;
+}
+
+#mensajeEliminarCuenta {
+  margin: 0 0 1rem;
+  text-align: left;
+}
+
+/* ---------- Modal de progreso ---------- */
+#modalEliminar {
+  position: fixed;
+  inset: 0;
+  z-index: 3000;
+  background: rgba(18, 24, 31, 0.55);
+  backdrop-filter: blur(3px);
+}
+
+#modalEliminar .modal-caja {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: min(360px, 88vw);
+  padding: 1.6rem 1.5rem;
+  text-align: center;
+  color: var(--pf-ink);
+  background: #fff;
+  border-radius: 16px;
+  box-shadow: 0 24px 50px rgba(0, 0, 0, 0.25);
+  transform: translate(-50%, -50%);
+}
+
+#modalEliminar p {
+  margin: 0 0 1rem;
+  font-size: 1rem;
+  font-weight: 600;
+}
+
+#modalEliminar .progress-bar {
+  height: 8px;
+  overflow: hidden;
+  background: var(--pf-line);
+  border-radius: 999px;
+}
+
+#progress {
+  width: 0;
+  height: 100%;
+  background: linear-gradient(90deg, var(--pf-gold), #e08a00);
+  transition: width 0.3s ease;
+}
+
+/* ---------- Notificaciones flotantes ---------- */
+#notificaciones-container {
+  position: fixed;
+  top: 1.25rem;
+  right: 1.25rem;
+  z-index: 5000;
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+  width: min(360px, calc(100vw - 2.5rem));
+  pointer-events: none;
+}
+
+#notificaciones-container .notificacion {
+  padding: 0.9rem 1rem 0.9rem 1.1rem;
+  font-size: 0.92rem;
+  font-weight: 500;
+  line-height: 1.4;
+  color: #fff;
+  background: var(--pf-navy-dark);
+  border-left: 5px solid var(--pf-gold);
+  border-radius: 12px;
+  box-shadow: 0 14px 30px rgba(0, 0, 0, 0.2);
+  pointer-events: auto;
+  animation: pfNotifEntra 0.3s ease both;
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+#notificaciones-container .notificacion.success {
+  background: var(--pf-ok);
+  border-left-color: #8fe0a8;
+}
+
+#notificaciones-container .notificacion.error {
+  background: var(--pf-error);
+  border-left-color: #ffb4ab;
+}
+
+#notificaciones-container .notificacion.fadeout {
+  opacity: 0;
+  transform: translateX(14px);
+}
+
+@keyframes pfNotifEntra {
+  from { opacity: 0; transform: translateX(14px); }
+  to { opacity: 1; transform: none; }
+}
+
+/* ---------- Responsive ---------- */
+@media (max-width: 860px) {
+  .perfil-layout {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .perfil-resumen {
+    position: static;
+  }
+}
+
+@media (max-width: 560px) {
+  body {
+    padding: 4.5rem 0.75rem 2rem;
+  }
+
+  .btn-volver {
+    top: 0.75rem;
+    left: 0.75rem;
+    padding: 0.45rem 0.8rem;
+    font-size: 0.85rem;
+  }
+
+  .perfil-card {
+    padding: 1.3rem 1.1rem;
+  }
+
+  .perfil-resumen {
+    padding: 0 1.1rem 1.3rem;
+  }
+
+  .perfil-banner {
+    margin: 0 -1.1rem;
+  }
+
+  .form-dos-columnas {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .card-acciones .btn {
     width: 100%;
+  }
 
-    padding: 0.7rem 0.9rem;
-
-    background-color: #eef1f5;
-
-    border: 1.5px solid #ccd6e0;
-
-    color: #666;
-
-    cursor: not-allowed;
+  #notificaciones-container {
+    top: 0.75rem;
+    right: 0.75rem;
+    left: 0.75rem;
+    width: auto;
+  }
 }
 
-
-/* =============================
-   BOTONES
-   ============================= */
-
-.btn,
-.seccion button[type="submit"],
-.form-perfil button[type="submit"] {
-    display: inline-block;
-
-    width: 100%;
-
-    padding: 0.75rem 1.5rem;
-    margin-bottom: 0;
-
-    border: none;
-    border-radius: 8px;
-
-    font-size: 0.95rem;
-    font-weight: 600;
-
-    text-align: center;
-
-    cursor: pointer;
-
-    transition:
-        background 0.3s ease,
-        transform 0.15s ease,
-        box-shadow 0.3s ease;
-}
-
-
-/* Actualizar / guardar */
-
-.btn-actualizar,
-.btn-guardar,
-#formCambioPassword button[type="submit"] {
-    background: linear-gradient(135deg, #4a90e2, #357ABD);
-    color: #fff;
-}
-
-.btn-actualizar:hover,
-.btn-guardar:hover,
-#formCambioPassword button[type="submit"]:hover {
-    background: linear-gradient(135deg, #357ABD, #2b6db4);
-
-    transform: translateY(-2px);
-
-    box-shadow: 0 4px 10px rgba(74, 144, 226, 0.4);
-}
-
-
-/* Eliminar */
-
-.btn-eliminar {
-    background: #dc3545;
-    color: #fff;
-}
-
-.btn-eliminar:hover {
-    background: #c62835;
-
-    transform: translateY(-2px);
-
-    box-shadow: 0 4px 10px rgba(220, 53, 69, 0.35);
-}
-
-
-/* =============================
-   RESPONSIVE
-   ============================= */
-
-@media (max-width: 768px) {
-    .perfil-container {
-        margin: 0 auto;
-        padding: 1.25rem;
-    }
-
-    input[type="file"] {
-        width: 100%;
-    }
-
-    .perfil-header {
-        flex-direction: column;
-        text-align: center;
-    }
-}
-
-@media (max-width: 500px) {
-    body {
-        padding-top: 70px;
-    }
-
-    .btn-volver {
-        top: 10px;
-        left: 10px;
-
-        padding: 0.45rem 0.8rem;
-
-        font-size: 0.9rem;
-    }
-}
-
-
-/* =============================
-   ELEMENTOS MULTIMEDIA
-   ============================= */
-
-img,
-video,
-iframe {
-    max-width: 100%;
-    height: auto;
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
 }

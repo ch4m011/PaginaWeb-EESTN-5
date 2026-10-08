@@ -1,118 +1,150 @@
 <!DOCTYPE html>
 <html lang="es">
-
 <head>
-  <link rel="icon" type="image/png" href="../img/logo-tecnica.png">
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
   <title>Especialidad Química | Escuela Técnica - La Plata</title>
   <meta name="description"
-    content="Conocé la especialidad técnica en Química de la E.E.S.T. N.º 5: qué se estudia, qué se aprende y las salidas laborales de la especialidad.">
-
-  <!-- Estilos -->
+    content="Conocé la especialidad técnica en Química de la E.E.S.T. N.º 5: qué se estudia, qué se aprende y las salidas laborales.">
+  <link rel="icon" type="image/png" href="../img/logo-tecnica.png">
 
   <link rel="stylesheet" href="../css/navegador.css">
   <link rel="stylesheet" href="../css/index.css">
   <link rel="stylesheet" href="../css/especialidades.css">
 
-  <!-- Scripts -->
-
   <script src="../js/navbar.js" defer></script>
-
 </head>
+<body style="--specialty-color:#00b368;">
 
-<body>
-
-  <!-- HEADER / NAVBAR -->
+  <a class="skip-link" href="#contenido">Saltar al contenido</a>
 
   <header class="navegador">
     <div class="logo">
       <div class="logo-container">
         <img src="../img/logo-tecnica.png" alt="Escudo E.E.S.T. N.º 5" class="logo-img logo-left">
-        <h1>
-          <a href="index.html">E.E.S.T. Nro 5 - "Gral. Manuel N. Savio"</a>
-        </h1>
+        <h1><a href="index.html">E.E.S.T. Nro 5 - "Gral. Manuel N. Savio"</a></h1>
       </div>
     </div>
     <nav id="navPrincipal" class="navbar"></nav>
   </header>
 
-  <main>
+  <main id="contenido">
+
     <!-- HERO -->
-    <section class="eest-section eest-spec-hero" aria-labelledby="spec-titulo">
-      <div class="eest-spec-hero__panel" style="--specialty-color:#00b368;">
-        <div class="eest-spec-hero__icon"><img class="logos" src="../img/logo-quimica.png" alt=""></div>
+    <section class="eest-spec-hero" aria-labelledby="spec-titulo">
+      <div class="eest-spec-hero__panel">
+        <div class="eest-spec-hero__icon">
+          <img src="../img/logo-quimica.png" alt="" class="eest-spec-hero__logo">
+        </div>
         <div class="eest-spec-hero__body">
           <span class="eest-eyebrow">Especialidad técnica</span>
           <h1 id="spec-titulo" class="eest-spec-hero__title">Química</h1>
           <p class="eest-spec-hero__desc">
-            Formación técnica de nivel medio en el sector químico: análisis de laboratorio,
-            control de calidad y procesos industriales, con una fuerte práctica en
-            laboratorio.
+            Formación técnica de nivel medio en el sector químico: análisis de laboratorio, control de calidad y
+            procesos industriales, con una fuerte práctica en laboratorio.
+          </p>
+          <p class="eest-spec-hero__meta">
+            <span>Título: Técnico Químico</span>
+            <span>Nivel secundario, 4.º a 7.º año</span>
           </p>
         </div>
       </div>
     </section>
 
+    <!-- ÍNDICE -->
+    <nav class="eest-spec-index" aria-label="Contenido de la página">
+      <a href="#que-es">¿Qué es?</a>
+      <a href="#materias">Materias</a>
+      <a href="#perfil">Perfil</a>
+      <a href="#salidas">Salidas</a>
+      <a href="#practicas">Prácticas</a>
+    </nav>
+
     <!-- QUÉ ES -->
-    <section class="eest-section" aria-labelledby="que-es-titulo">
+    <section class="eest-section" id="que-es" aria-labelledby="que-es-titulo">
       <span class="eest-eyebrow">La especialidad</span>
       <h2 id="que-es-titulo" class="eest-section-title">¿Qué es esta especialidad?</h2>
       <div class="eest-spec-text">
         <p>
-          El Técnico Químico está capacitado para evaluar y planificar la resolución de
-          análisis, gestionar el funcionamiento de su ámbito de trabajo, realizar ensayos
-          e interpretar sus resultados, supervisar que los procedimientos cumplan normas
-          de calidad, seguridad y manejo adecuado de residuos, y operar procesos químicos,
+          El Técnico Químico está capacitado para evaluar y planificar la resolución de análisis, gestionar el
+          funcionamiento de su ámbito de trabajo, realizar ensayos e interpretar sus resultados, supervisar que los
+          procedimientos cumplan normas de calidad, seguridad y manejo adecuado de residuos, y operar procesos químicos,
           físicos, fisicoquímicos y microbiológicos.
         </p>
         <p>
-          Gran parte de la formación se desarrolla en los laboratorios de la escuela
-          (Química, Procesos Industriales, Técnicas Analíticas, Análisis Microbiológico
-          e Industrias), donde los estudiantes realizan ensayos, mediciones y análisis
-          siguiendo protocolos de trabajo, normas de bioseguridad e higiene, y buenas
-          prácticas de laboratorio.
+          Gran parte de la formación se desarrolla en los laboratorios de la escuela (Química, Procesos Industriales,
+          Técnicas Analíticas, Análisis Microbiológico e Industrias), donde los estudiantes realizan ensayos, mediciones y
+          análisis siguiendo protocolos de trabajo, normas de bioseguridad e higiene, y buenas prácticas de laboratorio.
         </p>
       </div>
     </section>
 
-    <!-- QUÉ SE APRENDE -->
-    <section class="eest-section eest-section--tinted" aria-labelledby="aprende-titulo">
+    <!-- MATERIAS -->
+    <section class="eest-section eest-section--tinted" id="materias" aria-labelledby="materias-titulo">
       <span class="eest-eyebrow">Formación</span>
-      <h2 id="aprende-titulo" class="eest-section-title">¿Qué se aprende?</h2>
+      <h2 id="materias-titulo" class="eest-section-title">¿Qué se aprende?</h2>
       <div class="eest-spec-text">
         <p>
-          El plan de estudios combina materias científico-tecnológicas (Química, Física,
-          Matemática, Biología Celular) con formación técnica específica en laboratorio,
-          desde 4° hasta 7° año, cuando se cursan las Prácticas Profesionalizantes del
+          El plan combina materias científico-tecnológicas (Química, Física, Matemática, Biología Celular) con formación
+          técnica específica en laboratorio, desde 4.º hasta 7.º año, cuando se cursan las Prácticas Profesionalizantes del
           Sector Químico (216 horas anuales).
         </p>
       </div>
-      <div class="eest-spec-grid" style="--specialty-color:#00b368;">
-        <article class="eest-spec-card">
-          <h3>4° año</h3>
-          <p>Química, Física, Operaciones Unitarias y Tecnología de los Materiales, Introducción a la Biología Celular, Laboratorio de Química y de Ensayos Físicos.</p>
-        </article>
-        <article class="eest-spec-card">
-          <h3>5° año</h3>
-          <p>Química Orgánica, Química General e Inorgánica, Procesos Químicos y Control, Laboratorio de Procesos Industriales, de Técnicas Analíticas y de Química Orgánica.</p>
-        </article>
-        <article class="eest-spec-card">
-          <h3>6° año</h3>
-          <p>Química Orgánica y Biológica, Química Industrial, Química Analítica, Derechos del Trabajo, Laboratorio de Química Orgánica, Biológica y Microbiológica.</p>
-        </article>
-        <article class="eest-spec-card">
-          <h3>7° año</h3>
-          <p>Emprendimientos e Innovación Productiva, Organización y Gestión Industrial, Laboratorio de Análisis Microbiológicos, de Industrias y Prácticas Profesionalizantes.</p>
-        </article>
+
+      <div class="eest-years">
+        <details class="eest-year" open>
+          <summary>4.º año</summary>
+          <div class="eest-materias-grid">
+            <article class="eest-spec-card"><h4>Química</h4><p class="eest-materias-desc">Estructura atómica, uniones químicas, estequiometría y soluciones.</p></article>
+            <article class="eest-spec-card"><h4>Física</h4><p class="eest-materias-desc">Energía, calor, electricidad y magnetismo aplicados a procesos químicos.</p></article>
+            <article class="eest-spec-card"><h4>Operaciones Unitarias y Tecnología de los Materiales</h4><p class="eest-materias-desc">Operaciones básicas de los procesos industriales y propiedades de los materiales.</p></article>
+            <article class="eest-spec-card"><h4>Introducción a la Biología Celular</h4><p class="eest-materias-desc">Organización y funcionamiento de la célula como base de los procesos biológicos.</p></article>
+            <article class="eest-spec-card"><h4>Laboratorio de Química</h4><p class="eest-materias-desc">Práctica de técnicas básicas de laboratorio y de análisis químicos.</p></article>
+            <article class="eest-spec-card"><h4>Laboratorio de Ensayos Físicos</h4><p class="eest-materias-desc">Mediciones y ensayos físicos con instrumental de laboratorio.</p></article>
+          </div>
+        </details>
+
+        <details class="eest-year">
+          <summary>5.º año</summary>
+          <div class="eest-materias-grid">
+            <article class="eest-spec-card"><h4>Química Orgánica</h4><p class="eest-materias-desc">Compuestos del carbono, grupos funcionales y reacciones orgánicas.</p></article>
+            <article class="eest-spec-card"><h4>Química General e Inorgánica</h4><p class="eest-materias-desc">Reacciones inorgánicas, equilibrio y propiedades de los elementos.</p></article>
+            <article class="eest-spec-card"><h4>Procesos Químicos y Control</h4><p class="eest-materias-desc">Procesos químicos industriales y sistemas de control de variables.</p></article>
+            <article class="eest-spec-card"><h4>Laboratorio de Procesos Industriales</h4><p class="eest-materias-desc">Simulación y práctica de procesos químicos a escala de laboratorio.</p></article>
+            <article class="eest-spec-card"><h4>Laboratorio de Técnicas Analíticas</h4><p class="eest-materias-desc">Métodos analíticos cualitativos y cuantitativos.</p></article>
+            <article class="eest-spec-card"><h4>Laboratorio de Química Orgánica</h4><p class="eest-materias-desc">Síntesis y caracterización de compuestos orgánicos.</p></article>
+          </div>
+        </details>
+
+        <details class="eest-year">
+          <summary>6.º año</summary>
+          <div class="eest-materias-grid">
+            <article class="eest-spec-card"><h4>Química Orgánica y Biológica</h4><p class="eest-materias-desc">Biomoléculas y su relación con la química orgánica.</p></article>
+            <article class="eest-spec-card"><h4>Química Industrial</h4><p class="eest-materias-desc">Procesos y productos de la industria química.</p></article>
+            <article class="eest-spec-card"><h4>Química Analítica</h4><p class="eest-materias-desc">Análisis de muestras y control de calidad de productos.</p></article>
+            <article class="eest-spec-card"><h4>Derechos del Trabajo</h4><p class="eest-materias-desc">Derechos y obligaciones laborales, remuneraciones y aportes.</p></article>
+            <article class="eest-spec-card"><h4>Laboratorio de Química Orgánica, Biológica y Microbiológica</h4><p class="eest-materias-desc">Ensayos sobre compuestos orgánicos y muestras biológicas.</p></article>
+          </div>
+        </details>
+
+        <details class="eest-year">
+          <summary>7.º año</summary>
+          <div class="eest-materias-grid">
+            <article class="eest-spec-card"><h4>Emprendimientos e Innovación Productiva</h4><p class="eest-materias-desc">Teorías del emprendedorismo, finanzas, marketing y planificación de emprendimientos.</p></article>
+            <article class="eest-spec-card"><h4>Organización y Gestión Industrial</h4><p class="eest-materias-desc">Organización de planta, gestión de la producción y control de calidad.</p></article>
+            <article class="eest-spec-card"><h4>Laboratorio de Análisis Microbiológicos</h4><p class="eest-materias-desc">Cultivo, identificación y control de microorganismos.</p></article>
+            <article class="eest-spec-card"><h4>Laboratorio de Industrias</h4><p class="eest-materias-desc">Ensayos y procesos en planta a escala de laboratorio.</p></article>
+            <article class="eest-spec-card"><h4>Prácticas Profesionalizantes del Sector Químico</h4><p class="eest-materias-desc">Consolidar e integrar las capacidades del perfil en situaciones de trabajo reales. 216 h anuales.</p></article>
+          </div>
+        </details>
       </div>
     </section>
 
-    <!-- PERFIL / COMPETENCIAS -->
-    <section class="eest-section" aria-labelledby="perfil-titulo">
+    <!-- PERFIL -->
+    <section class="eest-section" id="perfil" aria-labelledby="perfil-titulo">
       <span class="eest-eyebrow">Perfil del egresado</span>
       <h2 id="perfil-titulo" class="eest-section-title">Perfil y competencias</h2>
-      <ul class="eest-spec-skills" style="--specialty-color:#00b368;">
+      <ul class="eest-spec-skills">
         <li>Supervisión y realización de ensayos en el ámbito industrial</li>
         <li>Interpretación de técnicas de análisis, protocolos y documentación técnica</li>
         <li>Instalación, operación y puesta a punto de equipos e instrumentos de laboratorio</li>
@@ -122,17 +154,16 @@
       </ul>
     </section>
 
-    <!-- SALIDAS PROFESIONALES -->
-    <section class="eest-section eest-section--tinted" aria-labelledby="salidas-titulo">
+    <!-- SALIDAS -->
+    <section class="eest-section eest-section--tinted" id="salidas" aria-labelledby="salidas-titulo">
       <span class="eest-eyebrow">Después de la escuela</span>
       <h2 id="salidas-titulo" class="eest-section-title">Salidas profesionales</h2>
       <div class="eest-spec-text">
         <p>
-          El área ocupacional del Técnico Químico es amplia: empresas industriales,
-          contratistas de servicios industriales, instituciones de investigación y
-          desarrollo públicas o privadas, laboratorios y plantas de universidades,
-          laboratorios de análisis clínicos, e instituciones públicas de control
-          bromatológico, además de la posibilidad de generar su propio emprendimiento.
+          El área ocupacional del Técnico Químico es amplia: empresas industriales, contratistas de servicios
+          industriales, instituciones de investigación y desarrollo públicas o privadas, laboratorios y plantas de
+          universidades, laboratorios de análisis clínicos, e instituciones públicas de control bromatológico, además de
+          la posibilidad de generar su propio emprendimiento.
         </p>
       </div>
       <div class="eest-spec-jobs">
@@ -145,26 +176,39 @@
       </div>
     </section>
 
-    <!-- CTA FINAL -->
+    <!-- PRÁCTICAS -->
+    <section class="eest-section" id="practicas" aria-labelledby="practicas-titulo">
+      <span class="eest-eyebrow">Experiencia práctica</span>
+      <h2 id="practicas-titulo" class="eest-section-title">Prácticas profesionalizantes</h2>
+      <div class="eest-spec-text">
+        <p>
+          Las Prácticas Profesionalizantes del Sector Químico se cursan en 7.º año con una carga de 216 horas anuales.
+          Integran las capacidades del perfil en situaciones de trabajo reales, dentro de la escuela o fuera de ella.
+        </p>
+      </div>
+    </section>
+
+    <!-- CTA -->
     <section class="eest-section" aria-labelledby="cta-spec-titulo">
       <div class="eest-cta">
         <span class="eest-eyebrow">Seguí conociendo la escuela</span>
-        <h2 id="cta-spec-titulo">¿Querés conocer las otras especialidades?</h2>
+        <h2 id="cta-spec-titulo">¿Querés sumarte a esta especialidad?</h2>
+        <p>Conocé el proceso de pre-inscripción y empezá el camino técnico en la E.E.S.T. N.º 5.</p>
         <div class="eest-spec-cta-links">
-          <a class="eest-btn eest-btn--ghost-light" href="tecnicatura-construccion.html">Construcción</a>
-          <a class="eest-btn eest-btn--ghost-light" href="tecnicatura-electromecanica.html">Electromecánica</a>
-          <a class="eest-btn eest-btn--ghost-light" href="tecnicatura-informatica.html">Informática</a>
-          <a class="eest-btn eest-btn--primary" href="index.html">← Volver al inicio</a>
+          <a class="eest-btn eest-btn--primary" href="preinscripcion.html">Ver pre-inscripción <span aria-hidden="true">→</span></a>
         </div>
       </div>
+      <nav class="eest-spec-cta-others" aria-label="Otras especialidades">
+        <span>Otras especialidades:</span>
+        <a href="tecnicatura-construccion.html">Construcción</a>
+        <a href="tecnicatura-electromecanica.html">Electromecánica</a>
+        <a href="tecnicatura-informatica.html">Informática</a>
+        <a href="tecnica5.html">Volver a institucional</a>
+      </nav>
     </section>
 
   </main>
 
-  <!-- FOOTER -->
-
   <footer class="eest-footer"></footer>
-
 </body>
-
 </html>

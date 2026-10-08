@@ -263,3 +263,63 @@
 [2026-09-17 16:20:08] Hash length: 60
 [2026-09-17 16:20:08] password_verify: TRUE
 [2026-09-17 16:20:08] Login exitoso para usuario_id=33 rol=admin
+[2026-10-08 14:50:35] === intento login ===
+[2026-10-08 14:50:35] POST: {"username":"jaafigueroarabanales@eest5.com","password":"123456"}
+[2026-10-08 14:50:35] === DEBUG LOGIN ===
+[2026-10-08 14:50:35] Hash BD: $2y$10$bfOadgeV93DvL5fm/QrU0ukaW9sCrH0YYTasG3zMEM6MR21RZ/tIe
+[2026-10-08 14:50:35] Hash length: 60
+[2026-10-08 14:50:35] Login exitoso para usuario_id=37 rol=usuario
+[2026-10-08 14:50:35] === intento login ===
+[2026-10-08 14:50:35] POST: {"username":"jaafigueroarabanales@eest5.com","password":"123456"}
+[2026-10-08 14:50:35] === DEBUG LOGIN ===
+[2026-10-08 14:50:35] Hash BD: $2y$10$bfOadgeV93DvL5fm/QrU0ukaW9sCrH0YYTasG3zMEM6MR21RZ/tIe
+[2026-10-08 14:50:35] Hash length: 60
+[2026-10-08 14:50:35] Login exitoso para usuario_id=37 rol=usuario
+[2026-10-08 19:16:33] === intento login ===
+[2026-10-08 19:16:33] POST: {"username":"jaafigueroarabanales@eest5.com","password":"123456"}
+[2026-10-08 19:16:33] === DEBUG LOGIN ===
+[2026-10-08 19:16:33] Hash BD: $2y$10$bfOadgeV93DvL5fm/QrU0ukaW9sCrH0YYTasG3zMEM6MR21RZ/tIe
+[2026-10-08 19:16:33] Hash length: 60
+[2026-10-08 19:16:33] Login exitoso para usuario_id=37 rol=escritor
+[2026-10-08 19:16:33] === intento login ===
+[2026-10-08 19:16:33] POST: {"username":"jaafigueroarabanales@eest5.com","password":"123456"}
+[2026-10-08 19:16:33] === DEBUG LOGIN ===
+[2026-10-08 19:16:33] Hash BD: $2y$10$bfOadgeV93DvL5fm/QrU0ukaW9sCrH0YYTasG3zMEM6MR21RZ/tIe
+[2026-10-08 19:16:33] Hash length: 60
+[2026-10-08 19:16:33] Login exitoso para usuario_id=37 rol=escritor
+[2026-10-08 19:35:00] === intento login ===
+[2026-10-08 19:35:00] POST: {"username":"jaafigueroarabanales@eest5.com","password":"1234566"}
+[2026-10-08 19:35:00] === DEBUG LOGIN ===
+[2026-10-08 19:35:00] Hash BD: $2y$10$bfOadgeV93DvL5fm/QrU0ukaW9sCrH0YYTasG3zMEM6MR21RZ/tIe
+[2026-10-08 19:35:00] Hash length: 60
+[2026-10-08 19:35:00] Contraseña NO coincide para usuario_id=37
+[2026-10-08 19:35:00] === intento login ===
+[2026-10-08 19:35:00] POST: {"username":"jaafigueroarabanales@eest5.com","password":"1234566"}
+[2026-10-08 19:35:00] === DEBUG LOGIN ===
+[2026-10-08 19:35:00] Hash BD: $2y$10$bfOadgeV93DvL5fm/QrU0ukaW9sCrH0YYTasG3zMEM6MR21RZ/tIe
+[2026-10-08 19:35:00] Hash length: 60
+[2026-10-08 19:35:00] Contraseña NO coincide para usuario_id=37
+[2026-10-08 19:35:04] === intento login ===
+[2026-10-08 19:35:04] POST: {"username":"jaafigueroarabanales@eest5.com","password":"123456"}
+[2026-10-08 19:35:04] === DEBUG LOGIN ===
+[2026-10-08 19:35:04] Hash BD: $2y$10$bfOadgeV93DvL5fm/QrU0ukaW9sCrH0YYTasG3zMEM6MR21RZ/tIe
+[2026-10-08 19:35:04] Hash length: 60
+[2026-10-08 19:35:04] Login exitoso para usuario_id=37 rol=escritor
+[2026-10-08 19:35:04] === intento login ===
+[2026-10-08 19:35:04] POST: {"username":"jaafigueroarabanales@eest5.com","password":"123456"}
+[2026-10-08 19:35:04] === DEBUG LOGIN ===
+[2026-10-08 19:35:04] Hash BD: $2y$10$bfOadgeV93DvL5fm/QrU0ukaW9sCrH0YYTasG3zMEM6MR21RZ/tIe
+[2026-10-08 19:35:04] Hash length: 60
+[2026-10-08 19:35:04] Login exitoso para usuario_id=37 rol=escritor
+[2026-10-08 20:12:56] === intento login ===
+[2026-10-08 20:12:56] POST: {"username":"jaafigueroarabanales@eest5.com","password":"123456"}
+[2026-10-08 20:12:56] === DEBUG LOGIN ===
+[2026-10-08 20:12:56] Hash BD: $2y$10$bfOadgeV93DvL5fm/QrU0ukaW9sCrH0YYTasG3zMEM6MR21RZ/tIe
+[2026-10-08 20:12:56] Hash length: 60
+[2026-10-08 20:12:56] Login exitoso para usuario_id=37 rol=admin
+[2026-10-08 20:12:56] === intento login ===
+[2026-10-08 20:12:56] POST: {"username":"jaafigueroarabanales@eest5.com","password":"123456"}
+[2026-10-08 20:12:56] === DEBUG LOGIN ===
+[2026-10-08 20:12:56] Hash BD: $2y$10$bfOadgeV93DvL5fm/QrU0ukaW9sCrH0YYTasG3zMEM6MR21RZ/tIe
+[2026-10-08 20:12:56] Hash length: 60
+[2026-10-08 20:12:56] Login exitoso para usuario_id=37 rol=admin

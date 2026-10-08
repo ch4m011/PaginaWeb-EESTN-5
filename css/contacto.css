@@ -1,37 +1,356 @@
+/* ============================================================
+   CONTACTO — formulario y datos de la escuela
+   Mantiene los IDs y clases que usa contacto.js:
+   #contactForm, #subject, #message, #contactResult.
+   Solo CSS: no requiere cambios en HTML ni JS.
+   ============================================================ */
+@import url('design-system.css');
+
 *,
 *::before,
-*::after {
-  box-sizing: border-box; /* Evita desbordes globales */
+*::after { box-sizing: border-box; }
+
+:root {
+  --ct-navy: #003d7a;
+  --ct-navy-dark: #00284f;
+  --ct-blue: #0f5fa8;
+  --ct-gold: #f5a623;
+  --ct-gold-dark: #c97f0f;
+  --ct-ink: #14202e;
+  --ct-steel: #5b6777;
+  --ct-line: #e3e9f1;
+  --ct-line-strong: #c7ced6;
+  --ct-soft: #f4f7fb;
+  --ct-ok: #17653a;
+  --ct-error: #b42318;
 }
 
 body {
-  background: linear-gradient(180deg, #e8f0fe 0%, #f5f7fa 100%);
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  color: #333;
   margin: 0;
-  padding: 0;
-  display: flex;
-  flex-direction: column;
   min-height: 100vh;
-}
-
-/* Contenedor principal */
-main {
-  max-width: 620px;
-  width: 90%;
-  margin: 4rem auto;
-  background: #ffffff;
-  padding: 2.5rem 2rem; 
-  border-radius: 16px;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
   display: flex;
   flex-direction: column;
-  gap: 1.5rem;
-  animation: fadeIn 0.6s ease;
+  font-family: var(--font-body, 'Inter', 'Segoe UI', sans-serif);
+  color: var(--ct-ink);
+  background: var(--color-paper, #f5f6f8);
 }
 
-/* Efecto de entrada */
-@keyframes fadeIn {
+/* ---------- Accesibilidad ---------- */
+.skip-link {
+  position: absolute;
+  left: -9999px;
+  top: 8px;
+  z-index: 6000;
+  padding: 0.6rem 1rem;
+  background: #fff;
+  color: var(--ct-navy);
+  border-radius: 8px;
+  font-weight: 700;
+  text-decoration: none;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+.skip-link:focus { left: 12px; }
+
+:where(a, button, input, select, textarea, summary, [tabindex]):focus-visible {
+  outline: 3px solid #4a90e2;
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+
+/* ---------- Página ---------- */
+.contacto-pagina {
+  flex: 1;
+  width: min(1120px, 92%);
+  margin: 2.5rem auto 4rem;
+  padding: 0;
+  background: none;
+  box-shadow: none;
+  border-radius: 0;
+  animation: ctEntra 0.5s ease both;
+}
+
+@keyframes ctEntra {
   from { opacity: 0; transform: translateY(10px); }
-  to { opacity: 1; transform: translateY(0); }
+  to { opacity: 1; transform: none; }
+}
+
+/* Encabezado con banda institucional */
+.contacto-intro {
+  position: relative;
+  overflow: hidden;
+  margin-bottom: 2rem;
+  padding: 2.25rem 2.25rem 2.5rem;
+  color: #fff;
+  background: linear-gradient(135deg, var(--ct-navy-dark) 0%, var(--ct-navy) 60%, var(--ct-blue) 100%);
+  border-radius: 20px;
+  box-shadow: 0 18px 40px rgba(0, 40, 79, 0.2);
+}
+
+.contacto-intro::after {
+  content: "";
+  position: absolute;
+  width: 360px;
+  height: 360px;
+  right: -140px;
+  top: -180px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(245, 166, 35, 0.35), transparent 65%);
+  pointer-events: none;
+}
+
+.contacto-intro .eest-eyebrow {
+  position: relative;
+  z-index: 1;
+  display: inline-block;
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--ct-gold);
+}
+
+.contacto-titulo {
+  position: relative;
+  z-index: 1;
+  margin: 0.4rem 0 0.6rem;
+  font-family: var(--font-display, 'Barlow Condensed', sans-serif);
+  font-size: clamp(2.2rem, 4.2vw, 3.1rem);
+  font-weight: 700;
+  line-height: 1.02;
+}
+
+.contacto-lead {
+  position: relative;
+  z-index: 1;
+  margin: 0;
+  max-width: 60ch;
+  font-size: 1.02rem;
+  line-height: 1.65;
+  color: rgba(255, 255, 255, 0.86);
+}
+
+/* ---------- Dos columnas ---------- */
+.contacto-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 0.85fr) minmax(0, 1.15fr);
+  gap: 1.75rem;
+  align-items: start;
+}
+
+/* ---------- Panel lateral ---------- */
+.contacto-aside {
+  position: sticky;
+  top: 1.5rem;
+  padding: 1.75rem;
+  background: #fff;
+  border: 1px solid var(--ct-line);
+  border-radius: 18px;
+  box-shadow: 0 12px 30px rgba(18, 24, 31, 0.06);
+}
+
+.contacto-aside h2 {
+  margin: 0 0 1.1rem;
+  font-family: var(--font-display, 'Barlow Condensed', sans-serif);
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--ct-navy);
+}
+
+.contacto-aside ul {
+  margin: 0 0 1.25rem;
+  padding: 0;
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  counter-reset: motivo;
+}
+
+.contacto-aside li {
+  position: relative;
+  padding: 0.85rem 1rem 0.85rem 3.25rem;
+  font-size: 0.95rem;
+  line-height: 1.5;
+  color: var(--ct-ink);
+  background: var(--ct-soft);
+  border-radius: 12px;
+  counter-increment: motivo;
+}
+
+.contacto-aside li::before {
+  content: counter(motivo);
+  position: absolute;
+  left: 0.8rem;
+  top: 50%;
+  transform: translateY(-50%);
+  display: grid;
+  place-items: center;
+  width: 26px;
+  height: 26px;
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: #fff;
+  background: var(--ct-navy);
+  border-radius: 50%;
+}
+
+.contacto-nota {
+  margin: 0;
+  padding: 1rem 1.1rem;
+  font-size: 0.9rem;
+  line-height: 1.55;
+  color: var(--ct-steel);
+  background: #fff8ea;
+  border-left: 4px solid var(--ct-gold);
+  border-radius: 0 10px 10px 0;
+}
+
+/* ---------- Formulario ---------- */
+.contacto-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+  padding: clamp(1.5rem, 3vw, 2.4rem);
+  background: #fff;
+  border: 1px solid var(--ct-line);
+  border-radius: 18px;
+  box-shadow: 0 18px 40px rgba(18, 24, 31, 0.07);
+}
+
+.contacto-form h2 {
+  margin: 0;
+  padding-bottom: 0.9rem;
+  font-family: var(--font-display, 'Barlow Condensed', sans-serif);
+  font-size: 1.7rem;
+  font-weight: 700;
+  color: var(--ct-navy);
+  border-bottom: 1px solid var(--ct-line);
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.45rem;
+}
+
+.form-group label {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--ct-ink);
+}
+
+.form-group input,
+.form-group textarea {
+  width: 100%;
+  padding: 0.9rem 1rem;
+  font: inherit;
+  font-size: 0.97rem;
+  color: var(--ct-ink);
+  background: #fbfcfd;
+  border: 1.5px solid var(--ct-line-strong);
+  border-radius: 10px;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+}
+
+.form-group textarea {
+  min-height: 170px;
+  resize: vertical;
+  line-height: 1.55;
+}
+
+.form-group input::placeholder,
+.form-group textarea::placeholder {
+  color: #9aa4b1;
+}
+
+.form-group input:hover,
+.form-group textarea:hover {
+  border-color: #9aa8b8;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+  outline: none;
+  background: #fff;
+  border-color: var(--ct-blue);
+  box-shadow: 0 0 0 4px rgba(15, 95, 168, 0.14);
+}
+
+/* Campo vacío y tocado: marca el error sin mostrarlo antes de tiempo */
+.form-group input:user-invalid,
+.form-group textarea:user-invalid {
+  border-color: var(--ct-error);
+  background: #fff8f7;
+}
+
+/* Botón */
+.contacto-enviar {
+  align-self: flex-start;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 0.9rem 1.9rem;
+  font: inherit;
+  font-weight: 700;
+  color: #1a1204;
+  background: var(--ct-gold);
+  border: 0;
+  border-radius: 999px;
+  cursor: pointer;
+  box-shadow: 0 8px 20px rgba(245, 166, 35, 0.3);
+  transition: background 0.2s ease, color 0.2s ease, transform 0.15s ease, box-shadow 0.2s ease;
+}
+
+.contacto-enviar::after {
+  content: "→";
+  font-size: 1.1rem;
+  transition: transform 0.2s ease;
+}
+
+.contacto-enviar:hover {
+  background: var(--ct-gold-dark);
+  color: #fff;
+  box-shadow: 0 10px 24px rgba(201, 127, 15, 0.35);
+}
+
+.contacto-enviar:hover::after { transform: translateX(4px); }
+.contacto-enviar:active { transform: translateY(1px); }
+.contacto-enviar:disabled {
+  opacity: 0.6;
+  cursor: wait;
+  box-shadow: none;
+}
+
+/* Resultado del envío (contacto.js escribe el texto) */
+.contacto-resultado {
+  margin: 0;
+  min-height: 1.4em;
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--ct-blue);
+}
+
+.contacto-resultado:empty { display: none; }
+
+/* ---------- Responsive ---------- */
+@media (max-width: 900px) {
+  .contacto-grid { grid-template-columns: 1fr; }
+  .contacto-aside { position: static; }
+}
+
+@media (max-width: 560px) {
+  .contacto-pagina { margin: 1.25rem auto 2.5rem; }
+  .contacto-intro { padding: 1.6rem 1.35rem 1.8rem; border-radius: 16px; }
+  .contacto-form { padding: 1.25rem; border-radius: 16px; }
+  .contacto-enviar { align-self: stretch; justify-content: center; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    transition-duration: 0.01ms !important;
+    animation-duration: 0.01ms !important;
+  }
 }

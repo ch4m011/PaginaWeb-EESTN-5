@@ -1,7 +1,11 @@
-/* pre_inscripcion.css - estilos de la planilla de preinscripción,
-   alineados con el mismo lenguaje visual que el resto del sitio
-   (fondo degradado, tarjetas blancas redondeadas, azul institucional,
-   tipografía Segoe UI) — ver css/contacto.css como referencia. */
+/* ============================================================
+   PREINSCRIPCIÓN — planilla de inscripción
+   Solo CSS: el HTML y preinscripcion.js no cambian.
+   Mantiene IDs y clases usadas por validaciones.js y
+   preinscripcion.js (#BotonEnviar, #cargando, #emailOK,
+   #emailOK2, #comprobar_mensaje2, .campo-obligatorio-faltante,
+   [data-error], .hidden).
+   ============================================================ */
 
 *,
 *::before,
@@ -9,116 +13,194 @@
   box-sizing: border-box;
 }
 
-html,
-body {
-  height: 100%;
+:root {
+  --pi-navy: #003d7a;
+  --pi-navy-dark: #00284f;
+  --pi-blue: #0f5fa8;
+  --pi-gold: #f5a623;
+  --pi-gold-dark: #c97f0f;
+  --pi-ink: #14202e;
+  --pi-steel: #5b6777;
+  --pi-line: #e3e9f1;
+  --pi-line-strong: #c7ced6;
+  --pi-soft: #f4f7fb;
+  --pi-error: #b42318;
+  --pi-ok: #17653a;
 }
 
 body {
   margin: 0;
-  padding: 0 0 2.5rem;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  color: #333;
-  background: linear-gradient(180deg, #e8f0fe 0%, #f5f7fa 100%);
+  min-height: 100vh;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  font-family: var(--font-body, 'Inter', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif);
+  color: var(--pi-ink);
+  background: var(--color-paper, #f5f6f8);
+}
+main {
+  flex: 1;
 }
 
-/* =============================
-   CONTENEDOR PRINCIPAL
-   ============================= */
+/* ---------- Accesibilidad ---------- */
+.skip-link {
+  position: absolute;
+  left: -9999px;
+  top: 8px;
+  z-index: 6000;
+  padding: 0.6rem 1rem;
+  background: #fff;
+  color: var(--pi-navy);
+  border-radius: 8px;
+  font-weight: 700;
+  text-decoration: none;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+.skip-link:focus { left: 12px; }
+
+:where(a, button, input, select, textarea, [tabindex]):focus-visible {
+  outline: 3px solid #4a90e2;
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+
+/* ---------- Logo de la planilla ---------- */
+main > div:first-child {
+  margin: 2.25rem 0 0 !important;
+  text-align: center;
+}
+
+main img.img-responsive {
+  width: 88px !important;
+  height: 88px !important;
+  padding: 10px;
+  background: #fff;
+  border-radius: 22px;
+  box-shadow: 0 12px 30px rgba(0, 40, 79, 0.18);
+  object-fit: contain;
+}
+
+/* ---------- Contenedor ---------- */
 .container {
-  max-width: 900px;
-  margin: 2.5rem auto;
-  padding: 0 1rem;
+  width: min(960px, 92%);
+  max-width: none;
+  margin: 1.5rem auto 2.5rem;
+  padding: 0;
 }
 
-.container h3 {
-  color: #023261;
-  margin: 0.4rem 0 1.5rem;
+/* Título y subtítulo de la planilla */
+.container > .row:first-child,
+.container > .row:nth-child(2) {
+  margin: 0;
+  justify-content: center;
+}
+
+.container > .row:first-child h3 {
+  margin: 0;
+  font-family: var(--font-display, 'Barlow Condensed', 'Arial Narrow', sans-serif);
+  font-size: clamp(1.8rem, 3.6vw, 2.5rem);
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  color: var(--pi-navy);
+}
+
+.container > .row:nth-child(2) h3 {
+  margin: 0.2rem 0 1.25rem;
+  font-size: 1.05rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--pi-gold-dark);
 }
 
 .text-center {
   text-align: center;
 }
 
-/* =============================
-   TARJETAS ("panel")
-   Mismo lenguaje que el <main> de contacto: blanco, bordes
-   redondeados, sombra suave.
-   ============================= */
-.panel {
-  background: #ffffff;
-  border: none;
-  border-radius: 16px;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
-  margin-bottom: 1.5rem;
-  overflow: hidden;
-  animation: fadeIn 0.5s ease;
+/* Botón de información */
+.container > .text-center {
+  margin: 0 0 1.5rem !important;
 }
 
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-    transform: translateY(10px);
-  }
+.container > .text-center .btn-lg {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1.4rem;
+  border-radius: 999px;
+}
 
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+.container > .text-center .btn-lg::after {
+  content: "↗";
+  font-size: 1rem;
+}
+
+/* ---------- Tarjetas principales ---------- */
+.panel {
+  margin-bottom: 1.5rem;
+  background: #fff;
+  border: 1px solid var(--pi-line);
+  border-radius: 18px;
+  box-shadow: 0 14px 34px rgba(18, 24, 31, 0.07);
+  overflow: hidden;
+  animation: piEntra 0.45s ease both;
+}
+
+.panel:nth-of-type(2) { animation-delay: 0.05s; }
+.panel:nth-of-type(3) { animation-delay: 0.1s; }
+
+@keyframes piEntra {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: none; }
 }
 
 .panel-heading {
-  background: linear-gradient(135deg, #4a90e2, #357ABD);
-  color: #fff;
   padding: 1rem 1.5rem;
+  color: #fff;
+  background: linear-gradient(135deg, var(--pi-navy-dark) 0%, var(--pi-navy) 60%, var(--pi-blue) 100%);
+  border: 0;
 }
 
 .panel-title {
   margin: 0;
-  font-weight: 600;
+  font-family: var(--font-display, 'Barlow Condensed', 'Arial Narrow', sans-serif);
+  font-size: 1.35rem;
+  font-weight: 700;
+  letter-spacing: 0.02em;
   color: #fff;
-  font-size: 1.05rem;
 }
 
 .panel-body {
-  padding: 1.5rem;
+  padding: 1.75rem 1.75rem 1.25rem;
 }
 
-/* Paneles anidados (Teléfono, Dirección, Datos de la inscripción):
-   más discretos que el panel principal para marcar la jerarquía. */
-.panel-body>.panel {
+/* Paneles anidados (Teléfono, Dirección, Inscripción) */
+.panel-body > .panel {
+  margin: 0 0 1.25rem;
   box-shadow: none;
-  border: 1px solid #e1e8f2;
-  margin-top: 0.5rem;
+  border: 1px solid var(--pi-line);
+  border-radius: 14px;
 }
 
-.panel-body>.panel>.panel-heading {
-  background: #f0f4f8;
-  color: #023261;
+.panel-body > .panel:last-child {
+  margin-bottom: 0;
 }
 
-.panel-body>.panel>.panel-heading .panel-title,
-.panel-body>.panel>.panel-heading {
-  color: #023261;
-  font-weight: 600;
+.panel-body > .panel > .panel-heading {
+  padding: 0.8rem 1.25rem;
+  color: var(--pi-navy);
+  background: var(--pi-soft);
+  font-size: 0.95rem;
+  font-weight: 700;
+  border-bottom: 1px solid var(--pi-line);
 }
 
-.campo-obligatorio-faltante {
-  border: 2px solid red !important;
-  background: #fff0f0 !important;
+.panel-body > .panel > .panel-body {
+  padding: 1.25rem;
 }
 
-[data-error]:after {
-  content: attr(data-error);
-  color: red;
-  font-size: 0.9em;
-  display: block;
-  margin-top: 2px;
-}
-
-/* =============================
-   GRID TIPO "form-horizontal"
-   ============================= */
+/* ---------- Grilla de formulario ---------- */
 .row {
   display: flex;
   flex-wrap: wrap;
@@ -129,19 +211,28 @@ body {
   display: flex;
   flex-wrap: wrap;
   align-items: flex-start;
-  margin-bottom: 1.15rem;
+  margin: 0 0 1.15rem;
+  padding-bottom: 1.15rem;
+  border-bottom: 1px dashed var(--pi-line);
 }
 
 .form-horizontal .form-group:last-child {
   margin-bottom: 0;
+  padding-bottom: 0;
+  border-bottom: 0;
+}
+
+.panel-body > .panel .form-horizontal .form-group {
+  border-bottom-color: #edf1f6;
 }
 
 .control-label {
   flex: 0 0 100%;
   max-width: 100%;
-  margin: 0 0 0.4rem;
+  margin: 0 0 0.45rem;
+  font-size: 0.92rem;
   font-weight: 600;
-  color: #333;
+  color: var(--pi-ink);
 }
 
 .col-sm-10,
@@ -149,56 +240,269 @@ body {
 .col-sm-offset-2 {
   flex: 0 0 100%;
   max-width: 100%;
+  padding: 0 0.5rem;
 }
 
 @media (min-width: 768px) {
   .control-label.col-sm-2 {
-    flex: 0 0 22%;
-    max-width: 22%;
-    margin-bottom: 0;
-    padding-top: 0.65rem;
+    flex: 0 0 24%;
+    max-width: 24%;
+    margin: 0;
+    padding-top: 0.8rem;
+    padding-right: 1rem;
+    text-align: right;
   }
 
   .form-group .col-sm-10 {
-    flex: 0 0 78%;
-    max-width: 78%;
+    flex: 0 0 76%;
+    max-width: 76%;
   }
 
   .col-sm-offset-2 {
-    margin-left: 22%;
-    flex: 0 0 78%;
-    max-width: 78%;
+    margin-left: 24%;
+    flex: 0 0 76%;
+    max-width: 76%;
   }
 }
 
-/* =============================
-   CAMPOS DE FORMULARIO
-   Mismo look que los inputs de contacto.css
-   ============================= */
+/* ---------- Campos ---------- */
 .form-control,
-input[type="date"] {
+input[type="date"],
+input[type="text"],
+input[type="number"] {
   display: block;
   width: 100%;
-  padding: 0.7rem 0.9rem;
-  font-size: 1rem;
-  line-height: 1.3;
-  color: #333;
-  background: #f9fafc;
-  border: 1.5px solid #ccd6e0;
-  border-radius: 8px;
+  padding: 0.75rem 1rem;
+  font: inherit;
+  font-size: 0.97rem;
+  line-height: 1.35;
+  color: var(--pi-ink);
+  background-color: #fbfcfd;
+  border: 1.5px solid var(--pi-line-strong);
+  border-radius: 10px;
   transition: border-color 0.2s ease, background-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.form-control::placeholder,
+input::placeholder {
+  color: #9aa4b1;
+}
+
+.form-control:hover,
+input[type="date"]:hover {
+  border-color: #9aa8b8;
 }
 
 .form-control:focus,
 input[type="date"]:focus {
   outline: none;
-  border-color: #4a90e2;
-  background: #fff;
-  box-shadow: 0 0 8px rgba(74, 144, 226, 0.25);
+  background-color: #fff;
+  border-color: var(--pi-blue);
+  box-shadow: 0 0 0 4px rgba(15, 95, 168, 0.14);
 }
 
+/* Selects con flecha propia y misma altura que los inputs */
 select.form-control {
   cursor: pointer;
+  appearance: none;
+  -webkit-appearance: none;
+  padding-right: 2.6rem;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23003d7a' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 0.85rem center;
+  background-size: 18px;
+}
+
+select.form-control:disabled {
+  color: #9aa4b1;
+  background-color: var(--pi-soft);
+  cursor: not-allowed;
+}
+
+input[type="date"] {
+  cursor: pointer;
+}
+
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+input[type="number"] {
+  -moz-appearance: textfield;
+  appearance: textfield;
+}
+
+/* Campos vacíos que el usuario ya tocó */
+.form-control:user-invalid {
+  border-color: var(--pi-error);
+  background-color: #fff8f7;
+}
+
+/* Lo marca validaciones.js */
+.campo-obligatorio-faltante {
+  border: 1.5px solid var(--pi-error) !important;
+  background: #fff8f7 !important;
+  box-shadow: 0 0 0 4px rgba(180, 35, 24, 0.1) !important;
+}
+
+/* Mensajes de error bajo cada campo (atributo data-error) */
+[data-error]::after {
+  content: attr(data-error);
+  display: block;
+  margin-top: 0.35rem;
+  font-size: 0.85rem;
+  color: var(--pi-error);
+}
+
+.error-message,
+.help-block.with-errors {
+  display: block;
+  margin-top: 0.35rem;
+  font-size: 0.85rem;
+  color: var(--pi-error);
+}
+
+/* Mensajes de correo y de documento */
+#emailOK,
+#emailOK2,
+#comprobar_mensaje2 {
+  display: block;
+  margin-top: 0.4rem;
+  font-size: 0.88rem;
+  font-weight: 600;
+  color: var(--pi-blue);
+}
+
+#emailOK:empty,
+#emailOK2:empty,
+#comprobar_mensaje2:empty {
+  display: none;
+}
+
+/* Indicador de carga (se oculta cuando no hay texto) */
+#cargando {
+  margin-top: 0.4rem;
+  font-size: 0.88rem;
+  font-weight: 600;
+  color: var(--pi-blue);
+}
+
+#cargando:empty {
+  display: none;
+}
+
+/* ---------- Botones ---------- */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.4rem;
+  padding: 0.75rem 1.4rem;
+  font: inherit;
+  font-weight: 700;
+  font-size: 0.95rem;
+  line-height: 1.2;
+  text-align: center;
+  text-decoration: none;
+  border: 1.5px solid transparent;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: background 0.2s ease, color 0.2s ease, box-shadow 0.2s ease, transform 0.15s ease;
+}
+
+.btn:active:not(:disabled) { transform: translateY(1px); }
+
+.btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.btn-primary {
+  color: #fff;
+  background: linear-gradient(135deg, var(--pi-navy) 0%, var(--pi-blue) 100%);
+  box-shadow: 0 8px 20px rgba(0, 61, 122, 0.25);
+}
+
+.btn-primary:hover:not(:disabled) {
+  box-shadow: 0 12px 26px rgba(0, 61, 122, 0.32);
+  transform: translateY(-1px);
+}
+
+.btn-secondary {
+  color: #fff;
+  background: #6c757d;
+}
+
+.btn-secondary:hover:not(:disabled) { background: #565e64; }
+
+.btn-warning {
+  color: #1a1204;
+  background: var(--pi-gold);
+}
+
+.btn-warning:hover:not(:disabled) { background: var(--pi-gold-dark); color: #fff; }
+
+.btn-outline-primary {
+  color: var(--pi-navy);
+  background: #fff;
+  border-color: var(--pi-navy);
+}
+
+.btn-outline-primary:hover:not(:disabled) {
+  color: #fff;
+  background: var(--pi-navy);
+}
+
+.btn-lg {
+  padding: 0.9rem 1.8rem;
+  font-size: 1.02rem;
+}
+
+/* Botón de envío: se muestra al completar la planilla (lo controla el JS) */
+.container > .form-group {
+  display: flex;
+  justify-content: center;
+  margin: 1.75rem 0 0;
+}
+
+.container > .form-group > .col-sm-offset-2,
+.container > .form-group > .col-sm-10 {
+  margin: 0;
+  padding: 0;
+  flex: 0 0 auto;
+  max-width: none;
+}
+
+.container > .form-group .col-sm-10 {
+  width: 100%;
+}
+
+#BotonEnviar {
+  min-width: 240px;
+  padding: 0.95rem 2.2rem;
+  font-size: 1.05rem;
+  color: #1a1204;
+  background: var(--pi-gold);
+  border-radius: 999px;
+  box-shadow: 0 10px 24px rgba(245, 166, 35, 0.35);
+}
+
+#BotonEnviar:hover:not(:disabled) {
+  color: #fff;
+  background: var(--pi-gold-dark);
+  box-shadow: 0 14px 28px rgba(201, 127, 15, 0.38);
+}
+
+/* Visible solo si el JS quita el display:none en línea */
+#BotonEnviar:not([style*="display: none"]):not([style*="display:none"]) {
+  animation: piEntra 0.35s ease both;
+}
+
+/* ---------- Utilidades ---------- */
+.hidden {
+  display: none !important;
 }
 
 .img-responsive {
@@ -206,126 +510,45 @@ select.form-control {
   height: auto;
 }
 
-/* Ajustes para inputs numéricos mostrados como texto en algunos navegadores */
-input[type=number]::-webkit-inner-spin-button,
-input[type=number]::-webkit-outer-spin-button {
-  -webkit-appearance: none;
-  margin: 0;
-}
+/* ---------- Responsive ---------- */
+@media (max-width: 767px) {
+  .container {
+    width: 94%;
+    margin: 1rem auto 2rem;
+  }
 
-/* =============================
-   BOTONES
-   Mismo lenguaje que el botón "Enviar" de contacto
-   ============================= */
-.btn {
-  display: inline-block;
-  padding: 0.75rem 1.5rem;
-  margin: 0.2rem 0.3rem 0.2rem 0;
-  border: none;
-  border-radius: 8px;
-  font-weight: 600;
-  font-size: 0.95rem;
-  text-align: center;
-  text-decoration: none;
-  cursor: pointer;
-  transition: background 0.3s ease, transform 0.15s ease, box-shadow 0.3s ease;
-}
-
-.btn:disabled {
-  opacity: 0.6;
-  cursor: not-allowed;
-  transform: none !important;
-  box-shadow: none !important;
-}
-
-.btn-primary {
-  background: linear-gradient(135deg, #4a90e2, #357ABD);
-  color: #fff;
-}
-
-.btn-primary:hover:not(:disabled) {
-  background: linear-gradient(135deg, #357ABD, #2b6db4);
-  transform: translateY(-2px);
-  box-shadow: 0 4px 10px rgba(74, 144, 226, 0.4);
-}
-
-.btn-secondary {
-  background: #6c757d;
-  color: #fff;
-}
-
-.btn-secondary:hover:not(:disabled) {
-  background: #565e64;
-}
-
-.btn-warning {
-  background: #f5a623;
-  color: #1a1a1a;
-}
-
-.btn-warning:hover:not(:disabled) {
-  background: #d6900f;
-}
-
-.btn-outline-primary {
-  background: transparent;
-  color: #357ABD;
-  border: 2px solid #4a90e2;
-}
-
-.btn-outline-primary:hover:not(:disabled) {
-  background: #4a90e2;
-  color: #fff;
-}
-
-.btn-lg {
-  padding: 0.9rem 2rem;
-  font-size: 1.05rem;
-}
-
-/* =============================
-   MENSAJES DE ERROR / VALIDACIÓN
-   ============================= */
-.error-message {
-  display: block;
-  color: #c0392b;
-  margin-top: 6px;
-  font-size: 0.9rem;
-}
-
-.help-block.with-errors {
-  color: #c0392b;
-}
-
-#emailOK,
-#emailOK2,
-#comprobar_mensaje2 {
-  display: block;
-  margin-top: 0.3rem;
-  font-size: 0.9rem;
-}
-
-/* Helper para ocultar elementos */
-.hidden {
-  display: none !important;
-}
-
-/* =============================
-   RESPONSIVE
-   ============================= */
-@media (max-width: 768px) {
   .panel-body {
     padding: 1.1rem;
   }
 
-  .form-control,
-  input[type="date"] {
-    padding: 0.6rem 0.8rem;
+  .panel-body > .panel > .panel-body {
+    padding: 1rem;
   }
 
-  .container {
-    margin: 1.5rem auto;
+  .panel-heading {
+    padding: 0.9rem 1.1rem;
+  }
+
+  .form-horizontal .form-group {
+    margin-bottom: 1rem;
+    padding-bottom: 1rem;
+  }
+
+  .control-label.col-sm-2 {
+    margin-bottom: 0.4rem;
+  }
+
+  #BotonEnviar {
+    width: 100%;
+    min-width: 0;
   }
 }
 
-/* fin pre_inscripcion.css */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}

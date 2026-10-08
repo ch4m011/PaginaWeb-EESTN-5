@@ -1,168 +1,440 @@
 <!DOCTYPE html>
-
 <html lang="es">
-
 <head>
-  <link rel="icon" type="image/png" href="../img/logo-tecnica.png">
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
   <title>Especialidad Electromecánica | Escuela Técnica - La Plata</title>
   <meta name="description"
-    content="Conocé la especialidad técnica en Electromecánica de la E.E.S.T. N.º 5: qué se estudia, qué se aprende y las salidas laborales de la especialidad.">
-
-  <!-- Estilos -->
+    content="Conocé la especialidad técnica en Electromecánica (Equipos e instalaciones electromecánicas) de la E.E.S.T. N.º 5: qué se estudia, qué se aprende y las salidas laborales.">
+  <link rel="icon" type="image/png" href="../img/logo-tecnica.png">
 
   <link rel="stylesheet" href="../css/navegador.css">
   <link rel="stylesheet" href="../css/index.css">
   <link rel="stylesheet" href="../css/especialidades.css">
 
-  <!-- Scripts -->
-
   <script src="../js/navbar.js" defer></script>
-
 </head>
+<body style="--specialty-color:#5b6470;">
 
-<body>
-
-  <!-- HEADER / NAVBAR -->
+  <a class="skip-link" href="#contenido">Saltar al contenido</a>
 
   <header class="navegador">
     <div class="logo">
       <div class="logo-container">
         <img src="../img/logo-tecnica.png" alt="Escudo E.E.S.T. N.º 5" class="logo-img logo-left">
-        <h1>
-          <a href="index.html">E.E.S.T. Nro 5 - "Gral. Manuel N. Savio"</a>
-        </h1>
+        <h1><a href="index.html">E.E.S.T. Nro 5 - "Gral. Manuel N. Savio"</a></h1>
       </div>
     </div>
     <nav id="navPrincipal" class="navbar"></nav>
   </header>
 
-  <main>
+  <main id="contenido">
+
     <!-- HERO -->
-    <section class="eest-section eest-spec-hero" aria-labelledby="spec-titulo">
-      <div class="eest-spec-hero__panel" style="--specialty-color:#5b6470;">
-        <div class="eest-spec-hero__icon"><img class="logos" src="../img/logo-electromecanica.png" alt=""></div></div>
+    <section class="eest-spec-hero" aria-labelledby="spec-titulo">
+      <div class="eest-spec-hero__panel">
+        <div class="eest-spec-hero__icon">
+          <img src="../img/logo-electromecanica.png" alt="" class="eest-spec-hero__logo">
+        </div>
         <div class="eest-spec-hero__body">
           <span class="eest-eyebrow">Especialidad técnica</span>
           <h1 id="spec-titulo" class="eest-spec-hero__title">Electromecánica</h1>
           <p class="eest-spec-hero__desc">
-            Formación técnica orientada al diseño, montaje, mantenimiento y reparación
-            de sistemas mecánicos, eléctricos y electromecánicos, con una fuerte práctica
-            en taller.
+            Formación para proyectar, montar, operar, instalar y mantener equipos e instalaciones mecánicas, eléctricas,
+            electromecánicas, neumáticas y oleohidráulicas, incluyendo automatización, control industrial y ensayos.
+          </p>
+          <p class="eest-spec-hero__meta">
+            <span>Título: Técnico en Equipos e instalaciones electromecánicas</span>
+            <span>Nivel secundario, 4.º a 7.º año</span>
           </p>
         </div>
       </div>
     </section>
 
+    <!-- ÍNDICE -->
+    <nav class="eest-spec-index" aria-label="Contenido de la página">
+      <a href="#que-es">¿Qué es?</a>
+      <a href="#materias">Materias</a>
+      <a href="#funciones">Funciones</a>
+      <a href="#perfil">Perfil</a>
+      <a href="#habilitaciones">Habilitaciones</a>
+      <a href="#salidas">Salidas</a>
+      <a href="#practicas">Prácticas</a>
+    </nav>
+
     <!-- QUÉ ES -->
-    <section class="eest-section" aria-labelledby="que-es-titulo">
+    <section class="eest-section" id="que-es" aria-labelledby="que-es-titulo">
       <span class="eest-eyebrow">La especialidad</span>
       <h2 id="que-es-titulo" class="eest-section-title">¿Qué es esta especialidad?</h2>
       <div class="eest-spec-text">
         <p>
-          Electromecánica forma técnicos preparados para diseñar, instalar, operar y
-          mantener máquinas, equipos e instalaciones que combinan sistemas eléctricos
-          y mecánicos.
+          El título de referencia es Técnico en Equipos e instalaciones electromecánicas, dentro del sector
+          electromecánico y la familia profesional de Electromecánica. El técnico está capacitado para proyectar equipos e
+          instalaciones mecánicas, electromecánicas, neumáticas y oleohidráulicas, circuitos eléctricos y de control de
+          automatismos; realizar ensayos de materiales y ensayos eléctricos, mecánicos y electromecánicos; operar equipos,
+          instalaciones y máquinas herramienta; y realizar el mantenimiento de componentes, equipos e instalaciones.
         </p>
         <p>
-          El taller de la especialidad permite aplicar los conocimientos adquiridos
-          mediante trabajos prácticos con máquinas, herramientas, motores, mecanismos,
-          instalaciones eléctricas y sistemas de control, acercando al estudiante a
-          situaciones propias del ámbito industrial.
+          Puede desempeñarse en los ámbitos de producción, laboratorios, mantenimiento, desarrollo, gestión y
+          comercialización, en relación de dependencia o de forma independiente. Su trabajo siempre atiende a los
+          criterios de seguridad, impacto ambiental, relaciones humanas, calidad y productividad.
         </p>
       </div>
     </section>
 
-    <!-- QUÉ SE APRENDE -->
-    <section class="eest-section eest-section--tinted" aria-labelledby="aprende-titulo">
+    <!-- MATERIAS -->
+    <section class="eest-section eest-section--tinted" id="materias" aria-labelledby="materias-titulo">
       <span class="eest-eyebrow">Formación</span>
-      <h2 id="aprende-titulo" class="eest-section-title">¿Qué se aprende?</h2>
+      <h2 id="materias-titulo" class="eest-section-title">¿Qué se aprende?</h2>
       <div class="eest-spec-text">
         <p>
-          La formación incluye conocimientos de electricidad, mecánica, máquinas
-          eléctricas, instalaciones industriales, mecanismos, mantenimiento, dibujo
-          técnico, automatización y seguridad en el trabajo.
+          El plan combina materias científico-tecnológicas (Matemática, Física, Química) con formación técnica
+          específica: materiales, dibujo técnico y CAD, máquinas eléctricas, mecanizado y metrología, montaje y suministro
+          de energía, termodinámica, automatización, control industrial, seguridad e higiene. Se cursa de 4.º a 7.º año y
+          culmina con las Prácticas Profesionalizantes del Sector Electromecánico (216 horas anuales).
         </p>
       </div>
-      <div class="eest-spec-grid" style="--specialty-color:#5b6470;">
+
+      <div class="eest-years">
+        <details class="eest-year" open>
+          <summary>4.º año</summary>
+          <div class="eest-materias-grid">
+            <article class="eest-spec-card">
+              <h4>Matemática ciclo superior</h4>
+              <p class="eest-materias-hours">4 h semanales · 144 h anuales</p>
+              <p class="eest-materias-desc">Números reales y complejos, sucesiones, funciones polinómicas, exponenciales, logarítmicas y trigonométricas.</p>
+            </article>
+            <article class="eest-spec-card">
+              <h4>Física</h4>
+              <p class="eest-materias-hours">3 h semanales · 108 h anuales</p>
+              <p class="eest-materias-desc">Cuantificación de magnitudes, vectores y tensiones, energía, calor y electricidad.</p>
+            </article>
+            <article class="eest-spec-card">
+              <h4>Química</h4>
+              <p class="eest-materias-hours">2 h semanales · 72 h anuales</p>
+              <p class="eest-materias-desc">Estructura atómica, uniones químicas, estequiometría, soluciones y procesos industriales.</p>
+            </article>
+            <article class="eest-spec-card">
+              <h4>Estudio de los materiales</h4>
+              <p class="eest-materias-hours">2 h semanales · 72 h anuales</p>
+              <p class="eest-materias-desc">Clases de materiales, metales ferrosos y no ferrosos, propiedades y estructura metalográfica.</p>
+            </article>
+            <article class="eest-spec-card">
+              <h4>Dibujo tecnológico</h4>
+              <p class="eest-materias-hours">2 h semanales · 72 h anuales</p>
+              <p class="eest-materias-desc">CAD: principios básicos, planos, perspectivas, isométricas y representación en 3D.</p>
+            </article>
+            <article class="eest-spec-card">
+              <h4>Máquinas eléctricas I</h4>
+              <p class="eest-materias-hours">4 h semanales · 144 h anuales</p>
+              <p class="eest-materias-desc">Ley de Ohm, potencia, magnetismo, inducción y construcción de un transformador.</p>
+            </article>
+            <article class="eest-spec-card">
+              <h4>Diseño y mecanizado I</h4>
+              <p class="eest-materias-hours">4 h semanales · 144 h anuales</p>
+              <p class="eest-materias-desc">Metrología, trazado y control dimensional, medición de longitudes, ángulos y tolerancias.</p>
+            </article>
+            <article class="eest-spec-card">
+              <h4>Montaje y suministro de energía I</h4>
+              <p class="eest-materias-hours">4 h semanales · 144 h anuales</p>
+              <p class="eest-materias-desc">Instalaciones eléctricas de baja tensión: generación, distribución y circuitos en viviendas.</p>
+            </article>
+          </div>
+        </details>
+
+        <details class="eest-year">
+          <summary>5.º año</summary>
+          <div class="eest-materias-grid">
+            <article class="eest-spec-card">
+              <h4>Análisis matemático</h4>
+              <p class="eest-materias-hours">4 h semanales · 144 h anuales</p>
+              <p class="eest-materias-desc">Límites, continuidad, derivadas, máximos y mínimos, e integrales.</p>
+            </article>
+            <article class="eest-spec-card">
+              <h4>Física aplicada</h4>
+              <p class="eest-materias-hours">3 h semanales · 108 h anuales</p>
+              <p class="eest-materias-desc">Cinemática y dinámica del punto material, velocidad, aceleración y movimiento.</p>
+            </article>
+            <article class="eest-spec-card">
+              <h4>Aplicaciones técnicas de la electricidad I</h4>
+              <p class="eest-materias-hours">3 h semanales · 108 h anuales</p>
+              <p class="eest-materias-desc">Leyes de Kirchhoff, resistencias en serie y paralelo, trabajo y capacidad eléctrica.</p>
+            </article>
+            <article class="eest-spec-card">
+              <h4>Mecánica de los materiales</h4>
+              <p class="eest-materias-hours">3 h semanales · 108 h anuales</p>
+              <p class="eest-materias-desc">Estática, vínculos, grados de libertad, reacciones y baricentro de figuras planas.</p>
+            </article>
+            <article class="eest-spec-card">
+              <h4>Máquinas eléctricas II</h4>
+              <p class="eest-materias-hours">4 h semanales · 144 h anuales</p>
+              <p class="eest-materias-desc">Ensayos de máquinas de corriente continua y alterna, control de velocidad y par motor.</p>
+            </article>
+            <article class="eest-spec-card">
+              <h4>Diseño y mecanizado II</h4>
+              <p class="eest-materias-hours">4 h semanales · 144 h anuales</p>
+              <p class="eest-materias-desc">Mecanizado con máquinas herramienta convencionales, tratamientos térmicos y metrología.</p>
+            </article>
+            <article class="eest-spec-card">
+              <h4>Montaje y suministro de energía II</h4>
+              <p class="eest-materias-hours">4 h semanales · 144 h anuales</p>
+              <p class="eest-materias-desc">Neumática: generación, acondicionamiento y distribución de aire comprimido.</p>
+            </article>
+          </div>
+        </details>
+
+        <details class="eest-year">
+          <summary>6.º año</summary>
+          <div class="eest-materias-grid">
+            <article class="eest-spec-card">
+              <h4>Matemática aplicada</h4>
+              <p class="eest-materias-hours">2 h semanales · 72 h anuales</p>
+              <p class="eest-materias-desc">Funciones vectoriales, límites y derivadas parciales, transformadas y probabilidad.</p>
+            </article>
+            <article class="eest-spec-card">
+              <h4>Termodinámica y máquinas térmicas</h4>
+              <p class="eest-materias-hours">3 h semanales · 108 h anuales</p>
+              <p class="eest-materias-desc">Temperatura, leyes de los gases, sistemas termodinámicos y máquinas térmicas.</p>
+            </article>
+            <article class="eest-spec-card">
+              <h4>Aplicaciones técnicas de la electricidad II</h4>
+              <p class="eest-materias-hours">3 h semanales · 108 h anuales</p>
+              <p class="eest-materias-desc">Corriente alterna, impedancia, desfasaje, circuitos R-L-C y potencia.</p>
+            </article>
+            <article class="eest-spec-card">
+              <h4>Sistemas mecánicos</h4>
+              <p class="eest-materias-hours">3 h semanales · 108 h anuales</p>
+              <p class="eest-materias-desc">Tensiones y deformaciones, fatiga, dimensionado de vigas a flexión y cálculo de ejes.</p>
+            </article>
+            <article class="eest-spec-card">
+              <h4>Derechos del trabajo</h4>
+              <p class="eest-materias-hours">2 h semanales · 72 h anuales</p>
+              <p class="eest-materias-desc">Derechos y obligaciones de trabajadores y empleadores, remuneraciones, aportes y ART.</p>
+            </article>
+            <article class="eest-spec-card">
+              <h4>Metrología I</h4>
+              <p class="eest-materias-hours">2 h semanales · 72 h anuales</p>
+              <p class="eest-materias-desc">Sistema internacional de medidas, errores en mediciones e instrumentos analógicos y digitales.</p>
+            </article>
+            <article class="eest-spec-card">
+              <h4>Automatización</h4>
+              <p class="eest-materias-hours">4 h semanales · 144 h anuales</p>
+              <p class="eest-materias-desc">Controladores lógicos programables, automatización por contactores, reguladores de velocidad y sensores.</p>
+            </article>
+            <article class="eest-spec-card">
+              <h4>Diseño y mecanizado III</h4>
+              <p class="eest-materias-hours">4 h semanales · 144 h anuales</p>
+              <p class="eest-materias-desc">Diseño 3D, interpretación de planos y mecanizado asistido por computadora (CNC).</p>
+            </article>
+            <article class="eest-spec-card">
+              <h4>Montaje y suministro de energía III</h4>
+              <p class="eest-materias-hours">4 h semanales · 144 h anuales</p>
+              <p class="eest-materias-desc">Suministros en baja tensión, cámara de transformación, líneas de 13,2 kV y subestaciones.</p>
+            </article>
+          </div>
+        </details>
+
+        <details class="eest-year">
+          <summary>7.º año</summary>
+          <div class="eest-materias-grid">
+            <article class="eest-spec-card">
+              <h4>Emprendimientos e innovación productiva</h4>
+              <p class="eest-materias-hours">2 h semanales · 72 h anuales</p>
+              <p class="eest-materias-desc">Teorías del emprendedorismo, finanzas, marketing y planificación de emprendimientos.</p>
+            </article>
+            <article class="eest-spec-card">
+              <h4>Sistemas de control industrial</h4>
+              <p class="eest-materias-hours">2 h semanales · 72 h anuales</p>
+              <p class="eest-materias-desc">Lazo abierto y cerrado, electrónica digital, PLC, sensores y motores paso a paso.</p>
+            </article>
+            <article class="eest-spec-card">
+              <h4>Seguridad, higiene y protección ambiental</h4>
+              <p class="eest-materias-hours">2 h semanales · 72 h anuales</p>
+              <p class="eest-materias-desc">Condiciones de higiene, tratamiento de efluentes, ventilación, iluminación y ruido.</p>
+            </article>
+            <article class="eest-spec-card">
+              <h4>Máquinas eléctricas</h4>
+              <p class="eest-materias-hours">3 h semanales · 108 h anuales</p>
+              <p class="eest-materias-desc">Transformadores monofásicos y trifásicos, máquinas rotativas y polifásicas de inducción.</p>
+            </article>
+            <article class="eest-spec-card">
+              <h4>Estructuras mecánicas</h4>
+              <p class="eest-materias-hours">3 h semanales · 108 h anuales</p>
+              <p class="eest-materias-desc">Diagramas de proceso, balance de materiales, calderas, turbinas, refrigeración y recipientes a presión.</p>
+            </article>
+            <article class="eest-spec-card">
+              <h4>Metrología II</h4>
+              <p class="eest-materias-hours">2 h semanales · 72 h anuales</p>
+              <p class="eest-materias-desc">Normas IRAM-ISO, gestión de la calidad, metrología industrial y legal.</p>
+            </article>
+            <article class="eest-spec-card">
+              <h4>Instalación y mantenimiento de estructuras electromecánicas</h4>
+              <p class="eest-materias-hours">4 h semanales · 144 h anuales</p>
+              <p class="eest-materias-desc">Mantenimiento predictivo (ultrasonido, vibraciones, balanceo), análisis de fallas y elementos de máquinas.</p>
+            </article>
+            <article class="eest-spec-card">
+              <h4>Proyecto integrador</h4>
+              <p class="eest-materias-hours">4 h semanales · 144 h anuales</p>
+              <p class="eest-materias-desc">Diseño de procesos e instalaciones productivas, series y lotes, costos y tiempos.</p>
+            </article>
+            <article class="eest-spec-card">
+              <h4>Ensayo de instalaciones eléctricas</h4>
+              <p class="eest-materias-hours">4 h semanales · 144 h anuales</p>
+              <p class="eest-materias-desc">Cálculo de instalaciones domiciliarias e industriales, luminotecnia y grupos electrógenos.</p>
+            </article>
+            <article class="eest-spec-card">
+              <h4>Prácticas profesionalizantes del sector electromecánico</h4>
+              <p class="eest-materias-hours">216 h anuales</p>
+              <p class="eest-materias-desc">Consolidar e integrar las capacidades del perfil en situaciones de trabajo reales.</p>
+            </article>
+          </div>
+        </details>
+      </div>
+    </section>
+
+    <!-- FUNCIONES -->
+    <section class="eest-section" id="funciones" aria-labelledby="funciones-titulo">
+      <span class="eest-eyebrow">Qué hace el técnico</span>
+      <h2 id="funciones-titulo" class="eest-section-title">Funciones profesionales</h2>
+      <div class="eest-spec-grid">
         <article class="eest-spec-card">
-          <h3>Taller de electromecánica</h3>
-          <p>Uso de máquinas, herramientas y técnicas para el montaje y mantenimiento de equipos.</p>
+          <h3>Proyectar equipos e instalaciones industriales</h3>
+          <p>Diseñar sistemas mecánicos, eléctricos, electromecánicos, neumáticos, oleohidráulicos y de control, herramientas y dispositivos, con cálculo de costos y normativa vigente.</p>
         </article>
         <article class="eest-spec-card">
-          <h3>Electricidad</h3>
-          <p>Fundamentos de circuitos, instalaciones eléctricas y máquinas eléctricas.</p>
+          <h3>Operar equipos e instalaciones</h3>
+          <p>Poner en marcha, controlar y detener equipos, instalaciones y sistemas de control de producción, edificios e infraestructura urbana, y operar máquinas herramienta.</p>
         </article>
         <article class="eest-spec-card">
-          <h3>Mecánica</h3>
-          <p>Estudio de mecanismos, materiales, máquinas y procesos de fabricación.</p>
+          <h3>Montar equipos e instalaciones</h3>
+          <p>Armar y ensamblar dispositivos, mecanismos, máquinas y equipos mecánicos, eléctricos, neumáticos y oleohidráulicos, siguiendo la documentación técnica y las normas de seguridad.</p>
         </article>
         <article class="eest-spec-card">
-          <h3>Máquinas y motores</h3>
-          <p>Montaje, funcionamiento, mantenimiento y diagnóstico de motores y máquinas.</p>
+          <h3>Instalar circuitos y sistemas</h3>
+          <p>Realizar instalaciones eléctricas de baja y media tensión, de iluminación y de control de automatismos, líneas de transporte y distribución de energía, y sus pruebas funcionales.</p>
         </article>
         <article class="eest-spec-card">
-          <h3>Automatización</h3>
-          <p>Introducción a sistemas de control, automatismos y procesos industriales.</p>
+          <h3>Mantener instalaciones industriales</h3>
+          <p>Planificar y ejecutar el mantenimiento preventivo, predictivo y correctivo, diagnosticar averías y reparar equipos para garantizar la continuidad de los procesos productivos.</p>
+        </article>
+        <article class="eest-spec-card">
+          <h3>Programar sistemas automáticos</h3>
+          <p>Programar sistemas automáticos según sus parámetros de funcionamiento, ajustando y calibrando sensores para asegurar su cumplimiento.</p>
+        </article>
+        <article class="eest-spec-card">
+          <h3>Ensayar y certificar</h3>
+          <p>Realizar e interpretar ensayos de materiales y de componentes, equipos e instalaciones mecánicas, eléctricas y electromecánicas, y participar en peritajes, tasaciones y certificaciones.</p>
+        </article>
+        <article class="eest-spec-card">
+          <h3>Gestión de la producción y comercialización</h3>
+          <p>Participar en la gestión de la producción, seleccionar y asesorar sobre equipamiento, y comercializar o dar asistencia técnica, venta y posventa.</p>
         </article>
       </div>
     </section>
 
-    <!-- PERFIL / COMPETENCIAS -->
-    <section class="eest-section" aria-labelledby="perfil-titulo">
+    <!-- PERFIL -->
+    <section class="eest-section eest-section--tinted" id="perfil" aria-labelledby="perfil-titulo">
       <span class="eest-eyebrow">Perfil del egresado</span>
       <h2 id="perfil-titulo" class="eest-section-title">Perfil y competencias</h2>
-      <ul class="eest-spec-skills" style="--specialty-color:#5b6470;">
-        <li>Interpretación de planos y esquemas eléctricos y mecánicos</li>
-        <li>Montaje y mantenimiento de máquinas y equipos electromecánicos</li>
-        <li>Diagnóstico y resolución de fallas en sistemas eléctricos y mecánicos</li>
-        <li>Uso correcto de máquinas, herramientas e instrumentos de medición</li>
-        <li>Instalación y mantenimiento de motores y sistemas de control</li>
-        <li>Aplicación de normas de seguridad e higiene industrial</li>
+      <ul class="eest-spec-skills">
+        <li>Proyecto de equipos e instalaciones mecánicas, electromecánicas, neumáticas y oleohidráulicas, y de circuitos de control de automatismos</li>
+        <li>Ensayos de materiales y ensayos eléctricos, mecánicos y electromecánicos</li>
+        <li>Operación de equipos, instalaciones y máquinas herramienta vinculadas al control de la producción</li>
+        <li>Mantenimiento predictivo, preventivo, funcional, operativo y correctivo de componentes, equipos e instalaciones</li>
+        <li>Montaje de dispositivos y componentes de equipos e instalaciones mecánicas, eléctricas, neumáticas y oleohidráulicas</li>
+        <li>Instalación de líneas de consumo y distribución de energía eléctrica de baja y media tensión</li>
+        <li>Selección, asesoramiento y comercialización de equipamiento e instalaciones electromecánicas</li>
+        <li>Generación de emprendimientos productivos o de servicios</li>
       </ul>
     </section>
 
-    <!-- SALIDAS PROFESIONALES -->
-    <section class="eest-section eest-section--tinted" aria-labelledby="salidas-titulo">
+    <!-- HABILITACIONES -->
+    <section class="eest-section" id="habilitaciones" aria-labelledby="habilitaciones-titulo">
+      <span class="eest-eyebrow">Alcance del título</span>
+      <h2 id="habilitaciones-titulo" class="eest-section-title">Habilitaciones profesionales</h2>
+      <ul class="eest-spec-skills eest-spec-skills--list">
+        <li>Realizar las fases del proyecto de componentes, equipos e instalaciones mecánicas, eléctricas, electromecánicas, térmicas, hidráulicas, neumáticas y oleohidráulicas, incluyendo circuitos de distribución de energía, control de automatismos y programas de mantenimiento</li>
+        <li>Ejecutar, dirigir o supervisar proyectos y diseños de componentes, equipos e instalaciones, en los mismos alcances</li>
+        <li>Ejecutar y/o dirigir instalaciones mecánicas, líneas de distribución de energía eléctrica, de iluminación, señales y comunicaciones, control de automatismos y sistemas neumáticos y oleohidráulicos</li>
+        <li>Dirigir, planificar y/o ejecutar el mantenimiento de componentes, equipos e instalaciones, incluidos sistemas estacionarios, móviles y de transporte</li>
+        <li>Realizar e interpretar ensayos de materiales y de componentes, equipos e instalaciones mecánicas, eléctricas y electromecánicas</li>
+        <li>Efectuar el montaje, la puesta a punto y el funcionamiento de equipos, instalaciones y sistemas mecánicos, eléctricos, electromecánicos, hidráulicos, neumáticos y oleohidráulicos, y de control de automatismo</li>
+        <li>Realizar peritajes, arbitrajes, tasaciones y/o certificaciones dentro de las capacidades anteriores, conforme a las normas vigentes</li>
+      </ul>
+      <div class="eest-spec-note">
+        <p>
+          Las habilitaciones de los puntos 1 a 4 y 6 se refieren a fábricas, talleres, industrias, edificios comerciales e
+          infraestructura urbana o rural, y tienen límites técnicos definidos en el diseño curricular (por ejemplo, un rango
+          de temperatura de −25 °C a 200 °C).
+        </p>
+      </div>
+    </section>
+
+    <!-- SALIDAS -->
+    <section class="eest-section eest-section--tinted" id="salidas" aria-labelledby="salidas-titulo">
       <span class="eest-eyebrow">Después de la escuela</span>
       <h2 id="salidas-titulo" class="eest-section-title">Salidas profesionales</h2>
       <div class="eest-spec-text">
         <p>
-          La especialidad brinda una formación amplia para desempeñarse en distintos
-          sectores industriales y permite continuar estudios técnicos superiores
-          relacionados con la ingeniería y la tecnología.
+          El técnico se desempeña en empresas de distinta envergadura, en servicios de proyecto, montaje o mantenimiento,
+          y en el suministro de servicios auxiliares como energía eléctrica, vapor, agua, aire comprimido, gas y gases
+          industriales. También puede generar y gestionar, de forma autónoma o con otros profesionales, emprendimientos
+          productivos o de servicios.
         </p>
       </div>
       <div class="eest-spec-jobs">
-        <span class="eest-spec-job">Técnico electromecánico</span>
-        <span class="eest-spec-job">Técnico de mantenimiento industrial</span>
-        <span class="eest-spec-job">Operario de máquinas y equipos industriales</span>
-        <span class="eest-spec-job">Técnico en instalaciones y automatización</span>
-        <span class="eest-spec-job">Base para Ingeniería Electromecánica o Mecánica</span>
+        <span class="eest-spec-job">Empresas industriales y plantas de producción</span>
+        <span class="eest-spec-job">Mantenimiento electromecánico e instalaciones industriales</span>
+        <span class="eest-spec-job">Montaje y puesta en marcha de equipos e instalaciones</span>
+        <span class="eest-spec-job">Laboratorios de ensayos de materiales, eléctricos y mecánicos</span>
+        <span class="eest-spec-job">Aseguramiento de la calidad y metrología</span>
+        <span class="eest-spec-job">Departamentos de abastecimiento y compras técnicas</span>
+        <span class="eest-spec-job">Comercialización, asesoramiento técnico, venta y posventa</span>
+        <span class="eest-spec-job">Suministro de servicios auxiliares (energía, vapor, agua, aire comprimido)</span>
+        <span class="eest-spec-job">Emprendimiento propio de servicios o productos</span>
       </div>
     </section>
 
-    <!-- CTA FINAL -->
+    <!-- PRÁCTICAS -->
+    <section class="eest-section" id="practicas" aria-labelledby="practicas-titulo">
+      <span class="eest-eyebrow">Experiencia práctica</span>
+      <h2 id="practicas-titulo" class="eest-section-title">Prácticas profesionalizantes</h2>
+      <div class="eest-spec-text">
+        <p>
+          En 7.º año, las Prácticas Profesionalizantes del Sector Electromecánico tienen una carga de 216 horas anuales.
+          Permiten consolidar e integrar las capacidades del perfil en situaciones de trabajo reales, dentro de la escuela
+          (proyectos de prácticas, proyectos tecnológicos, Módulos Integradores de 7.º año) o fuera de ella (trabajos por
+          cuenta de terceros).
+        </p>
+        <p>
+          Los entornos formativos son el Laboratorio de Diseño, el Laboratorio de Mediciones Eléctricas, el Laboratorio de
+          Automatización y Robótica, el Laboratorio de Máquinas Eléctricas, el Taller de Mecanizado y CNC, el Laboratorio
+          de Metrología y Control de Calidad, el Laboratorio de Ensayos Industriales y el Taller General.
+        </p>
+      </div>
+    </section>
+
+    <!-- CTA -->
     <section class="eest-section" aria-labelledby="cta-spec-titulo">
       <div class="eest-cta">
         <span class="eest-eyebrow">Seguí conociendo la escuela</span>
-        <h2 id="cta-spec-titulo">¿Querés conocer las otras especialidades?</h2>
+        <h2 id="cta-spec-titulo">¿Querés sumarte a esta especialidad?</h2>
+        <p>Conocé el proceso de pre-inscripción y empezá el camino técnico en la E.E.S.T. N.º 5.</p>
         <div class="eest-spec-cta-links">
-          <a class="eest-btn eest-btn--ghost-light" href="tecnicatura-construccion.html">Construcción</a>
-          <a class="eest-btn eest-btn--ghost-light" href="tecnicatura-quimica.html">Química</a>
-          <a class="eest-btn eest-btn--ghost-light" href="tecnicatura-informatica.html">Informática</a>
-          <a class="eest-btn eest-btn--primary" href="index.html">← Volver al inicio</a>
+          <a class="eest-btn eest-btn--primary" href="preinscripcion.html">Ver pre-inscripción <span aria-hidden="true">→</span></a>
         </div>
       </div>
+      <nav class="eest-spec-cta-others" aria-label="Otras especialidades">
+        <span>Otras especialidades:</span>
+        <a href="tecnicatura-construccion.html">Construcción</a>
+        <a href="tecnicatura-quimica.html">Química</a>
+        <a href="tecnicatura-informatica.html">Informática</a>
+        <a href="tecnica5.html">Volver a institucional</a>
+      </nav>
     </section>
 
   </main>
 
-  <!-- FOOTER -->
-
   <footer class="eest-footer"></footer>
-
 </body>
-
 </html>

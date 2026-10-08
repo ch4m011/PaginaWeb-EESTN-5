@@ -250,6 +250,76 @@
 .user-menu button:hover {
   background: #cfd8dc;
 }
+.user-menu .menu-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    width: 100%;
+    padding: 10px 16px;
+    border: none;
+    background: none;
+    color: #1f2a37;
+    font: inherit;
+    font-size: 0.95rem;
+    font-weight: 500;
+    text-align: left;
+    text-decoration: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background 0.2s ease, color 0.2s ease;
+}
+
+.user-menu .menu-item__icon {
+    width: 32px;
+    height: 32px;
+    flex-shrink: 0;
+    display: grid;
+    place-items: center;
+    border-radius: 8px;
+    background: #eef3f9;
+    color: #023261;
+    transition: background 0.2s ease, color 0.2s ease;
+}
+
+.user-menu .menu-item__icon svg {
+    width: 18px;
+    height: 18px;
+}
+
+.user-menu .menu-item:hover {
+    background: #f4f7fb;
+}
+
+.user-menu .menu-item:hover .menu-item__icon {
+    background: #023261;
+    color: #fff;
+}
+
+.user-menu .menu-item--danger .menu-item__icon {
+    background: #fdecea;
+    color: #b42318;
+}
+
+.user-menu .menu-item--danger:hover {
+    background: #fdf3f2;
+    color: #b42318;
+}
+
+.user-menu .menu-item--danger:hover .menu-item__icon {
+    background: #b42318;
+    color: #fff;
+}
+
+.user-menu .menu-item:focus-visible {
+    outline: 3px solid #4a90e2;
+    outline-offset: 2px;
+}
+
+.user-menu .menu-separator {
+    margin: 6px 0;
+    border: none;
+    border-top: 1px solid #e5eaf0;
+}
 
 /* -------- RESPONSIVE -------- */
 @media (max-width: 768px) {

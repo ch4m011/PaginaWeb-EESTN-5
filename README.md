@@ -286,7 +286,7 @@ GMAIL_NAME=Web Escuela Técnica
 
 Cambia este email por el nuevo email que recibirá los mensajes.
 
-ADMIN_EMAIL=lebelawsky@eest5.com
+ADMIN_EMAIL=sluna@eest5.com
 ADMIN_NAME=Administrador
 
 Cambia lebelawsky@eest5.com en la línea ADMIN_EMAIL por la nueva dirección de email a la que quieres que lleguen los mensajes.

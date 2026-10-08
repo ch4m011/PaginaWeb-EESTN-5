@@ -1,72 +1,73 @@
 <!DOCTYPE html>
 <html lang="es">
-
 <head>
   <link rel="icon" type="image/png" href="../img/logo-tecnica.png">
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Contacto | Escuela Técnica - La Plata</title>
-  <link rel="icon" type="image/png" href="../img/logo-tecnica.png" />
+  <meta name="description" content="Escribile a la E.E.S.T. N.º 5 'Gral. Manuel N. Savio' de La Plata: consultas, reportes de problemas y propuestas.">
 
-  <!-- Estilos -->
-  <link rel="stylesheet" href="../css/navegador.css" />
-  <link rel="stylesheet" href="../css/calendario.css">
-  <link rel="stylesheet" href="../css/noticias.css">
-  <link rel="stylesheet" href="../css/index.css" />
-  <link rel="stylesheet" href="../css/contacto.css" />
-  <!-- Scripts -->
+  <link rel="stylesheet" href="../css/navegador.css">
+  <link rel="stylesheet" href="../css/index.css">
+  <link rel="stylesheet" href="../css/contacto.css">
+
   <script src="../js/login.js" defer></script>
   <script src="../js/navbar.js" defer></script>
   <script src="../js/contacto.js" defer></script>
 </head>
 
 <body>
+  <a class="skip-link" href="#contenido">Saltar al contenido</a>
+
   <header class="navegador">
     <div class="logo">
       <div class="logo-container">
-        <img src="../img/logo-tecnica.png" alt="E.E.S.T. Nro 5" class="logo-img logo-left">
-        <h1>
-          <a href="index.html">E.E.S.T. Nro 5 - "Gral. Manuel N. Savio"</a>
-        </h1>
+        <img src="../img/logo-tecnica.png" alt="Escudo E.E.S.T. N.º 5" class="logo-img logo-left">
+        <h1><a href="index.html">E.E.S.T. Nro 5 - "Gral. Manuel N. Savio"</a></h1>
       </div>
     </div>
-
     <nav id="navPrincipal" class="navbar"></nav>
   </header>
 
-  <main>
-    <section class="contacto-contexto">
-      <p>
-        Bienvenido al formulario de contacto. Aquí puedes comunicarte con los administradores del sitio para:
+  <main id="contenido" class="contacto-pagina">
+    <div class="contacto-intro">
+      <span class="eest-eyebrow">Escribinos</span>
+      <h1 class="contacto-titulo">Contacto</h1>
+      <p class="contacto-lead">
+        Usá este formulario para comunicarte con los administradores del sitio.
       </p>
-      <ul>
-        <li>Hacer consultas sobre el contenido de la web.</li>
-        <li>Reportar problemas o errores.</li>
-        <li>Proponer mejoras o nuevas funcionalidades.</li>
-      </ul>
-      <p>Por favor, completa todos los campos para que podamos responderte de manera efectiva.</p>
-    </section>
+    </div>
 
-    <form id="contactForm" method="post" action="../php/send_message_to_admin.php" novalidate>
-      <h2>Contactar al Administrador</h2>
+    <div class="contacto-grid">
+      <aside class="contacto-aside" aria-labelledby="motivos-titulo">
+        <h2 id="motivos-titulo">Podés escribirnos para</h2>
+        <ul>
+          <li>Hacer consultas sobre el contenido de la web.</li>
+          <li>Reportar problemas o errores.</li>
+          <li>Proponer mejoras o nuevas funcionalidades.</li>
+        </ul>
+        <p class="contacto-nota">Completá todos los campos para que podamos responderte de manera efectiva.</p>
+      </aside>
 
-      <div class="form-group">
-        <label for="subject">Asunto:</label>
-        <input type="text" name="subject" id="subject" maxlength="255" required />
-      </div>
+      <form id="contactForm" class="contacto-form" method="post" action="../php/send_message_to_admin.php" novalidate>
+        <h2>Enviar un mensaje</h2>
 
-      <div class="form-group">
-        <label for="message">Mensaje:</label>
-        <textarea name="message" id="message" minlength="3" required></textarea>
-      </div>
+        <div class="form-group">
+          <label for="subject">Asunto</label>
+          <input type="text" name="subject" id="subject" maxlength="255" required>
+        </div>
 
-      <button type="submit">Enviar</button>
-      <p id="contactResult" role="status" aria-live="polite"></p>
-    </form>
+        <div class="form-group">
+          <label for="message">Mensaje</label>
+          <textarea name="message" id="message" minlength="3" required></textarea>
+        </div>
+
+        <button type="submit" class="contacto-enviar">Enviar mensaje</button>
+        <p id="contactResult" class="contacto-resultado" role="status" aria-live="polite"></p>
+      </form>
+    </div>
   </main>
-  
-  <!-- FOOTER -->
+
   <footer class="eest-footer"></footer>
-  
 </body>
 </html>

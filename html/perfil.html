@@ -1,100 +1,123 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <link rel="icon" type="image/png" href="../img/logo-tecnica.png">
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Mi perfil</title>
-  <link rel="stylesheet" href="../css/index.css">
-  <link rel="stylesheet" href="../css/login.css">
+  <link rel="icon" type="image/png" href="../img/logo-tecnica.png">
+  <title>Mi perfil | E.E.S.T. N.º 5</title>
+  <meta name="robots" content="noindex, nofollow">
+
   <link rel="stylesheet" href="../css/perfil.css">
   <link rel="stylesheet" href="../css/eest-confirm.css">
+
   <script src="../js/eest-confirm.js" defer></script>
   <script src="../js/perfil.js" defer></script>
 </head>
 <body>
-  <button class="btn-volver" onclick="window.location.href='index.html'">Volver</button>
-  <div class="login-contenedor">
-    <div class="login-formulario">
-      <div class="perfil-container">
-        <!-- Mensajes de éxito/error de las acciones de esta página -->
-        <div id="mensajePerfil" class="mensaje" style="display:none;"></div>
 
-        <!-- Encabezado del perfil con imagen y nombre -->
-        <div class="perfil-header">
-          <div class="perfil-imagen-container">
-            <img id="avatar" class="perfil-imagen" src="../img/logo-tecnica.png" alt="Imagen de perfil">
-            <span id="nombrePerfilHeader" class="nombre-usuario"></span>
+  <a class="btn-volver" href="index.html">Volver al inicio</a>
+
+  <main class="perfil-page">
+
+    <div id="mensajePerfil" class="mensaje" style="display:none;" role="status" aria-live="polite"></div>
+
+    <div class="perfil-layout">
+
+      <!-- COLUMNA IZQUIERDA: identidad y foto -->
+      <aside class="perfil-card perfil-resumen">
+        <div class="perfil-banner" aria-hidden="true"></div>
+
+        <div class="perfil-avatar-wrap">
+          <img id="avatar" class="perfil-avatar" src="../img/logo-tecnica.png" alt="Foto de perfil">
+        </div>
+
+        <h1 id="nombrePerfilHeader" class="perfil-nombre"></h1>
+        <p class="perfil-subtitulo">Mi cuenta</p>
+
+        <form id="formImagenPerfil" class="perfil-foto-form" action="../php/perfil/actualizar_imagen.php" method="POST" enctype="multipart/form-data">
+          <label for="avatarFile" class="perfil-label">Cambiar foto</label>
+          <input id="avatarFile" name="avatar" type="file" accept="image/*">
+          <img id="previewImagen" class="perfil-preview" alt="Vista previa de la nueva foto" style="display:none;">
+          <button type="submit" class="btn btn-primario btn-bloque">Actualizar foto</button>
+        </form>
+      </aside>
+
+      <!-- COLUMNA DERECHA: formularios -->
+      <div class="perfil-columna">
+
+        <section class="perfil-card" aria-labelledby="tituloDatos">
+          <header class="card-cabecera">
+            <h2 id="tituloDatos">Datos personales</h2>
+            <p>Así aparece tu nombre en el sitio.</p>
+          </header>
+
+          <div class="campo">
+            <label for="correo_usuario">Correo electrónico</label>
+            <input type="email" id="correo_usuario" class="input-readonly" readonly>
+            <small class="ayuda">El correo registrado no se puede modificar.</small>
           </div>
-        </div>
 
-        <!-- Sección de imagen de perfil -->
-        <div class="seccion">
-          <label>Cambiar imagen de perfil</label>
-          <form id="formImagenPerfil" action="../php/perfil/actualizar_imagen.php" method="POST" enctype="multipart/form-data">
-            <input id="avatarFile" name="avatar" type="file" accept="image/*" />
-            <img id="previewImagen" alt="Vista previa">
-            <button type="submit" class="btn btn-actualizar">Actualizar imagen</button>
-          </form>
-        </div>
-
-        <!-- Sección de datos principales -->
-        <div class="seccion">
-          <form id="formPerfil" class="form-perfil">
-            <div class="form-group">
-              <label for="nombre_completo">Nombre completo:</label>
+          <form id="formPerfil" class="form-vertical">
+            <div class="campo">
+              <label for="nombre_completo">Nombre completo</label>
               <input type="text" id="nombre_completo" name="nombre_completo" required>
             </div>
-            <button type="submit" class="btn-guardar">Guardar cambios</button>
-          </form>
-        </div>
-
-        <!-- Nueva sección separada para el correo -->
-        <div class="seccion-correo">
-            <label for="correo_usuario">Correo electrónico registrado:</label>
-            <input type="email" id="correo_usuario" readonly class="input-readonly">
-        </div>
-
-        <!-- Sección de cambio de contraseña -->
-        <div class="seccion">
-          <form id="formCambioPassword" class="form-perfil">
-            <div class="form-group">
-              <label for="password_actual">Contraseña actual:</label>
-              <input type="password" id="password_actual" name="password_actual" 
-                     autocomplete="current-password" required>
+            <div class="card-acciones">
+              <button type="submit" class="btn btn-primario">Guardar cambios</button>
             </div>
-            <div class="form-group">
-              <label for="password_nueva">Nueva contraseña:</label>
-              <input type="password" id="password_nueva" name="password_nueva" 
-                     autocomplete="new-password" required>
-            </div>
-            <button type="submit">Cambiar contraseña</button>
           </form>
-        </div>
+        </section>
 
-        <!-- Sección de eliminar cuenta -->
-        <div class="seccion">
-          <form id="formEliminarCuentaReal" class="form-perfil">
-            <h3>Eliminar cuenta</h3>
+        <section class="perfil-card" aria-labelledby="tituloSeguridad">
+          <header class="card-cabecera">
+            <h2 id="tituloSeguridad">Seguridad</h2>
+            <p>Cambiá tu contraseña cuando lo necesites.</p>
+          </header>
+
+          <form id="formCambioPassword" class="form-dos-columnas">
             <div class="campo">
-              <label for="passwordDelete">Confirmar contraseña:</label>
-              <input type="password" id="passwordDelete" name="password_confirm" 
-                     autocomplete="current-password" required>
+              <label for="password_actual">Contraseña actual</label>
+              <input type="password" id="password_actual" name="password_actual" autocomplete="current-password" required>
             </div>
-            <div id="mensajeEliminarCuenta" style="display:none;"></div>
-            <button type="submit" class="btn-eliminar">Eliminar cuenta</button>
+            <div class="campo">
+              <label for="password_nueva">Nueva contraseña</label>
+              <input type="password" id="password_nueva" name="password_nueva" autocomplete="new-password" required>
+            </div>
+            <div class="card-acciones">
+              <button type="submit" class="btn btn-primario">Cambiar contraseña</button>
+            </div>
           </form>
-        </div>
+        </section>
+
+        <section class="perfil-card perfil-peligro" aria-labelledby="tituloEliminar">
+          <header class="card-cabecera">
+            <h2 id="tituloEliminar">Eliminar cuenta</h2>
+            <p>Se borran tus datos y esta acción no se puede deshacer.</p>
+          </header>
+
+          <form id="formEliminarCuentaReal" class="form-vertical">
+            <div class="campo">
+              <label for="passwordDelete">Confirmá tu contraseña</label>
+              <input type="password" id="passwordDelete" name="password_confirm" autocomplete="current-password" required>
+            </div>
+            <div id="mensajeEliminarCuenta" class="mensaje error" style="display:none;"></div>
+            <div class="card-acciones">
+              <button type="submit" class="btn btn-peligro">Eliminar mi cuenta</button>
+            </div>
+          </form>
+        </section>
+
       </div>
     </div>
-  </div>
+  </main>
 
-  <!-- Modal de progreso -->
-  <div id="modalEliminar" style="display:none;">
-    <p id="mensajeEliminar">Eliminando cuenta...</p>
-    <div class="progress-bar">
-      <div id="progress"></div>
+  <!-- Modal de progreso (perfil.js lo muestra con style.display) -->
+  <div id="modalEliminar" style="display:none;" role="dialog" aria-modal="true" aria-live="assertive">
+    <div class="modal-caja">
+      <p id="mensajeEliminar">Eliminando cuenta...</p>
+      <div class="progress-bar"><div id="progress"></div></div>
     </div>
   </div>
+
 </body>
 </html>

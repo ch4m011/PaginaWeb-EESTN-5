@@ -1,197 +1,493 @@
 /* ============================================================
-   ONE PAGES DE ESPECIALIDADES
+   ONE PAGES DE ESPECIALIDADES — v2
    ------------------------------------------------------------
-   Extiende el design system (design-system.css / home-sections.css)
-   con los componentes puntuales que necesitan las páginas
-   informativas de cada especialidad técnica. Reutiliza .eest-section,
-   .eest-section-title, .eest-eyebrow, .eest-btn, .eest-cta y
-   .eest-quick-card ya definidos en home-sections.css.
+   Carga después de index.css. Reutiliza .eest-section,
+   .eest-section-title, .eest-eyebrow, .eest-btn, .eest-cta.
+   El color de cada especialidad llega por --specialty-color
+   desde el <body> de cada página.
    ============================================================ */
 
 @import url('design-system.css');
 
-/* ---------- HERO de especialidad ---------- */
+/* ---------- Base ---------- */
+.eest-spec-hero,
+.eest-section {
+  scroll-margin-top: 90px;
+}
+
+.skip-link {
+  position: absolute;
+  left: -9999px;
+  top: 8px;
+  z-index: 3000;
+  background: #fff;
+  color: #023261;
+  padding: 0.6rem 1rem;
+  border-radius: 8px;
+  font-weight: 700;
+  text-decoration: none;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+.skip-link:focus {
+  left: 12px;
+}
+
+a:focus-visible,
+button:focus-visible,
+summary:focus-visible {
+  outline: 3px solid #4a90e2;
+  outline-offset: 3px;
+}
+
+/* ---------- HERO ---------- */
 .eest-spec-hero {
-  padding-top: var(--space-6);
+  padding-top: 0;
 }
 
 .eest-spec-hero__panel {
   position: relative;
   display: flex;
   align-items: center;
-  gap: var(--space-6);
-  background: var(--color-ink);
+  gap: 2.5rem;
+  padding: clamp(2rem, 4vw, 3.25rem);
+  border-radius: 20px;
   color: #fff;
-  border-radius: var(--radius-lg);
-  padding: var(--space-7) var(--space-6);
+  background: linear-gradient(120deg, #04223f 0%, #023261 60%, #0b4f96 100%);
   overflow: hidden;
+  box-shadow: 0 18px 40px rgba(2, 50, 97, 0.25);
 }
 
+/* Acento del color de la especialidad */
 .eest-spec-hero__panel::before {
-  content: '';
+  content: "";
+  position: absolute;
+  width: 420px;
+  height: 420px;
+  right: -150px;
+  top: -180px;
+  border-radius: 50%;
+  background: radial-gradient(circle, var(--specialty-color, #f5a623) 0%, transparent 65%);
+  opacity: 0.35;
+  pointer-events: none;
+}
+
+.eest-spec-hero__panel::after {
+  content: "";
   position: absolute;
   inset: 0;
-  background: var(--specialty-color, var(--color-primary));
-  opacity: 0.28;
+  background-image: repeating-linear-gradient(45deg, rgba(255, 255, 255, 0.04) 0 2px, transparent 2px 18px);
+  pointer-events: none;
 }
 
 .eest-spec-hero__icon {
   position: relative;
+  z-index: 1;
   flex: 0 0 auto;
-  width: 96px;
-  height: 96px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 3rem;
-  background: rgba(255, 255, 255, 0.12);
-  border-radius: var(--radius-lg);
+  width: 120px;
+  height: 120px;
+  display: grid;
+  place-items: center;
+  padding: 14px;
+  border-radius: 24px;
+  background: #fff;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
+}
+
+.eest-spec-hero__logo {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
 }
 
 .eest-spec-hero__body {
   position: relative;
+  z-index: 1;
+  min-width: 0;
 }
 
-.eest-spec-hero__body .eest-eyebrow { color: var(--color-spark); }
-.eest-spec-hero__body .eest-eyebrow::before { background: var(--color-spark); }
+.eest-spec-hero__body .eest-eyebrow {
+  color: var(--specialty-color, #f5a623);
+}
+
+.eest-spec-hero__body .eest-eyebrow::before {
+  background: var(--specialty-color, #f5a623);
+}
 
 .eest-spec-hero__title {
-  font-family: var(--font-display);
+  font-family: var(--font-display, 'Barlow Condensed', 'Arial Narrow', sans-serif);
+  font-size: clamp(2.2rem, 5vw, 3.4rem);
   font-weight: 700;
-  font-size: clamp(2rem, 5vw, 3rem);
-  margin: var(--space-2) 0 var(--space-3);
-  line-height: 1.05;
+  line-height: 1.02;
+  margin: 0.6rem 0 1rem;
+  color: #fff;
 }
 
 .eest-spec-hero__desc {
-  font-family: var(--font-body);
-  color: rgba(255, 255, 255, 0.85);
+  margin: 0 0 1.25rem;
+  max-width: 60ch;
   font-size: 1.05rem;
-  line-height: 1.6;
-  max-width: 62ch;
+  line-height: 1.65;
+  color: rgba(255, 255, 255, 0.86);
+}
+
+.eest-spec-hero__meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem 0.75rem;
   margin: 0;
 }
 
-/* ---------- Bloque de texto simple (¿Qué es? / ¿Qué se aprende?) ---------- */
+.eest-spec-hero__meta span {
+  font-size: 0.85rem;
+  font-weight: 600;
+  padding: 0.35rem 0.8rem;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.12);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+}
+
+/* ---------- ÍNDICE DE SECCIONES ---------- */
+.eest-spec-index {
+  display: flex;
+  gap: 0.5rem;
+  overflow-x: auto;
+  padding: 0.5rem;
+  margin: 1.5rem 0 0;
+  background: #fff;
+  border: 1px solid #e3e9f1;
+  border-radius: 14px;
+  box-shadow: 0 6px 18px rgba(15, 35, 60, 0.06);
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  scrollbar-width: thin;
+}
+
+.eest-spec-index a {
+  flex: 0 0 auto;
+  padding: 0.55rem 1rem;
+  border-radius: 10px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: #023261;
+  text-decoration: none;
+  white-space: nowrap;
+  transition: background 0.2s ease, color 0.2s ease;
+}
+
+.eest-spec-index a:hover {
+  background: #eef3f9;
+}
+
+.eest-spec-index a:focus-visible {
+  outline-offset: -2px;
+}
+
+/* ---------- SECCIONES ---------- */
+.eest-section {
+  margin-top: 0;
+}
+
+.eest-section--tinted {
+  background: #f4f7fb;
+  border-radius: 20px;
+}
+
 .eest-spec-text {
   max-width: 74ch;
 }
 
 .eest-spec-text p {
-  font-family: var(--font-body);
-  color: var(--color-steel);
+  margin: 0 0 1rem;
   font-size: 1.02rem;
   line-height: 1.7;
-  margin: var(--space-3) 0 0;
+  color: #4f5b6b;
 }
 
-.eest-spec-text p:first-of-type { margin-top: var(--space-2); }
+.eest-spec-text p:last-child {
+  margin-bottom: 0;
+}
 
-/* ---------- Grillas de contenido (áreas / competencias / salidas) ---------- */
-.eest-spec-grid {
+/* ---------- AÑOS (acordeón nativo) ---------- */
+.eest-years {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  margin-top: 1.5rem;
+}
+
+.eest-year {
+  background: #fff;
+  border: 1px solid #e3e9f1;
+  border-radius: 14px;
+  overflow: hidden;
+  transition: box-shadow 0.2s ease;
+}
+
+.eest-year[open] {
+  box-shadow: 0 8px 24px rgba(15, 35, 60, 0.07);
+}
+
+.eest-year summary {
+  list-style: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem 1.25rem;
+  font-family: var(--font-display, 'Barlow Condensed', 'Arial Narrow', sans-serif);
+  font-size: 1.25rem;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  color: #14202e;
+  border-left: 5px solid var(--specialty-color, #023261);
+}
+
+.eest-year summary::-webkit-details-marker {
+  display: none;
+}
+
+.eest-year summary::after {
+  content: "";
+  width: 10px;
+  height: 10px;
+  border-right: 2px solid currentColor;
+  border-bottom: 2px solid currentColor;
+  transform: rotate(45deg);
+  transition: transform 0.25s ease;
+  margin-right: 0.35rem;
+  flex-shrink: 0;
+}
+
+.eest-year[open] summary::after {
+  transform: rotate(-135deg);
+}
+
+.eest-year summary:hover {
+  background: #f8fafc;
+}
+
+.eest-year .eest-materias-grid {
+  padding: 0.25rem 1.25rem 1.25rem;
+}
+
+/* ---------- Tarjetas (materias, funciones, salidas) ---------- */
+.eest-spec-grid,
+.eest-materias-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-  gap: var(--space-4);
-  margin-top: var(--space-5);
+  gap: 1rem;
+  margin-top: 1.5rem;
+}
+
+.eest-spec-grid {
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+}
+
+.eest-materias-grid {
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
 }
 
 .eest-spec-card {
-  background: var(--color-surface);
-  border: 1px solid var(--color-border);
-  border-top: 3px solid var(--specialty-color, var(--color-primary));
-  border-radius: var(--radius-md);
-  padding: var(--space-4);
+  background: #fff;
+  border: 1px solid #e3e9f1;
+  border-top: 3px solid var(--specialty-color, #023261);
+  border-radius: 14px;
+  padding: 1.25rem 1.25rem 1.1rem;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
 }
 
-.eest-spec-card h3 {
-  font-family: var(--font-body);
-  font-weight: 700;
+.eest-spec-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 12px 26px rgba(15, 35, 60, 0.09);
+}
+
+.eest-spec-card h3,
+.eest-spec-card h4 {
+  margin: 0 0 0.45rem;
   font-size: 1rem;
-  color: var(--color-ink);
-  margin: 0 0 6px;
+  font-weight: 700;
+  line-height: 1.3;
+  color: #14202e;
 }
 
 .eest-spec-card p {
-  font-family: var(--font-body);
-  font-size: 0.9rem;
-  color: var(--color-steel);
-  line-height: 1.5;
   margin: 0;
+  font-size: 0.9rem;
+  line-height: 1.55;
+  color: #5b6777;
 }
 
-/* ---------- Perfil / competencias (lista con check) ---------- */
+.eest-materias-hours {
+  margin-top: 0.35rem !important;
+  font-weight: 600;
+  color: var(--specialty-color, #023261) !important;
+  font-size: 0.82rem !important;
+}
+
+.eest-materias-desc {
+  margin-top: 0.4rem !important;
+}
+
+/* ---------- PERFIL Y HABILITACIONES (lista) ---------- */
 .eest-spec-skills {
   list-style: none;
-  margin: var(--space-5) 0 0;
+  margin: 1.5rem 0 0;
   padding: 0;
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-  gap: var(--space-3);
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 0.75rem;
 }
 
 .eest-spec-skills li {
-  display: flex;
-  align-items: flex-start;
-  gap: var(--space-3);
-  font-family: var(--font-body);
-  color: var(--color-ink);
-  font-size: 0.96rem;
+  position: relative;
+  padding: 0.9rem 1rem 0.9rem 2.6rem;
+  background: #fff;
+  border: 1px solid #e3e9f1;
+  border-radius: 12px;
+  font-size: 0.95rem;
   line-height: 1.5;
-  background: var(--color-paper);
-  border-radius: var(--radius-md);
-  padding: var(--space-3) var(--space-4);
+  color: #14202e;
 }
 
 .eest-spec-skills li::before {
-  content: '✓';
-  flex: 0 0 auto;
-  font-weight: 700;
-  color: var(--specialty-color, var(--color-primary-light));
+  content: "";
+  position: absolute;
+  left: 1rem;
+  top: 1.05rem;
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background: var(--specialty-color, #023261);
+  box-shadow: inset 0 0 0 3px #fff;
 }
 
-/* ---------- Salidas profesionales (chips) ---------- */
+/* Habilitaciones: lista más densa, una columna */
+.eest-spec-skills--list {
+  grid-template-columns: 1fr;
+}
+
+.eest-spec-note {
+  margin-top: 1.25rem;
+  padding: 1rem 1.25rem;
+  background: #fff;
+  border-left: 4px solid var(--specialty-color, #023261);
+  border-radius: 10px;
+  max-width: 74ch;
+}
+
+.eest-spec-note p {
+  margin: 0;
+  font-size: 0.92rem;
+  line-height: 1.6;
+  color: #4f5b6b;
+}
+
+/* ---------- SALIDAS (chips) ---------- */
 .eest-spec-jobs {
   display: flex;
   flex-wrap: wrap;
-  gap: var(--space-3);
-  margin-top: var(--space-5);
+  gap: 0.6rem;
+  margin-top: 1.5rem;
 }
 
 .eest-spec-job {
-  font-family: var(--font-body);
-  font-weight: 600;
   font-size: 0.9rem;
-  color: var(--color-primary);
-  background: var(--color-paper);
-  border: 1px solid var(--color-border);
+  font-weight: 600;
+  color: #023261;
+  background: #fff;
+  border: 1px solid #d6e0ec;
   border-radius: 999px;
-  padding: var(--space-2) var(--space-4);
+  padding: 0.5rem 1rem;
+  transition: border-color 0.2s ease, background 0.2s ease;
 }
 
-/* ---------- CTA final: volver / otras especialidades ---------- */
+.eest-spec-jobs .eest-spec-job:hover {
+  border-color: var(--specialty-color, #023261);
+  background: #fff;
+}
+
+/* ---------- CTA ---------- */
 .eest-spec-cta-links {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  gap: var(--space-3);
-  margin-top: var(--space-4);
+  gap: 0.75rem;
+  margin-top: 1.25rem;
 }
 
-/* ---------- Responsive ---------- */
+.eest-spec-cta-others {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5rem 1rem;
+  margin-top: 1.5rem;
+  font-size: 0.92rem;
+}
+
+.eest-spec-cta-others span {
+  color: #5b6777;
+}
+
+.eest-spec-cta-others a {
+  color: #023261;
+  font-weight: 600;
+  text-decoration: none;
+  border-bottom: 2px solid var(--specialty-color, #023261);
+  padding-bottom: 2px;
+}
+
+.eest-spec-cta-others a:hover {
+  color: #0b4f96;
+}
+
+/* ---------- RESPONSIVE ---------- */
+@media (max-width: 900px) {
+  .eest-spec-hero__panel {
+    gap: 1.75rem;
+  }
+}
+
 @media (max-width: 640px) {
   .eest-spec-hero__panel {
     flex-direction: column;
-    text-align: center;
     align-items: flex-start;
-    gap: var(--space-4);
+    gap: 1.5rem;
   }
 
-  .eest-spec-hero__desc { max-width: none; }
+  .eest-spec-hero__icon {
+    width: 88px;
+    height: 88px;
+    border-radius: 20px;
+  }
 
-  .eest-spec-skills,
-  .eest-spec-grid { grid-template-columns: 1fr; }
+  .eest-spec-index {
+    margin-left: -0.25rem;
+    margin-right: -0.25rem;
+  }
+
+  .eest-spec-grid,
+  .eest-materias-grid,
+  .eest-spec-skills {
+    grid-template-columns: 1fr;
+  }
+
+  .eest-year summary {
+    font-size: 1.1rem;
+    padding: 0.9rem 1rem;
+  }
+
+  .eest-year .eest-materias-grid {
+    padding: 0.25rem 1rem 1rem;
+  }
 }
-.logos{
-  width: 100px;
-  height: auto; /* Mantiene la proporción */
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    transition: none !important;
+    animation: none !important;
+  }
 }

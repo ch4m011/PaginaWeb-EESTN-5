@@ -1,159 +1,422 @@
 <!DOCTYPE html>
 <html lang="es">
-
 <head>
-  <link rel="icon" type="image/png" href="../img/logo-tecnica.png">
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
   <title>Especialidad Construcción | Escuela Técnica - La Plata</title>
   <meta name="description"
-    content="Conocé la especialidad técnica en Construcción de la E.E.S.T. N.º 5: qué se estudia, qué se aprende y las salidas laborales de la especialidad.">
+    content="Conocé la especialidad técnica en Construcciones (Maestro Mayor de Obras) de la E.E.S.T. N.º 5: qué se estudia, qué se aprende y las salidas laborales.">
+  <link rel="icon" type="image/png" href="../img/logo-tecnica.png">
 
-  <!-- Estilos -->
   <link rel="stylesheet" href="../css/navegador.css">
   <link rel="stylesheet" href="../css/index.css">
   <link rel="stylesheet" href="../css/especialidades.css">
 
-  <!-- Scripts -->
   <script src="../js/navbar.js" defer></script>
 </head>
+<body style="--specialty-color:#c9781f;">
 
-<body>
+  <a class="skip-link" href="#contenido">Saltar al contenido</a>
 
-  <!-- HEADER / NAVBAR -->
   <header class="navegador">
     <div class="logo">
       <div class="logo-container">
         <img src="../img/logo-tecnica.png" alt="Escudo E.E.S.T. N.º 5" class="logo-img logo-left">
-        <h1>
-          <a href="index.html">E.E.S.T. Nro 5 - "Gral. Manuel N. Savio"</a>
-        </h1>
+        <h1><a href="index.html">E.E.S.T. Nro 5 - "Gral. Manuel N. Savio"</a></h1>
       </div>
     </div>
     <nav id="navPrincipal" class="navbar"></nav>
   </header>
 
-  <main>
+  <main id="contenido">
 
     <!-- HERO -->
-    <section class="eest-section eest-spec-hero" aria-labelledby="spec-titulo">
-      <div class="eest-spec-hero__panel" style="--specialty-color:#c9781f;">
-        <div class="eest-spec-hero__icon"><img class="logos" src="../img/logo-construccion.png" alt=""></div>
+    <section class="eest-spec-hero" aria-labelledby="spec-titulo">
+      <div class="eest-spec-hero__panel">
+        <div class="eest-spec-hero__icon">
+          <img src="../img/logo-construccion.png" alt="" class="eest-spec-hero__logo">
+        </div>
         <div class="eest-spec-hero__body">
           <span class="eest-eyebrow">Especialidad técnica</span>
-          <h1 id="spec-titulo" class="eest-spec-hero__title">Construcción</h1>
+          <h1 id="spec-titulo" class="eest-spec-hero__title">Construcciones</h1>
           <p class="eest-spec-hero__desc">
-            Formación técnica en construcción y albañilería, con fuerte práctica en taller
-            para dominar las técnicas de obra desde los cimientos hasta la terminación.
+            Formación para proyectar, dirigir, ejecutar, gestionar y mantener obras edilicias e instalaciones, con
+            una mirada integral del proceso constructivo: desde el programa de necesidades del comitente hasta el
+            mantenimiento de lo construido.
+          </p>
+          <p class="eest-spec-hero__meta">
+            <span>Título: Maestro Mayor de Obras</span>
+            <span>Nivel secundario, 4.º a 7.º año</span>
           </p>
         </div>
       </div>
     </section>
 
+    <!-- ÍNDICE -->
+    <nav class="eest-spec-index" aria-label="Contenido de la página">
+      <a href="#que-es">¿Qué es?</a>
+      <a href="#materias">Materias</a>
+      <a href="#funciones">Funciones</a>
+      <a href="#perfil">Perfil</a>
+      <a href="#habilitaciones">Habilitaciones</a>
+      <a href="#salidas">Salidas</a>
+      <a href="#practicas">Prácticas</a>
+    </nav>
+
     <!-- QUÉ ES -->
-    <section class="eest-section" aria-labelledby="que-es-titulo">
+    <section class="eest-section" id="que-es" aria-labelledby="que-es-titulo">
       <span class="eest-eyebrow">La especialidad</span>
       <h2 id="que-es-titulo" class="eest-section-title">¿Qué es esta especialidad?</h2>
       <div class="eest-spec-text">
         <p>
-          Construcción es la especialidad orientada a la formación de técnicos capaces de
-          intervenir en las distintas etapas de una obra: interpretación de planos, ejecución
-          de trabajos de albañilería, instalaciones básicas y control de calidad de los
-          materiales y las terminaciones.
+          El título de referencia es Maestro Mayor de Obras, dentro del sector de Construcciones Edilicias y la familia
+          profesional de Construcciones. Está capacitado para analizar las necesidades de un cliente y elaborar el
+          programa de necesidades, desarrollar anteproyectos y proyectos de soluciones espaciales, constructivas y
+          técnicas, dirigir y gestionar la ejecución de procesos constructivos, prestar servicios de evaluación técnica
+          a terceros y asesorar técnicamente.
         </p>
         <p>
-          Combina contenidos teóricos de resistencia de materiales y normativa de construcción
-          con una intensa práctica en el taller de la escuela, donde los estudiantes trabajan
-          con herramientas y procedimientos reales de obra.
+          Su trabajo es interdisciplinario: se vincula con especialistas en equipamiento e instalaciones
+          electromecánicas, otras especialidades de la construcción, mecánica, informática y otras áreas. Responde ante
+          sus contratantes por el cumplimiento de las normas específicas, de seguridad e higiene y por la calidad de los
+          productos y servicios que presta.
         </p>
       </div>
     </section>
 
-    <!-- QUÉ SE APRENDE -->
-    <section class="eest-section eest-section--tinted" aria-labelledby="aprende-titulo">
+    <!-- MATERIAS -->
+    <section class="eest-section eest-section--tinted" id="materias" aria-labelledby="materias-titulo">
       <span class="eest-eyebrow">Formación</span>
-      <h2 id="aprende-titulo" class="eest-section-title">¿Qué se aprende?</h2>
+      <h2 id="materias-titulo" class="eest-section-title">¿Qué se aprende?</h2>
       <div class="eest-spec-text">
         <p>
-          A lo largo de la especialidad se desarrollan competencias en lectura e interpretación
-          de planos, cálculo y cómputo de materiales, técnicas de albañilería y revoque,
-          hormigón armado, instalaciones sanitarias básicas y normas de seguridad e higiene
-          en obra.
+          El plan combina materias científico-tecnológicas (Matemática, Física, Química) con formación específica en
+          construcciones: materiales, dibujo y representación gráfica, sistemas constructivos, estructuras, instalaciones,
+          documentación de obra, normativa y gerenciamiento. Se cursa de 4.º a 7.º año y culmina con las Prácticas
+          Profesionalizantes del Sector Construcciones (216 horas anuales).
         </p>
       </div>
-      <div class="eest-spec-grid" style="--specialty-color:#c9781f;">
+
+      <div class="eest-years">
+        <details class="eest-year" open>
+          <summary>4.º año</summary>
+          <div class="eest-materias-grid">
+            <article class="eest-spec-card">
+              <h4>Matemática ciclo superior</h4>
+              <p class="eest-materias-hours">4 h semanales · 144 h anuales</p>
+              <p class="eest-materias-desc">Números reales y complejos, sucesiones, funciones y análisis gráfico y analítico.</p>
+            </article>
+            <article class="eest-spec-card">
+              <h4>Física</h4>
+              <p class="eest-materias-hours">3 h semanales · 108 h anuales</p>
+              <p class="eest-materias-desc">Energía mecánica y térmica: cinemática, dinámica, calor, temperatura y calorimetría.</p>
+            </article>
+            <article class="eest-spec-card">
+              <h4>Química</h4>
+              <p class="eest-materias-hours">2 h semanales · 72 h anuales</p>
+              <p class="eest-materias-desc">Estructura atómica, tabla periódica, uniones químicas, estequiometría y soluciones.</p>
+            </article>
+            <article class="eest-spec-card">
+              <h4>Materiales para la construcción</h4>
+              <p class="eest-materias-hours">2 h semanales · 72 h anuales</p>
+              <p class="eest-materias-desc">Materiales pétreos, cerámicos, aglomerantes, hidrófugos y metales: propiedades y usos.</p>
+            </article>
+            <article class="eest-spec-card">
+              <h4>Dibujo asistido por PC</h4>
+              <p class="eest-materias-hours">3 h semanales · 108 h anuales</p>
+              <p class="eest-materias-desc">Normas y simbología de representación, escalas, acotación y dibujo asistido por computadora.</p>
+            </article>
+            <article class="eest-spec-card">
+              <h4>Representación gráfica de proyectos</h4>
+              <p class="eest-materias-hours">3 h semanales · 108 h anuales</p>
+              <p class="eest-materias-desc">Plantas, cortes, vistas y volumen; sistemas de acotación y escalas de representación.</p>
+            </article>
+            <article class="eest-spec-card">
+              <h4>Introducción a las construcciones</h4>
+              <p class="eest-materias-hours">4 h semanales · 144 h anuales</p>
+              <p class="eest-materias-desc">Suelos, fundaciones, muros de contención, nivelación y replanteo.</p>
+            </article>
+            <article class="eest-spec-card">
+              <h4>Procesos constructivos</h4>
+              <p class="eest-materias-hours">2 h semanales · 72 h anuales</p>
+              <p class="eest-materias-desc">Relevamiento de construcciones existentes, demoliciones, apuntalamientos y submuraciones.</p>
+            </article>
+            <article class="eest-spec-card">
+              <h4>Diseño arquitectónico I</h4>
+              <p class="eest-materias-hours">2 h semanales · 72 h anuales</p>
+              <p class="eest-materias-desc">Conceptos de arquitectura y urbanismo, programa de necesidades, circulación y anteproyecto.</p>
+            </article>
+          </div>
+        </details>
+
+        <details class="eest-year">
+          <summary>5.º año</summary>
+          <div class="eest-materias-grid">
+            <article class="eest-spec-card">
+              <h4>Análisis matemático</h4>
+              <p class="eest-materias-hours">4 h semanales · 144 h anuales</p>
+              <p class="eest-materias-desc">Límites, continuidad, derivadas, integrales y modelización de fenómenos.</p>
+            </article>
+            <article class="eest-spec-card">
+              <h4>Instalaciones eléctricas</h4>
+              <p class="eest-materias-hours">3 h semanales · 108 h anuales</p>
+              <p class="eest-materias-desc">Electrostática, electrodinámica, magnitudes eléctricas y corriente eléctrica.</p>
+            </article>
+            <article class="eest-spec-card">
+              <h4>Estática y resistencia de los materiales</h4>
+              <p class="eest-materias-hours">5 h semanales · 180 h anuales</p>
+              <p class="eest-materias-desc">Fuerzas, equilibrio, momentos, tipos de carga y acción del viento sobre estructuras.</p>
+            </article>
+            <article class="eest-spec-card">
+              <h4>Documentación de obra</h4>
+              <p class="eest-materias-hours">4 h semanales · 144 h anuales</p>
+              <p class="eest-materias-desc">Planos municipales, generales, de detalles y de replanteo; normas de edificación y planeamiento.</p>
+            </article>
+            <article class="eest-spec-card">
+              <h4>Patología de las construcciones</h4>
+              <p class="eest-materias-hours">2 h semanales · 72 h anuales</p>
+              <p class="eest-materias-desc">Humedades, causas y efectos, y mantenimiento predictivo, preventivo y correctivo.</p>
+            </article>
+            <article class="eest-spec-card">
+              <h4>Construcciones I</h4>
+              <p class="eest-materias-hours">3 h semanales · 108 h anuales</p>
+              <p class="eest-materias-desc">Entrepisos, dinteles, cubiertas, cielorrasos, revoques, revestimientos y aberturas.</p>
+            </article>
+            <article class="eest-spec-card">
+              <h4>Diseño arquitectónico II</h4>
+              <p class="eest-materias-hours">4 h semanales · 144 h anuales</p>
+              <p class="eest-materias-desc">Proyecto de una vivienda de dos plantas aplicando FOS, FOT y densidad.</p>
+            </article>
+          </div>
+        </details>
+
+        <details class="eest-year">
+          <summary>6.º año</summary>
+          <div class="eest-materias-grid">
+            <article class="eest-spec-card">
+              <h4>Matemática aplicada</h4>
+              <p class="eest-materias-hours">2 h semanales · 72 h anuales</p>
+              <p class="eest-materias-desc">Funciones vectoriales, límites y derivadas parciales, transformadas y probabilidad.</p>
+            </article>
+            <article class="eest-spec-card">
+              <h4>Instalaciones sanitarias y de gas</h4>
+              <p class="eest-materias-hours">3 h semanales · 108 h anuales</p>
+              <p class="eest-materias-desc">Desagües cloacales y pluviales, sistemas de ventilación y redes de gas.</p>
+            </article>
+            <article class="eest-spec-card">
+              <h4>Estructuras I</h4>
+              <p class="eest-materias-hours">6 h semanales · 216 h anuales</p>
+              <p class="eest-materias-desc">Hormigón armado: resistencia, ensayos, aceros y diagramas de tensión y deformación.</p>
+            </article>
+            <article class="eest-spec-card">
+              <h4>Derechos del trabajo</h4>
+              <p class="eest-materias-hours">2 h semanales · 72 h anuales</p>
+              <p class="eest-materias-desc">Contrato de trabajo, sueldo mínimo, remuneraciones, aportes y ART.</p>
+            </article>
+            <article class="eest-spec-card">
+              <h4>Instalaciones I</h4>
+              <p class="eest-materias-hours">6 h semanales · 216 h anuales</p>
+              <p class="eest-materias-desc">Proyecto de instalaciones, legajo técnico y planos sanitarios, de gas y eléctricos.</p>
+            </article>
+            <article class="eest-spec-card">
+              <h4>Gestión y mantenimiento de las instalaciones</h4>
+              <p class="eest-materias-hours">2 h semanales · 72 h anuales</p>
+              <p class="eest-materias-desc">Control de procesos constructivos de instalaciones, calidad de materiales y registro de avances.</p>
+            </article>
+            <article class="eest-spec-card">
+              <h4>Construcciones II</h4>
+              <p class="eest-materias-hours">2 h semanales · 72 h anuales</p>
+              <p class="eest-materias-desc">Topografía: topometría, altimetría, planimetría y medición de ángulos.</p>
+            </article>
+            <article class="eest-spec-card">
+              <h4>Diseño arquitectónico III</h4>
+              <p class="eest-materias-hours">4 h semanales · 144 h anuales</p>
+              <p class="eest-materias-desc">Programa de necesidades, normativa, evaluación de rentabilidad y flujo de fondos.</p>
+            </article>
+          </div>
+        </details>
+
+        <details class="eest-year">
+          <summary>7.º año</summary>
+          <div class="eest-materias-grid">
+            <article class="eest-spec-card">
+              <h4>Emprendimientos e innovación productiva</h4>
+              <p class="eest-materias-hours">2 h semanales · 72 h anuales</p>
+              <p class="eest-materias-desc">Teorías del emprendedorismo, finanzas, marketing y planificación de emprendimientos.</p>
+            </article>
+            <article class="eest-spec-card">
+              <h4>Estructuras II: metálicas y de madera</h4>
+              <p class="eest-materias-hours">4 h semanales · 144 h anuales</p>
+              <p class="eest-materias-desc">Cálculo de estructuras metálicas y de madera según el sistema constructivo adoptado.</p>
+            </article>
+            <article class="eest-spec-card">
+              <h4>Instalaciones térmicas y acondicionamiento del aire</h4>
+              <p class="eest-materias-hours">4 h semanales · 144 h anuales</p>
+              <p class="eest-materias-desc">Termodinámica, transferencia de calor, climatización y acondicionamiento del aire.</p>
+            </article>
+            <article class="eest-spec-card">
+              <h4>Proyecto integrador</h4>
+              <p class="eest-materias-hours">7 h semanales · 252 h anuales</p>
+              <p class="eest-materias-desc">Proyecto de arquitectura integral con aspectos normativos, legales y profesionales.</p>
+            </article>
+            <article class="eest-spec-card">
+              <h4>Gerenciamiento de obra</h4>
+              <p class="eest-materias-hours">6 h semanales · 216 h anuales</p>
+              <p class="eest-materias-desc">Dirección de obra, gestión de personal, control de procesos y de productos constructivos.</p>
+            </article>
+            <article class="eest-spec-card">
+              <h4>Normativa profesional de la construcción</h4>
+              <p class="eest-materias-hours">5 h semanales · 180 h anuales</p>
+              <p class="eest-materias-desc">Peritajes, arbitrajes y tasaciones; derecho civil, comercial y propiedad horizontal.</p>
+            </article>
+            <article class="eest-spec-card">
+              <h4>Prácticas profesionalizantes del sector construcciones</h4>
+              <p class="eest-materias-hours">216 h anuales</p>
+              <p class="eest-materias-desc">Consolidar e integrar las capacidades del perfil en situaciones de trabajo reales.</p>
+            </article>
+          </div>
+        </details>
+      </div>
+    </section>
+
+    <!-- FUNCIONES -->
+    <section class="eest-section" id="funciones" aria-labelledby="funciones-titulo">
+      <span class="eest-eyebrow">Qué hace el profesional</span>
+      <h2 id="funciones-titulo" class="eest-section-title">Funciones profesionales</h2>
+      <div class="eest-spec-grid">
         <article class="eest-spec-card">
-          <h3>Taller de albañilería</h3>
-          <p>Prácticas de mampostería, revoques y terminaciones con herramientas y materiales reales.</p>
+          <h3>Concepción de la idea y toma de partido</h3>
+          <p>Analizar las necesidades del comitente, elaborar el programa de necesidades y evaluar las alternativas de solución para el proyecto.</p>
         </article>
         <article class="eest-spec-card">
-          <h3>Dibujo técnico y planos</h3>
-          <p>Lectura, interpretación y elaboración de planos de obra.</p>
+          <h3>Planificación estratégica del anteproyecto</h3>
+          <p>Elaborar anteproyectos de soluciones espaciales, constructivas y técnicas para un programa de necesidades determinado, con costos y tiempos acordados.</p>
         </article>
         <article class="eest-spec-card">
-          <h3>Materiales de construcción</h3>
-          <p>Propiedades, usos y cómputo de los principales materiales utilizados en obra.</p>
+          <h3>Diseño y resolución constructiva</h3>
+          <p>Proyectar soluciones edilicias, constructivas y técnicas, dimensionar elementos y estructuras, y definir materiales e instalaciones según la normativa vigente.</p>
         </article>
         <article class="eest-spec-card">
-          <h3>Seguridad e higiene</h3>
-          <p>Normas y procedimientos de trabajo seguro en obras de construcción.</p>
+          <h3>Gestión de documentación técnica</h3>
+          <p>Elaborar y actualizar la documentación gráfica y escrita (planos, memorias, pliegos, cómputos y presupuestos) para su aprobación ante los organismos pertinentes.</p>
         </article>
         <article class="eest-spec-card">
-          <h3>Topografía básica</h3>
-          <p>Nociones de relevamiento y nivelación de terrenos para el inicio de una obra.</p>
+          <h3>Coordinación operativa y relevamientos</h3>
+          <p>Gestionar relevamientos topográficos, trabajos de campo y gabinete, replanteos de obra y la coordinación de los procesos de trabajo y de compras.</p>
+        </article>
+        <article class="eest-spec-card">
+          <h3>Dirección de la ejecución de obras</h3>
+          <p>Dirigir y controlar procesos constructivos, distribuir tareas, máquinas y equipos, aplicar procedimientos de calidad y seguridad, y certificar los trabajos realizados.</p>
+        </article>
+        <article class="eest-spec-card">
+          <h3>Mantenimiento de obras e instalaciones</h3>
+          <p>Planificar, gestionar y dirigir trabajos de mantenimiento predictivo, preventivo y correctivo de edificios e instalaciones.</p>
+        </article>
+        <article class="eest-spec-card">
+          <h3>Evaluación técnica y comercialización</h3>
+          <p>Ejecutar tasaciones, peritajes y arbitrajes, representar técnicamente a empresas o estudios ante terceros y asesorar en la comercialización de una idea o producto.</p>
         </article>
       </div>
     </section>
 
-    <!-- PERFIL / COMPETENCIAS -->
-    <section class="eest-section" aria-labelledby="perfil-titulo">
+    <!-- PERFIL -->
+    <section class="eest-section eest-section--tinted" id="perfil" aria-labelledby="perfil-titulo">
       <span class="eest-eyebrow">Perfil del egresado</span>
       <h2 id="perfil-titulo" class="eest-section-title">Perfil y competencias</h2>
-      <ul class="eest-spec-skills" style="--specialty-color:#c9781f;">
-        <li>Lectura e interpretación de planos de obra</li>
-        <li>Ejecución de trabajos de albañilería y terminaciones</li>
-        <li>Cómputo y control de materiales</li>
-        <li>Trabajo en equipo dentro de una obra</li>
-        <li>Aplicación de normas de seguridad e higiene laboral</li>
-        <li>Precisión y prolijidad en el trabajo manual</li>
+      <ul class="eest-spec-skills">
+        <li>Análisis de las necesidades del comitente y elaboración del programa de necesidades</li>
+        <li>Elaboración de anteproyectos de soluciones espaciales, constructivas y técnicas</li>
+        <li>Proyecto de soluciones edilicias, constructivas y técnicas, con dimensionamiento de elementos y estructuras</li>
+        <li>Dirección y gestión de la ejecución de procesos constructivos y de equipos de trabajo</li>
+        <li>Administración de obra: cómputos, presupuestos, certificados, compras, control de calidad, seguridad y costos</li>
+        <li>Evaluación técnica, peritajes, arbitrajes y tasaciones para terceros</li>
+        <li>Asesoramiento técnico y representación de empresas o estudios ante terceros</li>
+        <li>Gestión del mantenimiento de edificios e instalaciones</li>
       </ul>
     </section>
 
-    <!-- SALIDAS PROFESIONALES -->
-    <section class="eest-section eest-section--tinted" aria-labelledby="salidas-titulo">
+    <!-- HABILITACIONES -->
+    <section class="eest-section" id="habilitaciones" aria-labelledby="habilitaciones-titulo">
+      <span class="eest-eyebrow">Alcance del título</span>
+      <h2 id="habilitaciones-titulo" class="eest-section-title">Habilitaciones profesionales</h2>
+      <ul class="eest-spec-skills eest-spec-skills--list">
+        <li>Proyecto, dirección y/o construcción de edificios de hasta planta baja, un subsuelo, cuatro pisos y dependencias en la azotea (se excluyen estructuras hiperestáticas de grado superior y estructuras antisísmicas)</li>
+        <li>Ejecución de construcciones edilicias y conducción de grupos de trabajo a cargo</li>
+        <li>Peritajes y arbitrajes de instalaciones técnicas y construcciones edilicias para las que se haya habilitado</li>
+        <li>Tasaciones de construcciones edilicias</li>
+        <li>Proyecto, dirección y/o ejecución de instalaciones de gas domiciliarias, comerciales e industriales de hasta 9,81 bar (10 kg/cm²), por redes o envasado</li>
+        <li>Ejecución de instalaciones de redes de gas</li>
+        <li>Proyecto, dirección y/o ejecución de instalaciones sanitarias domiciliarias, comerciales o industriales (se excluye el tratamiento químico de efluentes industriales)</li>
+        <li>Ejecución de instalaciones de redes de distribución de agua y cloacales</li>
+        <li>Proyecto, dirección y/o ejecución de instalaciones eléctricas mono y trifásicas de hasta 50 kVA y 250 V contra tierra o 400 V entre fases, para construcciones edilicias</li>
+        <li>Proyecto, dirección y/o construcción de instalaciones electromecánicas cuya potencia mecánica no supere los 11 kW (15 HP)</li>
+      </ul>
+    </section>
+
+    <!-- SALIDAS -->
+    <section class="eest-section eest-section--tinted" id="salidas" aria-labelledby="salidas-titulo">
       <span class="eest-eyebrow">Después de la escuela</span>
       <h2 id="salidas-titulo" class="eest-section-title">Salidas profesionales</h2>
       <div class="eest-spec-text">
-        <p>La formación permite incorporarse tempranamente al mundo del trabajo o continuar estudios superiores relacionados.</p>
+        <p>
+          El Maestro Mayor de Obras puede desempeñarse en oficinas técnicas, obras de construcción edilicia y empresas
+          de productos o servicios relacionados con la construcción, en áreas de proyecto, dirección, planificación,
+          control, gestión, administración y comercialización. También puede actuar de forma independiente.
+        </p>
       </div>
       <div class="eest-spec-jobs">
-        <span class="eest-spec-job">Técnico de obra</span>
-        <span class="eest-spec-job">Ayudante de albañilería</span>
-        <span class="eest-spec-job">Inspector de obra junior</span>
-        <span class="eest-spec-job">Emprendimiento en reformas</span>
-        <span class="eest-spec-job">Base para Ingeniería Civil o Arquitectura</span>
+        <span class="eest-spec-job">Oficinas técnicas y estudios de proyecto</span>
+        <span class="eest-spec-job">Dirección y ejecución de obras de construcción edilicia</span>
+        <span class="eest-spec-job">Gerenciamiento y control de obra</span>
+        <span class="eest-spec-job">Planificación y administración de la construcción</span>
+        <span class="eest-spec-job">Mantenimiento de edificios e instalaciones</span>
+        <span class="eest-spec-job">Tasaciones, peritajes y arbitrajes</span>
+        <span class="eest-spec-job">Comercialización en la industria de la construcción</span>
+        <span class="eest-spec-job">Empresas de productos y servicios para la construcción</span>
+        <span class="eest-spec-job">Emprendimiento propio o trabajo independiente</span>
       </div>
     </section>
 
-    <!-- CTA FINAL -->
+    <!-- PRÁCTICAS -->
+    <section class="eest-section" id="practicas" aria-labelledby="practicas-titulo">
+      <span class="eest-eyebrow">Experiencia práctica</span>
+      <h2 id="practicas-titulo" class="eest-section-title">Prácticas profesionalizantes</h2>
+      <div class="eest-spec-text">
+        <p>
+          En 7.º año, las Prácticas Profesionalizantes del Sector Construcciones tienen una carga de 216 horas anuales.
+          Permiten consolidar e integrar las capacidades del perfil en situaciones de trabajo reales, dentro de la
+          escuela (proyectos de prácticas, proyectos tecnológicos, Módulos Integradores de 7.º año) o fuera de ella
+          (trabajos por cuenta de terceros).
+        </p>
+        <p>
+          Entre los entornos formativos se encuentran el Laboratorio de Diseño, el Laboratorio de Instalaciones
+          Eléctricas, el Laboratorio de Automatización (domótica) y Robótica, el Laboratorio de Materiales y el
+          Laboratorio de Ensayos de compresión, tracción y radiografías.
+        </p>
+      </div>
+    </section>
+
+    <!-- CTA -->
     <section class="eest-section" aria-labelledby="cta-spec-titulo">
       <div class="eest-cta">
         <span class="eest-eyebrow">Seguí conociendo la escuela</span>
-        <h2 id="cta-spec-titulo">¿Querés conocer las otras especialidades?</h2>
+        <h2 id="cta-spec-titulo">¿Querés sumarte a esta especialidad?</h2>
+        <p>Conocé el proceso de pre-inscripción y empezá el camino técnico en la E.E.S.T. N.º 5.</p>
         <div class="eest-spec-cta-links">
-          <a class="eest-btn eest-btn--ghost-light" href="tecnicatura-electromecanica.html">Electromecánica</a>
-          <a class="eest-btn eest-btn--ghost-light" href="tecnicatura-quimica.html">Química</a>
-          <a class="eest-btn eest-btn--ghost-light" href="tecnicatura-informatica.html">Informática</a>
-          <a class="eest-btn eest-btn--primary" href="index.html">← Volver al inicio</a>
+          <a class="eest-btn eest-btn--primary" href="preinscripcion.html">Ver pre-inscripción <span aria-hidden="true">→</span></a>
         </div>
       </div>
+      <nav class="eest-spec-cta-others" aria-label="Otras especialidades">
+        <span>Otras especialidades:</span>
+        <a href="tecnicatura-electromecanica.html">Electromecánica</a>
+        <a href="tecnicatura-quimica.html">Química</a>
+        <a href="tecnicatura-informatica.html">Informática</a>
+        <a href="tecnica5.html">Volver a institucional</a>
+      </nav>
     </section>
 
   </main>
 
-  <!-- FOOTER -->
   <footer class="eest-footer"></footer>
-
 </body>
-
 </html>

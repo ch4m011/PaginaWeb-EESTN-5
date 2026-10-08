@@ -17,7 +17,10 @@
     <script src="../js/navbar.js" defer></script>
 </head>
 <body>
-    <header class="navegador">
+
+  <a class="skip-link" href="#contenido">Saltar al contenido</a>
+
+  <header class="navegador">
     <div class="logo">
       <div class="logo-container">
         <img src="../img/logo-tecnica.png" alt="Escudo E.E.S.T. N.º 5" class="logo-img logo-left">
@@ -29,9 +32,10 @@
     <nav id="navPrincipal" class="navbar"></nav>
   </header>
 
-  <main>
-    <!-- HERO INSTITUCIONAL -->
-    <section class="eest-section eest-inst-hero" aria-labelledby="inst-titulo">
+  <main id="contenido">
+
+    <!-- HERO -->
+    <section class="eest-inst-hero" aria-labelledby="inst-titulo">
       <div class="eest-inst-hero__panel">
         <div class="eest-inst-hero__icon">
           <img src="../img/logo-tecnica.png" alt="Escudo institucional de la E.E.S.T. N.º 5">
@@ -47,10 +51,30 @@
             a la práctica en taller y al mundo del trabajo.
           </p>
           <div class="eest-inst-hero__actions">
-            <a class="eest-btn eest-btn--primary" href="preinscripcion.html">Ver pre-inscripción →</a>
+            <a class="eest-btn eest-btn--primary" href="preinscripcion.html">Ver pre-inscripción <span aria-hidden="true">→</span></a>
             <a class="eest-btn eest-btn--ghost-light" href="contacto.html">Contactanos</a>
           </div>
         </div>
+      </div>
+    </section>
+
+    <!-- DATOS RÁPIDOS -->
+    <section class="eest-facts" aria-label="La escuela en datos">
+      <div class="eest-fact">
+        <strong>4</strong>
+        <span>Especialidades técnicas</span>
+      </div>
+      <div class="eest-fact">
+        <strong>Pública</strong>
+        <span>Gestión estatal</span>
+      </div>
+      <div class="eest-fact">
+        <strong>La Plata</strong>
+        <span>Buenos Aires, Argentina</span>
+      </div>
+      <div class="eest-fact">
+        <strong>Secundaria</strong>
+        <span>Nivel técnico</span>
       </div>
     </section>
 
@@ -59,41 +83,75 @@
       <span class="eest-eyebrow">Quiénes somos</span>
       <h2 id="quienes-titulo" class="eest-section-title">Nuestra institución</h2>
 
-      <div class="eest-inst-text">
-        <p>
-          La E.E.S.T. N.º 5 "Gral. Manuel N. Savio" es una escuela secundaria técnica
-          de gestión estatal de La Plata. Además de los contenidos comunes del
-          secundario, forma técnicos en especialidades orientadas al trabajo,
-          combinando teoría con práctica de taller y laboratorio.
-        </p>
-        <p>
+      <div class="eest-about">
+        <div class="eest-about__text">
+          <p>
+            La E.E.S.T. N.º 5 "Gral. Manuel N. Savio" es una escuela secundaria técnica
+            de gestión estatal de La Plata. Además de los contenidos comunes del
+            secundario, forma técnicos en especialidades orientadas al trabajo,
+            combinando teoría con práctica de taller y laboratorio.
+          </p>
           <!-- TODO Chamito: reemplazar por el texto institucional real (turnos, matrícula, historia breve) -->
-          Forma parte de la comunidad educativa de la ciudad desde hace varias
-          décadas, acompañando a generaciones de estudiantes en su formación técnica
-          y su inserción en el mundo laboral o en estudios superiores.
-        </p>
+          <p>
+            Forma parte de la comunidad educativa de la ciudad desde hace varias
+            décadas, acompañando a generaciones de estudiantes en su formación técnica
+            y su inserción en el mundo laboral o en estudios superiores.
+          </p>
+        </div>
+
+        <aside class="eest-about__highlight" aria-labelledby="ofrece-titulo">
+          <h3 id="ofrece-titulo">Qué ofrecemos</h3>
+          <ul>
+            <li>
+              <span class="eest-mini-icon" aria-hidden="true">
+                <svg class="eest-icon" viewBox="0 0 24 24"><path d="M22 9L12 4 2 9l10 5 10-5z"/><path d="M6 11v5c0 1.5 2.7 3 6 3s6-1.5 6-3v-5"/></svg>
+              </span>
+              Secundaria completa con contenidos comunes
+            </li>
+            <li>
+              <span class="eest-mini-icon" aria-hidden="true">
+                <svg class="eest-icon" viewBox="0 0 24 24"><path d="M14.7 6.3a4 4 0 0 0 5 5L11 20l-4-4 8.7-8.7z"/><path d="M4 4l4 4"/></svg>
+              </span>
+              Talleres y laboratorios equipados
+            </li>
+            <li>
+              <span class="eest-mini-icon" aria-hidden="true">
+                <svg class="eest-icon" viewBox="0 0 24 24"><rect x="3" y="7" width="18" height="13" rx="2"/><path d="M9 7V5a2 2 0 0 1 2-2h2a2 2 0 0 1 2 2v2"/><path d="M3 13h18"/></svg>
+              </span>
+              Orientación al mundo laboral y a estudios superiores
+            </li>
+          </ul>
+        </aside>
       </div>
     </section>
 
     <!-- HISTORIA -->
     <section class="eest-section eest-section--tinted" aria-labelledby="historia-titulo">
-      <span class="eest-eyebrow">Nuestra historia</span>
-      <h2 id="historia-titulo" class="eest-section-title">Un poco de historia</h2>
+      <div class="eest-history">
+        <div class="eest-history__head">
+          <span class="eest-eyebrow">Nuestra historia</span>
+          <h2 id="historia-titulo" class="eest-section-title">Un poco de historia</h2>
+          <p class="eest-history__intro">Algunos hitos de la institución a lo largo de su recorrido.</p>
+        </div>
 
-      <!-- TODO Chamito: cargar los años/hitos reales de la escuela; estos son placeholders -->
-      <div class="eest-timeline">
-        <div class="eest-timeline__item">
-          <span class="eest-timeline__year">Fundación</span>
-          <p>Apertura de la institución como escuela técnica de gestión pública en La Plata.</p>
-        </div>
-        <div class="eest-timeline__item">
-          <span class="eest-timeline__year">Crecimiento</span>
-          <p>Incorporación de nuevas especialidades técnicas y ampliación de talleres y laboratorios.</p>
-        </div>
-        <div class="eest-timeline__item">
-          <span class="eest-timeline__year">Actualidad</span>
-          <p>Formación técnica activa en Construcción, Electromecánica, Química e Informática.</p>
-        </div>
+        <!-- TODO Chamito: cargar los años/hitos reales de la escuela; estos son placeholders -->
+        <ol class="eest-timeline">
+          <li>
+            <span class="eest-timeline__dot" aria-hidden="true"></span>
+            <span class="eest-timeline__year">Fundación</span>
+            <p>Apertura de la institución como escuela técnica de gestión pública en La Plata.</p>
+          </li>
+          <li>
+            <span class="eest-timeline__dot" aria-hidden="true"></span>
+            <span class="eest-timeline__year">Crecimiento</span>
+            <p>Incorporación de nuevas especialidades técnicas y ampliación de talleres y laboratorios.</p>
+          </li>
+          <li>
+            <span class="eest-timeline__dot" aria-hidden="true"></span>
+            <span class="eest-timeline__year">Actualidad</span>
+            <p>Formación técnica activa en Construcción, Electromecánica, Química e Informática.</p>
+          </li>
+        </ol>
       </div>
     </section>
 
@@ -104,62 +162,48 @@
 
       <div class="eest-values-grid">
         <article class="eest-value-card">
-          <div class="eest-value-card__icon">🎓</div>
+          <div class="eest-value-card__icon" aria-hidden="true">
+            <svg class="eest-icon" viewBox="0 0 24 24"><path d="M22 9L12 4 2 9l10 5 10-5z"/><path d="M6 11v5c0 1.5 2.7 3 6 3s6-1.5 6-3v-5"/></svg>
+          </div>
           <h3>Formación técnica de calidad</h3>
           <p>Educación secundaria técnica con base científica y práctica real de taller.</p>
         </article>
+
         <article class="eest-value-card">
-          <div class="eest-value-card__icon">🤝</div>
+          <div class="eest-value-card__icon" aria-hidden="true">
+            <svg class="eest-icon" viewBox="0 0 24 24"><circle cx="9" cy="8" r="3.5"/><path d="M2.5 20c0-3.3 2.9-5.5 6.5-5.5s6.5 2.2 6.5 5.5"/><path d="M16 4.5a3.5 3.5 0 0 1 0 7"/><path d="M18 14.8c2 .8 3.5 2.6 3.5 5.2"/></svg>
+          </div>
           <h3>Compromiso comunitario</h3>
           <p>Vínculo activo con las familias y la comunidad de La Plata.</p>
         </article>
+
         <article class="eest-value-card">
-          <div class="eest-value-card__icon">🌎</div>
+          <div class="eest-value-card__icon" aria-hidden="true">
+            <svg class="eest-icon" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M3 12h18"/><path d="M12 3a14 14 0 0 1 0 18a14 14 0 0 1 0-18z"/></svg>
+          </div>
           <h3>Inclusión educativa</h3>
-          <p>Escuela pública, abierta a toda la comunidad, sin costo de matrícula.</p>
+          <p>Escuela pública, abierta a toda la comunidad.</p>
         </article>
+
         <article class="eest-value-card">
-          <div class="eest-value-card__icon">🛠️</div>
+          <div class="eest-value-card__icon" aria-hidden="true">
+            <svg class="eest-icon" viewBox="0 0 24 24"><rect x="3" y="7" width="18" height="13" rx="2"/><path d="M9 7V5a2 2 0 0 1 2-2h2a2 2 0 0 1 2 2v2"/><path d="M3 13h18"/></svg>
+          </div>
           <h3>Vinculación laboral</h3>
           <p>Formación orientada a salidas laborales concretas y a estudios superiores.</p>
         </article>
       </div>
     </section>
 
-    <!-- NÚMEROS INSTITUCIONALES -->
-    <section class="eest-section eest-section--tinted" aria-labelledby="numeros-titulo">
-      <span class="eest-eyebrow">En números</span>
-      <h2 id="numeros-titulo" class="eest-section-title">La escuela hoy</h2>
-
-      <div class="eest-stats-banner">
-        <div class="eest-stat">
-          <strong>4</strong>
-          <span>Especialidades técnicas</span>
-        </div>
-        <div class="eest-stat">
-          <strong>Pública</strong>
-          <span>Gestión estatal</span>
-        </div>
-        <div class="eest-stat">
-          <strong>La Plata</strong>
-          <span>Buenos Aires, Argentina</span>
-        </div>
-        <div class="eest-stat">
-          <strong>Sec.</strong>
-          <span>Nivel secundario técnico</span>
-        </div>
-      </div>
-    </section>
-
     <!-- ESPECIALIDADES -->
-    <section class="eest-section" aria-labelledby="tecnica-titulo">
+    <section class="eest-section eest-section--tinted" aria-labelledby="tecnica-titulo">
       <span class="eest-eyebrow">Formación técnica</span>
       <h2 id="tecnica-titulo" class="eest-section-title">Nuestras especialidades</h2>
       <div class="eest-specialties">
         <article class="eest-specialty" style="--specialty-color: #c9781f">
           <div class="eest-specialty__icon"><img src="../img/logo-construccion.png" alt="logo construccion"></div>
           <a href="tecnicatura-construccion.html" class="eest-specialty__link" aria-label="Ver especialidad Construcción"></a>
-          <h3>Construcciónes</h3>
+          <h3>Construcción</h3>
           <p>Formación en técnicas de construcción y albañilería, con práctica en taller.</p>
         </article>
         <article class="eest-specialty" style="--specialty-color: #f4cd3b">
@@ -184,7 +228,7 @@
     </section>
 
     <!-- UBICACIÓN Y CONTACTO -->
-    <section class="eest-section eest-section--tinted" aria-labelledby="ubicacion-titulo">
+    <section class="eest-section" aria-labelledby="ubicacion-titulo">
       <span class="eest-eyebrow">Cómo llegar</span>
       <h2 id="ubicacion-titulo" class="eest-section-title">Ubicación y contacto</h2>
 
@@ -197,32 +241,45 @@
             referrerpolicy="no-referrer-when-downgrade"
             title="Mapa de ubicación de la E.E.S.T. N.º 5"></iframe>
         </div>
+
         <div class="eest-location__body">
           <ul class="eest-location-list">
             <li>
-              <span class="eest-location-list__icon">📍</span>
-              <span>
+              <span class="eest-location-list__icon" aria-hidden="true">
+                <svg class="eest-icon" viewBox="0 0 24 24"><path d="M12 21s-7-6.2-7-11.5a7 7 0 0 1 14 0C19 14.8 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.5"/></svg>
+              </span>
+              <div>
                 <strong>Dirección</strong>
                 <!-- TODO Chamito: dirección exacta -->
-                <span>La Plata, Buenos Aires, Argentina</span>
-              </span>
+                <span class="eest-location-list__text">La Plata, Buenos Aires, Argentina</span>
+              </div>
             </li>
             <li>
-              <span class="eest-location-list__icon">🕒</span>
-              <span>
+              <span class="eest-location-list__icon" aria-hidden="true">
+                <svg class="eest-icon" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>
+              </span>
+              <div>
                 <strong>Horarios</strong>
                 <!-- TODO Chamito: turnos reales -->
-                <span>Turno mañana y turno tarde</span>
-              </span>
+                <span class="eest-location-list__text">Turno mañana y turno tarde</span>
+              </div>
             </li>
             <li>
-              <span class="eest-location-list__icon">✉️</span>
-              <span>
-                <strong>Contacto</strong>
-                <span>Escribinos desde el <a href="contacto.html">formulario de contacto</a></span>
+              <span class="eest-location-list__icon" aria-hidden="true">
+                <svg class="eest-icon" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3.5 6.5L12 13l8.5-6.5"/></svg>
               </span>
+              <div>
+                <strong>Contacto</strong>
+                <span class="eest-location-list__text">Escribinos desde el <a href="contacto.html">formulario de contacto</a></span>
+              </div>
             </li>
           </ul>
+
+          <a class="eest-btn eest-btn--outline eest-location__cta"
+            href="https://www.google.com/maps/dir/?api=1&destination=E.E.S.T.+N%C2%BA+5+Gral.+Manuel+N.+Savio+La+Plata"
+            target="_blank" rel="noopener">
+            Cómo llegar <span aria-hidden="true">↗</span>
+          </a>
         </div>
       </div>
     </section>
@@ -234,14 +291,15 @@
         <h2 id="cta-inst-titulo">¿Querés formar parte de nuestra comunidad educativa?</h2>
         <p>Conocé el proceso de pre-inscripción y sumate a la E.E.S.T. N.º 5.</p>
         <div class="eest-inst-cta-links">
-          <a class="eest-btn eest-btn--primary" href="preinscripcion.html">Ver pre-inscripción →</a>
-          <a class="eest-btn eest-btn--ghost-light" href="index.html">← Volver al inicio</a>
+          <a class="eest-btn eest-btn--primary" href="preinscripcion.html">Ver pre-inscripción <span aria-hidden="true">→</span></a>
+          <a class="eest-btn eest-btn--ghost-light" href="index.html"><span aria-hidden="true">←</span> Volver al inicio</a>
         </div>
       </div>
     </section>
+
   </main>
 
-  <!-- FOOTER -->
+  <!-- FOOTER (se completa desde navbar.js) -->
   <footer class="eest-footer"></footer>
 </body>
 </html>

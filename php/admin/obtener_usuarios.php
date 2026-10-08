@@ -1,52 +1,44 @@
 <?php
+ini_set('display_errors', '0');
+header('Content-Type: application/json; charset=utf-8');
 session_start();
-require_once('../config.php');
+require_once __DIR__ . '/../config.php';
 
-// Verificar sesión admin
+// Solo administradores
 if (!isset($_SESSION['rol']) || $_SESSION['rol'] !== 'admin') {
-    header('Content-Type: application/json');
-    echo json_encode(['error' => 'Acceso no autorizado'.$_SESSION['rol']]);
+    http_response_code(403);
+    echo json_encode(['success' => false, 'message' => 'Acceso no autorizado.']);
     exit;
 }
 
-// Forzar uso de MySQL
 try {
-    // Debug - Mostrar conexión
-    if ($conn->connect_error) {
-        throw new Exception("Error de conexión: " . $conn->connect_error);
+    if (!isset($conn) || $conn->connect_error) {
+        throw new Exception('No se pudo conectar con la base de datos.');
     }
 
-    // Consulta para obtener usuarios
-    $query = "SELECT id, nombre, email, rol, fecha_registro FROM usuarios";
-    $result = $conn->query($query);
-    
+    $result = $conn->query("SELECT id, nombre, email, rol, fecha_registro FROM usuarios ORDER BY fecha_registro DESC");
     if (!$result) {
-        throw new Exception($conn->error);
+        throw new Exception('Error en la consulta: ' . $conn->error);
     }
-    
-    $usuarios = array();
+
+    $usuarios = [];
     while ($row = $result->fetch_assoc()) {
-        $usuarios[] = array(
+        $usuarios[] = [
             'id' => $row['id'],
             'nombre' => $row['nombre'],
             'email' => $row['email'],
             'rol' => $row['rol'] ?? 'usuario',
             'fecha_registro' => $row['fecha_registro']
-        );
+        ];
     }
-    
-    echo json_encode([
-        'success' => true,
-        'usuarios' => $usuarios
-    ]);
+
+    echo json_encode(['success' => true, 'usuarios' => $usuarios]);
 
 } catch (Exception $e) {
     http_response_code(500);
-    echo json_encode([
-        'success' => false,
-        'message' => 'Error al obtener usuarios: ' . $e->getMessage()
-    ]);
+    echo json_encode(['success' => false, 'message' => $e->getMessage()]);
+} finally {
+    if (isset($conn) && $conn instanceof mysqli) {
+        $conn->close();
+    }
 }
-
-$conn->close();
-?>

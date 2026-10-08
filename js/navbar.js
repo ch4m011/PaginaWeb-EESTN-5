@@ -178,27 +178,64 @@ async function actualizarNav() {
     const dropdown = document.createElement("div");
     dropdown.classList.add("user-menu");
 
+        // Íconos SVG del menú de usuario
+    const ICONOS = {
+      panel: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="12" cy="12" r="3"/>
+                <path d="M19.4 15a1.7 1.7 0 0 0 .3 1.8l.1.1a2 2 0 1 1-2.8 2.8l-.1-.1a1.7 1.7 0 0 0-1.8-.3 1.7 1.7 0 0 0-1 1.5V21a2 2 0 1 1-4 0v-.1a1.7 1.7 0 0 0-1.1-1.5 1.7 1.7 0 0 0-1.8.3l-.1.1a2 2 0 1 1-2.8-2.8l.1-.1a1.7 1.7 0 0 0 .3-1.8 1.7 1.7 0 0 0-1.5-1H3a2 2 0 1 1 0-4h.1a1.7 1.7 0 0 0 1.5-1.1 1.7 1.7 0 0 0-.3-1.8l-.1-.1a2 2 0 1 1 2.8-2.8l.1.1a1.7 1.7 0 0 0 1.8.3H9a1.7 1.7 0 0 0 1-1.5V3a2 2 0 1 1 4 0v.1a1.7 1.7 0 0 0 1 1.5 1.7 1.7 0 0 0 1.8-.3l.1-.1a2 2 0 1 1 2.8 2.8l-.1.1a1.7 1.7 0 0 0-.3 1.8V9a1.7 1.7 0 0 0 1.5 1H21a2 2 0 1 1 0 4h-.1a1.7 1.7 0 0 0-1.5 1z"/>
+              </svg>`,
+      escritor: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M12 20h9"/>
+                <path d="M16.5 3.5a2.1 2.1 0 0 1 3 3L7 19l-4 1 1-4z"/>
+              </svg>`,
+      perfil: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="12" cy="8" r="4"/>
+                <path d="M4 21c0-4 3.6-6.5 8-6.5s8 2.5 8 6.5"/>
+              </svg>`,
+      salir: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M13 4H6a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h7"/>
+                <path d="M10 12h10"/>
+                <path d="M16.5 8.5L20 12l-3.5 3.5"/>
+              </svg>`
+    };
+
+    // Crea un ítem del menú con ícono + texto
+    function crearItemMenu({ icono, texto, href, danger = false, onclick }) {
+      const el = document.createElement(href ? "a" : "button");
+      if (href) el.href = href;
+      if (!href) el.type = "button";
+      el.className = "menu-item" + (danger ? " menu-item--danger" : "");
+      el.innerHTML = `
+        <span class="menu-item__icon" aria-hidden="true">${icono}</span>
+        <span class="menu-item__label">${texto}</span>`;
+      if (onclick) el.onclick = onclick;
+      return el;
+    }
+
     if (usuario.rol === "admin" || usuario.rol === "escritor") {
-      const link = document.createElement("a");
-      link.href = `../html/panel_edicion.html`;
-      link.innerHTML = usuario.rol === "admin" ? "⚙️ Panel Admin" : "📝 Panel Escritor";
-      dropdown.appendChild(link);
+      dropdown.appendChild(crearItemMenu({
+        icono: usuario.rol === "admin" ? ICONOS.panel : ICONOS.escritor,
+        texto: usuario.rol === "admin" ? "Panel Admin" : "Panel Escritor",
+        href: "../html/panel_edicion.html"
+      }));
 
       const sep = document.createElement("hr");
-      sep.style.margin = "5px 0";
+      sep.className = "menu-separator";
       dropdown.appendChild(sep);
     }
 
-    const perfilLink = document.createElement("a");
-    perfilLink.href = "../html/perfil.html";
-    perfilLink.textContent = "👤 Mi perfil";
-    dropdown.appendChild(perfilLink);
+    dropdown.appendChild(crearItemMenu({
+      icono: ICONOS.perfil,
+      texto: "Mi perfil",
+      href: "../html/perfil.html"
+    }));
 
-    const logoutBtn = document.createElement("button");
-    logoutBtn.textContent = "🚪 Cerrar sesión";
-    logoutBtn.onclick = cerrarSesion;
-    dropdown.appendChild(logoutBtn);
-
+    dropdown.appendChild(crearItemMenu({
+      icono: ICONOS.salir,
+      texto: "Cerrar sesión",
+      danger: true,
+      onclick: cerrarSesion
+    }));
     userBtn.onclick = (e) => {
       e.stopPropagation();
       dropdown.classList.toggle("show");
@@ -325,26 +362,54 @@ if (footer) {
           <strong>E.E.S.T. N.º 5</strong>
           <span>"Gral. Manuel N. Savio" — La Plata</span>
         </div>
+        <div class="eest-footer__social">
+          <a href="https://www.youtube.com/" target="_blank" rel="noopener" aria-label="YouTube de la escuela" title="YouTube">
+            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+              <path d="M23.5 6.2a3 3 0 0 0-2.1-2.1C19.5 3.6 12 3.6 12 3.6s-7.5 0-9.4.5A3 3 0 0 0 .5 6.2 31 31 0 0 0 0 12a31 31 0 0 0 .5 5.8 3 3 0 0 0 2.1 2.1c1.9.5 9.4.5 9.4.5s7.5 0 9.4-.5a3 3 0 0 0 2.1-2.1A31 31 0 0 0 24 12a31 31 0 0 0-.5-5.8zM9.6 15.6V8.4L15.8 12l-6.2 3.6z"/>
+            </svg>
+          </a>
+          <a href="https://www.instagram.com/" target="_blank" rel="noopener" aria-label="Instagram de la escuela" title="Instagram">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <rect x="3" y="3" width="18" height="18" rx="5"/>
+              <circle cx="12" cy="12" r="4"/>
+              <circle cx="17.5" cy="6.5" r="0.6" fill="currentColor"/>
+            </svg>
+          </a>
+        </div>
       </div>
+
       <div>
         <h4>Navegación</h4>
         <ul>
           <li><a href="index.html">Inicio</a></li>
+          <li><a href="tecnica5.html">Institucional</a></li>
           <li><a href="index.html#noticiasContainer">Noticias</a></li>
           <li><a href="contacto.html">Contacto</a></li>
         </ul>
       </div>
+
+      <div>
+        <h4>Especialidades</h4>
+        <ul>
+          <li><a href="tecnicatura-construccion.html">Construcción</a></li>
+          <li><a href="tecnicatura-electromecanica.html">Electromecánica</a></li>
+          <li><a href="tecnicatura-quimica.html">Química</a></li>
+          <li><a href="tecnicatura-informatica.html">Informática</a></li>
+        </ul>
+      </div>
+
       <div>
         <h4>Recursos</h4>
         <ul>
-          <li><a href="https://sites.google.com/eest5.com/bibliotecadigital" target="_blank" rel="noopener">Biblioteca
-              escolar</a></li>
+          <li><a href="https://sites.google.com/eest5.com/bibliotecadigital" target="_blank" rel="noopener">Biblioteca escolar</a></li>
           <li><a href="preinscripcion.html">Pre-inscripción</a></li>
         </ul>
       </div>
+
       <div>
         <h4>Cuenta</h4>
         <ul>
+          <li><a href="perfil.html">Mi perfil</a></li>
           <li><a href="login.html">Iniciar sesión</a></li>
           <li><a href="registrarse.html">Registrarse</a></li>
         </ul>
@@ -352,8 +417,7 @@ if (footer) {
     </div>
     <div class="eest-footer__bottom eest-container">
       <span>© 2026 Escuela Técnica - La Plata</span>
-      
     </div>
+  `;
 
-`
 }
