@@ -323,3 +323,69 @@
 [2026-10-08 20:12:56] Hash BD: $2y$10$bfOadgeV93DvL5fm/QrU0ukaW9sCrH0YYTasG3zMEM6MR21RZ/tIe
 [2026-10-08 20:12:56] Hash length: 60
 [2026-10-08 20:12:56] Login exitoso para usuario_id=37 rol=admin
+[2026-10-10 00:43:54] === intento login ===
+[2026-10-10 00:43:54] POST: {"username":"Santino Luna","password":"Facha2021."}
+[2026-10-10 00:43:54] === DEBUG LOGIN ===
+[2026-10-10 00:43:54] Hash BD: $2y$10$yDQd.qooA9yf37PU6ygLP.hZxElTyfyJp.01lnyqT02KtNbbDmSUW
+[2026-10-10 00:43:54] Hash length: 60
+[2026-10-10 00:43:54] Login exitoso para usuario_id=42 rol=usuario
+[2026-10-10 00:43:54] === intento login ===
+[2026-10-10 00:43:54] POST: {"username":"Santino Luna","password":"Facha2021."}
+[2026-10-10 00:43:54] === DEBUG LOGIN ===
+[2026-10-10 00:43:54] Hash BD: $2y$10$yDQd.qooA9yf37PU6ygLP.hZxElTyfyJp.01lnyqT02KtNbbDmSUW
+[2026-10-10 00:43:54] Hash length: 60
+[2026-10-10 00:43:54] Login exitoso para usuario_id=42 rol=usuario
+[2026-10-10 00:46:24] === intento login ===
+[2026-10-10 00:46:24] POST: {"username":"Santino Luna","password":"Facha2021."}
+[2026-10-10 00:46:24] === DEBUG LOGIN ===
+[2026-10-10 00:46:24] Hash BD: $2y$10$8lieAlD7/M73R9AuwItMk.VSulDPobmTByDCf.LlYGeBu7IsgqYTO
+[2026-10-10 00:46:24] Hash length: 60
+[2026-10-10 00:46:24] Login exitoso para usuario_id=43 rol=usuario
+[2026-10-10 00:46:24] === intento login ===
+[2026-10-10 00:46:24] POST: {"username":"Santino Luna","password":"Facha2021."}
+[2026-10-10 00:46:24] === DEBUG LOGIN ===
+[2026-10-10 00:46:24] Hash BD: $2y$10$8lieAlD7/M73R9AuwItMk.VSulDPobmTByDCf.LlYGeBu7IsgqYTO
+[2026-10-10 00:46:24] Hash length: 60
+[2026-10-10 00:46:24] Login exitoso para usuario_id=43 rol=usuario
+[2026-10-10 01:02:27] === intento login ===
+[2026-10-10 01:02:27] POST: {"username":"Santino Luna","password":"Facha2021.."}
+[2026-10-10 01:02:27] === DEBUG LOGIN ===
+[2026-10-10 01:02:27] Hash BD: $2y$10$KaaArgtOi/YGycKO/v/S8uq0Kf1VS5Ppj0mlkrobuLjc8gXMcKFBi
+[2026-10-10 01:02:27] Hash length: 60
+[2026-10-10 01:02:28] Contraseña NO coincide para usuario_id=45
+[2026-10-10 01:02:28] === intento login ===
+[2026-10-10 01:02:28] POST: {"username":"Santino Luna","password":"Facha2021.."}
+[2026-10-10 01:02:28] === DEBUG LOGIN ===
+[2026-10-10 01:02:28] Hash BD: $2y$10$KaaArgtOi/YGycKO/v/S8uq0Kf1VS5Ppj0mlkrobuLjc8gXMcKFBi
+[2026-10-10 01:02:28] Hash length: 60
+[2026-10-10 01:02:28] Contraseña NO coincide para usuario_id=45
+[2026-10-10 01:02:31] === intento login ===
+[2026-10-10 01:02:31] POST: {"username":"Santino Luna","password":"Facha2021."}
+[2026-10-10 01:02:31] === DEBUG LOGIN ===
+[2026-10-10 01:02:31] Hash BD: $2y$10$KaaArgtOi/YGycKO/v/S8uq0Kf1VS5Ppj0mlkrobuLjc8gXMcKFBi
+[2026-10-10 01:02:31] Hash length: 60
+[2026-10-10 01:02:31] Login exitoso para usuario_id=45 rol=usuario
+[2026-10-10 01:02:31] === intento login ===
+[2026-10-10 01:02:31] POST: {"username":"Santino Luna","password":"Facha2021."}
+[2026-10-10 01:02:31] === DEBUG LOGIN ===
+[2026-10-10 01:02:31] Hash BD: $2y$10$KaaArgtOi/YGycKO/v/S8uq0Kf1VS5Ppj0mlkrobuLjc8gXMcKFBi
+[2026-10-10 01:02:31] Hash length: 60
+[2026-10-10 01:02:31] Login exitoso para usuario_id=45 rol=usuario
+[2026-10-10 02:20:50] === intento login ===
+[2026-10-10 02:20:50] POST: {"username":"Santino Luna","password":"Facha2021.."}
+[2026-10-10 02:20:50] === DEBUG LOGIN ===
+[2026-10-10 02:20:50] Hash BD: $2y$10$GDLHqo/yvAaJl8EtsvdBaueaPt3vBb2zJeRCDYmZDpdlSpaYBctlO
+[2026-10-10 02:20:50] Hash length: 60
+[2026-10-10 02:20:50] Contraseña NO coincide para usuario_id=47
+[2026-10-10 02:20:53] === intento login ===
+[2026-10-10 02:20:53] POST: {"username":"Santino Luna","password":"Facha2021."}
+[2026-10-10 02:20:53] === DEBUG LOGIN ===
+[2026-10-10 02:20:53] Hash BD: $2y$10$GDLHqo/yvAaJl8EtsvdBaueaPt3vBb2zJeRCDYmZDpdlSpaYBctlO
+[2026-10-10 02:20:53] Hash length: 60
+[2026-10-10 02:20:53] Login exitoso para usuario_id=47 rol=usuario
+[2026-10-10 02:26:17] === intento login ===
+[2026-10-10 02:26:17] POST: {"username":"Santino Luna","password":"Facha2021."}
+[2026-10-10 02:26:17] === DEBUG LOGIN ===
+[2026-10-10 02:26:17] Hash BD: $2y$10$GDLHqo/yvAaJl8EtsvdBaueaPt3vBb2zJeRCDYmZDpdlSpaYBctlO
+[2026-10-10 02:26:17] Hash length: 60
+[2026-10-10 02:26:17] Login exitoso para usuario_id=47 rol=usuario

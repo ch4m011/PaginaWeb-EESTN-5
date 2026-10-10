@@ -8,9 +8,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="Cross-Origin-Opener-Policy" content="same-origin-allow-popups">
 
+    <script src="../js/login.js"></script>
     <script src="https://accounts.google.com/gsi/client" async defer></script>
-    <script src="../js/login.js" defer></script>  
-
     <title>Iniciar sesión</title>
     <link rel="stylesheet" href="../css/login.css" />
 </head>
@@ -75,6 +74,10 @@
                             </button>
                         </div>
                     </div>
+                    <div class="olvido-contrasena">
+                        <a href="olvide_contrasena.html">¿Olvidaste tu contraseña?</a>
+                    </div>
+
                     <button type="submit" class="btn-login">Iniciar sesión</button>
 
                     <div class="auth-divider"><span>o</span></div>
@@ -94,9 +97,6 @@
         </div>
 
     </div>
-
-    <!-- cargar scripts AL FINAL para que el DOM exista -->
-    <script src="../js/login.js"></script>
 </body>
 
 </html>

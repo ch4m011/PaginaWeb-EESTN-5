@@ -391,6 +391,10 @@ $_SESSION['email'] = $email;
 $_SESSION['rol'] = 'usuario';
 
 
+// Mail de bienvenida a la cuenta nueva (si falla, el registro igual se completa).
+require_once __DIR__ . '/mail_bienvenida.php';
+enviarMailBienvenida($email, $name);
+
 echo json_encode([
     'success' => true,
     'message' => 'Usuario creado e iniciada sesión',

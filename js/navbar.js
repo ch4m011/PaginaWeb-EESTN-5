@@ -103,12 +103,6 @@ async function actualizarNav() {
     className: "nav-link"
   });
 
-  const contactoBtn = Object.assign(document.createElement("a"), {
-    textContent: "Contacto",
-    href: "../html/contacto.html",
-    className: "nav-link"
-  });
-
   const registroExternoBtn = Object.assign(document.createElement("a"), {
     textContent: "Pre-inscripción",
     href: "../html/preinscripcion.html",
@@ -145,13 +139,48 @@ async function actualizarNav() {
 
   tecnicaturasBtn.onclick = (e) => {
     e.stopPropagation();
+    document.querySelectorAll(".nav-dropdown.show").forEach(d => { if (d !== tecnicaturasContainer) d.classList.remove("show"); });
     tecnicaturasContainer.classList.toggle("show");
   };
   window.addEventListener("click", () => tecnicaturasContainer.classList.remove("show"));
 
   tecnicaturasContainer.append(tecnicaturasBtn, tecnicaturasMenu);
 
-  nav.append(tecnicaturasContainer, bibliotecaBtn, contactoBtn, registroExternoBtn);
+  // ===================================================
+  // AYUDA: menú desplegable con Contacto y Preguntas frecuentes
+  // ===================================================
+  const ayudaContainer = document.createElement("div");
+  ayudaContainer.className = "nav-dropdown";
+
+  const ayudaBtn = document.createElement("button");
+  ayudaBtn.type = "button";
+  ayudaBtn.className = "nav-link nav-dropdown-toggle";
+  ayudaBtn.innerHTML = `Ayuda <span class="nav-dropdown-arrow">▾</span>`;
+
+  const ayudaMenu = document.createElement("div");
+  ayudaMenu.className = "nav-dropdown-menu";
+
+  [
+    { nombre: "Contacto", href: "../html/contacto.html" },
+    { nombre: "Preguntas frecuentes", href: "../html/preguntas-frecuentes.html" }
+  ].forEach(item => {
+    const link = document.createElement("a");
+    link.href = item.href;
+    link.textContent = item.nombre;
+    ayudaMenu.appendChild(link);
+  });
+
+  ayudaBtn.onclick = (e) => {
+    e.stopPropagation();
+    // cerrar los otros desplegables abiertos
+    document.querySelectorAll(".nav-dropdown.show").forEach(d => { if (d !== ayudaContainer) d.classList.remove("show"); });
+    ayudaContainer.classList.toggle("show");
+  };
+  window.addEventListener("click", () => ayudaContainer.classList.remove("show"));
+
+  ayudaContainer.append(ayudaBtn, ayudaMenu);
+
+  nav.append(tecnicaturasContainer, ayudaContainer, bibliotecaBtn, registroExternoBtn);
 
   // Usuario actual
   const usuario = await obtenerSesionUsuario();
@@ -385,6 +414,7 @@ if (footer) {
           <li><a href="tecnica5.html">Institucional</a></li>
           <li><a href="index.html#noticiasContainer">Noticias</a></li>
           <li><a href="contacto.html">Contacto</a></li>
+          <li><a href="preguntas-frecuentes.html">Preguntas frecuentes</a></li>
         </ul>
       </div>
 

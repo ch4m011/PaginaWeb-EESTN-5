@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <link rel="icon" type="image/png" href="../img/logo-tecnica.png">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recuperar contraseña</title>
+    <link rel="stylesheet" href="../css/login.css" />
+    <script src="../js/recuperar_contrasena.js" defer></script>
+</head>
+
+<body>
+    <button class="btn-volver" onclick="window.location.href='login.html'">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+            <path d="M15.41 16.59L10.83 12l4.58-4.59L14 6l-6 6 6 6z" />
+        </svg>
+        Volver
+    </button>
+
+    <div class="auth-layout">
+        <aside class="auth-brand">
+            <div class="auth-brand__content">
+                <img src="../img/logo-tecnica.png" alt="Escudo EEST N.º 5" class="auth-brand__logo">
+                <p class="auth-brand__eyebrow">EEST N.º 5 · "Gral. Manuel N. Savio"</p>
+                <h1 class="auth-brand__title">¿Olvidaste<br>tu contraseña?</h1>
+                <p class="auth-brand__text">Ingresá tu correo y te enviamos un enlace para crear una nueva.</p>
+            </div>
+        </aside>
+
+        <div class="login-contenedor">
+            <div class="login-formulario">
+                <h2>Recuperar contraseña</h2>
+                <p class="descripcion">Ingresá tu correo y te enviamos un enlace para crear una nueva.</p>
+
+                <div id="recMessage" class="mensaje" aria-live="polite"></div>
+
+                <form id="pedirForm" method="post">
+                    <div class="campo">
+                        <label for="email">Correo electrónico</label>
+                        <input type="email" id="email" placeholder="tu@correo.com" required>
+                    </div>
+                    <button type="submit" class="btn-login">Enviar enlace</button>
+                </form>
+
+                <p class="registrarse">¿Te acordaste? <a href="login.html">Iniciar sesión</a></p>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

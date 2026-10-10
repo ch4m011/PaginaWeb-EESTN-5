@@ -9,6 +9,7 @@ error_reporting(E_ALL);
 header('Content-Type: application/json; charset=utf-8');
 
 require_once __DIR__ . '/config.php';
+require_once __DIR__ . '/mail_bienvenida.php';
 
 try {
     $input = file_get_contents('php://input');
@@ -31,10 +32,25 @@ try {
         throw new Exception('El correo electrónico no tiene un formato válido.');
     }
 
-    if (mb_strlen($password) < 6) {
-        throw new Exception('La contraseña debe tener al menos 6 caracteres.');
+   if (mb_strlen($password) < 6) {
+    throw new Exception('La contraseña debe tener al menos 6 caracteres.');
     }
 
+    if (!preg_match('/[a-z]/', $password)) {
+    throw new Exception('La contraseña debe contener al menos una letra minúscula.');
+    }
+
+    if (!preg_match('/[A-Z]/', $password)) {
+    throw new Exception('La contraseña debe contener al menos una letra mayúscula.');
+    }
+
+    if (!preg_match('/[0-9]/', $password)) {
+    throw new Exception('La contraseña debe contener al menos un número.');
+    }
+
+    if (!preg_match('/[^a-zA-Z0-9]/', $password)) {
+    throw new Exception('La contraseña debe contener al menos un carácter especial.');
+    }
     if (!isset($conn) || $conn->connect_errno) {
         throw new Exception('No se pudo conectar con la base de datos. Verificá que MySQL esté iniciado.');
     }
@@ -84,6 +100,9 @@ if ($hash === false) {
     $_SESSION['nombre'] = $nombre;
     $_SESSION['email'] = $email;
     $_SESSION['rol'] = 'usuario';
+
+    // Mail de bienvenida al correo con el que se registró (si falla, el registro igual se completa).
+    enviarMailBienvenida($email, $nombre);
 
     echo json_encode([
         'success' => true,
