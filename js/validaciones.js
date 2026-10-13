@@ -3,9 +3,58 @@ document.addEventListener('DOMContentLoaded', function(){
   const currentYear = new Date().getFullYear();
 
   const localidadesPorPartido = {
-    "La Plata": ["City Bell","Tolosa","Los Hornos","Gonnet","Villa Elvira","Ringuelet","Manuel B. Gonnet"],
-    "Berisso": ["Berisso Centro","Villa Argüello","Villa Zula","El Carmen"],
-    "Ensenada": ["Punta Lara","El Dique","Villa Catella"],
+    "La Plata": [
+        "Casco Urbano",
+        "Villa Elvira",
+        "Los Hornos",
+        "Tolosa",
+        "City Bell",
+        "Villa Elisa",
+        "Manuel B. Gonnet",
+        "José Melchor Romero",
+        "Ringuelet",
+        "Lisandro Olmos",
+        "Villa Montoro",
+        "El Retiro",
+        "Barrio Las Malvinas",
+        "Barrio Las Quintas",
+        "Barrio Gambier",
+        "La Cumbre",
+        "Joaquín Gorina",
+        "Rufino de Elizalde",
+        "Barrio El Carmen (oeste)",
+        "José Hernández",
+        "Abasto",
+        "Arturo Seguí",
+        "Transradio",
+        "Ángel Etcheverry",
+        "Villa Parque Sicardi",
+        "Arana",
+        "Villa Garibaldi",
+        "Altos de San Lorenzo",
+    ],
+    "Berisso": [
+        "Berisso",
+        "Villa Porteña",
+        "Villa Progreso",
+        "Villa San Carlos",
+        "Barrio El Carmen (este)",
+        "Villa Dolores",
+        "Villa Independencia",
+        "Villa Argüello",
+        "Villa Zula",
+        "Barrio Banco Provincia",
+        "Villa Nueva",
+        "Barrio Universitario",
+        "Los Talas"
+    ],
+    "Ensenada": [
+        "Ensenada",
+        "Punta Lara",
+        "Villa Catella",
+        "Dique N.º 1",
+        "Isla Santiago Oeste"
+    ],
     "Avellaneda": ["Piñeyro","Sarandí","Dock Sud","Villa Dominico"],
     "Lanús": ["Lanús Este","Lanús Oeste","Remedios de Escalada"],
     "Quilmes": ["Quilmes Centro","Bernal","Ezpeleta","Don Bosco"],
@@ -29,8 +78,7 @@ document.addEventListener('DOMContentLoaded', function(){
     "Almirante Brown": ["Adrogué"],
     "Berazategui": ["Berazategui Centro","Plátanos"],
     "Dolores": ["Dolores Centro"]
-  };
-
+};
   // usar los selects reales del formulario (cbx_partido / cbx_localidad)
   const partidoSel = document.getElementById('cbx_partido') || document.querySelector('select[name="partido"], select#partido');
   const localidadSel = document.getElementById('cbx_localidad') || document.querySelector('select[name="localidad"], select#localidad');
