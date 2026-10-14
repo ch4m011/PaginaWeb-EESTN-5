@@ -190,7 +190,9 @@ document.addEventListener('DOMContentLoaded', function(){
     // Campos de texto (25 caracteres máximo)
     'nombre': {max: 25, type: 'text'},
     'apellido': {max: 25, type: 'text'},
-    'lugar_nacimiento': {max: 25, type: 'text'},
+    'ciudad_nacimiento': {max: 25, type: 'text'},
+    'provincia_nacimiento': {max: 25, type: 'text'},
+    'pais_nacimiento': {max: 25, type: 'text'},
     'proviene_escuela': {max: 25, type: 'text'},
 
     // Ahora Calle, Entre y Y aceptan solo números
@@ -224,7 +226,7 @@ document.addEventListener('DOMContentLoaded', function(){
       // Manejar entrada de datos
       input.addEventListener('input', function(){
         if(config.type === 'text') {
-          this.value = this.value.replace(/[^A-Za-zÀ-ÿ\s]/g, '');
+          this.value = this.value.replace(/[^A-Za-zÀ-ÿ0-9\s°º.-]/g, '');
         } else {
           this.value = this.value.replace(/[^0-9]/g, '');
         }
@@ -240,7 +242,7 @@ document.addEventListener('DOMContentLoaded', function(){
         if(!value) {
           setError(this, 'Campo requerido');
         } else if(config.type === 'text') {
-          if(!/^[A-Za-zÀ-ÿ\s]{1,25}$/.test(value)) {
+          if(!/^[A-Za-zÀ-ÿ0-9\s°º.-]{1,25}$/.test(value)) {
             setError(this, `Solo letras (máximo ${config.max} caracteres)`);
           } else {
             clearError(this); 
@@ -332,7 +334,9 @@ document.addEventListener('DOMContentLoaded', function(){
       const apellido = get('apellido');
       const dni = get('Nro_doc');
       const fec = get('fec_nacimiento');
-      const lugar = get('lugar_nacimiento');
+      const ciudad_nacimiento = get('ciudad_nacimiento');
+      const provincia_nacimiento = get('provincia_nacimiento');
+      const pais_nacimiento = get('pais_nacimiento');
       const partido = get('cbx_partido');
       const localidad = get('cbx_localidad');
       const calle = get('calle');
@@ -347,7 +351,9 @@ document.addEventListener('DOMContentLoaded', function(){
       if(!apellido || !isTextOk(apellido.value)) ok = false;
       if(!dni || !isDniOk(String(dni.value).trim())) ok = false;
       if(!fec || !isDateNotFuture(fec.value)) ok = false;
-      if(!lugar || !isTextOk(lugar.value)) ok = false;
+      if(!ciudad_nacimiento || !isTextOk(ciudad_nacimiento.value)) ok = false;
+      if(!provincia_nacimiento || !isTextOk(provincia_nacimiento.value)) ok = false;
+      if(!pais_nacimiento || !isTextOk(pais_nacimiento.value)) ok = false;
   // nota: la variable proviene_escuela no existe — evitar referencia que lanza ReferenceError
   // (si necesitamos lógica específica para 'proviene_escuela' la agregamos explícitamente)
       if(escuela && !isTextOk(escuela.value)) ok = false;
@@ -365,7 +371,7 @@ document.addEventListener('DOMContentLoaded', function(){
 
     // campos a observar para actualizar el estado del botón
     const watchIds = [
-      'nombre','apellido','Nro_doc','fec_nacimiento','lugar_nacimiento',
+      'nombre','apellido','Nro_doc','fec_nacimiento','ciudad_nacimiento','provincia_nacimiento','pais_nacimiento',
       'cbx_partido','cbx_localidad','calle','nro','calle_entre','calle_entre_y',
       'Cod_Area','Num_Telefono','proviene_escuela'
     ];

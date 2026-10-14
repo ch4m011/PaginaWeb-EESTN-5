@@ -236,11 +236,17 @@ main img.img-responsive {
 }
 
 .col-sm-10,
+.col-sm-3,
 .col-sm-2,
 .col-sm-offset-2 {
   flex: 0 0 100%;
   max-width: 100%;
   padding: 0 0.5rem;
+}
+
+.col-sm-3 {
+  flex: 0 0 auto;
+  width: 25%;
 }
 
 @media (min-width: 768px) {

@@ -61,7 +61,9 @@ document.addEventListener('DOMContentLoaded', function () {
         apellido: document.getElementById('apellido'),
         documento: document.getElementById('Nro_doc'),
         fecha: document.getElementById('fec_nacimiento'),
-        lugar: document.getElementById('lugar_nacimiento'),
+        ciudad_nacimiento: document.getElementById('ciudad_nacimiento'),
+        provincia_nacimiento: document.getElementById('provincia_nacimiento'),
+        pais_nacimiento: document.getElementById('pais_nacimiento'),
         cod_area: document.getElementById('Cod_Area'),
         telefono: document.getElementById('Num_Telefono'),
         escuela: document.getElementById('proviene_escuela'),
@@ -92,7 +94,7 @@ document.addEventListener('DOMContentLoaded', function () {
     // Actualizar texto del botón PDF según validez del formulario
     function updateBtnPdfText() {
         const requiredIds = [
-            'nombre', 'apellido', 'Nro_doc', 'fec_nacimiento', 'lugar_nacimiento',
+            'nombre', 'apellido', 'Nro_doc', 'fec_nacimiento', 'ciudad_nacimiento', 'provincia_nacimiento', 'pais_nacimiento',
             'cbx_partido', 'cbx_localidad', 'calle', 'nro', 'calle_entre', 'calle_entre_y',
             'Cod_Area', 'Num_Telefono', 'proviene_escuela'
         ];
@@ -112,7 +114,7 @@ document.addEventListener('DOMContentLoaded', function () {
     // Actualizar al cargar y en cada cambio
     updateBtnPdfText();
     const watchIds = [
-        'nombre', 'apellido', 'Nro_doc', 'fec_nacimiento', 'lugar_nacimiento',
+        'nombre', 'apellido', 'Nro_doc', 'fec_nacimiento', 'ciudad_nacimiento', 'provincia_nacimiento', 'pais_nacimiento',
         'cbx_partido', 'cbx_localidad', 'calle', 'nro', 'calle_entre', 'calle_entre_y',
         'Cod_Area', 'Num_Telefono', 'proviene_escuela'
     ];
@@ -131,7 +133,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
         // Validar campos obligatorios y mostrar mensajes visuales
         const requiredIds = [
-            'nombre', 'apellido', 'Nro_doc', 'fec_nacimiento', 'lugar_nacimiento',
+            'nombre', 'apellido', 'Nro_doc', 'fec_nacimiento', 'ciudad_nacimiento', 'provincia_nacimiento', 'pais_nacimiento',
             'cbx_partido', 'cbx_localidad', 'calle', 'nro', 'calle_entre', 'calle_entre_y',
             'Cod_Area', 'Num_Telefono', 'proviene_escuela'
         ];
@@ -285,7 +287,9 @@ document.addEventListener('DOMContentLoaded', function () {
                         ['Tipo documento', 'tipo_doc'],
                         ['Nro. Documento', 'Nro_doc'],
                         ['Fecha nacimiento', 'fec_nacimiento'],
-                        ['Lugar de nacimiento', 'lugar_nacimiento'],
+                        ['Ciudad de nacimiento', 'ciudad_nacimiento'],
+                        ['Provincia de nacimiento', 'provincia_nacimiento'],
+                        ['País de nacimiento', 'pais_nacimiento'],
                         ['Nacionalidad', 'nacionalidad'],
                         ['Email', 'inp_email'],
                         ['Email (alternativo)', 'inp_email2']
@@ -451,7 +455,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
                 // secciones y campos (mismos títulos que en el PDF principal)
                 const sectionsPrintable = [
-                    { title: 'Datos del alumno', fields: ['Nombre(s)', 'Apellido(s)', 'Tipo documento', 'Nro. Documento', 'Fecha nacimiento', 'Lugar de nacimiento', 'Nacionalidad', 'Email', 'Email (alternativo)'] },
+                    { title: 'Datos del alumno', fields: ['Nombre(s)', 'Apellido(s)', 'Tipo documento', 'Nro. Documento', 'Fecha nacimiento', 'Ciudad de nacimiento', 'Provincia de nacimiento', 'País de nacimiento', 'Nacionalidad', 'Email', 'Email (alternativo)'] },
                     { title: 'Teléfono', fields: ['Tipo', 'Cód. Área', 'Número'] },
                     { title: 'Dirección', fields: ['Partido', 'Localidad', 'Calle', 'Nro', 'Entre', 'Y'] },
                     { title: 'Datos de la inscripción', fields: ['Año inscripción', 'Turno deseado', 'Escuela anterior'] }
