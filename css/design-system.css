@@ -72,13 +72,6 @@
   /* mobile: hasta 640px · tablet: hasta 900px · desktop: 901px+ */
 }
 
-/* ---------- Contenedor base reutilizable ---------- */
-.eest-container {
-  max-width: var(--container-width);
-  margin: 0 auto;
-  padding: 0 var(--container-padding);
-}
-
 /* ---------- Eyebrow / etiqueta de sección (minúscula, no cliché all-caps) ---------- */
 .eest-eyebrow {
   display: inline-flex;

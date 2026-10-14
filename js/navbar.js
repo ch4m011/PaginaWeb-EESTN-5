@@ -382,6 +382,7 @@ document.addEventListener("DOMContentLoaded", async () => {
 })();
 
 const footer = document.querySelector(".eest-footer");
+console.log(footer)
 if (footer) {
   footer.innerHTML = `
     <div class="eest-footer__top eest-container">
