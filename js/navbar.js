@@ -393,12 +393,12 @@ if (footer) {
           <span>"Gral. Manuel N. Savio" — La Plata</span>
         </div>
         <div class="eest-footer__social">
-          <a href="https://www.youtube.com/" target="_blank" rel="noopener" aria-label="YouTube de la escuela" title="YouTube">
+          <a href="https://www.youtube.com/@EEST5" target="_blank" rel="noopener" aria-label="YouTube de la escuela" title="YouTube">
             <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
               <path d="M23.5 6.2a3 3 0 0 0-2.1-2.1C19.5 3.6 12 3.6 12 3.6s-7.5 0-9.4.5A3 3 0 0 0 .5 6.2 31 31 0 0 0 0 12a31 31 0 0 0 .5 5.8 3 3 0 0 0 2.1 2.1c1.9.5 9.4.5 9.4.5s7.5 0 9.4-.5a3 3 0 0 0 2.1-2.1A31 31 0 0 0 24 12a31 31 0 0 0-.5-5.8zM9.6 15.6V8.4L15.8 12l-6.2 3.6z"/>
             </svg>
           </a>
-          <a href="https://www.instagram.com/" target="_blank" rel="noopener" aria-label="Instagram de la escuela" title="Instagram">
+          <a href="https://www.instagram.com/eest5lp/" target="_blank" rel="noopener" aria-label="Instagram de la escuela" title="Instagram">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
               <rect x="3" y="3" width="18" height="18" rx="5"/>
               <circle cx="12" cy="12" r="4"/>
