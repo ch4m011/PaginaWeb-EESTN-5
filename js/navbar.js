@@ -207,7 +207,7 @@ async function actualizarNav() {
     const dropdown = document.createElement("div");
     dropdown.classList.add("user-menu");
 
-        // Íconos SVG del menú de usuario
+    // Íconos SVG del menú de usuario
     const ICONOS = {
       panel: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
                 <circle cx="12" cy="12" r="3"/>
@@ -381,10 +381,23 @@ document.addEventListener("DOMContentLoaded", async () => {
   }
 })();
 
-const footer = document.querySelector(".eest-footer");
-console.log(footer)
-if (footer) {
-  footer.innerHTML = `
+async function fetchSessionUser() {
+  try {
+    const res = await fetch('../php/check_session.php', { cache: 'no-store', credentials: 'same-origin' });
+    const json = await res.json();
+    if (json.id === null) return false;
+    return true;
+  } catch (e) {
+    return false;
+  }
+}
+
+async function updateFooter() {
+  let logged = await fetchSessionUser();
+
+  const footer = document.querySelector(".eest-footer");
+  if (footer) {
+    footer.innerHTML = `
     <div class="eest-footer__top eest-container">
       <div class="eest-footer__brand">
         <img src="../img/logo-tecnica.png" alt="Escudo E.E.S.T. N.º 5">
@@ -437,18 +450,32 @@ if (footer) {
         </ul>
       </div>
 
-      <div>
-        <h4>Cuenta</h4>
-        <ul>
-          <li><a href="perfil.html">Mi perfil</a></li>
-          <li><a href="login.html">Iniciar sesión</a></li>
-          <li><a href="registrarse.html">Registrarse</a></li>
-        </ul>
+      <div id="cuenta-footer-seccion">
       </div>
     </div>
     <div class="eest-footer__bottom eest-container">
       <span>© 2026 Escuela Técnica - La Plata</span>
     </div>
   `;
+  }
 
+  const seccionCuenta = document.querySelector('#cuenta-footer-seccion');
+  if (logged) {
+    seccionCuenta.innerHTML = `
+    <h4>Cuenta</h4>
+    <ul>
+      <li><a href="perfil.html">Mi perfil</a></li>
+    </ul>
+  `;
+  } else {
+    seccionCuenta.innerHTML = `
+    <h4>Cuenta</h4>
+    <ul>
+      <li><a href="login.html">Iniciar sesión</a></li>
+      <li><a href="registrarse.html">Registrarse</a></li>
+    </ul>
+  `;
+  }
 }
+
+updateFooter();
