@@ -9,12 +9,6 @@ function irRegistro() { window.location.href = "../html/registrarse.html"; }
 function irRegistroExterno() { window.open("https://aaferrando.com/alumno/nuevo.php", "_blank"); }
 
 async function cerrarSesion() {
-  // Limpiar datos locales
-  localStorage.removeItem("usuarioSesion");
-  localStorage.removeItem("usuarioActual");
-  localStorage.removeItem("usuario");
-  localStorage.removeItem("fotoPerfil");
-
   try {
     await fetch('../php/logout.php', { method: 'POST', credentials: 'same-origin' });
   } catch (err) {
@@ -22,34 +16,6 @@ async function cerrarSesion() {
   }
 
   window.location.href = "index.html";
-}
-
-// =======================================================
-// GENERADOR DE AVATAR CON INICIALES
-// =======================================================
-function generarAvatarIniciales(nombre, tamaño = 64) {
-  const canvas = document.createElement("canvas");
-  canvas.width = tamaño;
-  canvas.height = tamaño;
-  const ctx = canvas.getContext("2d");
-
-  let hash = 0;
-  for (let i = 0; i < nombre.length; i++) hash = nombre.charCodeAt(i) + ((hash << 5) - hash);
-  const color = `hsl(${hash % 360}, 70%, 50%)`;
-
-  ctx.fillStyle = color;
-  ctx.fillRect(0, 0, tamaño, tamaño);
-
-  const partes = nombre.split(" ");
-  const iniciales = (partes[0][0] + (partes[1]?.[0] || "")).toUpperCase();
-
-  ctx.fillStyle = "white";
-  ctx.font = `${tamaño / 2}px Arial`;
-  ctx.textAlign = "center";
-  ctx.textBaseline = "middle";
-  ctx.fillText(iniciales, tamaño / 2, tamaño / 2);
-
-  return canvas.toDataURL("image/png");
 }
 
 // =======================================================
@@ -74,16 +40,11 @@ async function obtenerSesionUsuario() {
         rol: data.rol || 'usuario',
         foto: '../php/perfil/obtener_imagen.php?id=' + data.id
       };
-
-      localStorage.setItem('usuarioSesion', JSON.stringify(usuario));
       return usuario
     }
   } catch (e) {
     console.warn('[navbar] No se pudo leer sesión del servidor:', e);
   }
-
-  const sesion = JSON.parse(localStorage.getItem('usuarioSesion') || 'null');
-  if (sesion && sesion.nombre) return sesion;
   return null;
 }
 
@@ -184,6 +145,7 @@ async function actualizarNav() {
 
   // Usuario actual
   const usuario = await obtenerSesionUsuario();
+  console.log(usuario)
 
   if (usuario && usuario.nombre) {
     const userContainer = document.createElement("div");
@@ -325,9 +287,11 @@ function inicializarMenuHamburguesa() {
 // =======================================================
 // INICIO AUTOMÁTICO
 // =======================================================
-document.addEventListener("DOMContentLoaded", async () => {
+window.addEventListener('pageshow', async function () {
   inicializarMenuHamburguesa();   // primero el botón, así no hay saltos de layout
   await actualizarNav();
+});
+document.addEventListener("DOMContentLoaded", async () => {
 });
 
 // Ajusta automáticamente la variable --navegador-height según la altura real del header
