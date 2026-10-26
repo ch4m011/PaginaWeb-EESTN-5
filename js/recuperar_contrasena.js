@@ -1,5 +1,5 @@
 // js/recuperar_contrasena.js
-// Usado por html/olvide_contrasena.html y html/restablecer_contrasena.html
+// Usado por html/olvide_contrasena.html (pedir el enlace y crear la nueva contraseña)
 'use strict';
 
 (function () {
@@ -29,6 +29,14 @@
     catch { console.error(text); return { success: false, message: 'Respuesta inválida del servidor.' }; }
   }
 
+  // Muestra solo los elementos del paso activo ('pedir' o 'nueva')
+  function mostrarPaso(paso) {
+    document.querySelectorAll('[data-paso]').forEach((el) => {
+      el.hidden = el.dataset.paso !== paso;
+    });
+    document.title = paso === 'nueva' ? 'Nueva contraseña' : 'Recuperar contraseña';
+  }
+
   // Ojito para mostrar/ocultar contraseña (mismo ícono que el login)
   function activarOjitos() {
     document.querySelectorAll('.toggle-password').forEach((btn) => {
@@ -48,44 +56,54 @@
     });
   }
 
-  document.addEventListener('DOMContentLoaded', async () => {
-    activarOjitos();
-    // ---- Paso 1: pedir el link ----
+  // ---- Paso 1: pedir el link ----
+  function iniciarPedido() {
     const formPedir = $('pedirForm');
-    if (formPedir) {
-      formPedir.addEventListener('submit', async (e) => {
-        e.preventDefault();
-        const btn = formPedir.querySelector('button[type=submit]');
-        btn.disabled = true;
-        const r = await post('../php/recuperar/solicitar_recuperacion.php', { email: $('email').value.trim() });
-        msg(r.message, r.success ? 'ok' : 'error');
-        btn.disabled = false;
-      });
-    }
+    formPedir.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const btn = formPedir.querySelector('button[type=submit]');
+      btn.disabled = true;
+      const r = await post('../php/recuperar/solicitar_recuperacion.php', { email: $('email').value.trim() });
+      msg(r.message, r.success ? 'ok' : 'error');
+      btn.disabled = false;
+    });
+  }
 
-    // ---- Paso 2: nueva contraseña ----
+  // ---- Paso 2: nueva contraseña ----
+  async function iniciarRestablecimiento(token) {
     const formNueva = $('nuevaForm');
-    if (formNueva) {
-      const token = new URLSearchParams(location.search).get('token') || '';
-      try {
-        const chk = await fetch('../php/recuperar/restablecer_contrasena.php?token=' + encodeURIComponent(token));
-        const d = await chk.json();
-        if (!d.success) { formNueva.style.display = 'none'; msg(d.message, 'error'); return; }
-      } catch { /* si falla la comprobación, se valida igual al enviar */ }
+    try {
+      const chk = await fetch('../php/recuperar/restablecer_contrasena.php?token=' + encodeURIComponent(token));
+      const d = await chk.json();
+      if (!d.success) { formNueva.hidden = true; msg(d.message, 'error'); return; }
+    } catch { /* si falla la comprobación, se valida igual al enviar */ }
 
-      formNueva.addEventListener('submit', async (e) => {
-        e.preventDefault();
-        const p1 = $('password').value, p2 = $('password2').value;
-        const errPass = validarPassword(p1);
-        if (errPass) return msg(errPass, 'error');
-        if (p1 !== p2) return msg('Las contraseñas no coinciden.', 'error');
-        const btn = formNueva.querySelector('button[type=submit]');
-        btn.disabled = true;
-        const r = await post('../php/recuperar/restablecer_contrasena.php', { token, password: p1 });
-        msg(r.message, r.success ? 'ok' : 'error');
-        if (r.success) setTimeout(() => { location.href = 'login.html'; }, 1800);
-        else btn.disabled = false;
-      });
+    formNueva.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const p1 = $('password').value, p2 = $('password2').value;
+      const errPass = validarPassword(p1);
+      if (errPass) return msg(errPass, 'error');
+      if (p1 !== p2) return msg('Las contraseñas no coinciden.', 'error');
+      const btn = formNueva.querySelector('button[type=submit]');
+      btn.disabled = true;
+      const r = await post('../php/recuperar/restablecer_contrasena.php', { token, password: p1 });
+      msg(r.message, r.success ? 'ok' : 'error');
+      if (r.success) setTimeout(() => { location.href = 'login.html'; }, 1800);
+      else btn.disabled = false;
+    });
+  }
+
+  document.addEventListener('DOMContentLoaded', () => {
+    activarOjitos();
+
+    // Con ?token=... en la URL es el paso 2; sin token, el paso 1
+    const token = new URLSearchParams(location.search).get('token');
+    if (token === null) {
+      mostrarPaso('pedir');
+      iniciarPedido();
+    } else {
+      mostrarPaso('nueva');
+      iniciarRestablecimiento(token);
     }
   });
 })();

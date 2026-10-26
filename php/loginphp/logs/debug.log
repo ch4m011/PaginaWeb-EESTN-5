@@ -389,3 +389,15 @@
 [2026-10-10 02:26:17] Hash BD: $2y$10$GDLHqo/yvAaJl8EtsvdBaueaPt3vBb2zJeRCDYmZDpdlSpaYBctlO
 [2026-10-10 02:26:17] Hash length: 60
 [2026-10-10 02:26:17] Login exitoso para usuario_id=47 rol=usuario
+[2026-10-26 15:37:08] === intento login ===
+[2026-10-26 15:37:08] POST: {"username":"jaafigueroarabanales@eest5.com","password":"123Hola."}
+[2026-10-26 15:37:08] === DEBUG LOGIN ===
+[2026-10-26 15:37:08] Hash BD: $2y$10$UdXCdyBjpxuNe.XUjIYPPO9KhX6pCv4u6wvDKpyStVMCIFEtRi3CO
+[2026-10-26 15:37:08] Hash length: 60
+[2026-10-26 15:37:08] Login exitoso para usuario_id=43 rol=admin
+[2026-10-26 15:45:11] === intento login ===
+[2026-10-26 15:45:11] POST: {"username":"jaafigueroarabanales@eest5.com","password":"Hola.123"}
+[2026-10-26 15:45:11] === DEBUG LOGIN ===
+[2026-10-26 15:45:11] Hash BD: $2y$10$DyaKgLsjJYG2xG/B3Hf00eFSCXe9A2clFk/HhQTL/Asw..noqJOkG
+[2026-10-26 15:45:11] Hash length: 60
+[2026-10-26 15:45:12] Login exitoso para usuario_id=43 rol=admin

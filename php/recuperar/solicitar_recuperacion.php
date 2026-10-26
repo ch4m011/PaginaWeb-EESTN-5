@@ -93,7 +93,7 @@ try {
         $raiz = preg_replace('#/php/recuperar/[^/]*$#', '', $_SERVER['SCRIPT_NAME']);
         $base = 'http://localhost' . $raiz;
     }
-    $link = rtrim($base, '/') . '/html/restablecer_contrasena.html?token=' . $token;
+    $link = rtrim($base, '/') . '/html/olvide_contrasena.html?token=' . $token;
 
     $nombre = htmlspecialchars($user['nombre'], ENT_QUOTES, 'UTF-8');
 
