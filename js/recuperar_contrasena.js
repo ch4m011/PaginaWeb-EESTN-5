@@ -1,5 +1,5 @@
 // js/recuperar_contrasena.js
-// Usado por html/olvide_contrasena.html (pedir el enlace y crear la nueva contraseña)
+// Usado por html/olvide_contrasena.html 
 'use strict';
 
 (function () {

@@ -10,12 +10,19 @@ function irRegistroExterno() { window.open("https://aaferrando.com/alumno/nuevo.
 
 async function cerrarSesion() {
   try {
-    await fetch('../php/logout.php', { method: 'POST', credentials: 'same-origin' });
+    await fetch('../php/logout.php', { method: 'POST', credentials: 'same-origin', cache: 'no-store' });
   } catch (err) {
     console.warn('[navbar] Error al cerrar sesión:', err);
   }
 
-  window.location.href = "index.html";
+  // Descartar cualquier dato de autenticación que haya quedado guardado en el navegador
+  try {
+    localStorage.removeItem('usuarioSesion');
+    sessionStorage.removeItem('usuarioSesion');
+  } catch (e) { /* almacenamiento no disponible */ }
+
+  // replace(): la página protegida no queda en el historial para volver con "atrás"
+  window.location.replace("index.html");
 }
 
 // =======================================================
@@ -287,9 +294,10 @@ function inicializarMenuHamburguesa() {
 // =======================================================
 // INICIO AUTOMÁTICO
 // =======================================================
-window.addEventListener('pageshow', async function () {
+window.addEventListener('pageshow', async function (e) {
   inicializarMenuHamburguesa();   // primero el botón, así no hay saltos de layout
   await actualizarNav();
+  if (e.persisted) updateFooter(); // restaurada desde la caché atrás/adelante: revalidar también el footer
 });
 document.addEventListener("DOMContentLoaded", async () => {
 });
@@ -424,6 +432,7 @@ async function updateFooter() {
   }
 
   const seccionCuenta = document.querySelector('#cuenta-footer-seccion');
+  if (!seccionCuenta) return;
   if (logged) {
     seccionCuenta.innerHTML = `
     <h4>Cuenta</h4>

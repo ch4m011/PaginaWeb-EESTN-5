@@ -22,6 +22,7 @@ $sql = "
         n.contenido,
         n.imagen_blob,
         n.imagen_mime,
+        n.tipo,
         n.fecha_creacion AS fecha,
         n.autor_id,
         u.nombre AS autor_nombre

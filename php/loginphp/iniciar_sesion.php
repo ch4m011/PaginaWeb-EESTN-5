@@ -17,7 +17,7 @@ header('Content-Type: application/json');
 require_once __DIR__ . '/../config.php';
 
 debug_log("=== intento login ===");
-debug_log("POST: " . json_encode($_POST));
+debug_log("Usuario: " . ($_POST['username'] ?? '')); // nunca se registra la contraseña
 
 $username = isset($_POST['username']) ? trim($_POST['username']) : '';
 $password = isset($_POST['password']) ? $_POST['password'] : '';
@@ -52,7 +52,9 @@ try {
         debug_log('Hash BD: ' . ($hash ?? 'NULL'));
         debug_log('Hash length: ' . strlen($hash ?? ''));
         if (password_verify($password, $user['contrasena'])) {
-            // Login exitoso - asignar sesión
+            // Login exitoso - sesión nueva (evita reutilizar un ID/datos de una sesión anterior)
+            session_regenerate_id(true);
+            $_SESSION = [];
             $_SESSION['id'] = $user['id'];
             $_SESSION['nombre'] = $user['nombre'];
             $_SESSION['email'] = $user['email'];

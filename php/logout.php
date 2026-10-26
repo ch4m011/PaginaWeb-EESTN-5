@@ -1,7 +1,8 @@
 <?php
 // logout.php
-require_once 'functions.php';
-session_start();
+if (session_status() !== PHP_SESSION_ACTIVE) {
+    session_start();
+}
 
 // Destruir la sesión completamente
 $_SESSION = [];
@@ -17,7 +18,8 @@ session_destroy();
 // Si usas alguna cookie 'remember' o custom, bórrala aquí:
 // setcookie('remember_token', '', time() - 3600, '/');
 
-// Devolver JSON para que el cliente sepa que ya cerró
+// Devolver JSON para que el cliente sepa que ya cerró (nunca cacheable)
+header('Cache-Control: no-store, no-cache, must-revalidate');
 header('Content-Type: application/json');
 echo json_encode(['ok' => true]);
 exit;

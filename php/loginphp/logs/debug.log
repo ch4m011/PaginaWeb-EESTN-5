@@ -401,3 +401,75 @@
 [2026-10-26 15:45:11] Hash BD: $2y$10$DyaKgLsjJYG2xG/B3Hf00eFSCXe9A2clFk/HhQTL/Asw..noqJOkG
 [2026-10-26 15:45:11] Hash length: 60
 [2026-10-26 15:45:12] Login exitoso para usuario_id=43 rol=admin
+[2026-10-26 18:44:36] === intento login ===
+[2026-10-26 18:44:36] POST: {"username":"juan.andfigueroa2007@gmail.com","password":"Hola123."}
+[2026-10-26 18:44:36] === DEBUG LOGIN ===
+[2026-10-26 18:44:36] Hash BD: NULL
+[2026-10-26 18:44:36] Hash length: 0
+[2026-10-26 18:44:36] Contraseña NO coincide para usuario_id=44
+[2026-10-26 18:45:59] === intento login ===
+[2026-10-26 18:45:59] POST: {"username":"jaafigueroarabanales@eest5.com","password":"Hola123."}
+[2026-10-26 18:45:59] === DEBUG LOGIN ===
+[2026-10-26 18:45:59] Hash BD: $2y$10$DyaKgLsjJYG2xG/B3Hf00eFSCXe9A2clFk/HhQTL/Asw..noqJOkG
+[2026-10-26 18:45:59] Hash length: 60
+[2026-10-26 18:45:59] Contraseña NO coincide para usuario_id=43
+[2026-10-26 18:46:11] === intento login ===
+[2026-10-26 18:46:11] POST: {"username":"jaafigueroarabanales@eest5.com","password":"123Hola."}
+[2026-10-26 18:46:11] === DEBUG LOGIN ===
+[2026-10-26 18:46:11] Hash BD: $2y$10$DyaKgLsjJYG2xG/B3Hf00eFSCXe9A2clFk/HhQTL/Asw..noqJOkG
+[2026-10-26 18:46:11] Hash length: 60
+[2026-10-26 18:46:11] Contraseña NO coincide para usuario_id=43
+[2026-10-26 18:46:19] === intento login ===
+[2026-10-26 18:46:19] POST: {"username":"jaafigueroarabanales@eest5.com","password":"Hola123."}
+[2026-10-26 18:46:19] === DEBUG LOGIN ===
+[2026-10-26 18:46:19] Hash BD: $2y$10$DyaKgLsjJYG2xG/B3Hf00eFSCXe9A2clFk/HhQTL/Asw..noqJOkG
+[2026-10-26 18:46:19] Hash length: 60
+[2026-10-26 18:46:19] Contraseña NO coincide para usuario_id=43
+[2026-10-26 18:46:22] === intento login ===
+[2026-10-26 18:46:22] POST: {"username":"jaafigueroarabanales@eest5.com","password":"Hola.123"}
+[2026-10-26 18:46:22] === DEBUG LOGIN ===
+[2026-10-26 18:46:22] Hash BD: $2y$10$DyaKgLsjJYG2xG/B3Hf00eFSCXe9A2clFk/HhQTL/Asw..noqJOkG
+[2026-10-26 18:46:22] Hash length: 60
+[2026-10-26 18:46:22] Login exitoso para usuario_id=43 rol=admin
+[2026-10-26 18:46:36] === intento login ===
+[2026-10-26 18:46:36] POST: {"username":"jaafigueroarabanales@eest5.com","password":"Hola.123"}
+[2026-10-26 18:46:36] === DEBUG LOGIN ===
+[2026-10-26 18:46:36] Hash BD: $2y$10$DyaKgLsjJYG2xG/B3Hf00eFSCXe9A2clFk/HhQTL/Asw..noqJOkG
+[2026-10-26 18:46:36] Hash length: 60
+[2026-10-26 18:46:36] Login exitoso para usuario_id=43 rol=admin
+[2026-10-26 19:57:55] === intento login ===
+[2026-10-26 19:57:55] POST: {"username":"jaafigueroarabanales@eest5.com","password":"Hola123."}
+[2026-10-26 19:57:55] === DEBUG LOGIN ===
+[2026-10-26 19:57:55] Hash BD: $2y$10$DyaKgLsjJYG2xG/B3Hf00eFSCXe9A2clFk/HhQTL/Asw..noqJOkG
+[2026-10-26 19:57:55] Hash length: 60
+[2026-10-26 19:57:55] Contraseña NO coincide para usuario_id=43
+[2026-10-26 19:58:01] === intento login ===
+[2026-10-26 19:58:01] POST: {"username":"jaafigueroarabanales@eest5.com","password":"123Hola."}
+[2026-10-26 19:58:01] === DEBUG LOGIN ===
+[2026-10-26 19:58:01] Hash BD: $2y$10$DyaKgLsjJYG2xG/B3Hf00eFSCXe9A2clFk/HhQTL/Asw..noqJOkG
+[2026-10-26 19:58:01] Hash length: 60
+[2026-10-26 19:58:01] Contraseña NO coincide para usuario_id=43
+[2026-10-26 19:58:07] === intento login ===
+[2026-10-26 19:58:07] POST: {"username":"jaafigueroarabanales@eest5.com","password":"Hola.123}"}
+[2026-10-26 19:58:07] === DEBUG LOGIN ===
+[2026-10-26 19:58:07] Hash BD: $2y$10$DyaKgLsjJYG2xG/B3Hf00eFSCXe9A2clFk/HhQTL/Asw..noqJOkG
+[2026-10-26 19:58:07] Hash length: 60
+[2026-10-26 19:58:07] Contraseña NO coincide para usuario_id=43
+[2026-10-26 19:58:14] === intento login ===
+[2026-10-26 19:58:14] POST: {"username":"jaafigueroarabanales@eest5.com","password":"Hola.123"}
+[2026-10-26 19:58:14] === DEBUG LOGIN ===
+[2026-10-26 19:58:14] Hash BD: $2y$10$DyaKgLsjJYG2xG/B3Hf00eFSCXe9A2clFk/HhQTL/Asw..noqJOkG
+[2026-10-26 19:58:14] Hash length: 60
+[2026-10-26 19:58:14] Login exitoso para usuario_id=43 rol=admin
+[2026-10-26 21:08:11] === intento login ===
+[2026-10-26 21:08:11] Usuario: jaafigueroarabanales@eest5.com
+[2026-10-26 21:08:11] === DEBUG LOGIN ===
+[2026-10-26 21:08:11] Hash BD: $2y$10$DyaKgLsjJYG2xG/B3Hf00eFSCXe9A2clFk/HhQTL/Asw..noqJOkG
+[2026-10-26 21:08:11] Hash length: 60
+[2026-10-26 21:08:11] Login exitoso para usuario_id=43 rol=admin
+[2026-10-26 21:09:45] === intento login ===
+[2026-10-26 21:09:45] Usuario: jaafigueroarabanales@eest5.com
+[2026-10-26 21:09:45] === DEBUG LOGIN ===
+[2026-10-26 21:09:45] Hash BD: $2y$10$DyaKgLsjJYG2xG/B3Hf00eFSCXe9A2clFk/HhQTL/Asw..noqJOkG
+[2026-10-26 21:09:45] Hash length: 60
+[2026-10-26 21:09:45] Login exitoso para usuario_id=43 rol=admin

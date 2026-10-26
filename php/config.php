@@ -139,7 +139,9 @@ if (session_status() !== PHP_SESSION_ACTIVE) {
 if (isset($_SESSION['id'])) {
     $id = $_SESSION['id'];
 
-    $stmt = $mysqli->prepare("SELECT rol, nombre, email FROM usuarios WHERE id = ?");
+    // Se revalida contra la BD en cada request: el rol siempre es el actual
+    // y una cuenta eliminada (deleted_at) deja de tener sesión válida.
+    $stmt = $mysqli->prepare("SELECT rol, nombre, email FROM usuarios WHERE id = ? AND deleted_at IS NULL");
     $stmt->bind_param("i", $id);
     $stmt->execute();
 
@@ -149,6 +151,10 @@ if (isset($_SESSION['id'])) {
         $_SESSION['rol'] = $usuario['rol'];
         $_SESSION['nombre'] = $usuario['nombre'];
         $_SESSION['email'] = $usuario['email'];
+    } else {
+        // La cuenta ya no existe o fue dada de baja: se descartan los datos
+        // de autenticación obsoletos (la sesión queda activa para poder volver a loguearse).
+        unset($_SESSION['id'], $_SESSION['rol'], $_SESSION['nombre'], $_SESSION['email']);
     }
 }
 

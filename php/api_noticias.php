@@ -71,6 +71,76 @@ if (session_status() !== PHP_SESSION_ACTIVE) {
 }
 
 // ============================================================
+// AUTENTICACIÓN Y PERMISOS POR ROL (siempre se validan en el servidor)
+// ============================================================
+
+// true  -> un escritor solo puede editar las noticias que él publicó.
+// false -> un escritor puede editar cualquier noticia (igual que el admin).
+const ESCRITOR_EDITA_SOLO_PROPIAS = true;
+
+function responderError($codigo, $mensaje) {
+
+    http_response_code($codigo);
+
+    echo json_encode(
+        ['error' => $mensaje],
+        JSON_UNESCAPED_UNICODE
+    );
+
+    exit;
+}
+
+// Usuario de la sesión, validado contra la BD (rol actual y cuenta no eliminada).
+function usuarioAutenticado($mysqli) {
+
+    $id = intval($_SESSION['id'] ?? 0);
+
+    if ($id <= 0) {
+        return null;
+    }
+
+    $stmt = $mysqli->prepare(
+        "SELECT id, rol FROM usuarios WHERE id = ? AND deleted_at IS NULL LIMIT 1"
+    );
+
+    $stmt->bind_param('i', $id);
+    $stmt->execute();
+
+    $usuario = $stmt->get_result()->fetch_assoc();
+
+    $stmt->close();
+
+    return $usuario ?: null;
+}
+
+// 401 si no hay sesión válida, 403 si el rol no está permitido.
+function requerirRol($mysqli, array $rolesPermitidos) {
+
+    $usuario = usuarioAutenticado($mysqli);
+
+    if (!$usuario) {
+        responderError(401, 'Tenés que iniciar sesión para realizar esta acción.');
+    }
+
+    if (!in_array($usuario['rol'], $rolesPermitidos, true)) {
+        responderError(403, 'No tenés permisos para realizar esta acción.');
+    }
+
+    return $usuario;
+}
+
+// Cuerpo de la request: JSON o formulario (application/x-www-form-urlencoded).
+function leerEntrada() {
+
+    $datos = json_decode(
+        file_get_contents('php://input'),
+        true
+    );
+
+    return is_array($datos) ? $datos : $_POST;
+}
+
+// ============================================================
 // ROUTING
 // ============================================================
 
@@ -430,6 +500,8 @@ function obtenerNoticiasPorAutor($mysqli, $autor_id) {
 
 function crearNoticia($mysqli) {
 
+    requerirRol($mysqli, ['admin', 'escritor']);
+
     $data = json_decode(
         file_get_contents('php://input'),
         true
@@ -638,10 +710,10 @@ function crearNoticia($mysqli) {
 
 function actualizarNoticia($mysqli) {
 
-    $data = json_decode(
-        file_get_contents('php://input'),
-        true
-    );
+    // Solo Administrador y Escritor pueden editar noticias
+    $usuario = requerirRol($mysqli, ['admin', 'escritor']);
+
+    $data = leerEntrada();
 
     $id = intval(
         $data['id'] ?? 0
@@ -658,6 +730,31 @@ function actualizarNoticia($mysqli) {
         return;
     }
 
+    // La noticia debe existir (las archivadas están "eliminadas")
+    $check = $mysqli->prepare(
+        "SELECT autor_id FROM noticias WHERE id = ? AND estado <> 'archivada' LIMIT 1"
+    );
+
+    $check->bind_param('i', $id);
+    $check->execute();
+
+    $existente = $check->get_result()->fetch_assoc();
+
+    $check->close();
+
+    if (!$existente) {
+        responderError(404, 'Noticia no encontrada');
+    }
+
+    // Un escritor solo edita sus propias noticias; el admin edita cualquiera
+    if (
+        ESCRITOR_EDITA_SOLO_PROPIAS &&
+        $usuario['rol'] === 'escritor' &&
+        intval($existente['autor_id']) !== intval($usuario['id'])
+    ) {
+        responderError(403, 'Solo podés editar las noticias que publicaste vos.');
+    }
+
     $updates = [];
     $params = [];
     $types = '';
@@ -668,12 +765,20 @@ function actualizarNoticia($mysqli) {
 
     if (isset($data['titulo'])) {
 
+        if (trim($data['titulo']) === '') {
+            responderError(400, 'El título no puede estar vacío');
+        }
+
         $updates[] = "titulo = ?";
-        $params[] = $data['titulo'];
+        $params[] = trim($data['titulo']);
         $types .= 's';
     }
 
     if (isset($data['contenido'])) {
+
+        if (trim(strip_tags($data['contenido'], '<img>')) === '') {
+            responderError(400, 'El contenido no puede estar vacío');
+        }
 
         $updates[] = "contenido = ?";
         $params[] = $data['contenido'];
@@ -714,16 +819,20 @@ function actualizarNoticia($mysqli) {
             return;
         }
 
+        if (
+            empty($data['imagen_mime']) ||
+            strpos($data['imagen_mime'], 'image/') !== 0
+        ) {
+            responderError(400, 'Falta el tipo MIME de la imagen o no es válido');
+        }
+
         $updates[] = "imagen_blob = ?";
         $params[] = $imagenBlob;
         $types .= 'b';
 
-        if (isset($data['imagen_mime'])) {
-
-            $updates[] = "imagen_mime = ?";
-            $params[] = $data['imagen_mime'];
-            $types .= 's';
-        }
+        $updates[] = "imagen_mime = ?";
+        $params[] = $data['imagen_mime'];
+        $types .= 's';
     }
 
     // ========================================================
@@ -731,6 +840,10 @@ function actualizarNoticia($mysqli) {
     // ========================================================
 
     if (isset($data['tipo'])) {
+
+        if (!in_array($data['tipo'], ['principal', 'secundaria'], true)) {
+            responderError(400, 'Tipo de noticia no válido');
+        }
 
         $updates[] = "tipo = ?";
         $params[] = $data['tipo'];
@@ -855,10 +968,10 @@ function actualizarNoticia($mysqli) {
 
 function eliminarNoticia($mysqli) {
 
-    $data = json_decode(
-        file_get_contents('php://input'),
-        true
-    );
+    // Solo Administrador y Escritor (los mismos roles que ya ven el botón en el panel)
+    requerirRol($mysqli, ['admin', 'escritor']);
+
+    $data = leerEntrada();
 
     $id = intval(
         $data['id'] ?? 0

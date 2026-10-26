@@ -112,6 +112,8 @@
 	let users = [];
 	let noticias = [];
 	let currentAdminId = 0;
+	let rolActual = '';
+	let noticiaEditandoId = null; // id de la noticia que se está editando (null = creando una nueva)
 
 	function escapeHtml(valor) {
 		if (valor === undefined || valor === null) return '';
@@ -154,6 +156,10 @@
 			});
 
 			const texto = await resp.text();
+			if (resp.status === 401) {
+				sesionVencida();
+				return { ok: false, mensaje: 'Tu sesión expiró. Iniciá sesión de nuevo.' };
+			}
 			let data;
 			try {
 				data = JSON.parse(texto);
@@ -175,6 +181,16 @@
 	// ===============================
 	// Sesión y permisos
 	// ===============================
+
+	// La sesión del servidor ya no es válida (expiró o se cerró en otra pestaña):
+	// se vuelve a pedir autenticación en lugar de quedar con el panel "congelado".
+	let redirigiendoALogin = false;
+	function sesionVencida() {
+		if (redirigiendoALogin) return;
+		redirigiendoALogin = true;
+		setTimeout(() => { window.location.href = '../html/login.html'; }, 1500);
+	}
+
 	async function fetchRolActual() {
 		try {
 			const resp = await fetch('../php/get_user.php', { credentials: 'same-origin', cache: 'no-store' });
@@ -377,7 +393,7 @@
 		const cont = $('#filtroNoticias');
 		if (!cont) return;
 
-		const autores = [...new Set(noticias.map(n => n.autor).filter(Boolean))].sort();
+		const autores = [...new Set(noticias.map(n => n.autor_nombre).filter(Boolean))].sort();
 
 		cont.innerHTML = `
 		<div class="filtros">
@@ -417,7 +433,7 @@
 			const contenido = (n.contenido || '').toLowerCase();
 			const fechaNoticia = (n.fecha || '').split(' ')[0];
 			return (titulo.includes(texto) || contenido.includes(texto))
-				&& (!autor || n.autor === autor)
+				&& (!autor || n.autor_nombre === autor)
 				&& (!fecha || fechaNoticia === fecha);
 		});
 
@@ -426,6 +442,13 @@
 			return;
 		}
 		cont.innerHTML = filtradas.map(tarjetaNoticia).join('');
+	}
+
+	// Debe coincidir con ESCRITOR_EDITA_SOLO_PROPIAS de php/api_noticias.php.
+	// Es solo comodidad visual: el servidor vuelve a validar el permiso en cada edición.
+	function puedeEditar(n) {
+		if (rolActual === 'admin') return true;
+		return rolActual === 'escritor' && Number(n.autor_id) === Number(currentAdminId);
 	}
 
 	function tarjetaNoticia(n) {
@@ -439,13 +462,13 @@
 		  <div class="noticia-mini__body">
 		    <h3>${escapeHtml(n.titulo)}</h3>
 		    <p class="noticia-mini__meta">
-		      <span>${icono('user')} ${escapeHtml(n.autor || 'Sin autor')}</span>
+		      <span>${icono('user')} ${escapeHtml(n.autor_nombre || 'Sin autor')}</span>
 		      <span>${icono('calendar')} ${escapeHtml(formatearFecha((n.fecha || '').split(' ')[0]))}</span>
 		    </p>
 		    <p class="noticia-mini__extracto">${escapeHtml(textoPlano(n.contenido || ''))}</p>
 		    <div class="acciones">
 		      <button type="button" class="btn-view" data-action="ver" data-id="${id}">${icono('eye')} Ver</button>
-		      <button type="button" class="btn-edit" data-action="editar" data-id="${id}">${icono('edit')} Editar</button>
+		      ${puedeEditar(n) ? `<button type="button" class="btn-edit" data-action="editar" data-id="${id}">${icono('edit')} Editar</button>` : ''}
 		      <button type="button" class="btn-delete" data-action="eliminar" data-id="${id}">${icono('trash')} Eliminar</button>
 		    </div>
 		  </div>
@@ -468,9 +491,84 @@
 		window.location.href = `../html/ver_noticia.html?id=${encodeURIComponent(noticia.id)}`;
 	}
 
+	// El contenido viene de la BD como HTML: antes de cargarlo en el editor se quitan
+	// scripts, manejadores de eventos (onerror, onclick...) y enlaces javascript:.
+	function limpiarHtml(html) {
+		const doc = new DOMParser().parseFromString(html || '', 'text/html');
+		doc.querySelectorAll('script, style, iframe, object, embed, link, meta, base, form').forEach(el => el.remove());
+		doc.body.querySelectorAll('*').forEach(el => {
+			[...el.attributes].forEach(attr => {
+				const nombre = attr.name.toLowerCase();
+				const valor = attr.value.trim().toLowerCase();
+				const esUrl = nombre === 'href' || nombre === 'src' || nombre === 'xlink:href';
+				if (nombre.startsWith('on') || (esUrl && valor.startsWith('javascript:'))) el.removeAttribute(attr.name);
+			});
+		});
+		return doc.body.innerHTML;
+	}
+
+	function setTexto(selector, texto) {
+		const el = $(selector);
+		if (el) el.textContent = texto;
+	}
+
+	// Vuelve el formulario al modo "crear noticia" y lo deja vacío
+	function limpiarFormNoticia() {
+		noticiaEditandoId = null;
+		$('#formNoticia')?.reset();
+		const campoEditor = $('#editor');
+		if (campoEditor) campoEditor.innerHTML = '';
+		const vistaPrevia = $('#previewImagen');
+		if (vistaPrevia) {
+			vistaPrevia.removeAttribute('src');
+			vistaPrevia.style.display = 'none';
+		}
+		setTexto('#textoTituloFormNoticia', 'Crear nueva noticia');
+		setTexto('#textoBtnNoticia', 'Publicar noticia');
+		const cancelar = $('#btnCancelarEdicion');
+		if (cancelar) cancelar.style.display = 'none';
+		const avisoEdicion = $('#avisoEdicion');
+		if (avisoEdicion) avisoEdicion.style.display = 'none';
+	}
+
 	function editarNoticia(id) {
-		if (typeof window.editarNoticiaDesdeAdmin === 'function') return window.editarNoticiaDesdeAdmin(id);
-		aviso('La edición de noticias todavía no está disponible desde este panel.', 'info');
+		const noticia = noticias.find(x => String(x.id) === String(id));
+		if (!noticia) return aviso('No se encontró la noticia.', 'error');
+		if (!puedeEditar(noticia)) return aviso('No tenés permisos para editar esta noticia.', 'error');
+
+		const form = $('#formNoticia');
+		if (!form) return;
+
+		// Se reutiliza el formulario de creación, cargado con los datos actuales
+		form.reset();
+		noticiaEditandoId = noticia.id;
+		$('#tituloNoticia').value = noticia.titulo || '';
+		$('#editor').innerHTML = limpiarHtml(noticia.contenido);
+
+		const tipo = noticia.tipo === 'principal' ? 'principal' : 'secundaria';
+		const radio = form.querySelector(`input[name="tipoNoticia"][value="${tipo}"]`);
+		if (radio) radio.checked = true;
+
+		const vistaPrevia = $('#previewImagen');
+		if (vistaPrevia) {
+			if (noticia.imagen_blob && /^image\/[\w.+-]+$/.test(noticia.imagen_mime || '')) {
+				vistaPrevia.src = `data:${noticia.imagen_mime};base64,${noticia.imagen_blob}`;
+				vistaPrevia.style.display = 'block';
+			} else {
+				vistaPrevia.removeAttribute('src');
+				vistaPrevia.style.display = 'none';
+			}
+		}
+
+		setTexto('#textoTituloFormNoticia', 'Editar noticia');
+		setTexto('#textoBtnNoticia', 'Guardar cambios');
+		const cancelar = $('#btnCancelarEdicion');
+		if (cancelar) cancelar.style.display = '';
+		const avisoEdicion = $('#avisoEdicion');
+		if (avisoEdicion) avisoEdicion.style.display = '';
+
+		$('#contenidoNoticias')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+		$('#tituloNoticia').focus({ preventScroll: true });
 	}
 
 	async function confirmarEliminarNoticia(noticia) {
@@ -485,6 +583,7 @@
 		const r = await postAdmin('../php/api_noticias.php?action=eliminar', { id });
 		if (r.ok) {
 			aviso('La noticia se eliminó correctamente.', 'success');
+			if (String(noticiaEditandoId) === String(id)) limpiarFormNoticia();
 			fetchNoticias();
 		} else {
 			aviso(r.mensaje || 'No se pudo eliminar la noticia.', 'error');
@@ -501,6 +600,8 @@
 		const inputImagen = $('#imagenNoticia');
 		const preview = $('#previewImagen');
 		const editor = $('#editor');
+
+		$('#btnCancelarEdicion')?.addEventListener('click', limpiarFormNoticia);
 
 		inputImagen?.addEventListener('change', () => {
 			const archivo = inputImagen.files?.[0];
@@ -586,21 +687,27 @@
 
 				const tipo = form.querySelector('input[name="tipoNoticia"]:checked')?.value || 'secundaria';
 
-				const res = await fetch('../php/api_noticias.php?action=crear', {
+				const editando = noticiaEditandoId !== null;
+				const cuerpo = {
+					titulo,
+					contenido: contenidoHTML,
+					resumen: contenidoTexto.substring(0, 150),
+					imagen_blob: imagenBlob,
+					imagen_mime: imagenMime,
+					tipo
+				};
+				if (editando) {
+					// Al editar solo se envían los campos del formulario (si no hay imagen nueva se conserva la actual)
+					cuerpo.id = noticiaEditandoId;
+				} else {
+					Object.assign(cuerpo, { destacado: 0, prioridad: 0, autor_id: currentAdminId || 0 });
+				}
+
+				const res = await fetch(`../php/api_noticias.php?action=${editando ? 'actualizar' : 'crear'}`, {
 					method: 'POST',
 					credentials: 'same-origin',
 					headers: { 'Content-Type': 'application/json' },
-					body: JSON.stringify({
-						titulo,
-						contenido: contenidoHTML,
-						resumen: contenidoTexto.substring(0, 150),
-						imagen_blob: imagenBlob,
-						imagen_mime: imagenMime,
-						tipo,
-						destacado: 0,
-						prioridad: 0,
-						autor_id: currentAdminId || 0
-					})
+					body: JSON.stringify(cuerpo)
 				});
 
 				const texto = await res.text();
@@ -613,15 +720,11 @@
 				}
 
 				if (res.ok && (j.success || j.id)) {
-					aviso('La noticia se publicó correctamente.', 'success');
-					form.reset();
-					if (editor) editor.innerHTML = '';
-					if (preview) {
-						preview.removeAttribute('src');
-						preview.style.display = 'none';
-					}
+					aviso(editando ? 'La noticia se actualizó correctamente.' : 'La noticia se publicó correctamente.', 'success');
+					limpiarFormNoticia();
 					fetchNoticias();
 				} else {
+					if (res.status === 401) sesionVencida();
 					throw new Error(j.error || j.message || 'No se pudo guardar la noticia.');
 				}
 			} catch (err) {
@@ -690,6 +793,7 @@
 		}
 
 		aplicarTextosEncabezado(rol);
+		rolActual = rol;
 
 		currentAdminId = (await fetchSessionUser()).id || 0;
 		initFormNoticia();
@@ -708,4 +812,10 @@
 	}
 
 	document.addEventListener('DOMContentLoaded', init);
+
+	// Si el navegador restaura el panel desde la caché de "atrás/adelante" (por ejemplo tras
+	// cerrar sesión), el JS no vuelve a correr: se recarga para revalidar la sesión y el rol.
+	window.addEventListener('pageshow', e => {
+		if (e.persisted) window.location.reload();
+	});
 })();

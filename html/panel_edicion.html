@@ -80,10 +80,11 @@
     <!-- CREAR NOTICIA -->
     <section id="contenidoNoticias" class="panel" aria-labelledby="tituloNuevaNoticia">
       <div class="panel__head">
-        <h2 id="tituloNuevaNoticia"><span data-icon="pen"></span> Crear nueva noticia</h2>
+        <h2 id="tituloNuevaNoticia"><span data-icon="pen"></span> <span id="textoTituloFormNoticia">Crear nueva noticia</span></h2>
       </div>
 
       <form id="formNoticia" class="form-stack">
+        <p id="avisoEdicion" class="texto-suave" style="display:none;">Estás editando una noticia ya publicada. Si no elegís una imagen nueva, se conserva la actual.</p>
         <div class="campo">
           <label for="tituloNoticia">Título</label>
           <input type="text" id="tituloNoticia" name="titulo" placeholder="Ej: Jornada de puertas abiertas" required>
@@ -143,7 +144,8 @@
         </div>
 
         <div class="form-actions">
-          <button type="submit" class="btn btn-primario"><span data-icon="megaphone"></span> Publicar noticia</button>
+          <button type="submit" class="btn btn-primario"><span data-icon="megaphone"></span> <span id="textoBtnNoticia">Publicar noticia</span></button>
+          <button type="button" id="btnCancelarEdicion" class="btn btn-ghost" style="display:none;">Cancelar edición</button>
         </div>
       </form>
     </section>
