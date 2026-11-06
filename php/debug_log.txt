@@ -414,3 +414,188 @@ Stack trace:
 [2026-11-06 21:37:13] Google_Client no disponible.
 [2026-11-06 21:37:13] vendor/autoload.php no encontrado. Continuando.
 [2026-11-06 21:37:13] Google_Client no disponible.
+[2026-11-06 22:55:46] vendor/autoload.php no encontrado. Continuando.
+[2026-11-06 22:55:46] Google_Client no disponible.
+[2026-11-06 22:55:46] vendor/autoload.php no encontrado. Continuando.
+[2026-11-06 22:55:46] Google_Client no disponible.
+[06-Nov-2026 22:55:50 Europe/Berlin] PHP Fatal error:  Uncaught mysqli_sql_exception: No se puede establecer una conexión ya que el equipo de destino denegó expresamente dicha conexión in C:\xampp\htdocs\PaginaWeb-EESTN-5\php\config.php:78
+Stack trace:
+#0 C:\xampp\htdocs\PaginaWeb-EESTN-5\php\config.php(78): mysqli->__construct('localhost', 'root', Object(SensitiveParameterValue))
+#1 C:\xampp\htdocs\PaginaWeb-EESTN-5\php\api_calendario.php(37): require_once('C:\\xampp\\htdocs...')
+#2 {main}
+  thrown in C:\xampp\htdocs\PaginaWeb-EESTN-5\php\config.php on line 78
+[06-Nov-2026 22:55:50 Europe/Berlin] PHP Fatal error:  Uncaught mysqli_sql_exception: No se puede establecer una conexión ya que el equipo de destino denegó expresamente dicha conexión in C:\xampp\htdocs\PaginaWeb-EESTN-5\php\config.php:78
+Stack trace:
+#0 C:\xampp\htdocs\PaginaWeb-EESTN-5\php\config.php(78): mysqli->__construct('localhost', 'root', Object(SensitiveParameterValue))
+#1 C:\xampp\htdocs\PaginaWeb-EESTN-5\php\api_noticias.php(50): require_once('C:\\xampp\\htdocs...')
+#2 {main}
+  thrown in C:\xampp\htdocs\PaginaWeb-EESTN-5\php\config.php on line 78
+[06-Nov-2026 22:55:50 Europe/Berlin] PHP Fatal error:  Uncaught mysqli_sql_exception: No se puede establecer una conexión ya que el equipo de destino denegó expresamente dicha conexión in C:\xampp\htdocs\PaginaWeb-EESTN-5\php\config.php:78
+Stack trace:
+#0 C:\xampp\htdocs\PaginaWeb-EESTN-5\php\config.php(78): mysqli->__construct('localhost', 'root', Object(SensitiveParameterValue))
+#1 C:\xampp\htdocs\PaginaWeb-EESTN-5\php\get_user.php(9): require_once('C:\\xampp\\htdocs...')
+#2 {main}
+  thrown in C:\xampp\htdocs\PaginaWeb-EESTN-5\php\config.php on line 78
+[2026-11-06 22:56:32] vendor/autoload.php no encontrado. Continuando.
+[2026-11-06 22:56:32] Google_Client no disponible.
+[2026-11-06 22:56:33] vendor/autoload.php no encontrado. Continuando.
+[2026-11-06 22:56:33] Google_Client no disponible.
+[2026-11-06 22:56:36] vendor/autoload.php no encontrado. Continuando.
+[2026-11-06 22:56:36] Google_Client no disponible.
+[2026-11-06 22:56:36] vendor/autoload.php no encontrado. Continuando.
+[2026-11-06 22:56:36] Google_Client no disponible.
+[2026-11-06 22:56:36] vendor/autoload.php no encontrado. Continuando.
+[2026-11-06 22:56:36] Google_Client no disponible.
+[2026-11-06 22:56:36] vendor/autoload.php no encontrado. Continuando.
+[2026-11-06 22:56:36] Google_Client no disponible.
+[06-Nov-2026 22:56:37 Europe/Berlin] PHP Fatal error:  Uncaught mysqli_sql_exception: No se puede establecer una conexión ya que el equipo de destino denegó expresamente dicha conexión in C:\xampp\htdocs\PaginaWeb-EESTN-5\php\config.php:78
+Stack trace:
+#0 C:\xampp\htdocs\PaginaWeb-EESTN-5\php\config.php(78): mysqli->__construct('localhost', 'root', Object(SensitiveParameterValue))
+#1 C:\xampp\htdocs\PaginaWeb-EESTN-5\php\api_noticias.php(50): require_once('C:\\xampp\\htdocs...')
+#2 {main}
+  thrown in C:\xampp\htdocs\PaginaWeb-EESTN-5\php\config.php on line 78
+[06-Nov-2026 22:56:37 Europe/Berlin] PHP Fatal error:  Uncaught mysqli_sql_exception: No se puede establecer una conexión ya que el equipo de destino denegó expresamente dicha conexión in C:\xampp\htdocs\PaginaWeb-EESTN-5\php\config.php:78
+Stack trace:
+#0 C:\xampp\htdocs\PaginaWeb-EESTN-5\php\config.php(78): mysqli->__construct('localhost', 'root', Object(SensitiveParameterValue))
+#1 C:\xampp\htdocs\PaginaWeb-EESTN-5\php\api_calendario.php(37): require_once('C:\\xampp\\htdocs...')
+#2 {main}
+  thrown in C:\xampp\htdocs\PaginaWeb-EESTN-5\php\config.php on line 78
+[06-Nov-2026 22:56:37 Europe/Berlin] PHP Fatal error:  Uncaught mysqli_sql_exception: No se puede establecer una conexión ya que el equipo de destino denegó expresamente dicha conexión in C:\xampp\htdocs\PaginaWeb-EESTN-5\php\config.php:78
+Stack trace:
+#0 C:\xampp\htdocs\PaginaWeb-EESTN-5\php\config.php(78): mysqli->__construct('localhost', 'root', Object(SensitiveParameterValue))
+#1 C:\xampp\htdocs\PaginaWeb-EESTN-5\php\get_user.php(9): require_once('C:\\xampp\\htdocs...')
+#2 {main}
+  thrown in C:\xampp\htdocs\PaginaWeb-EESTN-5\php\config.php on line 78
+[2026-11-06 22:56:37] vendor/autoload.php no encontrado. Continuando.
+[2026-11-06 22:56:37] Google_Client no disponible.
+[06-Nov-2026 22:56:40 Europe/Berlin] PHP Fatal error:  Uncaught mysqli_sql_exception: No se puede establecer una conexión ya que el equipo de destino denegó expresamente dicha conexión in C:\xampp\htdocs\PaginaWeb-EESTN-5\php\config.php:78
+Stack trace:
+#0 C:\xampp\htdocs\PaginaWeb-EESTN-5\php\config.php(78): mysqli->__construct('localhost', 'root', Object(SensitiveParameterValue))
+#1 C:\xampp\htdocs\PaginaWeb-EESTN-5\php\api_calendario.php(37): require_once('C:\\xampp\\htdocs...')
+#2 {main}
+  thrown in C:\xampp\htdocs\PaginaWeb-EESTN-5\php\config.php on line 78
+[06-Nov-2026 22:56:40 Europe/Berlin] PHP Fatal error:  Uncaught mysqli_sql_exception: No se puede establecer una conexión ya que el equipo de destino denegó expresamente dicha conexión in C:\xampp\htdocs\PaginaWeb-EESTN-5\php\config.php:78
+Stack trace:
+#0 C:\xampp\htdocs\PaginaWeb-EESTN-5\php\config.php(78): mysqli->__construct('localhost', 'root', Object(SensitiveParameterValue))
+#1 C:\xampp\htdocs\PaginaWeb-EESTN-5\php\api_noticias.php(50): require_once('C:\\xampp\\htdocs...')
+#2 {main}
+  thrown in C:\xampp\htdocs\PaginaWeb-EESTN-5\php\config.php on line 78
+[06-Nov-2026 22:56:40 Europe/Berlin] PHP Fatal error:  Uncaught mysqli_sql_exception: No se puede establecer una conexión ya que el equipo de destino denegó expresamente dicha conexión in C:\xampp\htdocs\PaginaWeb-EESTN-5\php\config.php:78
+Stack trace:
+#0 C:\xampp\htdocs\PaginaWeb-EESTN-5\php\config.php(78): mysqli->__construct('localhost', 'root', Object(SensitiveParameterValue))
+#1 C:\xampp\htdocs\PaginaWeb-EESTN-5\php\api_noticias.php(50): require_once('C:\\xampp\\htdocs...')
+#2 {main}
+  thrown in C:\xampp\htdocs\PaginaWeb-EESTN-5\php\config.php on line 78
+[06-Nov-2026 22:56:40 Europe/Berlin] PHP Fatal error:  Uncaught mysqli_sql_exception: No se puede establecer una conexión ya que el equipo de destino denegó expresamente dicha conexión in C:\xampp\htdocs\PaginaWeb-EESTN-5\php\config.php:78
+Stack trace:
+#0 C:\xampp\htdocs\PaginaWeb-EESTN-5\php\config.php(78): mysqli->__construct('localhost', 'root', Object(SensitiveParameterValue))
+#1 C:\xampp\htdocs\PaginaWeb-EESTN-5\php\api_calendario.php(37): require_once('C:\\xampp\\htdocs...')
+#2 {main}
+  thrown in C:\xampp\htdocs\PaginaWeb-EESTN-5\php\config.php on line 78
+[06-Nov-2026 22:56:41 Europe/Berlin] PHP Fatal error:  Uncaught mysqli_sql_exception: No se puede establecer una conexión ya que el equipo de destino denegó expresamente dicha conexión in C:\xampp\htdocs\PaginaWeb-EESTN-5\php\config.php:78
+Stack trace:
+#0 C:\xampp\htdocs\PaginaWeb-EESTN-5\php\config.php(78): mysqli->__construct('localhost', 'root', Object(SensitiveParameterValue))
+#1 C:\xampp\htdocs\PaginaWeb-EESTN-5\php\get_user.php(9): require_once('C:\\xampp\\htdocs...')
+#2 {main}
+  thrown in C:\xampp\htdocs\PaginaWeb-EESTN-5\php\config.php on line 78
+[2026-11-06 22:56:41] vendor/autoload.php no encontrado. Continuando.
+[2026-11-06 22:56:41] Google_Client no disponible.
+[06-Nov-2026 22:56:45 Europe/Berlin] PHP Fatal error:  Uncaught mysqli_sql_exception: No se puede establecer una conexión ya que el equipo de destino denegó expresamente dicha conexión in C:\xampp\htdocs\PaginaWeb-EESTN-5\php\config.php:78
+Stack trace:
+#0 C:\xampp\htdocs\PaginaWeb-EESTN-5\php\config.php(78): mysqli->__construct('localhost', 'root', Object(SensitiveParameterValue))
+#1 C:\xampp\htdocs\PaginaWeb-EESTN-5\php\get_user.php(9): require_once('C:\\xampp\\htdocs...')
+#2 {main}
+  thrown in C:\xampp\htdocs\PaginaWeb-EESTN-5\php\config.php on line 78
+[2026-11-06 22:57:44] vendor/autoload.php no encontrado. Continuando.
+[2026-11-06 22:57:44] Google_Client no disponible.
+[2026-11-06 22:57:44] vendor/autoload.php no encontrado. Continuando.
+[2026-11-06 22:57:44] Google_Client no disponible.
+[2026-11-06 22:57:44] vendor/autoload.php no encontrado. Continuando.
+[2026-11-06 22:57:44] Google_Client no disponible.
+[2026-11-06 22:57:51] vendor/autoload.php no encontrado. Continuando.
+[2026-11-06 22:57:51] Google_Client no disponible.
+[2026-11-06 22:57:51] vendor/autoload.php no encontrado. Continuando.
+[2026-11-06 22:57:51] Google_Client no disponible.
+[2026-11-06 22:57:51] vendor/autoload.php no encontrado. Continuando.
+[2026-11-06 22:57:51] Google_Client no disponible.
+[06-Nov-2026 22:57:51 Europe/Berlin] [api_calendario] auto-sync error: Illegal mix of collations (utf8mb4_unicode_ci,IMPLICIT) and (utf8mb4_general_ci,IMPLICIT) for operation '='
+[2026-11-06 22:57:51] vendor/autoload.php no encontrado. Continuando.
+[2026-11-06 22:57:51] Google_Client no disponible.
+[2026-11-06 22:57:51] vendor/autoload.php no encontrado. Continuando.
+[2026-11-06 22:57:51] Google_Client no disponible.
+[2026-11-06 22:57:58] vendor/autoload.php no encontrado. Continuando.
+[2026-11-06 22:57:58] Google_Client no disponible.
+[2026-11-06 22:58:00] vendor/autoload.php no encontrado. Continuando.
+[2026-11-06 22:58:00] Google_Client no disponible.
+[2026-11-06 22:58:00] vendor/autoload.php no encontrado. Continuando.
+[2026-11-06 22:58:00] Google_Client no disponible.
+[2026-11-06 22:58:00] vendor/autoload.php no encontrado. Continuando.
+[2026-11-06 22:58:00] Google_Client no disponible.
+[2026-11-06 22:58:00] vendor/autoload.php no encontrado. Continuando.
+[2026-11-06 22:58:00] vendor/autoload.php no encontrado. Continuando.
+[2026-11-06 22:58:00] Google_Client no disponible.
+[2026-11-06 22:58:00] Google_Client no disponible.
+[06-Nov-2026 22:58:00 Europe/Berlin] [api_calendario] auto-sync error: Illegal mix of collations (utf8mb4_unicode_ci,IMPLICIT) and (utf8mb4_general_ci,IMPLICIT) for operation '='
+[2026-11-06 22:58:00] vendor/autoload.php no encontrado. Continuando.
+[2026-11-06 22:58:00] Google_Client no disponible.
+[2026-11-06 22:58:18] vendor/autoload.php no encontrado. Continuando.
+[2026-11-06 22:58:18] Google_Client no disponible.
+[2026-11-06 22:58:18] vendor/autoload.php no encontrado. Continuando.
+[2026-11-06 22:58:18] Google_Client no disponible.
+[2026-11-06 22:58:18] vendor/autoload.php no encontrado. Continuando.
+[2026-11-06 22:58:18] Google_Client no disponible.
+[2026-11-06 22:58:18] vendor/autoload.php no encontrado. Continuando.
+[2026-11-06 22:58:18] vendor/autoload.php no encontrado. Continuando.
+[2026-11-06 22:58:18] Google_Client no disponible.
+[2026-11-06 22:58:18] Google_Client no disponible.
+[2026-11-06 22:58:18] vendor/autoload.php no encontrado. Continuando.
+[2026-11-06 22:58:18] Google_Client no disponible.
+[06-Nov-2026 22:58:19 Europe/Berlin] [api_calendario] auto-sync error: Illegal mix of collations (utf8mb4_unicode_ci,IMPLICIT) and (utf8mb4_general_ci,IMPLICIT) for operation '='
+[2026-11-06 22:58:33] vendor/autoload.php no encontrado. Continuando.
+[2026-11-06 22:58:33] Google_Client no disponible.
+[2026-11-06 23:07:39] vendor/autoload.php no encontrado. Continuando.
+[2026-11-06 23:07:39] Google_Client no disponible.
+[2026-11-06 23:07:50] vendor/autoload.php no encontrado. Continuando.
+[2026-11-06 23:07:50] Google_Client no disponible.
+[06-Nov-2026 23:07:51 Europe/Berlin] ----------------------------------------
+[06-Nov-2026 23:07:51 Europe/Berlin] LOGIN GOOGLE
+[06-Nov-2026 23:07:51 Europe/Berlin] Email: juan.andfigueroa2007@gmail.com
+[06-Nov-2026 23:07:51 Europe/Berlin] Picture: https://lh3.googleusercontent.com/a/ACg8ocKhsu_DwqBBO3B-LYJBr8YL-VwbmlGv_S6OG-NPwzTfVyzKVA=s96-c
+[06-Nov-2026 23:07:51 Europe/Berlin] IMAGEN DESCARGADA CORRECTAMENTE
+[06-Nov-2026 23:07:51 Europe/Berlin] HTTP: 200
+[06-Nov-2026 23:07:51 Europe/Berlin] MIME: image/png
+[06-Nov-2026 23:07:51 Europe/Berlin] BYTES: 812
+[06-Nov-2026 23:07:51 Europe/Berlin] Usuario actualizado correctamente. ID: 44
+[2026-11-06 23:07:52] vendor/autoload.php no encontrado. Continuando.
+[2026-11-06 23:07:52] Google_Client no disponible.
+[2026-11-06 23:07:52] vendor/autoload.php no encontrado. Continuando.
+[2026-11-06 23:07:52] Google_Client no disponible.
+[2026-11-06 23:07:52] vendor/autoload.php no encontrado. Continuando.
+[2026-11-06 23:07:52] Google_Client no disponible.
+[2026-11-06 23:07:52] vendor/autoload.php no encontrado. Continuando.
+[2026-11-06 23:07:52] Google_Client no disponible.
+[06-Nov-2026 23:07:52 Europe/Berlin] [api_calendario] auto-sync error: Illegal mix of collations (utf8mb4_unicode_ci,IMPLICIT) and (utf8mb4_general_ci,IMPLICIT) for operation '='
+[2026-11-06 23:07:52] vendor/autoload.php no encontrado. Continuando.
+[2026-11-06 23:07:52] vendor/autoload.php no encontrado. Continuando.
+[2026-11-06 23:07:52] Google_Client no disponible.
+[2026-11-06 23:07:52] Google_Client no disponible.
+[2026-11-06 23:07:54] vendor/autoload.php no encontrado. Continuando.
+[2026-11-06 23:07:54] Google_Client no disponible.
+[2026-11-06 23:07:54] vendor/autoload.php no encontrado. Continuando.
+[2026-11-06 23:07:54] Google_Client no disponible.
+[2026-11-06 23:10:46] vendor/autoload.php no encontrado. Continuando.
+[2026-11-06 23:10:46] Google_Client no disponible.
+[2026-11-06 23:10:46] vendor/autoload.php no encontrado. Continuando.
+[2026-11-06 23:10:46] Google_Client no disponible.
+[2026-11-06 23:13:27] vendor/autoload.php no encontrado. Continuando.
+[2026-11-06 23:13:27] Google_Client no disponible.
+[2026-11-06 23:13:27] vendor/autoload.php no encontrado. Continuando.
+[2026-11-06 23:13:27] Google_Client no disponible.
+[2026-11-06 23:14:25] vendor/autoload.php no encontrado. Continuando.
+[2026-11-06 23:14:25] Google_Client no disponible.
+[2026-11-06 23:14:25] vendor/autoload.php no encontrado. Continuando.
+[2026-11-06 23:14:25] Google_Client no disponible.
+[2026-11-06 23:27:13] vendor/autoload.php no encontrado. Continuando.
+[2026-11-06 23:27:13] Google_Client no disponible.
+[2026-11-06 23:27:13] vendor/autoload.php no encontrado. Continuando.
+[2026-11-06 23:27:13] Google_Client no disponible.

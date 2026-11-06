@@ -193,7 +193,7 @@ document.addEventListener('DOMContentLoaded', function(){
     'ciudad_nacimiento': {max: 25, type: 'text'},
     'provincia_nacimiento': {max: 25, type: 'text'},
     'pais_nacimiento': {max: 25, type: 'text'},
-    'proviene_escuela': {max: 25, type: 'text'},
+    'proviene_escuela': {max: 60, type: 'any'},
 
     // Ahora Calle, Entre y Y aceptan solo números
     'calle': {max: 5, type: 'number'},
@@ -227,8 +227,8 @@ document.addEventListener('DOMContentLoaded', function(){
       input.addEventListener('input', function(){
         if(config.type === 'text') {
           this.value = this.value.replace(/[^A-Za-zÀ-ÿ0-9\s°º.-]/g, '');
-        } else {
-          this.value = this.value.replace(/[^0-9]/g, '');
+        } else if (config.type === 'number') {
+          this.ivalue = this.value.replace(/[^0-9]/g, '');
         }
         if(this.value.length > config.max) {
           this.value = this.value.slice(0, config.max);
@@ -247,7 +247,7 @@ document.addEventListener('DOMContentLoaded', function(){
           } else {
             clearError(this); 
           }
-        } else {
+        } else if (config.type === 'number') {
           if(!/^[0-9]+$/.test(value)) {
             // mensaje personalizado si existe
             setError(this, customFieldMsgs[id] || `Solo números (máximo ${config.max} dígitos)`);

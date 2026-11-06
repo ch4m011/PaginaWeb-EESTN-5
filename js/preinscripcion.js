@@ -107,8 +107,10 @@ document.addEventListener('DOMContentLoaded', function () {
         });
         if (missing.length > 0) {
             btnPdf.textContent = 'Faltan completar campos';
+            btnPdf.disabled = true;
         } else {
             btnPdf.textContent = 'Descargar PDF de Inscripción';
+            btnPdf.disabled = false;
         }
     }
     // Actualizar al cargar y en cada cambio
