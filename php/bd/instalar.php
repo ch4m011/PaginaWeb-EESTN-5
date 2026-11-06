@@ -1,37 +1,32 @@
 <?php
 
-require_once __DIR__ . '/config.php';
-
-$carpeta = "../../sql/";
+$carpeta = __DIR__ . '/../../sql/';
 
 $archivos = glob($carpeta . "*.sql");
 
 sort($archivos);
 
 foreach ($archivos as $archivo) {
-
     $nombre = basename($archivo);
     $sql = file_get_contents($archivo);
 
     try {
 
-        $conn->multi_query($sql);
+        $mysqli->multi_query($sql);
 
         // Procesar todos los resultados del archivo
         do {
 
-            if ($resultado = $conn->store_result()) {
+            if ($resultado = $mysqli->store_result()) {
                 $resultado->free();
             }
 
-        } while ($conn->more_results() && $conn->next_result());
+        } while ($mysqli->more_results() && $mysqli->next_result());
 
         // Si alguna consulta del archivo falló
-        if ($conn->errno) {
-            throw new Exception($conn->error);
+        if ($mysqli->errno) {
+            throw new Exception($mysqli->error);
         }
-
-        echo "OK: $nombre<br>";
 
     } catch (Throwable $e) {
 
@@ -44,5 +39,3 @@ foreach ($archivos as $archivo) {
         exit;
     }
 }
-
-echo "<br><strong>Base de datos 'web-escolar' instalada correctamente.</strong>";

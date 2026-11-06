@@ -393,14 +393,6 @@ function formatearFecha(fecha) {
     }
 }
 
-/**
- * Inicializar cuando carga el DOM
- */
 document.addEventListener('DOMContentLoaded', function () {
     cargarNoticias();
 });
-
-// Alternativa: si el DOM ya está cargado antes de que este script se ejecute
-if (document.readyState !== 'loading') {
-    cargarNoticias();
-}

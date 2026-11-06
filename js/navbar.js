@@ -55,6 +55,8 @@ async function obtenerSesionUsuario() {
   return null;
 }
 
+let usuario = null;
+
 // =======================================================
 // CONSTRUCCIÓN DEL NAVBAR
 // =======================================================
@@ -129,13 +131,17 @@ async function actualizarNav() {
   ayudaMenu.className = "nav-dropdown-menu";
 
   [
-    { nombre: "Contacto", href: "../html/contacto.html" },
-    { nombre: "Preguntas frecuentes", href: "../html/preguntas-frecuentes.html" }
+    { nombre: "Contacto", href: "../html/contacto.html", abriraparte: false },
+    { nombre: "Preguntas frecuentes", href: "../html/preguntas-frecuentes.html", abriraparte: false },
+    { nombre: "Manual de usuario", href: "../public/Manual_de_Usuario.docx", abriraparte: true }
   ].forEach(item => {
     const link = document.createElement("a");
     link.href = item.href;
     link.textContent = item.nombre;
     ayudaMenu.appendChild(link);
+    if (item.abriraparte) {
+      link.target="_blank"
+    }
   });
 
   ayudaBtn.onclick = (e) => {
@@ -151,8 +157,7 @@ async function actualizarNav() {
   nav.append(tecnicaturasContainer, ayudaContainer, bibliotecaBtn, registroExternoBtn);
 
   // Usuario actual
-  const usuario = await obtenerSesionUsuario();
-  console.log(usuario)
+  usuario = await obtenerSesionUsuario();
 
   if (usuario && usuario.nombre) {
     const userContainer = document.createElement("div");
@@ -353,20 +358,7 @@ document.addEventListener("DOMContentLoaded", async () => {
   }
 })();
 
-async function fetchSessionUser() {
-  try {
-    const res = await fetch('../php/check_session.php', { cache: 'no-store', credentials: 'same-origin' });
-    const json = await res.json();
-    if (json.id === null) return false;
-    return true;
-  } catch (e) {
-    return false;
-  }
-}
-
 async function updateFooter() {
-  let logged = await fetchSessionUser();
-
   const footer = document.querySelector(".eest-footer");
   if (footer) {
     footer.innerHTML = `
@@ -433,7 +425,7 @@ async function updateFooter() {
 
   const seccionCuenta = document.querySelector('#cuenta-footer-seccion');
   if (!seccionCuenta) return;
-  if (logged) {
+  if (usuario && usuario.nombre) {
     seccionCuenta.innerHTML = `
     <h4>Cuenta</h4>
     <ul>

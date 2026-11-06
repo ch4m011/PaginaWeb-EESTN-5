@@ -63,73 +63,51 @@ if (!class_exists('Google_Client')) {
 }
 
 // --- CREDENCIALES DE BD ---
-// En XAMPP normalmente se usa root sin contraseña. Se puede cambiar
-// DB_HOST, DB_USER, DB_PASS y DB_NAME desde php/.env.
 $dbHost = getenv('DB_HOST') ?: 'localhost';
 $dbUser = getenv('DB_USER') ?: 'root';
 $dbPass = getenv('DB_PASS') ?: '';
-$dbName = 'web-escolar';
-// Si existe un .env con un nombre anterior (por ejemplo web-escolar),
-// no lo usamos porque la base real del proyecto se llama web-escolar.
-// Para cambiarla manualmente, modificá esta línea.
+$dbName = getenv('DB_NAME') ?: 'web-escolar';
 
-// Si "web-escolar" no existe pero el usuario ya importó las tablas en otra
-// base local, buscamos una base que tenga las tablas principales del proyecto.
-// Esto evita que el sitio quede inutilizado simplemente porque la base fue
-// creada con otro nombre en phpMyAdmin.
-$mysqli = @new mysqli($dbHost, $dbUser, $dbPass, $dbName);
-
-if ($mysqli->connect_errno === 1049) {
-    $servidor = @new mysqli($dbHost, $dbUser, $dbPass);
-
-    if (!$servidor->connect_error) {
-        $dbDetectada = null;
-        $consulta = $servidor->query("
-            SELECT t.table_schema
-            FROM information_schema.tables t
-            WHERE t.table_schema NOT IN ('information_schema','mysql','performance_schema','sys')
-              AND t.table_name IN ('usuarios','noticias')
-            GROUP BY t.table_schema
-            HAVING COUNT(DISTINCT t.table_name) = 2
-            ORDER BY CASE WHEN t.table_schema = 'web-escolar' THEN 0 ELSE 1 END, t.table_schema
-            LIMIT 1
-        ");
-
-        if ($consulta) {
-            $fila = $consulta->fetch_assoc();
-            $dbDetectada = $fila['table_schema'] ?? null;
-        }
-        $servidor->close();
-
-        if ($dbDetectada) {
-            $dbName = $dbDetectada;
-            $mysqli = @new mysqli($dbHost, $dbUser, $dbPass, $dbName);
-        }
-    }
-}
-
-if ($mysqli->connect_error) {
-    $mensaje = 'Error de conexión DB: ' . $mysqli->connect_error;
-    logError($mensaje);
-    http_response_code(500);
-    die(json_encode([
-        'success' => false,
-        'message' => 'No se pudo conectar con la base de datos. Verificá que MySQL esté iniciado y que la base creada en phpMyAdmin tenga las tablas usuarios y noticias.',
-        'error' => $mysqli->connect_error
-    ]));
-}
-
+// Constantes globales
 if (!defined('DB_HOST')) define('DB_HOST', $dbHost);
 if (!defined('DB_USER')) define('DB_USER', $dbUser);
 if (!defined('DB_PASS')) define('DB_PASS', $dbPass);
 if (!defined('DB_NAME')) define('DB_NAME', $dbName);
 
+// Conexión inicial sin seleccionar base de datos
+$mysqli = new mysqli($dbHost, $dbUser, $dbPass);
+
+if ($mysqli->connect_error) {
+    logError('Error de conexión: ' . $mysqli->connect_error);
+    die('No se pudo conectar con MySQL.');
+}
+
+// Crear base si no existe
+$sql = "CREATE DATABASE IF NOT EXISTS `$dbName`
+        CHARACTER SET utf8mb4
+        COLLATE utf8mb4_general_ci";
+
+if (!$mysqli->query($sql)) {
+    logError('Error creando BD: ' . $mysqli->error);
+    die('No se pudo crear la base de datos.');
+}
+
+// Seleccionar base
+if (!$mysqli->select_db($dbName)) {
+    logError('Error seleccionando BD: ' . $mysqli->error);
+    die('No se pudo seleccionar la base de datos.');
+}
+
 $mysqli->set_charset('utf8mb4');
+
+// Variables compartidas
 $GLOBALS['mysqli'] = $mysqli;
 
-// Alias de compatibilidad: código heredado usa $conn o $conexion.
 $conn = $mysqli;
 $conexion = $mysqli;
+
+// --- INSTALACIÓN AUTOMÁTICA ---
+require_once __DIR__ . '/bd/instalar.php';
 
 // --- SESIÓN (compartida con login/usuarios) ---
 if (session_status() !== PHP_SESSION_ACTIVE) {
