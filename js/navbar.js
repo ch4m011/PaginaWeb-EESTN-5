@@ -133,14 +133,14 @@ async function actualizarNav() {
   [
     { nombre: "Contacto", href: "../html/contacto.html", abriraparte: false },
     { nombre: "Preguntas frecuentes", href: "../html/preguntas-frecuentes.html", abriraparte: false },
-    { nombre: "Manual de usuario", href: "../public/Manual_de_Usuario.docx", abriraparte: true }
+    { nombre: "Manual de usuario", href: "../public/Manual_de_Usuario.pdf", abriraparte: true }
   ].forEach(item => {
     const link = document.createElement("a");
-    link.href = item.href;
     link.textContent = item.nombre;
+    link.href = item.href;
     ayudaMenu.appendChild(link);
     if (item.abriraparte) {
-      link.target="_blank"
+      link.target = "_blank";
     }
   });
 
