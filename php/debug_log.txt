@@ -916,3 +916,54 @@ ado. Continuando.
 [2026-11-07 00:21:52] Google_Client no disponible.
 [2026-11-07 00:21:52] vendor/autoload.php no encontrado. Continuando.
 [2026-11-07 00:21:52] Google_Client no disponible.
+[2026-11-07 00:28:32] vendor/autoload.php no encontrado. Continuando.
+[2026-11-07 00:28:32] Google_Client no disponible.
+[2026-11-07 00:28:32] Google_Client no disponible.
+[2026-11-07 00:28:32] vendor/autoload.php no encontrado. Continuando.
+[2026-11-07 00:28:32] Google_Client no disponible.
+[2026-11-07 00:28:32] vendor/autoload.php no encontrado. Continuando.
+[2026-11-07 00:28:32] Google_Client no disponible.
+[2026-11-07 00:28:32] vendor/autoload.php no encontrado. Continuando.
+[2026-11-07 00:28:32] Google_Client no disponible.
+[2026-11-07 00:28:32] vendor/autoload.php no encontrado. Continuando.
+[2026-11-07 00:28:32] Google_Client no disponible.
+[07-Nov-2026 00:28:32 Europe/Berlin] [api_calendario] auto-sync error: Illegal mix of collations (utf8mb4_unicode_ci,IMPLICIT) and (utf8mb4_general_ci,IMPLICIT) for operation '='
+[2026-11-07 00:55:25] vendor/autoload.php no encontrado. Continuando.
+[2026-11-07 00:55:25] Google_Client no disponible.
+[2026-11-07 00:55:25] vendor/autoload.php no encontrado. Continuando.
+[2026-11-07 00:55:25] Google_Client no disponible.
+[2026-11-07 00:55:26] vendor/autoload.php no encontrado. Continuando.
+[2026-11-07 00:55:26] Google_Client no disponible.
+[2026-11-07 00:55:26] vendor/autoload.php no encontrado. Continuando.
+[2026-11-07 00:55:26] Google_Client no disponible.
+[2026-11-07 00:55:26] vendor/autoload.php no encontrado. Continuando.
+[2026-11-07 00:55:26] Google_Client no disponible.
+[2026-11-07 00:55:26] vendor/autoload.php no encontrado. Continuando.
+[2026-11-07 00:55:26] Google_Client no disponible.
+[07-Nov-2026 00:55:26 Europe/Berlin] [api_calendario] auto-sync error: Illegal mix of collations (utf8mb4_unicode_ci,IMPLICIT) and (utf8mb4_general_ci,IMPLICIT) for operation '='
+[2026-11-07 00:55:28] vendor/autoload.php no encontrado. Continuando.
+[2026-11-07 00:55:28] Google_Client no disponible.
+[2026-11-07 00:55:28] vendor/autoload.php no encontrado. Continuando.
+[2026-11-07 00:55:28] Google_Client no disponible.
+[2026-11-07 00:57:03] vendor/autoload.php no encontrado. Continuando.
+[2026-11-07 00:57:03] Google_Client no disponible.
+[07-Nov-2026 00:57:03 Europe/Berlin] PHP Deprecated:  password_verify(): Passing null to parameter #2 ($hash) of type string is deprecated in C:\xampp\htdocs\PaginaWeb-EESTN-5\php\cambiar_contrasena.php on line 35
+[2026-11-07 00:57:19] vendor/autoload.php no encontrado. Continuando.
+[2026-11-07 00:57:19] Google_Client no disponible.
+[07-Nov-2026 00:57:19 Europe/Berlin] PHP Deprecated:  password_verify(): Passing null to parameter #2 ($hash) of type string is deprecated in C:\xampp\htdocs\PaginaWeb-EESTN-5\php\cambiar_contrasena.php on line 35
+[2026-11-07 01:00:47] vendor/autoload.php no encontrado. Continuando.
+[2026-11-07 01:00:47] Google_Client no disponible.
+[2026-11-07 01:00:47] vendor/autoload.php no encontrado. Continuando.
+[2026-11-07 01:00:47] Google_Client no disponible.
+[2026-11-07 01:05:53] vendor/autoload.php no encontrado. Continuando.
+[2026-11-07 01:05:53] Google_Client no disponible.
+[2026-11-07 01:05:53] vendor/autoload.php no encontrado. Continuando.
+[2026-11-07 01:05:53] Google_Client no disponible.
+[2026-11-07 01:05:57] vendor/autoload.php no encontrado. Continuando.
+[2026-11-07 01:05:57] Google_Client no disponible.
+[2026-11-07 01:05:57] vendor/autoload.php no encontrado. Continuando.
+[2026-11-07 01:05:57] Google_Client no disponible.
+[2026-11-07 01:07:32] vendor/autoload.php no encontrado. Continuando.
+[2026-11-07 01:07:32] Google_Client no disponible.
+[2026-11-07 01:07:32] vendor/autoload.php no encontrado. Continuando.
+[2026-11-07 01:07:32] Google_Client no disponible.

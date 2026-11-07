@@ -16,6 +16,8 @@
 const imagenPorDefecto = '../img/logo-tecnica.png';
 let usuario = null;
 
+const form = document.getElementById('formCambioPassword');
+
 /* ---------- Utilidades ---------- */
 
 // Muestra un mensaje breve en el contenedor #mensajePerfil (definido en perfil.html).
@@ -82,7 +84,8 @@ async function cargarDatosUsuario() {
             nombre: data.nombre,
             email: data.email,
             rol: data.rol || 'usuario',
-            foto: '../php/perfil/obtener_imagen.php?id=' + data.id
+            foto: '../php/perfil/obtener_imagen.php?id=' + data.id,
+            tipo: data.tipo
         };
         return true;
     } catch (err) {
@@ -110,6 +113,23 @@ function actualizarUI() {
         imgAvatar.src = usuario.foto;
         imgAvatar.onerror = () => { imgAvatar.src = imagenPorDefecto; };
     }
+
+    // Sección seguridad
+    const descContraseñaDisponible = document.getElementById('descPasswordAvailable');
+    const descContraseñaGoogle = document.getElementById('descPasswordGoogle');
+
+    if (descContraseñaDisponible && descContraseñaGoogle) {
+        if (usuario.tipo === 'google') {
+            descContraseñaGoogle.style.display = 'block';
+            descContraseñaDisponible.style.display = 'none';
+            formCambioPassword.style.display = 'none';
+        } else {
+            descContraseñaGoogle.style.display = 'none';
+            descContraseñaDisponible.style.display = 'block';
+            formCambioPassword.style.display = 'block';
+        }
+    }
+
 }
 
 /* ---------- Formulario: imagen de perfil ---------- */
@@ -241,7 +261,6 @@ function configFormPerfil() {
 /* ---------- Formulario: contraseña ---------- */
 
 function configFormPassword() {
-    const form = document.getElementById('formCambioPassword');
     if (!form) return;
 
     form.addEventListener('submit', async (e) => {
