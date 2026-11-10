@@ -74,6 +74,8 @@ if (!defined('DB_USER')) define('DB_USER', $dbUser);
 if (!defined('DB_PASS')) define('DB_PASS', $dbPass);
 if (!defined('DB_NAME')) define('DB_NAME', $dbName);
 
+define('GOOGLE_CLIENT_SECRET', 'TU_CLIENT_SECRET');
+
 // Conexión inicial sin seleccionar base de datos
 $mysqli = new mysqli($dbHost, $dbUser, $dbPass);
 

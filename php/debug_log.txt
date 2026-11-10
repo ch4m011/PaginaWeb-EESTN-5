@@ -967,3 +967,905 @@ ado. Continuando.
 [2026-11-07 01:07:32] Google_Client no disponible.
 [2026-11-07 01:07:32] vendor/autoload.php no encontrado. Continuando.
 [2026-11-07 01:07:32] Google_Client no disponible.
+[2026-11-10 04:45:38] vendor/autoload.php no encontrado. Continuando.
+[2026-11-10 04:45:38] Google_Client no disponible.
+[2026-11-10 04:45:38] vendor/autoload.php no encontrado. Continuando.
+[2026-11-10 04:45:38] Google_Client no disponible.
+[2026-11-10 04:45:38] vendor/autoload.php no encontrado. Continuando.
+[2026-11-10 04:45:38] Google_Client no disponible.
+[10-Nov-2026 04:45:38 Europe/Berlin] [api_calendario] auto-sync error: Illegal mix of collations (utf8mb4_unicode_ci,IMPLICIT) and (utf8mb4_general_ci,IMPLICIT) for operation '='
+[2026-11-10 04:45:48] vendor/autoload.php no encontrado. Continuando.
+[2026-11-10 04:45:48] Google_Client no disponible.
+[10-Nov-2026 04:45:48 Europe/Berlin] ----------------------------------------
+[10-Nov-2026 04:45:48 Europe/Berlin] LOGIN GOOGLE
+[10-Nov-2026 04:45:48 Europe/Berlin] Email: pdgaleazzi@eest5.com
+[10-Nov-2026 04:45:48 Europe/Berlin] Picture: https://lh3.googleusercontent.com/a/ACg8ocKoZ6CaHb5kGpfNbTsWNcQ2Lq4T1j5UPqZuhtlKy-cdaSB2AAQ=s96-c
+[10-Nov-2026 04:45:48 Europe/Berlin] IMAGEN DESCARGADA CORRECTAMENTE
+[10-Nov-2026 04:45:48 Europe/Berlin] HTTP: 200
+[10-Nov-2026 04:45:48 Europe/Berlin] MIME: image/jpeg
+[10-Nov-2026 04:45:48 Europe/Berlin] BYTES: 3365
+[10-Nov-2026 04:45:48 Europe/Berlin] Usuario actualizado correctamente. ID: 34
+[2026-11-10 04:45:49] vendor/autoload.php no encontrado. Continuando.
+[2026-11-10 04:45:49] Google_Client no disponible.
+[2026-11-10 04:45:49] Google_Client no disponible.
+[2026-11-10 04:45:49] vendor/autoload.php no encontrado. Continuando.
+[2026-11-10 04:45:49] Google_Client no disponible.
+[2026-11-10 04:45:49] vendor/autoload.php no encontrado. Continuando.
+[2026-11-10 04:45:49] Google_Client no disponible.
+[10-Nov-2026 04:45:49 Europe/Berlin] [api_calendario] auto-sync error: Illegal mix of collations (utf8mb4_unicode_ci,IMPLICIT) and (utf8mb4_general_ci,IMPLICIT) for operation '='
+[2026-11-10 04:45:56] vendor/autoload.php no encontrado. Continuando.
+[2026-11-10 04:45:56] Google_Client no disponible.
+[2026-11-10 04:45:56] vendor/autoload.php no encontrado. Continuando.
+[2026-11-10 04:45:56] Google_Client no disponible.
+[2026-11-10 04:51:24] vendor/autoload.php no encontrado. Continuando.
+[2026-11-10 04:51:24] Google_Client no disponible.
+[2026-11-10 04:51:24] Google_Client no disponible.
+[2026-11-10 04:51:24] vendor/autoload.php no encontrado. Continuando.
+[2026-11-10 04:51:24] Google_Client no disponible.
+[2026-11-10 04:51:24] vendor/autoload.php no encontrado. Continuando.
+[2026-11-10 04:51:24] Google_Client no disponible.
+[10-Nov-2026 04:51:24 Europe/Berlin] [api_calendario] auto-sync error: Illegal mix of collations (utf8mb4_unicode_ci,IMPLICIT) and (utf8mb4_general_ci,IMPLICIT) for operation '='
+[2026-11-10 04:51:26] vendor/autoload.php no encontrado. Continuando.
+[2026-11-10 04:51:26] Google_Client no disponible.
+[2026-11-10 04:51:26] Google_Client no disponible.
+[2026-11-10 04:51:26] vendor/autoload.php no encontrado. Continuando.
+[2026-11-10 04:51:26] Google_Client no disponible.
+[10-Nov-2026 04:51:26 Europe/Berlin] [api_calendario] auto-sync error: Illegal mix of collations (utf8mb4_unicode_ci,IMPLICIT) and (utf8mb4_general_ci,IMPLICIT) for operation '='
+[2026-11-10 04:51:40] vendor/autoload.php no encontrado. Continuando.
+[2026-11-10 04:51:40] Google_Client no disponible.
+[10-Nov-2026 04:51:40 Europe/Berlin] registrar_usuario: La contraseña debe contener al menos una letra minúscula.
+[2026-11-10 04:51:47] vendor/autoload.php no encontrado. Continuando.
+[2026-11-10 04:51:47] Google_Client no disponible.
+[10-Nov-2026 04:51:47 Europe/Berlin] registrar_usuario: La contraseña debe contener al menos una letra mayúscula.
+[2026-11-10 04:51:51] vendor/autoload.php no encontrado. Continuando.
+[2026-11-10 04:51:51] Google_Client no disponible.
+[10-Nov-2026 04:51:51 Europe/Berlin] registrar_usuario: La contraseña debe contener al menos un carácter especial.
+[2026-11-10 04:51:55] vendor/autoload.php no encontrado. Continuando.
+[2026-11-10 04:51:55] Google_Client no disponible.
+[2026-11-10 04:51:58] vendor/autoload.php no encontrado. Continuando.
+[2026-11-10 04:51:58] Google_Client no disponible.
+[2026-11-10 04:52:01] Mail de bienvenida a pdg3aleazzi@eest5.com: SMTP Error: Could not authenticate.
+[2026-11-10 04:52:01] vendor/autoload.php no encontrado. Continuando.
+[2026-11-10 04:52:01] Google_Client no disponible.
+[2026-11-10 04:52:01] Google_Client no disponible.
+[2026-11-10 04:52:01] vendor/autoload.php no encontrado. Continuando.
+[2026-11-10 04:52:01] Google_Client no disponible.
+[2026-11-10 04:52:01] vendor/autoload.php no encontrado. Continuando.
+[2026-11-10 04:52:01] Google_Client no disponible.
+[10-Nov-2026 04:52:01 Europe/Berlin] [api_calendario] auto-sync error: Illegal mix of collations (utf8mb4_unicode_ci,IMPLICIT) and (utf8mb4_general_ci,IMPLICIT) for operation '='
+[2026-11-10 04:52:06] vendor/autoload.php no encontrado. Continuando.
+[2026-11-10 04:52:06] Google_Client no disponible.
+[2026-11-10 04:52:06] vendor/autoload.php no encontrado. Continuando.
+[2026-11-10 04:52:06] Google_Client no disponible.
+[2026-11-10 04:52:14] vendor/autoload.php no encontrado. Continuando.
+[2026-11-10 04:52:14] Google_Client no disponible.
+[2026-11-10 04:52:25] vendor/autoload.php no encontrado. Continuando.
+[2026-11-10 04:52:25] Google_Client no disponible.
+[2026-11-10 04:53:22] vendor/autoload.php no encontrado. Continuando.
+[2026-11-10 04:53:22] Google_Client no disponible.
+[2026-11-10 04:53:22] vendor/autoload.php no encontrado. Continuando.
+[2026-11-10 04:53:22] Google_Client no disponible.
+[2026-11-10 04:53:24] vendor/autoload.php no encontrado. Continuando.
+[2026-11-10 04:53:24] Google_Client no disponible.
+[2026-11-10 04:53:24] vendor/autoload.php no encontrado. Continuando.
+[2026-11-10 04:53:24] Google_Client no disponible.
+[2026-11-10 04:53:24] vendor/autoload.php no encontrado. Continuando.
+[2026-11-10 04:53:24] Google_Client no disponible.
+[2026-11-10 04:53:24] vendor/autoload.php no encontrado. Continuando.
+[2026-11-10 04:53:24] Google_Client no disponible.
+[10-Nov-2026 04:53:24 Europe/Berlin] [api_calendario] auto-sync error: Illegal mix of collations (utf8mb4_unicode_ci,IMPLICIT) and (utf8mb4_general_ci,IMPLICIT) for operation '='
+[2026-11-10 04:53:26] vendor/autoload.php no encontrado. Continuando.
+[2026-11-10 04:53:26] Google_Client no disponible.
+[2026-11-10 04:53:26] vendor/autoload.php no encontrado. Continuando.
+[2026-11-10 04:53:26] Google_Client no disponible.
+[2026-11-10 04:53:26] vendor/autoload.php no encontrado. Continuando.
+[2026-11-10 04:53:26] Google_Client no disponible.
+[10-Nov-2026 04:53:26 Europe/Berlin] [api_calendario] auto-sync error: Illegal mix of collations (utf8mb4_unicode_ci,IMPLICIT) and (utf8mb4_general_ci,IMPLICIT) for operation '='
+[2026-11-10 04:53:32] vendor/autoload.php no encontrado. Continuando.
+[2026-11-10 04:53:32] Google_Client no disponible.
+[10-Nov-2026 04:53:33 Europe/Berlin] ----------------------------------------
+[10-Nov-2026 04:53:33 Europe/Berlin] LOGIN GOOGLE
+[10-Nov-2026 04:53:33 Europe/Berlin] Email: pdgaleazzi@eest5.com
+[10-Nov-2026 04:53:33 Europe/Berlin] Picture: https://lh3.googleusercontent.com/a/ACg8ocKoZ6CaHb5kGpfNbTsWNcQ2Lq4T1j5UPqZuhtlKy-cdaSB2AAQ=s96-c
+[10-Nov-2026 04:53:33 Europe/Berlin] IMAGEN DESCARGADA CORRECTAMENTE
+[10-Nov-2026 04:53:33 Europe/Berlin] HTTP: 200
+[10-Nov-2026 04:53:33 Europe/Berlin] MIME: image/jpeg
+[10-Nov-2026 04:53:33 Europe/Berlin] BYTES: 3365
+[10-Nov-2026 04:53:33 Europe/Berlin] Usuario actualizado correctamente. ID: 34
+[2026-11-10 04:53:33] vendor/autoload.php no encontrado. Continuando.
+[2026-11-10 04:53:33] vendor/autoload.php no encontrado. Continuando.
+[2026-11-10 04:53:33] Google_Client no disponible.
+[2026-11-10 04:53:33] Google_Client no disponible.
+[2026-11-10 04:53:33] vendor/autoload.php no encontrado. Continuando.
+[2026-11-10 04:53:33] Google_Client no disponible.
+[2026-11-10 04:53:33] vendor/autoload.php no encontrado. Continuando.
+[2026-11-10 04:53:33] Google_Client no disponible.
+[10-Nov-2026 04:53:33 Europe/Berlin] [api_calendario] auto-sync error: Illegal mix of collations (utf8mb4_unicode_ci,IMPLICIT) and (utf8mb4_general_ci,IMPLICIT) for operation '='
+[2026-11-10 04:53:35] vendor/autoload.php no encontrado. Continuando.
+[2026-11-10 04:53:35] Google_Client no disponible.
+[2026-11-10 04:53:35] vendor/autoload.php no encontrado. Continuando.
+[2026-11-10 04:53:35] Google_Client no disponible.
+[2026-11-10 04:53:48] vendor/autoload.php no encontrado. Continuando.
+[2026-11-10 04:53:48] Google_Client no disponible.
+[2026-11-10 04:53:49] vendor/autoload.php no encontrado. Continuando.
+[2026-11-10 04:53:49] Google_Client no disponible.
+[2026-11-10 04:54:06] vendor/autoload.php no encontrado. Continuando.
+[2026-11-10 04:54:06] Google_Client no disponible.
+[2026-11-10 04:54:06] vendor/autoload.php no encontrado. Continuando.
+[2026-11-10 04:54:06] Google_Client no disponible.
+[2026-11-10 04:54:19] vendor/autoload.php no encontrado. Continuando.
+[2026-11-10 04:54:19] Google_Client no disponible.
+[2026-11-10 04:54:19] vendor/autoload.php no encontrado. Continuando.
+[2026-11-10 04:54:19] Google_Client no disponible.
+[2026-11-10 04:54:21] vendor/autoload.php no encontrado. Continuando.
+[2026-11-10 04:54:21] Google_Client no disponible.
+[2026-11-10 04:54:21] vendor/autoload.php no encontrado. Continuando.
+[2026-11-10 04:54:21] Google_Client no disponible.
+[2026-11-10 04:54:22] vendor/autoload.php no encontrado. Continuando.
+[2026-11-10 04:54:22] Google_Client no disponible.
+[2026-11-10 04:54:22] vendor/autoload.php no encontrado. Continuando.
+[2026-11-10 04:54:22] Google_Client no disponible.
+[2026-11-10 04:55:34] vendor/autoload.php no encontrado. Continuando.
+[2026-11-10 04:55:34] Google_Client no disponible.
+[2026-11-10 04:55:34] vendor/autoload.php no encontrado. Continuando.
+[2026-11-10 04:55:34] Google_Client no disponible.
+[2026-11-10 04:55:53] vendor/autoload.php no encontrado. Continuando.
+[2026-11-10 04:55:53] Google_Client no disponible.
+[2026-11-10 04:55:53] vendor/autoload.php no encontrado. Continuando.
+[2026-11-10 04:55:53] Google_Client no disponible.
+[2026-11-10 04:56:15] vendor/autoload.php no encontrado. Continuando.
+[2026-11-10 04:56:15] Google_Client no disponible.
+[2026-11-10 04:56:15] vendor/autoload.php no encontrado. Continuando.
+[2026-11-10 04:56:15] Google_Client no disponible.
+[10-Nov-2026 04:56:15 Europe/Berlin] [api_calendario] auto-sync error: Illegal mix of collations (utf8mb4_unicode_ci,IMPLICIT) and (utf8mb4_general_ci,IMPLICIT) for operation '='
+[2026-11-10 04:56:15] vendor/autoload.php no encontrado. Continuando.
+[2026-11-10 04:56:15] Google_Client no disponible.
+[2026-11-10 04:56:15] vendor/autoload.php no encontrado. Continuando.
+[2026-11-10 04:56:15] Google_Client no disponible.
+[2026-11-10 04:56:16] vendor/autoload.php no encontrado. Continuando.
+[2026-11-10 04:56:16] vendor/autoload.php no encontrado. Continuando.
+[2026-11-10 04:56:16] Google_Client no disponible.
+[2026-11-10 04:56:16] Google_Client no disponible.
+[2026-11-10 04:56:16] vendor/autoload.php no encontrado. Continuando.
+[2026-11-10 04:56:16] Google_Client no disponible.
+[10-Nov-2026 04:56:16 Europe/Berlin] [api_calendario] auto-sync error: Illegal mix of collations (utf8mb4_unicode_ci,IMPLICIT) and (utf8mb4_general_ci,IMPLICIT) for operation '='
+[2026-11-10 04:56:23] vendor/autoload.php no encontrado. Continuando.
+[2026-11-10 04:56:23] Google_Client no disponible.
+[10-Nov-2026 04:56:24 Europe/Berlin] ----------------------------------------
+[10-Nov-2026 04:56:24 Europe/Berlin] LOGIN GOOGLE
+[10-Nov-2026 04:56:24 Europe/Berlin] Email: pdgaleazzi@eest5.com
+[10-Nov-2026 04:56:24 Europe/Berlin] Picture: https://lh3.googleusercontent.com/a/ACg8ocKoZ6CaHb5kGpfNbTsWNcQ2Lq4T1j5UPqZuhtlKy-cdaSB2AAQ=s96-c
+[10-Nov-2026 04:56:24 Europe/Berlin] IMAGEN DESCARGADA CORRECTAMENTE
+[10-Nov-2026 04:56:24 Europe/Berlin] HTTP: 200
+[10-Nov-2026 04:56:24 Europe/Berlin] MIME: image/jpeg
+[10-Nov-2026 04:56:24 Europe/Berlin] BYTES: 3365
+[10-Nov-2026 04:56:24 Europe/Berlin] Usuario actualizado correctamente. ID: 34
+[2026-11-10 04:56:25] vendor/autoload.php no encontrado. Continuando.
+[2026-11-10 04:56:25] Google_Client no disponible.
+[2026-11-10 04:56:25] Google_Client no disponible.
+[2026-11-10 04:56:25] vendor/autoload.php no encontrado. Continuando.
+[2026-11-10 04:56:25] Google_Client no disponible.
+[2026-11-10 04:56:25] vendor/autoload.php no encontrado. Continuando.
+[2026-11-10 04:56:25] Google_Client no disponible.
+[10-Nov-2026 04:56:25 Europe/Berlin] [api_calendario] auto-sync error: Illegal mix of collations (utf8mb4_unicode_ci,IMPLICIT) and (utf8mb4_general_ci,IMPLICIT) for operation '='
+[2026-11-10 04:56:28] vendor/autoload.php no encontrado. Continuando.
+[2026-11-10 04:56:28] Google_Client no disponible.
+[2026-11-10 04:56:28] vendor/autoload.php no encontrado. Continuando.
+[2026-11-10 04:56:28] Google_Client no disponible.
+[2026-11-10 04:57:48] vendor/autoload.php no encontrado. Continuando.
+[2026-11-10 04:57:48] Google_Client no disponible.
+[2026-11-10 04:57:48] vendor/autoload.php no encontrado. Continuando.
+[2026-11-10 04:57:48] Google_Client no disponible.
+[2026-11-10 05:03:53] vendor/autoload.php no encontrado. Continuando.
+[2026-11-10 05:03:53] Google_Client no disponible.
+[2026-11-10 05:03:53] vendor/autoload.php no encontrado. Continuando.
+[2026-11-10 05:03:53] Google_Client no disponible.
+[2026-11-10 05:03:55] vendor/autoload.php no encontrado. Continuando.
+[2026-11-10 05:03:55] vendor/autoload.php no encontrado. Continuando.
+[2026-11-10 05:03:55] Google_Client no disponible.
+[2026-11-10 05:03:55] Google_Client no disponible.
+[2026-11-10 05:03:55] vendor/autoload.php no encontrado. Continuando.
+[2026-11-10 05:03:55] Google_Client no disponible.
+[2026-11-10 05:03:55] vendor/autoload.php no encontrado. Continuando.
+[2026-11-10 05:03:55] Google_Client no disponible.
+[10-Nov-2026 05:03:55 Europe/Berlin] [api_calendario] auto-sync error: Illegal mix of collations (utf8mb4_unicode_ci,IMPLICIT) and (utf8mb4_general_ci,IMPLICIT) for operation '='
+[2026-11-10 05:03:57] vendor/autoload.php no encontrado. Continuando.
+[2026-11-10 05:03:57] Google_Client no disponible.
+[2026-11-10 05:03:57] Google_Client no disponible.
+[2026-11-10 05:03:57] vendor/autoload.php no encontrado. Continuando.
+[2026-11-10 05:03:57] Google_Client no disponible.
+[10-Nov-2026 05:03:57 Europe/Berlin] [api_calendario] auto-sync error: Illegal mix of collations (utf8mb4_unicode_ci,IMPLICIT) and (utf8mb4_general_ci,IMPLICIT) for operation '='
+[2026-11-10 05:04:01] vendor/autoload.php no encontrado. Continuando.
+[2026-11-10 05:04:01] Google_Client no disponible.
+[2026-11-10 05:05:13] vendor/autoload.php no encontrado. Continuando.
+[2026-11-10 05:05:13] Google_Client no disponible.
+[2026-11-10 05:05:14] Mail de bienvenida a pdgaleafzzi@eest5.com: SMTP Error: Could not authenticate.
+[2026-11-10 05:05:15] vendor/autoload.php no encontrado. Continuando.
+[2026-11-10 05:05:15] Google_Client no disponible.
+[2026-11-10 05:05:15] vendor/autoload.php no encontrado. Continuando.
+[2026-11-10 05:05:15] Google_Client no disponible.
+[2026-11-10 05:05:15] vendor/autoload.php no encontrado. Continuando.
+[2026-11-10 05:05:15] Google_Client no disponible.
+[2026-11-10 05:05:15] vendor/autoload.php no encontrado. Continuando.
+[2026-11-10 05:05:15] Google_Client no disponible.
+[10-Nov-2026 05:05:15 Europe/Berlin] [api_calendario] auto-sync error: Illegal mix of collations (utf8mb4_unicode_ci,IMPLICIT) and (utf8mb4_general_ci,IMPLICIT) for operation '='
+[2026-11-10 05:05:37] vendor/autoload.php no encontrado. Continuando.
+[2026-11-10 05:05:37] Google_Client no disponible.
+[2026-11-10 05:05:37] vendor/autoload.php no encontrado. Continuando.
+[2026-11-10 05:05:37] Google_Client no disponible.
+[2026-11-10 05:06:05] vendor/autoload.php no encontrado. Continuando.
+[2026-11-10 05:06:05] Google_Client no disponible.
+[2026-11-10 05:06:06] vendor/autoload.php no encontrado. Continuando.
+[2026-11-10 05:06:06] Google_Client no disponible.
+[2026-11-10 05:06:06] vendor/autoload.php no encontrado. Continuando.
+[2026-11-10 05:06:06] Google_Client no disponible.
+[2026-11-10 05:06:06] vendor/autoload.php no encontrado. Continuando.
+[2026-11-10 05:06:06] Google_Client no disponible.
+[10-Nov-2026 05:06:07 Europe/Berlin] [api_calendario] auto-sync error: Illegal mix of collations (utf8mb4_unicode_ci,IMPLICIT) and (utf8mb4_general_ci,IMPLICIT) for operation '='
+[2026-11-10 05:06:18] vendor/autoload.php no encontrado. Continuando.
+[2026-11-10 05:06:18] Google_Client no disponible.
+[10-Nov-2026 05:06:18 Europe/Berlin] ----------------------------------------
+[10-Nov-2026 05:06:18 Europe/Berlin] LOGIN GOOGLE
+[10-Nov-2026 05:06:18 Europe/Berlin] Email: pdgaleazzi@eest5.com
+[10-Nov-2026 05:06:18 Europe/Berlin] Picture: https://lh3.googleusercontent.com/a/ACg8ocKoZ6CaHb5kGpfNbTsWNcQ2Lq4T1j5UPqZuhtlKy-cdaSB2AAQ=s96-c
+[10-Nov-2026 05:06:18 Europe/Berlin] IMAGEN DESCARGADA CORRECTAMENTE
+[10-Nov-2026 05:06:18 Europe/Berlin] HTTP: 200
+[10-Nov-2026 05:06:18 Europe/Berlin] MIME: image/jpeg
+[10-Nov-2026 05:06:18 Europe/Berlin] BYTES: 3365
+[10-Nov-2026 05:06:18 Europe/Berlin] Usuario actualizado correctamente. ID: 34
+[2026-11-10 05:06:18] vendor/autoload.php no encontrado. Continuando.
+[2026-11-10 05:06:18] vendor/autoload.php no encontrado. Continuando.
+[2026-11-10 05:06:18] Google_Client no disponible.
+[2026-11-10 05:06:18] Google_Client no disponible.
+[2026-11-10 05:06:18] vendor/autoload.php no encontrado. Continuando.
+[2026-11-10 05:06:18] Google_Client no disponible.
+[2026-11-10 05:06:18] vendor/autoload.php no encontrado. Continuando.
+[2026-11-10 05:06:18] Google_Client no disponible.
+[10-Nov-2026 05:06:18 Europe/Berlin] [api_calendario] auto-sync error: Illegal mix of collations (utf8mb4_unicode_ci,IMPLICIT) and (utf8mb4_general_ci,IMPLICIT) for operation '='
+[2026-11-10 05:06:20] vendor/autoload.php no encontrado. Continuando.
+[2026-11-10 05:06:20] Google_Client no disponible.
+[2026-11-10 05:06:20] Google_Client no disponible.
+[2026-11-10 05:06:20] vendor/autoload.php no encontrado. Continuando.
+[2026-11-10 05:06:20] Google_Client no disponible.
+[10-Nov-2026 05:06:20 Europe/Berlin] [api_calendario] auto-sync error: Illegal mix of collations (utf8mb4_unicode_ci,IMPLICIT) and (utf8mb4_general_ci,IMPLICIT) for operation '='
+[2026-11-10 05:06:26] vendor/autoload.php no encontrado. Continuando.
+[2026-11-10 05:06:26] Google_Client no disponible.
+[10-Nov-2026 05:06:26 Europe/Berlin] ----------------------------------------
+[10-Nov-2026 05:06:26 Europe/Berlin] LOGIN GOOGLE
+[10-Nov-2026 05:06:26 Europe/Berlin] Email: pdgaleazzi@eest5.com
+[10-Nov-2026 05:06:26 Europe/Berlin] Picture: https://lh3.googleusercontent.com/a/ACg8ocKoZ6CaHb5kGpfNbTsWNcQ2Lq4T1j5UPqZuhtlKy-cdaSB2AAQ=s96-c
+[10-Nov-2026 05:06:26 Europe/Berlin] IMAGEN DESCARGADA CORRECTAMENTE
+[10-Nov-2026 05:06:26 Europe/Berlin] HTTP: 200
+[10-Nov-2026 05:06:26 Europe/Berlin] MIME: image/jpeg
+[10-Nov-2026 05:06:26 Europe/Berlin] BYTES: 3365
+[10-Nov-2026 05:06:26 Europe/Berlin] Usuario actualizado correctamente. ID: 34
+[2026-11-10 05:06:27] vendor/autoload.php no encontrado. Continuando.
+[2026-11-10 05:06:27] Google_Client no disponible.
+[2026-11-10 05:06:27] vendor/autoload.php no encontrado. Continuando.
+[2026-11-10 05:06:27] Google_Client no disponible.
+[2026-11-10 05:06:27] vendor/autoload.php no encontrado. Continuando.
+[2026-11-10 05:06:27] Google_Client no disponible.
+[2026-11-10 05:06:27] vendor/autoload.php no encontrado. Continuando.
+[2026-11-10 05:06:27] Google_Client no disponible.
+[10-Nov-2026 05:06:27 Europe/Berlin] [api_calendario] auto-sync error: Illegal mix of collations (utf8mb4_unicode_ci,IMPLICIT) and (utf8mb4_general_ci,IMPLICIT) for operation '='
+[2026-11-10 05:06:28] vendor/autoload.php no encontrado. Continuando.
+[2026-11-10 05:06:28] Google_Client no disponible.
+[2026-11-10 05:06:28] vendor/autoload.php no encontrado. Continuando.
+[2026-11-10 05:06:28] Google_Client no disponible.
+[2026-11-10 05:14:45] vendor/autoload.php no encontrado. Continuando.
+[2026-11-10 05:14:45] Google_Client no disponible.
+[2026-11-10 05:14:45] vendor/autoload.php no encontrado. Continuando.
+[2026-11-10 05:14:45] Google_Client no disponible.
+[2026-11-10 05:14:46] vendor/autoload.php no encontrado. Continuando.
+[2026-11-10 05:14:46] Google_Client no disponible.
+[2026-11-10 05:14:46] vendor/autoload.php no encontrado. Continuando.
+[2026-11-10 05:14:46] Google_Client no disponible.
+[2026-11-10 05:14:46] vendor/autoload.php no encontrado. Continuando.
+[2026-11-10 05:14:46] Google_Client no disponible.
+[10-Nov-2026 05:14:46 Europe/Berlin] [api_calendario] auto-sync error: Illegal mix of collations (utf8mb4_unicode_ci,IMPLICIT) and (utf8mb4_general_ci,IMPLICIT) for operation '='
+[2026-11-10 05:14:46] vendor/autoload.php no encontrado. Continuando.
+[2026-11-10 05:14:46] Google_Client no disponible.
+[2026-11-10 05:14:48] vendor/autoload.php no encontrado. Continuando.
+[2026-11-10 05:14:48] vendor/autoload.php no encontrado. Continuando.
+[2026-11-10 05:14:48] Google_Client no disponible.
+[2026-11-10 05:14:48] Google_Client no disponible.
+[2026-11-10 05:14:48] vendor/autoload.php no encontrado. Continuando.
+[2026-11-10 05:14:48] Google_Client no disponible.
+[10-Nov-2026 05:14:48 Europe/Berlin] [api_calendario] auto-sync error: Illegal mix of collations (utf8mb4_unicode_ci,IMPLICIT) and (utf8mb4_general_ci,IMPLICIT) for operation '='
+[2026-11-10 05:14:50] vendor/autoload.php no encontrado. Continuando.
+[2026-11-10 05:14:50] vendor/autoload.php no encontrado. Continuando.
+[2026-11-10 05:14:50] Google_Client no disponible.
+[2026-11-10 05:14:50] Google_Client no disponible.
+[2026-11-10 05:14:50] vendor/autoload.php no encontrado. Continuando.
+[2026-11-10 05:14:50] Google_Client no disponible.
+[10-Nov-2026 05:14:50 Europe/Berlin] [api_calendario] auto-sync error: Illegal mix of collations (utf8mb4_unicode_ci,IMPLICIT) and (utf8mb4_general_ci,IMPLICIT) for operation '='
+[2026-11-10 05:14:56] vendor/autoload.php no encontrado. Continuando.
+[2026-11-10 05:14:56] Google_Client no disponible.
+[10-Nov-2026 05:14:57 Europe/Berlin] ----------------------------------------
+[10-Nov-2026 05:14:57 Europe/Berlin] LOGIN GOOGLE
+[10-Nov-2026 05:14:57 Europe/Berlin] Email: pdgaleazzi@eest5.com
+[10-Nov-2026 05:14:57 Europe/Berlin] Picture: https://lh3.googleusercontent.com/a/ACg8ocKoZ6CaHb5kGpfNbTsWNcQ2Lq4T1j5UPqZuhtlKy-cdaSB2AAQ=s96-c
+[10-Nov-2026 05:14:57 Europe/Berlin] IMAGEN DESCARGADA CORRECTAMENTE
+[10-Nov-2026 05:14:57 Europe/Berlin] HTTP: 200
+[10-Nov-2026 05:14:57 Europe/Berlin] MIME: image/jpeg
+[10-Nov-2026 05:14:57 Europe/Berlin] BYTES: 3365
+[10-Nov-2026 05:14:57 Europe/Berlin] Usuario actualizado correctamente. ID: 34
+[2026-11-10 05:14:57] vendor/autoload.php no encontrado. Continuando.
+[2026-11-10 05:14:57] vendor/autoload.php no encontrado. Continuando.
+[2026-11-10 05:14:57] Google_Client no disponible.
+[2026-11-10 05:14:57] Google_Client no disponible.
+[2026-11-10 05:14:57] vendor/autoload.php no encontrado. Continuando.
+[2026-11-10 05:14:57] Google_Client no disponible.
+[2026-11-10 05:14:57] vendor/autoload.php no encontrado. Continuando.
+[2026-11-10 05:14:57] Google_Client no disponible.
+[10-Nov-2026 05:14:57 Europe/Berlin] [api_calendario] auto-sync error: Illegal mix of collations (utf8mb4_unicode_ci,IMPLICIT) and (utf8mb4_general_ci,IMPLICIT) for operation '='
+[2026-11-10 05:14:59] vendor/autoload.php no encontrado. Continuando.
+[2026-11-10 05:14:59] vendor/autoload.php no encontrado. Continuando.
+[2026-11-10 05:14:59] Google_Client no disponible.
+[2026-11-10 05:14:59] Google_Client no disponible.
+[2026-11-10 05:14:59] vendor/autoload.php no encontrado. Continuando.
+[2026-11-10 05:14:59] Google_Client no disponible.
+[10-Nov-2026 05:14:59 Europe/Berlin] [api_calendario] auto-sync error: Illegal mix of collations (utf8mb4_unicode_ci,IMPLICIT) and (utf8mb4_general_ci,IMPLICIT) for operation '='
+[2026-11-10 05:15:02] vendor/autoload.php no encontrado. Continuando.
+[2026-11-10 05:15:02] Google_Client no disponible.
+[2026-11-10 05:15:14] vendor/autoload.php no encontrado. Continuando.
+[2026-11-10 05:15:14] Google_Client no disponible.
+[10-Nov-2026 05:15:14 Europe/Berlin] ----------------------------------------
+[10-Nov-2026 05:15:14 Europe/Berlin] LOGIN GOOGLE
+[10-Nov-2026 05:15:14 Europe/Berlin] Email: pdgaleazzi@eest5.com
+[10-Nov-2026 05:15:14 Europe/Berlin] Picture: https://lh3.googleusercontent.com/a/ACg8ocKoZ6CaHb5kGpfNbTsWNcQ2Lq4T1j5UPqZuhtlKy-cdaSB2AAQ=s96-c
+[10-Nov-2026 05:15:14 Europe/Berlin] IMAGEN DESCARGADA CORRECTAMENTE
+[10-Nov-2026 05:15:14 Europe/Berlin] HTTP: 200
+[10-Nov-2026 05:15:14 Europe/Berlin] MIME: image/jpeg
+[10-Nov-2026 05:15:14 Europe/Berlin] BYTES: 3365
+[10-Nov-2026 05:15:14 Europe/Berlin] Usuario actualizado correctamente. ID: 34
+[2026-11-10 05:15:15] vendor/autoload.php no encontrado. Continuando.
+[2026-11-10 05:15:15] vendor/autoload.php no encontrado. Continuando.
+[2026-11-10 05:15:15] Google_Client no disponible.
+[2026-11-10 05:15:15] Google_Client no disponible.
+[2026-11-10 05:15:15] vendor/autoload.php no encontrado. Continuando.
+[2026-11-10 05:15:15] Google_Client no disponible.
+[2026-11-10 05:15:15] vendor/autoload.php no encontrado. Continuando.
+[2026-11-10 05:15:15] Google_Client no disponible.
+[10-Nov-2026 05:15:15 Europe/Berlin] [api_calendario] auto-sync error: Illegal mix of collations (utf8mb4_unicode_ci,IMPLICIT) and (utf8mb4_general_ci,IMPLICIT) for operation '='
+[2026-11-10 05:15:17] vendor/autoload.php no encontrado. Continuando.
+[2026-11-10 05:15:17] Google_Client no disponible.
+[2026-11-10 05:15:17] vendor/autoload.php no encontrado. Continuando.
+[2026-11-10 05:15:17] Google_Client no disponible.
+[2026-11-10 05:15:28] vendor/autoload.php no encontrado. Continuando.
+[2026-11-10 05:15:28] Google_Client no disponible.
+[2026-11-10 05:15:28] Google_Client no disponible.
+[2026-11-10 05:15:28] vendor/autoload.php no encontrado. Continuando.
+[2026-11-10 05:15:28] Google_Client no disponible.
+[2026-11-10 05:15:28] vendor/autoload.php no encontrado. Continuando.
+[2026-11-10 05:15:28] Google_Client no disponible.
+[10-Nov-2026 05:15:28 Europe/Berlin] [api_calendario] auto-sync error: Illegal mix of collations (utf8mb4_unicode_ci,IMPLICIT) and (utf8mb4_general_ci,IMPLICIT) for operation '='
+[2026-11-10 05:15:29] vendor/autoload.php no encontrado. Continuando.
+[2026-11-10 05:15:29] Google_Client no disponible.
+[2026-11-10 05:15:29] Google_Client no disponible.
+[2026-11-10 05:15:29] vendor/autoload.php no encontrado. Continuando.
+[2026-11-10 05:15:29] Google_Client no disponible.
+[10-Nov-2026 05:15:29 Europe/Berlin] [api_calendario] auto-sync error: Illegal mix of collations (utf8mb4_unicode_ci,IMPLICIT) and (utf8mb4_general_ci,IMPLICIT) for operation '='
+[2026-11-10 05:15:49] vendor/autoload.php no encontrado. Continuando.
+[2026-11-10 05:15:49] Google_Client no disponible.
+[2026-11-10 05:15:51] Mail de bienvenida a phfggaleazzi@eest5.com: SMTP Error: Could not authenticate.
+[2026-11-10 05:15:51] vendor/autoload.php no encontrado. Continuando.
+[2026-11-10 05:15:51] vendor/autoload.php no encontrado. Continuando.
+[2026-11-10 05:15:51] Google_Client no disponible.
+[2026-11-10 05:15:51] Google_Client no disponible.
+[2026-11-10 05:15:51] vendor/autoload.php no encontrado. Continuando.
+[2026-11-10 05:15:51] Google_Client no disponible.
+[2026-11-10 05:15:51] vendor/autoload.php no encontrado. Continuando.
+[2026-11-10 05:15:51] Google_Client no disponible.
+[10-Nov-2026 05:15:51 Europe/Berlin] [api_calendario] auto-sync error: Illegal mix of collations (utf8mb4_unicode_ci,IMPLICIT) and (utf8mb4_general_ci,IMPLICIT) for operation '='
+[2026-11-10 05:15:54] vendor/autoload.php no encontrado. Continuando.
+[2026-11-10 05:15:54] Google_Client no disponible.
+[2026-11-10 05:15:54] vendor/autoload.php no encontrado. Continuando.
+[2026-11-10 05:15:54] Google_Client no disponible.
+[2026-11-10 05:16:03] vendor/autoload.php no encontrado. Continuando.
+[2026-11-10 05:16:03] Google_Client no disponible.
+[2026-11-10 05:16:05] vendor/autoload.php no encontrado. Continuando.
+[2026-11-10 05:16:05] vendor/autoload.php no encontrado. Continuando.
+[2026-11-10 05:16:05] Google_Client no disponible.
+[2026-11-10 05:16:05] Google_Client no disponible.
+[2026-11-10 05:16:05] vendor/autoload.php no encontrado. Continuando.
+[2026-11-10 05:16:05] Google_Client no disponible.
+[10-Nov-2026 05:16:05 Europe/Berlin] [api_calendario] auto-sync error: Illegal mix of collations (utf8mb4_unicode_ci,IMPLICIT) and (utf8mb4_general_ci,IMPLICIT) for operation '='
+[2026-11-10 05:16:18] vendor/autoload.php no encontrado. Continuando.
+[2026-11-10 05:16:18] Google_Client no disponible.
+[10-Nov-2026 05:16:18 Europe/Berlin] ----------------------------------------
+[10-Nov-2026 05:16:18 Europe/Berlin] LOGIN GOOGLE
+[10-Nov-2026 05:16:18 Europe/Berlin] Email: pdgaleazzi@eest5.com
+[10-Nov-2026 05:16:18 Europe/Berlin] Picture: https://lh3.googleusercontent.com/a/ACg8ocKoZ6CaHb5kGpfNbTsWNcQ2Lq4T1j5UPqZuhtlKy-cdaSB2AAQ=s96-c
+[10-Nov-2026 05:16:18 Europe/Berlin] IMAGEN DESCARGADA CORRECTAMENTE
+[10-Nov-2026 05:16:18 Europe/Berlin] HTTP: 200
+[10-Nov-2026 05:16:18 Europe/Berlin] MIME: image/jpeg
+[10-Nov-2026 05:16:18 Europe/Berlin] BYTES: 3365
+[10-Nov-2026 05:16:18 Europe/Berlin] Usuario actualizado correctamente. ID: 34
+[2026-11-10 05:16:19] vendor/autoload.php no encontrado. Continuando.
+[2026-11-10 05:16:19] vendor/autoload.php no encontrado. Continuando.
+[2026-11-10 05:16:19] Google_Client no disponible.
+[2026-11-10 05:16:19] Google_Client no disponible.
+[2026-11-10 05:16:19] vendor/autoload.php no encontrado. Continuando.
+[2026-11-10 05:16:19] Google_Client no disponible.
+[2026-11-10 05:16:19] vendor/autoload.php no encontrado. Continuando.
+[2026-11-10 05:16:19] Google_Client no disponible.
+[10-Nov-2026 05:16:19 Europe/Berlin] [api_calendario] auto-sync error: Illegal mix of collations (utf8mb4_unicode_ci,IMPLICIT) and (utf8mb4_general_ci,IMPLICIT) for operation '='
+[2026-11-10 05:16:47] vendor/autoload.php no encontrado. Continuando.
+[2026-11-10 05:16:47] Google_Client no disponible.
+[2026-11-10 05:16:47] vendor/autoload.php no encontrado. Continuando.
+[2026-11-10 05:16:47] Google_Client no disponible.
+[2026-11-10 05:28:04] vendor/autoload.php no encontrado. Continuando.
+[2026-11-10 05:28:04] Google_Client no disponible.
+[2026-11-10 05:28:04] vendor/autoload.php no encontrado. Continuando.
+[2026-11-10 05:28:04] Google_Client no disponible.
+[2026-11-10 05:28:06] vendor/autoload.php no encontrado. Continuando.
+[2026-11-10 05:28:06] Google_Client no disponible.
+[2026-11-10 05:28:06] vendor/autoload.php no encontrado. Continuando.
+[2026-11-10 05:28:06] Google_Client no disponible.
+[2026-11-10 05:28:06] vendor/autoload.php no encontrado. Continuando.
+[2026-11-10 05:28:06] Google_Client no disponible.
+[2026-11-10 05:28:06] vendor/autoload.php no encontrado. Continuando.
+[2026-11-10 05:28:06] Google_Client no disponible.
+[2026-11-10 05:28:08] vendor/autoload.php no encontrado. Continuando.
+[2026-11-10 05:28:08] Google_Client no disponible.
+[2026-11-10 05:28:08] vendor/autoload.php no encontrado. Continuando.
+[2026-11-10 05:28:08] Google_Client no disponible.
+[2026-11-10 05:28:17] vendor/autoload.php no encontrado. Continuando.
+[2026-11-10 05:28:17] Google_Client no disponible.
+[2026-11-10 05:28:17] vendor/autoload.php no encontrado. Continuando.
+[2026-11-10 05:28:17] Google_Client no disponible.
+[2026-11-10 05:28:30] vendor/autoload.php no encontrado. Continuando.
+[2026-11-10 05:28:30] Google_Client no disponible.
+[2026-11-10 05:28:30] vendor/autoload.php no encontrado. Continuando.
+[2026-11-10 05:28:30] Google_Client no disponible.
+[2026-11-10 05:29:23] vendor/autoload.php no encontrado. Continuando.
+[2026-11-10 05:29:23] Google_Client no disponible.
+[2026-11-10 05:29:23] vendor/autoload.php no encontrado. Continuando.
+[2026-11-10 05:29:23] Google_Client no disponible.
+[2026-11-10 05:30:28] vendor/autoload.php no encontrado. Continuando.
+[2026-11-10 05:30:28] Google_Client no disponible.
+[2026-11-10 05:30:28] vendor/autoload.php no encontrado. Continuando.
+[2026-11-10 05:30:28] Google_Client no disponible.
+[2026-11-10 05:33:19] vendor/autoload.php no encontrado. Continuando.
+[2026-11-10 05:33:19] Google_Client no disponible.
+[2026-11-10 05:33:19] vendor/autoload.php no encontrado. Continuando.
+[2026-11-10 05:33:19] Google_Client no disponible.
+[2026-11-10 05:34:01] vendor/autoload.php no encontrado. Continuando.
+[2026-11-10 05:34:01] Google_Client no disponible.
+[2026-11-10 05:34:01] vendor/autoload.php no encontrado. Continuando.
+[2026-11-10 05:34:01] Google_Client no disponible.
+[2026-11-10 05:34:05] vendor/autoload.php no encontrado. Continuando.
+[2026-11-10 05:34:05] Google_Client no disponible.
+[2026-11-10 05:34:05] vendor/autoload.php no encontrado. Continuando.
+[2026-11-10 05:34:05] Google_Client no disponible.
+[2026-11-10 05:34:05] vendor/autoload.php no encontrado. Continuando.
+[2026-11-10 05:34:05] Google_Client no disponible.
+[2026-11-10 05:34:05] vendor/autoload.php no encontrado. Continuando.
+[2026-11-10 05:34:05] Google_Client no disponible.
+[2026-11-10 05:34:42] vendor/autoload.php no encontrado. Continuando.
+[2026-11-10 05:34:42] Google_Client no disponible.
+[2026-11-10 05:34:42] vendor/autoload.php no encontrado. Continuando.
+[2026-11-10 05:34:42] Google_Client no disponible.
+[2026-11-10 05:35:59] vendor/autoload.php no encontrado. Continuando.
+[2026-11-10 05:35:59] Google_Client no disponible.
+[2026-11-10 05:35:59] vendor/autoload.php no encontrado. Continuando.
+[2026-11-10 05:35:59] Google_Client no disponible.
+[2026-11-10 05:36:20] vendor/autoload.php no encontrado. Continuando.
+[2026-11-10 05:36:20] Google_Client no disponible.
+[2026-11-10 05:36:20] vendor/autoload.php no encontrado. Continuando.
+[2026-11-10 05:36:20] Google_Client no disponible.
+[2026-11-10 05:36:24] vendor/autoload.php no encontrado. Continuando.
+[2026-11-10 05:36:24] Google_Client no disponible.
+[2026-11-10 05:36:24] vendor/autoload.php no encontrado. Continuando.
+[2026-11-10 05:36:24] Google_Client no disponible.
+[2026-11-10 05:36:25] vendor/autoload.php no encontrado. Continuando.
+[2026-11-10 05:36:25] Google_Client no disponible.
+[2026-11-10 05:36:25] vendor/autoload.php no encontrado. Continuando.
+[2026-11-10 05:36:25] Google_Client no disponible.
+[2026-11-10 05:36:25] vendor/autoload.php no encontrado. Continuando.
+[2026-11-10 05:36:25] Google_Client no disponible.
+[2026-11-10 05:36:25] vendor/autoload.php no encontrado. Continuando.
+[2026-11-10 05:36:25] Google_Client no disponible.
+[2026-11-10 05:36:41] vendor/autoload.php no encontrado. Continuando.
+[2026-11-10 05:36:41] Google_Client no disponible.
+[2026-11-10 05:36:41] vendor/autoload.php no encontrado. Continuando.
+[2026-11-10 05:36:41] Google_Client no disponible.
+[2026-11-10 05:36:41] vendor/autoload.php no encontrado. Continuando.
+[2026-11-10 05:36:41] Google_Client no disponible.
+[2026-11-10 05:36:41] vendor/autoload.php no encontrado. Continuando.
+[2026-11-10 05:36:41] Google_Client no disponible.
+[2026-11-10 05:36:42] vendor/autoload.php no encontrado. Continuando.
+[2026-11-10 05:36:42] Google_Client no disponible.
+[2026-11-10 05:36:42] vendor/autoload.php no encontrado. Continuando.
+[2026-11-10 05:36:42] Google_Client no disponible.
+[2026-11-10 05:36:42] vendor/autoload.php no encontrado. Continuando.
+[2026-11-10 05:36:42] Google_Client no disponible.
+[2026-11-10 05:36:42] vendor/autoload.php no encontrado. Continuando.
+[2026-11-10 05:36:42] Google_Client no disponible.
+[2026-11-10 05:36:48] vendor/autoload.php no encontrado. Continuando.
+[2026-11-10 05:36:48] Google_Client no disponible.
+[2026-11-10 05:38:21] vendor/autoload.php no encontrado. Continuando.
+[2026-11-10 05:38:21] Google_Client no disponible.
+[2026-11-10 05:38:21] vendor/autoload.php no encontrado. Continuando.
+[2026-11-10 05:38:21] Google_Client no disponible.
+[2026-11-10 05:39:06] vendor/autoload.php no encontrado. Continuando.
+[2026-11-10 05:39:06] Google_Client no disponible.
+[2026-11-10 05:39:06] vendor/autoload.php no encontrado. Continuando.
+[2026-11-10 05:39:06] Google_Client no disponible.
+[2026-11-10 05:39:07] vendor/autoload.php no encontrado. Continuando.
+[2026-11-10 05:39:07] Google_Client no disponible.
+[2026-11-10 05:39:07] vendor/autoload.php no encontrado. Continuando.
+[2026-11-10 05:39:07] Google_Client no disponible.
+[2026-11-10 05:39:13] vendor/autoload.php no encontrado. Continuando.
+[2026-11-10 05:39:13] Google_Client no disponible.
+[2026-11-10 05:39:21] vendor/autoload.php no encontrado. Continuando.
+[2026-11-10 05:39:21] Google_Client no disponible.
+[2026-11-10 05:39:22] vendor/autoload.php no encontrado. Continuando.
+[2026-11-10 05:39:22] Google_Client no disponible.
+[2026-11-10 05:40:52] vendor/autoload.php no encontrado. Continuando.
+[2026-11-10 05:40:52] Google_Client no disponible.
+[2026-11-10 05:40:52] vendor/autoload.php no encontrado. Continuando.
+[2026-11-10 05:40:52] Google_Client no disponible.
+[2026-11-10 05:40:54] vendor/autoload.php no encontrado. Continuando.
+[2026-11-10 05:40:54] Google_Client no disponible.
+[2026-11-10 05:40:54] vendor/autoload.php no encontrado. Continuando.
+[2026-11-10 05:40:54] Google_Client no disponible.
+[2026-11-10 05:40:55] vendor/autoload.php no encontrado. Continuando.
+[2026-11-10 05:40:55] Google_Client no disponible.
+[2026-11-10 05:40:55] vendor/autoload.php no encontrado. Continuando.
+[2026-11-10 05:40:55] Google_Client no disponible.
+[2026-11-10 05:40:56] vendor/autoload.php no encontrado. Continuando.
+[2026-11-10 05:40:56] Google_Client no disponible.
+[2026-11-10 05:40:56] vendor/autoload.php no encontrado. Continuando.
+[2026-11-10 05:40:56] Google_Client no disponible.
+[2026-11-10 05:40:57] vendor/autoload.php no encontrado. Continuando.
+[2026-11-10 05:40:57] Google_Client no disponible.
+[2026-11-10 05:40:57] vendor/autoload.php no encontrado. Continuando.
+[2026-11-10 05:40:57] Google_Client no disponible.
+[2026-11-10 05:40:57] vendor/autoload.php no encontrado. Continuando.
+[2026-11-10 05:40:57] Google_Client no disponible.
+[2026-11-10 05:40:57] vendor/autoload.php no encontrado. Continuando.
+[2026-11-10 05:40:57] Google_Client no disponible.
+[2026-11-10 05:40:58] vendor/autoload.php no encontrado. Continuando.
+[2026-11-10 05:40:58] Google_Client no disponible.
+[2026-11-10 05:40:58] vendor/autoload.php no encontrado. Continuando.
+[2026-11-10 05:40:58] Google_Client no disponible.
+[2026-11-10 05:40:59] vendor/autoload.php no encontrado. Continuando.
+[2026-11-10 05:40:59] Google_Client no disponible.
+[2026-11-10 05:40:59] vendor/autoload.php no encontrado. Continuando.
+[2026-11-10 05:40:59] Google_Client no disponible.
+[2026-11-10 05:41:00] vendor/autoload.php no encontrado. Continuando.
+[2026-11-10 05:41:00] Google_Client no disponible.
+[2026-11-10 05:41:00] vendor/autoload.php no encontrado. Continuando.
+[2026-11-10 05:41:00] Google_Client no disponible.
+[2026-11-10 05:41:05] vendor/autoload.php no encontrado. Continuando.
+[2026-11-10 05:41:05] Google_Client no disponible.
+[2026-11-10 05:41:07] vendor/autoload.php no encontrado. Continuando.
+[2026-11-10 05:41:07] Google_Client no disponible.
+[2026-11-10 05:41:08] vendor/autoload.php no encontrado. Continuando.
+[2026-11-10 05:41:08] Google_Client no disponible.
+[2026-11-10 05:41:08] vendor/autoload.php no encontrado. Continuando.
+[2026-11-10 05:41:08] Google_Client no disponible.
+[2026-11-10 05:41:08] vendor/autoload.php no encontrado. Continuando.
+[2026-11-10 05:41:08] Google_Client no disponible.
+[10-Nov-2026 05:41:08 Europe/Berlin] [api_calendario] auto-sync error: Illegal mix of collations (utf8mb4_unicode_ci,IMPLICIT) and (utf8mb4_general_ci,IMPLICIT) for operation '='
+[2026-11-10 05:41:29] vendor/autoload.php no encontrado. Continuando.
+[2026-11-10 05:41:29] Google_Client no disponible.
+[10-Nov-2026 05:41:29 Europe/Berlin] ----------------------------------------
+[10-Nov-2026 05:41:29 Europe/Berlin] LOGIN GOOGLE
+[10-Nov-2026 05:41:29 Europe/Berlin] Email: pdgaleazzi@eest5.com
+[10-Nov-2026 05:41:29 Europe/Berlin] Picture: https://lh3.googleusercontent.com/a/ACg8ocKoZ6CaHb5kGpfNbTsWNcQ2Lq4T1j5UPqZuhtlKy-cdaSB2AAQ=s96-c
+[10-Nov-2026 05:41:29 Europe/Berlin] IMAGEN DESCARGADA CORRECTAMENTE
+[10-Nov-2026 05:41:29 Europe/Berlin] HTTP: 200
+[10-Nov-2026 05:41:29 Europe/Berlin] MIME: image/jpeg
+[10-Nov-2026 05:41:29 Europe/Berlin] BYTES: 3365
+[10-Nov-2026 05:41:29 Europe/Berlin] PHP Warning:  require_once(C:\xampp\htdocs\PaginaWeb-EESTN-5\php\perfil/mail_bienvenida.php): Failed to open stream: No such file or directory in C:\xampp\htdocs\PaginaWeb-EESTN-5\php\perfil\registrar_google.php on line 395
+[10-Nov-2026 05:41:29 Europe/Berlin] PHP Fatal error:  Uncaught Error: Failed opening required 'C:\xampp\htdocs\PaginaWeb-EESTN-5\php\perfil/mail_bienvenida.php' (include_path='C:\xampp\php\PEAR') in C:\xampp\htdocs\PaginaWeb-EESTN-5\php\perfil\registrar_google.php:395
+Stack trace:
+#0 {main}
+  thrown in C:\xampp\htdocs\PaginaWeb-EESTN-5\php\perfil\registrar_google.php on line 395
+[2026-11-10 05:41:55] vendor/autoload.php no encontrado. Continuando.
+[2026-11-10 05:41:55] Google_Client no disponible.
+[10-Nov-2026 05:41:55 Europe/Berlin] ----------------------------------------
+[10-Nov-2026 05:41:55 Europe/Berlin] LOGIN GOOGLE
+[10-Nov-2026 05:41:55 Europe/Berlin] Email: pdgaleazzi@eest5.com
+[10-Nov-2026 05:41:55 Europe/Berlin] Picture: https://lh3.googleusercontent.com/a/ACg8ocKoZ6CaHb5kGpfNbTsWNcQ2Lq4T1j5UPqZuhtlKy-cdaSB2AAQ=s96-c
+[10-Nov-2026 05:41:56 Europe/Berlin] IMAGEN DESCARGADA CORRECTAMENTE
+[10-Nov-2026 05:41:56 Europe/Berlin] HTTP: 200
+[10-Nov-2026 05:41:56 Europe/Berlin] MIME: image/jpeg
+[10-Nov-2026 05:41:56 Europe/Berlin] BYTES: 3365
+[10-Nov-2026 05:41:56 Europe/Berlin] Usuario actualizado correctamente. ID: 38
+[2026-11-10 05:41:56] vendor/autoload.php no encontrado. Continuando.
+[2026-11-10 05:41:56] Google_Client no disponible.
+[2026-11-10 05:41:56] vendor/autoload.php no encontrado. Continuando.
+[2026-11-10 05:41:56] Google_Client no disponible.
+[10-Nov-2026 05:41:56 Europe/Berlin] [api_calendario] auto-sync error: Illegal mix of collations (utf8mb4_unicode_ci,IMPLICIT) and (utf8mb4_general_ci,IMPLICIT) for operation '='
+[2026-11-10 05:41:56] vendor/autoload.php no encontrado. Continuando.
+[2026-11-10 05:41:56] Google_Client no disponible.
+[2026-11-10 05:41:56] vendor/autoload.php no encontrado. Continuando.
+[2026-11-10 05:41:56] Google_Client no disponible.
+[2026-11-10 05:42:20] vendor/autoload.php no encontrado. Continuando.
+[2026-11-10 05:42:20] Google_Client no disponible.
+[2026-11-10 05:42:20] vendor/autoload.php no encontrado. Continuando.
+[2026-11-10 05:42:20] Google_Client no disponible.
+[2026-11-10 05:42:22] vendor/autoload.php no encontrado. Continuando.
+[2026-11-10 05:42:22] Google_Client no disponible.
+[2026-11-10 05:42:22] vendor/autoload.php no encontrado. Continuando.
+[2026-11-10 05:42:22] Google_Client no disponible.
+[2026-11-10 05:42:25] vendor/autoload.php no encontrado. Continuando.
+[2026-11-10 05:42:25] vendor/autoload.php no encontrado. Continuando.
+[2026-11-10 05:42:25] Google_Client no disponible.
+[2026-11-10 05:42:25] Google_Client no disponible.
+[2026-11-10 05:42:25] vendor/autoload.php no encontrado. Continuando.
+[2026-11-10 05:42:25] Google_Client no disponible.
+[2026-11-10 05:42:25] vendor/autoload.php no encontrado. Continuando.
+[2026-11-10 05:42:25] Google_Client no disponible.
+[10-Nov-2026 05:42:25 Europe/Berlin] [api_calendario] auto-sync error: Illegal mix of collations (utf8mb4_unicode_ci,IMPLICIT) and (utf8mb4_general_ci,IMPLICIT) for operation '='
+[2026-11-10 05:42:27] vendor/autoload.php no encontrado. Continuando.
+[2026-11-10 05:42:27] Google_Client no disponible.
+[2026-11-10 05:42:27] vendor/autoload.php no encontrado. Continuando.
+[2026-11-10 05:42:27] Google_Client no disponible.
+[2026-11-10 05:42:27] vendor/autoload.php no encontrado. Continuando.
+[2026-11-10 05:42:27] Google_Client no disponible.
+[10-Nov-2026 05:42:27 Europe/Berlin] [api_calendario] auto-sync error: Illegal mix of collations (utf8mb4_unicode_ci,IMPLICIT) and (utf8mb4_general_ci,IMPLICIT) for operation '='
+[2026-11-10 05:42:40] vendor/autoload.php no encontrado. Continuando.
+[2026-11-10 05:42:40] Google_Client no disponible.
+[2026-11-10 05:42:42] Mail de bienvenida a pdfdggaleazzi@eest5.com: SMTP Error: Could not authenticate.
+[2026-11-10 05:42:44] vendor/autoload.php no encontrado. Continuando.
+[2026-11-10 05:42:44] vendor/autoload.php no encontrado. Continuando.
+[2026-11-10 05:42:44] Google_Client no disponible.
+[2026-11-10 05:42:44] Google_Client no disponible.
+[2026-11-10 05:42:44] vendor/autoload.php no encontrado. Continuando.
+[2026-11-10 05:42:44] Google_Client no disponible.
+[2026-11-10 05:42:44] vendor/autoload.php no encontrado. Continuando.
+[2026-11-10 05:42:44] Google_Client no disponible.
+[10-Nov-2026 05:42:44 Europe/Berlin] [api_calendario] auto-sync error: Illegal mix of collations (utf8mb4_unicode_ci,IMPLICIT) and (utf8mb4_general_ci,IMPLICIT) for operation '='
+[2026-11-10 05:42:47] vendor/autoload.php no encontrado. Continuando.
+[2026-11-10 05:42:47] Google_Client no disponible.
+[2026-11-10 05:42:47] vendor/autoload.php no encontrado. Continuando.
+[2026-11-10 05:42:47] Google_Client no disponible.
+[2026-11-10 05:43:13] vendor/autoload.php no encontrado. Continuando.
+[2026-11-10 05:43:13] Google_Client no disponible.
+[2026-11-10 05:43:13] Google_Client no disponible.
+[2026-11-10 05:43:13] vendor/autoload.php no encontrado. Continuando.
+[2026-11-10 05:43:13] Google_Client no disponible.
+[2026-11-10 05:43:13] vendor/autoload.php no encontrado. Continuando.
+[2026-11-10 05:43:13] Google_Client no disponible.
+[10-Nov-2026 05:43:13 Europe/Berlin] [api_calendario] auto-sync error: Illegal mix of collations (utf8mb4_unicode_ci,IMPLICIT) and (utf8mb4_general_ci,IMPLICIT) for operation '='
+[2026-11-10 05:43:14] vendor/autoload.php no encontrado. Continuando.
+[2026-11-10 05:43:14] Google_Client no disponible.
+[2026-11-10 05:43:14] vendor/autoload.php no encontrado. Continuando.
+[2026-11-10 05:43:14] Google_Client no disponible.
+[2026-11-10 05:43:20] vendor/autoload.php no encontrado. Continuando.
+[2026-11-10 05:43:20] Google_Client no disponible.
+[2026-11-10 05:43:22] vendor/autoload.php no encontrado. Continuando.
+[2026-11-10 05:43:22] Google_Client no disponible.
+[2026-11-10 05:43:22] vendor/autoload.php no encontrado. Continuando.
+[2026-11-10 05:43:22] Google_Client no disponible.
+[2026-11-10 05:43:22] vendor/autoload.php no encontrado. Continuando.
+[2026-11-10 05:43:22] Google_Client no disponible.
+[10-Nov-2026 05:43:22 Europe/Berlin] [api_calendario] auto-sync error: Illegal mix of collations (utf8mb4_unicode_ci,IMPLICIT) and (utf8mb4_general_ci,IMPLICIT) for operation '='
+[2026-11-10 05:43:30] vendor/autoload.php no encontrado. Continuando.
+[2026-11-10 05:43:30] Google_Client no disponible.
+[10-Nov-2026 05:43:31 Europe/Berlin] ----------------------------------------
+[10-Nov-2026 05:43:31 Europe/Berlin] LOGIN GOOGLE
+[10-Nov-2026 05:43:31 Europe/Berlin] Email: pdgaleazzi@eest5.com
+[10-Nov-2026 05:43:31 Europe/Berlin] Picture: https://lh3.googleusercontent.com/a/ACg8ocKoZ6CaHb5kGpfNbTsWNcQ2Lq4T1j5UPqZuhtlKy-cdaSB2AAQ=s96-c
+[10-Nov-2026 05:43:31 Europe/Berlin] IMAGEN DESCARGADA CORRECTAMENTE
+[10-Nov-2026 05:43:31 Europe/Berlin] HTTP: 200
+[10-Nov-2026 05:43:31 Europe/Berlin] MIME: image/jpeg
+[10-Nov-2026 05:43:31 Europe/Berlin] BYTES: 3365
+[10-Nov-2026 05:43:31 Europe/Berlin] Usuario actualizado correctamente. ID: 38
+[2026-11-10 05:43:32] vendor/autoload.php no encontrado. Continuando.
+[2026-11-10 05:43:32] vendor/autoload.php no encontrado. Continuando.
+[2026-11-10 05:43:32] Google_Client no disponible.
+[2026-11-10 05:43:32] Google_Client no disponible.
+[2026-11-10 05:43:32] vendor/autoload.php no encontrado. Continuando.
+[2026-11-10 05:43:32] Google_Client no disponible.
+[2026-11-10 05:43:32] vendor/autoload.php no encontrado. Continuando.
+[2026-11-10 05:43:32] Google_Client no disponible.
+[10-Nov-2026 05:43:32 Europe/Berlin] [api_calendario] auto-sync error: Illegal mix of collations (utf8mb4_unicode_ci,IMPLICIT) and (utf8mb4_general_ci,IMPLICIT) for operation '='
+[2026-11-10 05:44:26] vendor/autoload.php no encontrado. Continuando.
+[2026-11-10 05:44:26] Google_Client no disponible.
+[2026-11-10 05:44:26] vendor/autoload.php no encontrado. Continuando.
+[2026-11-10 05:44:26] Google_Client no disponible.
+[2026-11-10 05:44:28] vendor/autoload.php no encontrado. Continuando.
+[2026-11-10 05:44:28] Google_Client no disponible.
+[2026-11-10 05:44:28] vendor/autoload.php no encontrado. Continuando.
+[2026-11-10 05:44:28] Google_Client no disponible.
+[2026-11-10 05:44:41] vendor/autoload.php no encontrado. Continuando.
+[2026-11-10 05:44:41] Google_Client no disponible.
+[2026-11-10 05:44:41] vendor/autoload.php no encontrado. Continuando.
+[2026-11-10 05:44:41] Google_Client no disponible.
+[2026-11-10 05:46:16] vendor/autoload.php no encontrado. Continuando.
+[2026-11-10 05:46:16] Google_Client no disponible.
+[2026-11-10 05:46:16] vendor/autoload.php no encontrado. Continuando.
+[2026-11-10 05:46:16] Google_Client no disponible.
+[2026-11-10 05:46:54] vendor/autoload.php no encontrado. Continuando.
+[2026-11-10 05:46:54] Google_Client no disponible.
+[2026-11-10 05:46:54] vendor/autoload.php no encontrado. Continuando.
+[2026-11-10 05:46:54] Google_Client no disponible.
+[2026-11-10 05:46:55] vendor/autoload.php no encontrado. Continuando.
+[2026-11-10 05:46:55] Google_Client no disponible.
+[2026-11-10 05:46:55] vendor/autoload.php no encontrado. Continuando.
+[2026-11-10 05:46:55] Google_Client no disponible.
+[2026-11-10 05:46:56] vendor/autoload.php no encontrado. Continuando.
+[2026-11-10 05:46:56] Google_Client no disponible.
+[2026-11-10 05:46:56] vendor/autoload.php no encontrado. Continuando.
+[2026-11-10 05:46:56] Google_Client no disponible.
+[2026-11-10 05:47:20] vendor/autoload.php no encontrado. Continuando.
+[2026-11-10 05:47:20] Google_Client no disponible.
+[2026-11-10 05:47:20] vendor/autoload.php no encontrado. Continuando.
+[2026-11-10 05:47:20] Google_Client no disponible.
+[2026-11-10 05:47:22] vendor/autoload.php no encontrado. Continuando.
+[2026-11-10 05:47:22] Google_Client no disponible.
+[2026-11-10 05:47:22] vendor/autoload.php no encontrado. Continuando.
+[2026-11-10 05:47:22] Google_Client no disponible.
+[2026-11-10 05:48:02] vendor/autoload.php no encontrado. Continuando.
+[2026-11-10 05:48:02] Google_Client no disponible.
+[2026-11-10 05:48:02] vendor/autoload.php no encontrado. Continuando.
+[2026-11-10 05:48:02] Google_Client no disponible.
+[2026-11-10 05:48:53] vendor/autoload.php no encontrado. Continuando.
+[2026-11-10 05:48:53] Google_Client no disponible.
+[2026-11-10 05:48:53] vendor/autoload.php no encontrado. Continuando.
+[2026-11-10 05:48:53] Google_Client no disponible.
+[2026-11-10 05:50:06] vendor/autoload.php no encontrado. Continuando.
+[2026-11-10 05:50:06] Google_Client no disponible.
+[2026-11-10 05:50:06] vendor/autoload.php no encontrado. Continuando.
+[2026-11-10 05:50:06] Google_Client no disponible.
+[2026-11-10 05:50:10] vendor/autoload.php no encontrado. Continuando.
+[2026-11-10 05:50:10] Google_Client no disponible.
+[2026-11-10 05:50:10] vendor/autoload.php no encontrado. Continuando.
+[2026-11-10 05:50:10] Google_Client no disponible.
+[2026-11-10 05:50:32] vendor/autoload.php no encontrado. Continuando.
+[2026-11-10 05:50:32] Google_Client no disponible.
+[2026-11-10 05:50:32] vendor/autoload.php no encontrado. Continuando.
+[2026-11-10 05:50:32] Google_Client no disponible.
+[2026-11-10 05:51:00] vendor/autoload.php no encontrado. Continuando.
+[2026-11-10 05:51:00] Google_Client no disponible.
+[2026-11-10 05:51:00] vendor/autoload.php no encontrado. Continuando.
+[2026-11-10 05:51:00] Google_Client no disponible.
+[2026-11-10 05:51:03] vendor/autoload.php no encontrado. Continuando.
+[2026-11-10 05:51:03] Google_Client no disponible.
+[2026-11-10 05:51:03] vendor/autoload.php no encontrado. Continuando.
+[2026-11-10 05:51:03] Google_Client no disponible.
+[2026-11-10 05:52:10] vendor/autoload.php no encontrado. Continuando.
+[2026-11-10 05:52:10] Google_Client no disponible.
+[2026-11-10 05:52:10] vendor/autoload.php no encontrado. Continuando.
+[2026-11-10 05:52:10] Google_Client no disponible.
+[2026-11-10 05:52:21] vendor/autoload.php no encontrado. Continuando.
+[2026-11-10 05:52:21] Google_Client no disponible.
+[2026-11-10 05:52:21] vendor/autoload.php no encontrado. Continuando.
+[2026-11-10 05:52:21] Google_Client no disponible.
+[2026-11-10 05:53:08] vendor/autoload.php no encontrado. Continuando.
+[2026-11-10 05:53:08] Google_Client no disponible.
+[2026-11-10 05:53:08] vendor/autoload.php no encontrado. Continuando.
+[2026-11-10 05:53:08] Google_Client no disponible.
+[2026-11-10 05:53:15] vendor/autoload.php no encontrado. Continuando.
+[2026-11-10 05:53:15] Google_Client no disponible.
+[2026-11-10 05:54:52] vendor/autoload.php no encontrado. Continuando.
+[2026-11-10 05:54:52] Google_Client no disponible.
+[2026-11-10 05:54:52] vendor/autoload.php no encontrado. Continuando.
+[2026-11-10 05:54:52] Google_Client no disponible.
+[2026-11-10 05:54:58] vendor/autoload.php no encontrado. Continuando.
+[2026-11-10 05:54:58] Google_Client no disponible.
+[2026-11-10 05:58:51] vendor/autoload.php no encontrado. Continuando.
+[2026-11-10 05:58:51] Google_Client no disponible.
+[2026-11-10 05:58:51] vendor/autoload.php no encontrado. Continuando.
+[2026-11-10 05:58:51] Google_Client no disponible.
+[2026-11-10 05:58:54] vendor/autoload.php no encontrado. Continuando.
+[2026-11-10 05:58:54] Google_Client no disponible.
+[2026-11-10 05:58:54] vendor/autoload.php no encontrado. Continuando.
+[2026-11-10 05:58:54] Google_Client no disponible.
+[2026-11-10 05:58:57] vendor/autoload.php no encontrado. Continuando.
+[2026-11-10 05:58:57] Google_Client no disponible.
+[2026-11-10 05:58:57] vendor/autoload.php no encontrado. Continuando.
+[2026-11-10 05:58:57] Google_Client no disponible.
+[2026-11-10 05:59:07] vendor/autoload.php no encontrado. Continuando.
+[2026-11-10 05:59:07] Google_Client no disponible.
+[2026-11-10 05:59:07] vendor/autoload.php no encontrado. Continuando.
+[2026-11-10 05:59:07] Google_Client no disponible.
+[2026-11-10 05:59:09] vendor/autoload.php no encontrado. Continuando.
+[2026-11-10 05:59:09] Google_Client no disponible.
+[2026-11-10 05:59:09] vendor/autoload.php no encontrado. Continuando.
+[2026-11-10 05:59:09] Google_Client no disponible.
+[2026-11-10 05:59:18] vendor/autoload.php no encontrado. Continuando.
+[2026-11-10 05:59:18] Google_Client no disponible.
+[2026-11-10 05:59:30] vendor/autoload.php no encontrado. Continuando.
+[2026-11-10 05:59:30] Google_Client no disponible.
+[2026-11-10 05:59:32] vendor/autoload.php no encontrado. Continuando.
+[2026-11-10 05:59:32] vendor/autoload.php no encontrado. Continuando.
+[2026-11-10 05:59:32] Google_Client no disponible.
+[2026-11-10 05:59:32] Google_Client no disponible.
+[2026-11-10 05:59:32] vendor/autoload.php no encontrado. Continuando.
+[2026-11-10 05:59:32] Google_Client no disponible.
+[10-Nov-2026 05:59:32 Europe/Berlin] [api_calendario] auto-sync error: Illegal mix of collations (utf8mb4_unicode_ci,IMPLICIT) and (utf8mb4_general_ci,IMPLICIT) for operation '='
+[2026-11-10 06:00:09] vendor/autoload.php no encontrado. Continuando.
+[2026-11-10 06:00:09] Google_Client no disponible.
+[10-Nov-2026 06:00:09 Europe/Berlin] ----------------------------------------
+[10-Nov-2026 06:00:09 Europe/Berlin] LOGIN GOOGLE
+[10-Nov-2026 06:00:09 Europe/Berlin] Email: pdgaleazzi@eest5.com
+[10-Nov-2026 06:00:09 Europe/Berlin] Picture: https://lh3.googleusercontent.com/a/ACg8ocKoZ6CaHb5kGpfNbTsWNcQ2Lq4T1j5UPqZuhtlKy-cdaSB2AAQ=s96-c
+[10-Nov-2026 06:00:09 Europe/Berlin] IMAGEN DESCARGADA CORRECTAMENTE
+[10-Nov-2026 06:00:09 Europe/Berlin] HTTP: 200
+[10-Nov-2026 06:00:09 Europe/Berlin] MIME: image/jpeg
+[10-Nov-2026 06:00:09 Europe/Berlin] BYTES: 3365
+[10-Nov-2026 06:00:09 Europe/Berlin] PHP Warning:  require_once(C:\xampp\htdocs\PaginaWeb-EESTN-5\php\perfil/mail_bienvenida.php): Failed to open stream: No such file or directory in C:\xampp\htdocs\PaginaWeb-EESTN-5\php\perfil\registrar_google.php on line 395
+[10-Nov-2026 06:00:09 Europe/Berlin] PHP Fatal error:  Uncaught Error: Failed opening required 'C:\xampp\htdocs\PaginaWeb-EESTN-5\php\perfil/mail_bienvenida.php' (include_path='C:\xampp\php\PEAR') in C:\xampp\htdocs\PaginaWeb-EESTN-5\php\perfil\registrar_google.php:395
+Stack trace:
+#0 {main}
+  thrown in C:\xampp\htdocs\PaginaWeb-EESTN-5\php\perfil\registrar_google.php on line 395
+[2026-11-10 06:00:37] vendor/autoload.php no encontrado. Continuando.
+[2026-11-10 06:00:37] Google_Client no disponible.
+[10-Nov-2026 06:00:37 Europe/Berlin] ----------------------------------------
+[10-Nov-2026 06:00:37 Europe/Berlin] LOGIN GOOGLE
+[10-Nov-2026 06:00:37 Europe/Berlin] Email: pdgaleazzi@eest5.com
+[10-Nov-2026 06:00:37 Europe/Berlin] Picture: https://lh3.googleusercontent.com/a/ACg8ocKoZ6CaHb5kGpfNbTsWNcQ2Lq4T1j5UPqZuhtlKy-cdaSB2AAQ=s96-c
+[10-Nov-2026 06:00:37 Europe/Berlin] IMAGEN DESCARGADA CORRECTAMENTE
+[10-Nov-2026 06:00:37 Europe/Berlin] HTTP: 200
+[10-Nov-2026 06:00:37 Europe/Berlin] MIME: image/jpeg
+[10-Nov-2026 06:00:37 Europe/Berlin] BYTES: 3365
+[10-Nov-2026 06:00:37 Europe/Berlin] Usuario actualizado correctamente. ID: 40
+[2026-11-10 06:00:38] vendor/autoload.php no encontrado. Continuando.
+[2026-11-10 06:00:38] vendor/autoload.php no encontrado. Continuando.
+[2026-11-10 06:00:38] Google_Client no disponible.
+[2026-11-10 06:00:38] Google_Client no disponible.
+[2026-11-10 06:00:38] vendor/autoload.php no encontrado. Continuando.
+[2026-11-10 06:00:38] Google_Client no disponible.
+[2026-11-10 06:00:38] vendor/autoload.php no encontrado. Continuando.
+[2026-11-10 06:00:38] Google_Client no disponible.
+[10-Nov-2026 06:00:38 Europe/Berlin] [api_calendario] auto-sync error: Illegal mix of collations (utf8mb4_unicode_ci,IMPLICIT) and (utf8mb4_general_ci,IMPLICIT) for operation '='
+[2026-11-10 06:00:55] vendor/autoload.php no encontrado. Continuando.
+[2026-11-10 06:00:55] Google_Client no disponible.
+[2026-11-10 06:00:55] vendor/autoload.php no encontrado. Continuando.
+[2026-11-10 06:00:55] Google_Client no disponible.
+[2026-11-10 06:00:55] vendor/autoload.php no encontrado. Continuando.
+[2026-11-10 06:00:55] Google_Client no disponible.
+[10-Nov-2026 06:00:55 Europe/Berlin] [api_calendario] auto-sync error: Illegal mix of collations (utf8mb4_unicode_ci,IMPLICIT) and (utf8mb4_general_ci,IMPLICIT) for operation '='
+[2026-11-10 06:00:55] vendor/autoload.php no encontrado. Continuando.
+[2026-11-10 06:00:55] Google_Client no disponible.
+[2026-11-10 06:00:59] vendor/autoload.php no encontrado. Continuando.
+[2026-11-10 06:00:59] Google_Client no disponible.
+[2026-11-10 06:00:59] vendor/autoload.php no encontrado. Continuando.
+[2026-11-10 06:00:59] Google_Client no disponible.
+[2026-11-10 06:01:01] vendor/autoload.php no encontrado. Continuando.
+[2026-11-10 06:01:01] Google_Client no disponible.
+[2026-11-10 06:01:01] vendor/autoload.php no encontrado. Continuando.
+[2026-11-10 06:01:01] Google_Client no disponible.
+[2026-11-10 06:01:08] vendor/autoload.php no encontrado. Continuando.
+[2026-11-10 06:01:08] Google_Client no disponible.
+[2026-11-10 06:01:09] vendor/autoload.php no encontrado. Continuando.
+[2026-11-10 06:01:09] Google_Client no disponible.
+[2026-11-10 06:01:10] vendor/autoload.php no encontrado. Continuando.
+[2026-11-10 06:01:10] vendor/autoload.php no encontrado. Continuando.
+[2026-11-10 06:01:10] Google_Client no disponible.
+[2026-11-10 06:01:10] Google_Client no disponible.
+[2026-11-10 06:01:10] vendor/autoload.php no encontrado. Continuando.
+[2026-11-10 06:01:10] Google_Client no disponible.
+[10-Nov-2026 06:01:10 Europe/Berlin] [api_calendario] auto-sync error: Illegal mix of collations (utf8mb4_unicode_ci,IMPLICIT) and (utf8mb4_general_ci,IMPLICIT) for operation '='
+[2026-11-10 06:01:19] vendor/autoload.php no encontrado. Continuando.
+[2026-11-10 06:01:19] Google_Client no disponible.
+[2026-11-10 06:01:20] Mail de bienvenida a pasagaleazzi@eest5.com: SMTP Error: Could not authenticate.
+[2026-11-10 06:01:21] vendor/autoload.php no encontrado. Continuando.
+[2026-11-10 06:01:21] Google_Client no disponible.
+[2026-11-10 06:01:21] Google_Client no disponible.
+[2026-11-10 06:01:21] vendor/autoload.php no encontrado. Continuando.
+[2026-11-10 06:01:21] Google_Client no disponible.
+[10-Nov-2026 06:01:21 Europe/Berlin] [api_calendario] auto-sync error: Illegal mix of collations (utf8mb4_unicode_ci,IMPLICIT) and (utf8mb4_general_ci,IMPLICIT) for operation '='
+[2026-11-10 06:01:21] vendor/autoload.php no encontrado. Continuando.
+[2026-11-10 06:01:21] Google_Client no disponible.
+[2026-11-10 06:01:23] vendor/autoload.php no encontrado. Continuando.
+[2026-11-10 06:01:23] Google_Client no disponible.
+[2026-11-10 06:01:23] vendor/autoload.php no encontrado. Continuando.
+[2026-11-10 06:01:23] Google_Client no disponible.
+[2026-11-10 06:01:29] vendor/autoload.php no encontrado. Continuando.
+[2026-11-10 06:01:29] Google_Client no disponible.
+[2026-11-10 06:01:38] vendor/autoload.php no encontrado. Continuando.
+[2026-11-10 06:01:38] Google_Client no disponible.
+[2026-11-10 06:01:39] vendor/autoload.php no encontrado. Continuando.
+[2026-11-10 06:01:39] Google_Client no disponible.
+[2026-11-10 06:01:39] Google_Client no disponible.
+[2026-11-10 06:01:39] vendor/autoload.php no encontrado. Continuando.
+[2026-11-10 06:01:39] Google_Client no disponible.
+[10-Nov-2026 06:01:39 Europe/Berlin] [api_calendario] auto-sync error: Illegal mix of collations (utf8mb4_unicode_ci,IMPLICIT) and (utf8mb4_general_ci,IMPLICIT) for operation '='

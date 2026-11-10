@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -10,9 +11,11 @@
   <link rel="stylesheet" href="../css/perfil.css">
   <link rel="stylesheet" href="../css/eest-confirm.css">
 
+  <script src="https://accounts.google.com/gsi/client" async defer></script>
   <script src="../js/eest-confirm.js" defer></script>
   <script src="../js/perfil.js" defer></script>
 </head>
+
 <body>
 
   <a class="btn-volver" href="index.html">Volver al inicio</a>
@@ -34,7 +37,8 @@
         <h1 id="nombrePerfilHeader" class="perfil-nombre"></h1>
         <p class="perfil-subtitulo">Mi cuenta</p>
 
-        <form id="formImagenPerfil" class="perfil-foto-form" action="../php/perfil/actualizar_imagen.php" method="POST" enctype="multipart/form-data">
+        <form id="formImagenPerfil" class="perfil-foto-form" action="../php/perfil/actualizar_imagen.php" method="POST"
+          enctype="multipart/form-data">
           <label for="avatarFile" class="perfil-label">Cambiar foto</label>
           <input id="avatarFile" name="avatar" type="file" accept="image/*">
           <img id="previewImagen" class="perfil-preview" alt="Vista previa de la nueva foto" style="display:none;">
@@ -71,14 +75,18 @@
         <section class="perfil-card" aria-labelledby="tituloSeguridad">
           <header class="card-cabecera">
             <h2 id="tituloSeguridad">Seguridad</h2>
-            <p id="descPasswordGoogle">El cambio de contraseña no está disponible porque iniciaste sesión por Google. Cambia tu contraseña en la cuenta de Google.</p>
-            <p id="descPasswordAvailable">Cambiá tu contraseña cuando lo necesites.</p>
+            <p>Cambiá tu contraseña cuando lo necesites.</p>
           </header>
+
+          <p id="descPasswordGoogle">No podés cambiar tu contraseña desde esta plataforma porque tu cuenta está
+            vinculada a Google. Para modificarla, deberás hacerlo directamente desde la configuración de seguridad de tu
+            cuenta de Google.</p>
 
           <form id="formCambioPassword" class="form-dos-columnas">
             <div class="campo">
               <label for="password_actual">Contraseña actual</label>
-              <input type="password" id="password_actual" name="password_actual" autocomplete="current-password" required>
+              <input type="password" id="password_actual" name="password_actual" autocomplete="current-password"
+                required>
             </div>
             <div class="campo">
               <label for="password_nueva">Nueva contraseña</label>
@@ -99,13 +107,22 @@
           <form id="formEliminarCuentaReal" class="form-vertical">
             <div class="campo">
               <label for="passwordDelete">Confirmá tu contraseña</label>
-              <input type="password" id="passwordDelete" name="password_confirm" autocomplete="current-password" required>
+              <input type="password" id="passwordDelete" name="password_confirm" autocomplete="current-password"
+                required>
             </div>
-            <div id="mensajeEliminarCuenta" class="mensaje error" style="display:none;"></div>
             <div class="card-acciones">
               <button type="submit" class="btn btn-peligro">Eliminar mi cuenta</button>
             </div>
           </form>
+
+          <div id="verificacionGoogleEliminar" style="display: none;">
+            <p>
+              Para eliminar tu cuenta, verificá tu identidad
+              mediante Google.
+            </p>
+            <div id="botonGoogleEliminar"></div>
+          </div>
+
         </section>
 
       </div>
@@ -116,9 +133,12 @@
   <div id="modalEliminar" style="display:none;" role="dialog" aria-modal="true" aria-live="assertive">
     <div class="modal-caja">
       <p id="mensajeEliminar">Eliminando cuenta...</p>
-      <div class="progress-bar"><div id="progress"></div></div>
+      <div class="progress-bar">
+        <div id="progress"></div>
+      </div>
     </div>
   </div>
 
 </body>
+
 </html>

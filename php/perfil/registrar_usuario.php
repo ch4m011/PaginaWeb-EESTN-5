@@ -8,8 +8,8 @@ error_reporting(E_ALL);
 
 header('Content-Type: application/json; charset=utf-8');
 
-require_once __DIR__ . '/config.php';
-require_once __DIR__ . '/mail_bienvenida.php';
+require_once __DIR__ . '/../config.php';
+require_once __DIR__ . '/../mail_bienvenida.php';
 
 try {
     $input = file_get_contents('php://input');

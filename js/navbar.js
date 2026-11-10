@@ -10,7 +10,7 @@ function irRegistroExterno() { window.open("https://aaferrando.com/alumno/nuevo.
 
 async function cerrarSesion() {
   try {
-    await fetch('../php/logout.php', { method: 'POST', credentials: 'same-origin', cache: 'no-store' });
+    await fetch('../php/autenticacion/cerrar_sesion.php', { method: 'POST', credentials: 'same-origin', cache: 'no-store' });
   } catch (err) {
     console.warn('[navbar] Error al cerrar sesión:', err);
   }

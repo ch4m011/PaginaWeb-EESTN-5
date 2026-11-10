@@ -115,17 +115,14 @@ function actualizarUI() {
     }
 
     // Sección seguridad
-    const descContraseñaDisponible = document.getElementById('descPasswordAvailable');
     const descContraseñaGoogle = document.getElementById('descPasswordGoogle');
 
-    if (descContraseñaDisponible && descContraseñaGoogle) {
+    if (descContraseñaGoogle) {
         if (usuario.tipo === 'google') {
             descContraseñaGoogle.style.display = 'block';
-            descContraseñaDisponible.style.display = 'none';
             formCambioPassword.style.display = 'none';
         } else {
             descContraseñaGoogle.style.display = 'none';
-            descContraseñaDisponible.style.display = 'block';
             formCambioPassword.style.display = 'block';
         }
     }
@@ -302,14 +299,71 @@ function configFormPassword() {
 
 /* ---------- Formulario: eliminar cuenta ---------- */
 
+
 function configFormEliminar() {
+
     const form = document.getElementById('formEliminarCuentaReal');
+    const verificacionGoogle = document.getElementById('verificacionGoogleEliminar');
+
     if (!form) return;
+
+    // -----------------------------------------
+    // CUENTA DE GOOGLE
+    // -----------------------------------------
+    if (usuario.tipo === 'google') {
+
+        form.style.display = 'none';
+
+        if (verificacionGoogle) {
+            verificacionGoogle.style.display = 'block';
+        }
+        if (!window.google || !window.google.accounts) {
+            mostrarMensaje('Google todavía se está cargando. Intentá nuevamente.', 'error');
+            return;
+        }
+
+        // Inicializar Google
+        google.accounts.id.initialize({
+            client_id: '475324951083-lp2pvqi80vs95cshsij7hn5m8tg3b0s3.apps.googleusercontent.com',
+            callback: verificarGoogleParaEliminar
+        });
+
+        // Dibujar botón
+        google.accounts.id.renderButton(
+            document.getElementById("botonGoogleEliminar"),
+            {
+                type: "standard",
+                theme: "filled_black",
+                size: "large",
+                text: "continue_with",
+                shape: "pill",
+                logo_alignment: "left",
+                width: 300,
+                locale: "es"
+            }
+        );
+
+        return;
+    }
+
+    // -----------------------------------------
+    // CUENTA CON CONTRASEÑA
+    // -----------------------------------------
+
+    form.style.display = 'block';
+    if (verificacionGoogle) {
+        verificacionGoogle.style.display = 'none';
+    }
 
     form.addEventListener('submit', async (e) => {
         e.preventDefault();
-
-        if (!(await eestConfirm('¿Seguro que deseas eliminar tu cuenta? Esta acción es irreversible.', { titulo: 'Eliminar cuenta', textoConfirmar: 'Eliminar cuenta' }))) {
+        if (!await eestConfirm(
+            '¿Seguro que deseas eliminar tu cuenta? Esta acción es irreversible.',
+            {
+                titulo: 'Eliminar cuenta',
+                textoConfirmar: 'Eliminar cuenta'
+            }
+        )) {
             return;
         }
 
@@ -318,22 +372,26 @@ function configFormEliminar() {
             mostrarMensaje('Ingresa tu contraseña para confirmar.', 'error');
             return;
         }
-
         setBotonCargando(form, true);
         mostrarModalEliminando(true);
+
         try {
-            const resp = await fetch('../php/eliminar_cuenta.php', {
+            const resp = await fetch('../php/perfil/eliminar_usuario_contrasena.php', {
                 method: 'POST',
                 credentials: 'same-origin',
-                headers: { 'Content-Type': 'application/json' },
+                headers: {
+                    'Content-Type': 'application/json'
+                },
                 body: JSON.stringify({ password })
             });
-            const data = await resp.json();
 
+            const data = await resp.json();
             if (data.ok) {
                 localStorage.removeItem('usuarioSesion');
                 mostrarMensaje('Cuenta eliminada correctamente.', 'ok');
-                setTimeout(() => { window.location.href = '../html/index.html'; }, 1200);
+                setTimeout(() => {
+                    window.location.href = '../html/index.html';
+                }, 1200);
             } else {
                 mostrarModalEliminando(false);
                 mostrarMensaje('Error: ' + (data.error || 'desconocido'), 'error');
@@ -347,6 +405,78 @@ function configFormEliminar() {
         }
     });
 }
+
+
+// --------------------------------------------------
+// VERIFICAR IDENTIDAD CON GOOGLE
+// --------------------------------------------------
+
+async function verificarGoogleParaEliminar(response) {
+    if (!response.credential) {
+        mostrarMensaje('Google no devolvió una credencial válida.', 'error');
+        return;
+    }
+    try {
+        const resp = await fetch('../php/perfil/eliminar_usuario_google.php', {
+            method: 'POST',
+            credentials: 'same-origin',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+                credential: response.credential
+            })
+        });
+
+        const data = await resp.json();
+        if (!data.success) {
+            mostrarMensaje(data.error || 'No se pudo verificar tu identidad.', 'error');
+            return;
+        }
+        // Confirmación final
+        const confirmar = await eestConfirm(
+            '¿Seguro que deseas eliminar tu cuenta? Esta acción es irreversible.',
+            {
+                titulo: 'Eliminar cuenta',
+                textoConfirmar: 'Eliminar cuenta'
+            }
+        );
+
+        if (!confirmar) return;
+        mostrarModalEliminando(true);
+        // Solicitar eliminación autorizada por la sesión PHP
+        const eliminacion = await fetch('../php/perfil/eliminar_usuario_contrasena.php', {
+            method: 'POST',
+            credentials: 'same-origin',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+                google_verified: true
+            })
+        });
+
+        const resultado = await eliminacion.json();
+        if (resultado.ok) {
+            localStorage.removeItem('usuarioSesion');
+            mostrarMensaje('Cuenta eliminada correctamente.', 'ok');
+            setTimeout(() => {
+                window.location.href = '../html/index.html';
+            }, 1200);
+        } else {
+            mostrarModalEliminando(false);
+            mostrarMensaje(
+                resultado.error || 'No se pudo eliminar la cuenta.',
+                'error'
+            );
+        }
+    } catch (err) {
+        console.error('[perfil] Error verificando Google:', err);
+        mostrarModalEliminando(false);
+        mostrarMensaje('Ocurrió un error al verificar tu identidad.', 'error');
+    }
+}
+
 
 function mostrarModalEliminando(visible) {
     const modal = document.getElementById('modalEliminar');

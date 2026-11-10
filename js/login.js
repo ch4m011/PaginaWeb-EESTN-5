@@ -101,7 +101,7 @@ if (togglePassword && passwordInput) {
     fd.append('password', password);
 
     // Ruta correcta desde /html/login.html.
-    const loginUrl = '../php/loginphp/iniciar_sesion.php';
+    const loginUrl = '../php/autenticacion/iniciar_sesion.php';
 
     try {
       const resp = await fetch(loginUrl, {
@@ -153,7 +153,7 @@ window.handleGoogleSignIn = async function (response) {
     if (!response?.credential) {
       throw new Error('Google no devolvió las credenciales.');
     }
-    const result = await fetch('../php/registro_google.php', {
+    const result = await fetch('../php/perfil/registrar_google.php', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',

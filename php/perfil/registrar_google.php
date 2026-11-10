@@ -15,8 +15,8 @@ if (session_status() !== PHP_SESSION_ACTIVE) {
 }
 
 // incluir conexión (config.php)
-if (file_exists(__DIR__ . '/config.php')) {
-    require_once __DIR__ . '/config.php';
+if (file_exists(__DIR__  . '/../config.php')) {
+    require_once __DIR__ . '/../config.php';
 } else {
     http_response_code(500);
 

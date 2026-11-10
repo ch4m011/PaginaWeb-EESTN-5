@@ -49,7 +49,7 @@ carga:
 | `php/send_contact.php` | Endpoint de contacto alternativo (usa `mail()` nativo). El formulario real (`./html/contacto.html`) apunta a `php/send_message_to_admin.php`, que es el que de verdad se ejecuta. |
 
 El flujo **activo** de registro (`js/registrarse.js` → `php/registrar_usuario.php`
-y `php/registro_google.php`) y de login con Google (`js/google-auth.js` →
+y `php/registrar_google.php`) y de login con Google (`js/google-auth.js` →
 `php/loginphp/google_login.php`) se dejaron intactos.
 
 ### 1.5 Página de escritor abandonada

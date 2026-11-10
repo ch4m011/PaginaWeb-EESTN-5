@@ -1,0 +1,10 @@
+[10-Nov-2026 05:04:14 Europe/Berlin] PHP Warning:  require_once(C:\xampp\htdocs\PaginaWeb-EESTN-5\php\perfil/config.php): Failed to open stream: No such file or directory in C:\xampp\htdocs\PaginaWeb-EESTN-5\php\perfil\registrar_usuario.php on line 11
+[10-Nov-2026 05:04:14 Europe/Berlin] PHP Fatal error:  Uncaught Error: Failed opening required 'C:\xampp\htdocs\PaginaWeb-EESTN-5\php\perfil/config.php' (include_path='C:\xampp\php\PEAR') in C:\xampp\htdocs\PaginaWeb-EESTN-5\php\perfil\registrar_usuario.php:11
+Stack trace:
+#0 {main}
+  thrown in C:\xampp\htdocs\PaginaWeb-EESTN-5\php\perfil\registrar_usuario.php on line 11
+[10-Nov-2026 05:04:16 Europe/Berlin] PHP Warning:  require_once(C:\xampp\htdocs\PaginaWeb-EESTN-5\php\perfil/config.php): Failed to open stream: No such file or directory in C:\xampp\htdocs\PaginaWeb-EESTN-5\php\perfil\registrar_usuario.php on line 11
+[10-Nov-2026 05:04:16 Europe/Berlin] PHP Fatal error:  Uncaught Error: Failed opening required 'C:\xampp\htdocs\PaginaWeb-EESTN-5\php\perfil/config.php' (include_path='C:\xampp\php\PEAR') in C:\xampp\htdocs\PaginaWeb-EESTN-5\php\perfil\registrar_usuario.php:11
+Stack trace:
+#0 {main}
+  thrown in C:\xampp\htdocs\PaginaWeb-EESTN-5\php\perfil\registrar_usuario.php on line 11

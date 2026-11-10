@@ -61,7 +61,7 @@
       if (btn) { btn.disabled = true; btn.textContent = 'Creando cuenta...'; }
 
       try {
-        const response = await fetch('../php/registrar_usuario.php', {
+        const response = await fetch('../php/perfil/registrar_usuario.php', {
           method: 'POST',
           headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
           credentials: 'same-origin',
@@ -118,7 +118,7 @@
         if (correo) { correo.value = payload.email || ''; correo.readOnly = true; }
       }
 
-      const result = await fetch('../php/registro_google.php', {
+      const result = await fetch('../php/perfil/registrar_google.php', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
         credentials: 'same-origin',

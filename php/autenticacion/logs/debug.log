@@ -473,3 +473,6 @@
 [2026-10-26 21:09:45] Hash BD: $2y$10$DyaKgLsjJYG2xG/B3Hf00eFSCXe9A2clFk/HhQTL/Asw..noqJOkG
 [2026-10-26 21:09:45] Hash length: 60
 [2026-10-26 21:09:45] Login exitoso para usuario_id=43 rol=admin
+[2026-11-10 05:04:01] === intento login ===
+[2026-11-10 05:04:01] Usuario: petergelio
+[2026-11-10 05:04:01] Usuario no encontrado para: petergelio
