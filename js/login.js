@@ -166,6 +166,7 @@ window.handleGoogleSignIn = async function (response) {
     });
     const text = await result.text();
     let data;
+    console.log('Google login response:', text);
     try {
       data = JSON.parse(text);
     } catch {
