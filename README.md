@@ -22,6 +22,7 @@ Sitio web dinámico de la Escuela Técnica EEST N°5: noticias, calendario de ev
    - Al cargar el sitio por primera vez, `php/config.php` crea la base `web-escolar` si no existe.
    - En <http://localhost/phpmyadmin/>, seleccionar la base `web-escolar` e importar los archivos de `sql/` **en orden numérico (01 a 06)**.
 4. Crear `php/.env` a partir de `php/.env.example` y completar los valores (ver sección 4).
+6. descargar la base de datos con el siguiente link: localhost/PaginaWeb-EESTN-5/php/bd/instalar.php
 5. Abrir <http://localhost/web-escolar/html/index.html>
 
 > `php/bd/instalar.php` recorre los `.sql` de `sql/`, pero usa la variable `$mysqli` que define `php/config.php`. No se puede ejecutar directamente, así que para las tablas conviene usar phpMyAdmin como se indica arriba.
