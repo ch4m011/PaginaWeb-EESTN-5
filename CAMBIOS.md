@@ -202,31 +202,7 @@ usando `index_noticias.js`, `panel_escritor.js` y `panel_admin.js`.
 
 ## 6. Estructura actual del proyecto
 
-```
-PaginaWeb-EESTN-5/
-├── .htaccess
-├── CAMBIOS.md
-├── README.md
-├── conexion.php              # shim de 3 líneas → php/config.php
-├── css/                      # 17 hojas de estilo (una por página + design-system/navegador)
-├── html/                     # 15 páginas (login, perfil, paneles, tecnicaturas, contacto, etc.)
-├── img/                      # logos institucionales
-├── js/                       # 15 scripts (uno por página + navbar.js común)
-├── php/
-│   ├── admin/                # gestión de usuarios (rol, alta/baja)
-│   ├── bd/                   # conexión e instalación alternativa de BD
-│   ├── loginphp/             # login con Google
-│   ├── perfil/                # edición de datos/imagen de perfil
-│   ├── PHPMailer/             # librería de envío de mails
-│   ├── uploads/avatars/       # avatares subidos por usuarios
-│   ├── config.php            # fuente única de verdad de la conexión mysqli
-│   └── ...                   # endpoints sueltos (noticias, calendario, sesión, registro)
-├── public/                    # borrado de cuenta (confirmación por link)
-├── scripts/                   # scripts de mantenimiento (purga, verificación)
-└── sql/                        # 01_usuarios, 02_calendario, 03_messages, 04-05_noticias
-```
-
-- Total de archivos del proyecto (esta sesión): 110 → 107 (sin contar `.git/`)
+La estructura completa está en `README.md` (sección 3) y se verificó contra el paquete actual. Resumen: `html/` (16 páginas), `css/` (18 hojas), `js/` (16 scripts), `php/` (backend, con las subcarpetas `admin/`, `autenticacion/`, `perfil/`, `recuperar/`, `bd/` y `PHPMailer/`), `public/` (borrado de cuenta y manuales) y `sql/` (6 archivos).
 
 ## 7. One-page institucional (`html/tecnica5.html`)
 
@@ -256,3 +232,50 @@ en vez de reinventar estilos nuevos:
   hitos de la historia, dirección exacta, turnos/horarios reales. El texto
   institucional genérico es un placeholder a propósito — no hay que dejarlo
   así en producción.
+
+## 8. Actualización de la documentación y pendientes
+
+Esta sección se agregó al revisar el README contra el código del paquete. Las secciones 1 a 5 se conservan como historial, pero algunas afirmaciones no coinciden con el paquete actual. La tabla de la sección 8.2 indica cuáles.
+
+### 8.1 README.md
+
+Se reescribió completo con la estructura real del paquete. La versión anterior tenía:
+
+- Carpetas que no existen en el proyecto: `API/`, `configuración/`, `fecha/`, `imagen/`, `ocodigos_no_usandos/`, `página/`, `guiones/`, `subidas/`. Además usaba nombres en mayúscula que no coinciden con el repositorio (`CSS/`, `SQL/`, `público/`).
+- Un `conexión.php` en la raíz que no existe, y un "Paso 4" que pedía editar variables ahí. La conexión se configura desde `php/.env`.
+- Un flujo de ejemplo con `php/obtener_noticias.php`, que no existe.
+- La contraseña de aplicación de Gmail, el correo de la cuenta y el correo del administrador en texto plano.
+
+El README nuevo no incluye credenciales.
+
+### 8.2 Discrepancias entre este informe y el paquete
+
+| Lo que dice este informe | Estado en el paquete |
+|---|---|
+| `conexion.php` en la raíz, convertido en shim (sección 2.1) | No existe en la raíz. Existe `php/bd/conexion.php`, que no es un shim (ver pendiente 4). |
+| Carpeta `date/` con `api_calendario.php` y `usuarios.php` (sección 1.6) | No existe. La API del calendario está en `php/api_calendario.php`. |
+| `css/busqueda.css` eliminado (sección 5) | Sigue en `css/`. |
+| `.gitignore` agregado (sección 3) | No aparece en el paquete. |
+| `php/.env.example` agregado (sección 3) | Sí existe. |
+| `php/debug.txt`, `php/debug_log.txt` y `php/message_log.json` eliminados (sección 1.3) | `php/debug_log.txt` sigue en el paquete, junto con `php/perfil/debug.txt`, `php/perfil/actualizar_imagen_error.log` y `php/autenticacion/logs/debug.log`. `message_log.json` no aparece. |
+| `php/.env` no versionado (sección 3) | Está dentro del paquete, con credenciales reales (pendiente 1). |
+| `loginphp/`, `scripts/`, `php/uploads/` (sección 6, versión anterior) | No existen. El login con Google está en `php/perfil/registrar_google.php`. |
+| `html/restablecer_contrasena.html` (`RECUPERAR_CONTRASENA.md`) | No está en el paquete (pendiente 8). |
+| Totales de archivos (secciones 4 y 6) | El paquete tiene 115 archivos sin contar `.git/`. Los totales anteriores no se pudieron verificar. |
+
+### 8.3 Pendientes detectados (no corregidos)
+
+Estos puntos se detectaron revisando el código. No se modificó ningún archivo de código.
+
+1. **Credenciales en el paquete.** `php/.env` contiene `GMAIL_USER` y `GMAIL_PASS` reales, y según la sección 3 ya está en el historial de git. Hay que rotar la contraseña de aplicación, quitar el archivo del repositorio (`git rm --cached php/.env`) y evaluar reescribir el historial.
+2. **Ruta rota en `js/calendario.js`** (línea 149): `fetch("../datphpe/api_calendario.php?action=crear")`. Debería ser `../php/api_calendario.php`. La creación de eventos desde ese script falla.
+3. **Borrado de cuenta siempre rechazado.** `public/iniciar_borrado_cuenta.php` (línea 6) verifica `$_SESSION['eemail']`, pero en el mismo archivo se usa `$_SESSION['email']`. Ningún archivo del paquete asigna `eemail`, así que el endpoint responde siempre 401.
+4. **Conexión duplicada.** `php/bd/conexion.php` abre su propia conexión con `root` y contraseña vacía, en vez de usar `php/config.php`. Contradice la consolidación de la sección 2.1.
+5. **`php/bd/instalar.php`** usa `$mysqli` sin incluir `config.php`, así que no funciona si se ejecuta directo.
+6. **`php/usuarios.php`** lee `usuarios.json`, que no existe en el paquete, y ningún script lo llama. Es candidato a eliminación, previa confirmación.
+7. **Tabla `eventos`.** `sql/05_noticias_eventos.sql` la crea, pero el código del calendario usa `calendarios`. Falta confirmar si `eventos` se usa en alguna parte.
+8. **Falta `html/restablecer_contrasena.html`**, que `RECUPERAR_CONTRASENA.md` lista como archivo nuevo y que `js/recuperar_contrasena.js` necesita para el flujo de restablecer.
+9. **Dependencia externa.** `html/preinscripcion.html` carga jQuery y maskedinput desde `aaferrando.com` y html2pdf/jsPDF desde cdnjs. Si el sitio externo cae, el formulario deja de funcionar.
+10. **Configuración de desarrollo en producción.** `php/config.php` tiene `error_reporting(E_ALL)` y `display_errors = 1`, y `GOOGLE_CLIENT_SECRET` con un valor de ejemplo en el código.
+11. **Sin control de administrador.** `html/ver_sincronizacion.html` y sus endpoints no verifican sesión de administrador (ya indicado en la sección 1.8).
+12. **Logs en el paquete.** Los logs de ejecución (ver tabla de 8.2) deben quedar fuera del repositorio.
